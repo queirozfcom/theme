@@ -1,3 +1,4 @@
+import storefront from 'storefront';
 import React from 'react';
 import { connectToStores, dispatcher } from 'sdk';
 import Shelf from '../components/search/Shelf';
