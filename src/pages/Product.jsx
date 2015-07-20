@@ -1,6 +1,6 @@
 import storefront from 'storefront';
 import React from 'react';
-import connectToStores from 'utils/connectToStores.js';
+let connectToStores = storefront.import('connectToStores');
 
 import ProductTitle from 'components/product/Title';
 import ProductPrice from 'components/product/Price';
@@ -13,7 +13,6 @@ import ProductAddCart from 'components/product/AddCart';
 import ProductDescription from 'components/product/Description';
 import ProductSpecification from 'components/product/Specification';
 import Img from 'components/Img';
-import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
 
 const stores = [
   storefront.flux.stores.ProductStore,
@@ -22,8 +21,6 @@ const stores = [
 ];
 
 let Product = React.createClass({
-  mixins: [ PureRenderMixin ],
-
   getProduct() {
     const productSlug = this.props.params.product;
     return this.props.ProductStore.get(productSlug);

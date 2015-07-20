@@ -1,6 +1,6 @@
 import storefront from 'storefront';
 import React from 'react';
-import connectToStores from 'utils/connectToStores.js';
+let connectToStores = storefront.import('connectToStores');
 import { Navigation, State, Link } from 'react-router';
 import { FormattedNumber } from 'react-intl';
 import { Button } from 'react-bootstrap';

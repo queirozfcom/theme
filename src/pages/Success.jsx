@@ -1,6 +1,6 @@
 import storefront from 'storefront';
 import React from 'react';
-import connectToStores from 'utils/connectToStores.js';
+let connectToStores = storefront.import('connectToStores');
 
 const stores = [
   storefront.flux.stores.CartStore
