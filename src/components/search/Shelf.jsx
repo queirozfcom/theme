@@ -1,8 +1,8 @@
 import storefront from 'storefront';
 import React from 'react';
-import connectToStores from 'utils/connectToStores';
 import ShelfItem from './ShelfItem';
 import compact from 'lodash/array/compact';
+let connectToStores = storefront.import('utils/connectToStores');
 
 const stores = [
   storefront.flux.stores.ProductStore,
