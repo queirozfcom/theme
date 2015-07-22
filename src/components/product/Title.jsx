@@ -1,5 +1,6 @@
 import React from 'react';
 import kebabCase from 'lodash/string/kebabCase';
+import Style from './Title.less'; // eslint-disable-line
 
 let ProductTitle = React.createClass({
   render() {
