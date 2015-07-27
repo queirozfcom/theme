@@ -1,5 +1,5 @@
 import React from 'react';
-import storefront from 'storefront';
+import { dispatcher } from 'sdk';
 import DocumentTitle from 'react-document-title';
 import { RouteHandler, State } from 'react-router';
 import Header from './header/Header';
@@ -16,11 +16,11 @@ let App = React.createClass({
   },
 
   componentWillMount() {
-    storefront.flux.actions.CartActions.requestCart();
+    dispatcher.actions.CartActions.requestCart();
   },
 
   render() {
-    let accountName = storefront.flux.stores.ShopStore.state.get('accountName');
+    let accountName = dispatcher.stores.ShopStore.state.get('accountName');
     return (
       <DocumentTitle title='Dreamstore'>
         <div className={'ds-' + accountName}>

@@ -1,6 +1,5 @@
-import storefront from 'storefront';
 import React from 'react';
-let connectToStores = storefront.import('connectToStores');
+import { connectToStores, dispatcher } from 'sdk';
 
 import ProductTitle from 'components/product/Title';
 import ProductPrice from 'components/product/Price';
@@ -15,9 +14,9 @@ import ProductSpecification from 'components/product/Specification';
 import Img from 'components/Img';
 
 const stores = [
-  storefront.flux.stores.ProductStore,
-  storefront.flux.stores.ShopStore,
-  storefront.flux.stores.CartStore
+  dispatcher.stores.ProductStore,
+  dispatcher.stores.ShopStore,
+  dispatcher.stores.CartStore
 ];
 
 let Product = React.createClass({
@@ -34,7 +33,7 @@ let Product = React.createClass({
       'seller': seller
     };
 
-    storefront.flux.actions.CartActions.addToCart(orderForm.orderFormId, [item]);
+    dispatcher.actions.CartActions.addToCart(orderForm.orderFormId, [item]);
   },
 
   componentDidMount() {
@@ -42,7 +41,7 @@ let Product = React.createClass({
 
     // TODO look for details that are not on the search results
     if (!product) {
-      storefront.flux.actions.ProductActions.requestProduct({
+      dispatcher.actions.ProductActions.requestProduct({
         accountName: this.props.ShopStore.get('accountName'),
         product: this.props.params.product
       });

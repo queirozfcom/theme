@@ -1,13 +1,12 @@
-import storefront from 'storefront';
 import React from 'react';
-let connectToStores = storefront.import('connectToStores');
+import { connectToStores, dispatcher } from 'sdk';
 import { Navigation, State, Link } from 'react-router';
 import { FormattedNumber } from 'react-intl';
 import { Button } from 'react-bootstrap';
 
 const stores = [
-  storefront.flux.stores.CartStore,
-  storefront.flux.stores.ShopStore
+  dispatcher.stores.CartStore,
+  dispatcher.stores.ShopStore
 ];
 
 let Footer = React.createClass({

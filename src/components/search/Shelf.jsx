@@ -1,14 +1,13 @@
-import storefront from 'storefront';
 import React from 'react';
+import { connectToStores, dispatcher } from 'sdk';
 import ShelfItem from './ShelfItem';
 import compact from 'lodash/array/compact';
-let connectToStores = storefront.import('connectToStores');
 
 const stores = [
-  storefront.flux.stores.ProductStore,
-  storefront.flux.stores.SearchStore,
-  storefront.flux.stores.ShopStore,
-  storefront.flux.stores.CartStore
+  dispatcher.stores.ProductStore,
+  dispatcher.stores.SearchStore,
+  dispatcher.stores.ShopStore,
+  dispatcher.stores.CartStore
 ];
 
 let Shelf = React.createClass({

@@ -1,6 +1,5 @@
-import storefront from 'storefront';
 import React from 'react';
-let connectToStores = storefront.import('connectToStores');
+import { connectToStores, dispatcher } from 'sdk';
 import Shelf from '../components/search/Shelf';
 import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
 
@@ -12,8 +11,9 @@ let config1 = {
 };
 
 const stores = [
-  storefront.flux.stores.SearchStore,
-  storefront.flux.stores.ShopStore
+  dispatcher.stores.SearchStore,
+  dispatcher.stores.ShopStore,
+  dispatcher.stores.ComponentStore
 ];
 
 let Home = React.createClass({
@@ -25,16 +25,20 @@ let Home = React.createClass({
     const search1 = this.props.SearchStore.get(config1.search.id);
     if (!search1 || !search1.results) {
       config1.search.accountName = accountName;
-      storefront.flux.actions.SearchActions.requestSearch(config1.search);
+      dispatcher.actions.SearchActions.requestSearch(config1.search);
     }
   },
 
   render() {
-    let Banner = storefront.import('Banner');
+    let Banner = this.props.ComponentStore.getIn(['Banner', 'constructor']);
+    let banner;
+    if (Banner) {
+      banner = <Banner id="home-shelf-1"/>;
+    }
 
     return (
       <div>
-        <Banner route='home' id='banner-home'/>
+        {banner}
         <Shelf {...config1} />
       </div>
     );

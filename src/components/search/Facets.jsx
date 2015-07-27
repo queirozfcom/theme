@@ -1,13 +1,12 @@
-import storefront from 'storefront';
 import React from 'react';
+import { connectToStores, dispatcher } from 'sdk';
 import { State } from 'react-router';
-import connectToStores from 'utils/connectToStores';
 import Facet from './Facet';
 import { IntlMixin } from 'react-intl';
 
 const stores = [
-  storefront.flux.stores.SearchStore,
-  storefront.flux.stores.ShopStore
+  dispatcher.stores.SearchStore,
+  dispatcher.stores.ShopStore
 ];
 
 let Facets = React.createClass({

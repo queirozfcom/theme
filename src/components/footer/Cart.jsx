@@ -1,12 +1,11 @@
-import storefront from 'storefront';
 import React from 'react';
-import connectToStores from 'utils/connectToStores';
+import { connectToStores, dispatcher } from 'sdk';
 import Minicart from '../cart/Minicart';
 import Style from './cart.less'; //eslint-disable-line
 
 const stores = [
-  storefront.flux.stores.CartStore,
-  storefront.flux.stores.ShopStore
+  dispatcher.stores.CartStore,
+  dispatcher.stores.ShopStore
 ];
 
 let Cart = React.createClass({
@@ -17,7 +16,7 @@ let Cart = React.createClass({
   },
 
   componentWillMount() {
-    storefront.flux.actions.CartActions.requestCart();
+    dispatcher.actions.CartActions.requestCart();
   },
 
   changeQty(itemIndex, qty) {
@@ -27,7 +26,7 @@ let Cart = React.createClass({
     item.index = itemIndex;
     item.quantity = qty;
 
-    storefront.flux.actions.CartActions.updateItems(orderForm.orderFormId, [item], undefined, 2000);
+    dispatcher.actions.CartActions.updateItems(orderForm.orderFormId, [item], undefined, 2000);
   },
 
   removeItem(itemIndex) {
@@ -36,7 +35,7 @@ let Cart = React.createClass({
 
     item.index = itemIndex;
 
-    storefront.flux.actions.CartActions.removeItems(orderForm.orderFormId, [item]);
+    dispatcher.actions.CartActions.removeItems(orderForm.orderFormId, [item]);
   },
 
   handleMinicartClick() {

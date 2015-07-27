@@ -25,24 +25,21 @@
 </head>
 <body>
   <div id="storefront-container"></div>
-  <script src="https://fb.me/react-with-addons-0.13.3.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/0.13.3/ReactRouter.js"></script>
   {% lib 'jquery' 'jquery.min.js' %}
 
   {% script '//io.vtex.com.br/front-libs/intl/0.1.4/Intl.min.js' %}
-  {% script '//io.vtex.com.br/front-libs/react-intl/1.2.0/react-intl.min.js' %}
-
   {% capture intlLocaleUrl %}//io.vtex.com.br/front-libs/intl/0.1.4/locale-data/jsonp/{{ culture.language | split: "-" | first }}.js{% endcapture %}
   {% script intlLocaleUrl %}
+
+  {% script 'storefront-sdk.js@vtex.storefront-sdk' %}
 
   {% capture reactLocaleUrl %}//io.vtex.com.br/front-libs/react-intl/1.2.0/locale-data/{{ culture.language | split: "-" | first }}.js{% endcapture %}
   {% script reactLocaleUrl %}
 
-  {% script 'storefront-react.js@vtex.storefront-react' %}
-
   <script>
   // TODO - extract "dump resources" from "dump scripts"
   window._storefront = {};
+  window._storefront.ComponentStore = [];
   window._storefront.ShopStore = {
     locale: "{{ culture.code }}",
     language: "{{ culture.language }}",
@@ -51,8 +48,6 @@
     accountName: "{{ account.name }}"
   };
   </script>
-
-  {% script 'storefront-flux.js@vtex.storefront-flux' %}
 
   {% dump scripts %}
 
@@ -71,8 +66,7 @@
         developer: {{ user.roles.developer }}
       }
     };
-    window.storefront.ShopStore = window._storefront.ShopStore;
-    window.storefront.init(); // boom!
+    window.storefront.sdk.init(); // boom!
   </script>
   <!-- TODO support react-hot-loader and livereload simultaneously -->
   <script src="http://localhost:35729/livereload.js?snipver=1"></script>

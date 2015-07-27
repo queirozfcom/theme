@@ -1,9 +1,8 @@
-import storefront from 'storefront';
 import React from 'react';
-let connectToStores = storefront.import('connectToStores');
+import { connectToStores, dispatcher } from 'sdk';
 
 const stores = [
-  storefront.flux.stores.CartStore
+  dispatcher.CartStore
 ];
 
 let Success = React.createClass({

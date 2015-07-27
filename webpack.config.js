@@ -20,7 +20,7 @@ module.exports = {
   ],
 
   externals: {
-    'storefront': 'storefront',
+    'sdk': 'storefront.sdk',
     'react': 'React',
     'react-router': 'ReactRouter',
     intl: 'Intl',
