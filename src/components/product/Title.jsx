@@ -7,9 +7,11 @@ let ProductTitle = React.createClass({
     let product = this.props.product;
     let brandURL = '/' + kebabCase(product.brand.slug) + '/b';
 
+    let currentSku = this.props.currentSku ? this.props.currentSku : 0;
+    let skuName = this.props.product.skus[currentSku].name;
     return (
       <div className="ds-product-title">
-        <h1 className="ds-product-name">{product.name}</h1>
+        <h1 className="ds-product-name">{product.name} - {skuName}</h1>
         <div className="ds-brand">
           por <a title={product.brand.name} href={brandURL}>{product.brand.name}</a>
         </div>
