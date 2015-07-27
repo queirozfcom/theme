@@ -43,8 +43,8 @@ module.exports = {
     filename: pkg.name + '.js'
   },
 
-  jshint: {
-    esnext: true
+  eslint: {
+    configFile: '.eslintrc'
   },
 
   module: {
@@ -60,11 +60,11 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: [nodeModulesDir],
-        loaders: hot ? ['react-hot', 'babel-loader?stage=1'] : ['babel-loader?stage=1']
+        loaders: hot ? ['react-hot', 'babel-loader?stage=0'] : ['babel-loader?stage=0']
       }, {
         test: /\.js$/,
         exclude: [nodeModulesDir],
-        loaders: ['babel-loader?stage=1']
+        loaders: ['babel-loader?stage=0']
       }, {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
