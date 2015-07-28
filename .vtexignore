@@ -1,6 +1,6 @@
+.git/
 node_modules/
 src/
 webpack.config.js
-webpack.dist.config.js
 package.json
 index.js
