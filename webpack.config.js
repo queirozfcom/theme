@@ -40,7 +40,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './storefront/assets/'),
     publicPath: publicPath,
-    filename: pkg.name + '.js'
+    filename: pkg.name + '.js',
+    chunkFilename: pkg.name + '-[name].js',
+    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[id]-[hash]'
   },
 
   eslint: {
