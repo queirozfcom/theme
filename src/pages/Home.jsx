@@ -30,10 +30,10 @@ let Home = React.createClass({
   },
 
   render() {
-    let Banner = this.props.ComponentStore.getIn(['Banner', 'constructor']);
     let banner;
+    let Banner = this.props.ComponentStore.getIn(['Banner', 'constructor']);
     if (Banner) {
-      banner = <Banner id="home-shelf-1"/>;
+      banner = <Banner id="home-shelf-1" route="home"/>;
     }
 
     return (
