@@ -23,8 +23,8 @@ let Shelf = React.createClass({
 
     const search = this.getSearch();
 
-    if (search && search.results && search.results.length > 0) {
-      products = compact(search.results.map( slug => ProductStore.get(slug) ));
+    if (search && search.get('results') && search.get('results').length > 0) {
+      products = compact(search.get('results').map( slug => ProductStore.get(slug) ));
       shelfItems = products.map( product =>
         <ShelfItem product={product}
           key={product.slug}
