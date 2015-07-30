@@ -25,14 +25,11 @@
 </head>
 <body>
   <div id="storefront-container"></div>
-  {% lib 'jquery' 'jquery.min.js' %}
-
-  {% script '//io.vtex.com.br/front-libs/intl/0.1.4/Intl.min.js' %}
-  {% capture intlLocaleUrl %}//io.vtex.com.br/front-libs/intl/0.1.4/locale-data/jsonp/{{ culture.language | split: "-" | first }}.js{% endcapture %}
-  {% script intlLocaleUrl %}
 
   {% script 'storefront-sdk.js@vtex.storefront-sdk' %}
 
+  {% capture intlLocaleUrl %}//io.vtex.com.br/front-libs/intl/0.1.4/locale-data/jsonp/{{ culture.language | split: "-" | first }}.js{% endcapture %}
+  {% script intlLocaleUrl %}
   {% capture reactLocaleUrl %}//io.vtex.com.br/front-libs/react-intl/1.2.0/locale-data/{{ culture.language | split: "-" | first }}.js{% endcapture %}
   {% script reactLocaleUrl %}
 
