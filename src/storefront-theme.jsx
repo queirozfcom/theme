@@ -7,9 +7,6 @@ import Checkout from 'pages/Checkout';
 import Success from 'pages/Success';
 import style from 'styles/style.less'; // eslint-disable-line
 
-if (!window.Intl) {
-  window.Intl = require('intl');
-}
 const appSuffix = '@vtex.storefront-theme';
 
 let components = [{

@@ -9,12 +9,6 @@ import { IntlMixin } from 'react-intl';
 let App = React.createClass({
   mixins: [ IntlMixin, State ],
 
-  getHandlerKey: function () {
-    var childName = this.getRoutes()[0].name;
-    var id = this.getParams().id;
-    return childName + id;
-  },
-
   componentWillMount() {
     dispatcher.actions.CartActions.requestCart();
   },
@@ -26,7 +20,7 @@ let App = React.createClass({
         <div className={'ds-' + accountName}>
           <Header />
           <div className="page-perspective">
-            <RouteHandler key={this.getHandlerKey()}/>
+            <RouteHandler/>
           </div>
           <Footer />
         </div>
