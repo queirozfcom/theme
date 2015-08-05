@@ -2,6 +2,8 @@ import React from 'react';
 import { connectToStores, dispatcher } from 'sdk';
 import Shelf from '../components/search/Shelf';
 import { PureRenderMixin } from 'react/lib/ReactComponentWithPureRenderMixin';
+import Header from 'components/header/Header';
+import Footer from 'components/footer/Footer';
 
 let config1 = {
   title: 'All',
@@ -37,9 +39,13 @@ let Home = React.createClass({
     }
 
     return (
-      <div>
-        {banner}
-        <Shelf {...config1} />
+      <div className="page-home">
+        <Header/>
+        <div className="container-fluid">
+          {banner}
+          <Shelf {...config1} />
+        </div>
+        <Footer />
       </div>
     );
   }

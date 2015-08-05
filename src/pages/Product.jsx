@@ -1,5 +1,7 @@
 import React from 'react';
 import { connectToStores, dispatcher } from 'sdk';
+import Header from 'components/header/Header';
+import Footer from 'components/footer/Footer';
 
 import ProductTitle from 'components/product/Title';
 import ProductPrice from 'components/product/Price';
@@ -61,48 +63,51 @@ let Product = React.createClass({
 
     const sku = product.skus[0];
     return (
-      <div className="ds-main container-fluid">
+      <div className="page-product">
+        <Header/>
+        <div className="ds-main container-fluid">
+          <div className="ds-product-info row">
+            <div className="ds-product-image-container col-md-4">
+              <Img className="ds-product-image img-responsive"
+                src={ sku.images[0].src }
+                accountName={ ShopStore.get('accountName') }
+                alt={ product.name } title={ product.name }
+                height={490} width={490}/>
+            </div>
+            <div className="ds-product-main-info col-md-6">
+              <ProductTitle product={product} />
 
-        <div className="ds-product-info row">
-          <div className="ds-product-image-container col-md-4">
-            <Img className="ds-product-image img-responsive"
-              src={ sku.images[0].src }
-              accountName={ ShopStore.get('accountName') }
-              alt={ product.name } title={ product.name }
-              height={490} width={490}/>
-          </div>
-          <div className="ds-product-main-info col-md-6">
-            <ProductTitle product={product} />
+              { product.skus.size === 1 ?
+                <div>
+                  <ProductPrice product={product} currency={ShopStore.get('currency')} />
+                  <ProductStock product={product} />
+                  <ProductSeller product={product} />
 
-            { product.skus.size === 1 ?
-              <div>
-                <ProductPrice product={product} currency={ShopStore.get('currency')} />
-                <ProductStock product={product} />
-                <ProductSeller product={product} />
-
-                <ProductExcerpt product={product} />
+                  <ProductExcerpt product={product} />
+                </div>
+                :
+                <ProductSkuSelector
+                  product={product}
+                  currency={ShopStore.get('currency')}
+                  accountName={ShopStore.get('accountName')} />
+              }
+            </div>
+            <div className="ds-product-sidebar col-md-2">
+              <div className="row">
+                <ProductShare product={product} />
               </div>
-              :
-              <ProductSkuSelector
-                product={product}
-                currency={ShopStore.get('currency')}
-                accountName={ShopStore.get('accountName')} />
-            }
-          </div>
-          <div className="ds-product-sidebar col-md-2">
-            <div className="row">
-              <ProductShare product={product} />
-            </div>
-            <div className="row">
-              <ProductAddCart product={product} addToCart={this.addToCart}
-                              cartLoading={CartStore.get('addLoading')} />
+              <div className="row">
+                <ProductAddCart product={product} addToCart={this.addToCart}
+                                cartLoading={CartStore.get('addLoading')} />
+              </div>
             </div>
           </div>
+
+          <ProductDescription product={product} />
+
+          <ProductSpecification product={product} />
         </div>
-
-        <ProductDescription product={product} />
-
-        <ProductSpecification product={product} />
+        <Footer/>
       </div>
     );
   }

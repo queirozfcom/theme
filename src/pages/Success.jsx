@@ -1,5 +1,7 @@
 import React from 'react';
 import { connectToStores, dispatcher } from 'sdk';
+import Header from 'components/header/Header';
+import Footer from 'components/footer/Footer';
 
 const stores = [
   dispatcher.CartStore
@@ -13,11 +15,15 @@ let Success = React.createClass({
     const qrCodeData = skuIdArray.join('%2C');
     const qrCodeSrc = `https://api.qrserver.com/v1/create-qr-code/?data=${qrCodeData}&size=290x290&margin=10`;
     return (
-      <div className="container">
-        <h2>Obrigado!</h2>
-        <h4>Seu pedido foi confirmado.</h4>
-        <img src={qrCodeSrc}></img>
-        <h4>Para retirar seu pedido, apresente o código acima ao nosso caixa</h4>
+      <div className="page-success">
+        <Header/>
+        <div className="container">
+          <h2>Obrigado!</h2>
+          <h4>Seu pedido foi confirmado.</h4>
+          <img src={qrCodeSrc}></img>
+          <h4>Para retirar seu pedido, apresente o código acima ao nosso caixa</h4>
+        </div>
+        <Footer/>
       </div>
     );
   }
