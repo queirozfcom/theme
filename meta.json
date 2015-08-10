@@ -1,7 +1,7 @@
 {
   "name": "storefront-theme",
   "title": "Default Storefront theme",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "vendor": "vtex",
   "dependencies": {
     "vtex.storefront-sdk": "0.1.0"
