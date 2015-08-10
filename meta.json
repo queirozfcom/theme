@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "vendor": "vtex",
   "dependencies": {
-    "vtex.storefront-sdk": "0.1.0"
+    "vtex.storefront-sdk": "0.2.1"
   },
   "schemas": {
     "storefront": 1
