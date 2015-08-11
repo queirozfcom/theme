@@ -9,7 +9,7 @@ class Policies extends React.Component {
 
         <div className="v-policies__policy row-fluid clearfix">
           <div className="col-xs-1 col-xs-offset-1">
-            <div className="v-icon__exchange"></div>
+            <div className="v-icon v-icon__exchange"></div>
           </div>
           <h3 className="v-policies__policy-title col-xs-9">Troca fácil</h3>
 
@@ -20,7 +20,7 @@ class Policies extends React.Component {
 
         <div className="v-policies__policy row-fluid clearfix">
           <div className="col-xs-1 col-xs-offset-1">
-            <div className="v-icon__shipping"></div>
+            <div className="v-icon v-icon__shipping"></div>
           </div>
           <h3 className="v-policies__policy-title col-xs-9">Frete Grátis</h3>
 
@@ -31,7 +31,7 @@ class Policies extends React.Component {
 
         <div className="v-policies__policy row-fluid clearfix">
           <div className="col-xs-1 col-xs-offset-1">
-            <div className="v-icon__gift"></div>
+            <div className="v-icon v-icon__gift"></div>
           </div>
           <h3 className="v-policies__policy-title col-xs-9">Mimos de aniversário</h3>
 

@@ -10,7 +10,7 @@ class Shelf extends React.Component {
         <div className="row-fluid clearfix">
 
           <div className="v-arrow col-xs-2">
-            <div className="v-icon__arrow-left"></div>
+            <div className="v-icon v-icon__arrow-left"></div>
           </div>
 
           {this.props.products.map((product) =>
@@ -25,7 +25,7 @@ class Shelf extends React.Component {
           )}
 
           <div className="v-arrow col-xs-2">
-            <div className="v-icon__arrow-right"></div>
+            <div className="v-icon v-icon__arrow-right"></div>
           </div>
         </div>
       </div>
