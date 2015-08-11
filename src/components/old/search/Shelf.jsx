@@ -1,13 +1,14 @@
+import storefront from 'storefront';
 import React from 'react';
-import { connectToStores, dispatcher } from 'sdk';
+import connectToStores from 'utils/connectToStores';
 import ShelfItem from './ShelfItem';
 import compact from 'lodash/array/compact';
 
 const stores = [
-  dispatcher.stores.ProductStore,
-  dispatcher.stores.SearchStore,
-  dispatcher.stores.ShopStore,
-  dispatcher.stores.CartStore
+  storefront.flux.stores.ProductStore,
+  storefront.flux.stores.SearchStore,
+  storefront.flux.stores.ShopStore,
+  storefront.flux.stores.CartStore
 ];
 
 let Shelf = React.createClass({
@@ -23,8 +24,8 @@ let Shelf = React.createClass({
 
     const search = this.getSearch();
 
-    if (search && search.get('results') && search.get('results').length > 0) {
-      products = compact(search.get('results').map( slug => ProductStore.get(slug) ));
+    if (search && search.results && search.results.length > 0) {
+      products = compact(search.results.map( slug => ProductStore.get(slug) ));
       shelfItems = products.map( product =>
         <ShelfItem product={product}
           key={product.slug}

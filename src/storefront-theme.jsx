@@ -1,33 +1,19 @@
 import { dispatcher } from 'sdk';
-import App from 'components/App';
-import Img from 'components/Img';
-import Home from 'pages/Home';
-import Product from 'pages/Product';
-import Checkout from 'pages/Checkout';
-import Success from 'pages/Success';
-import style from 'styles/style.less'; // eslint-disable-line
+import App from './App';
+import HomePage from 'pages/HomePage';
 
 const appSuffix = '@vtex.storefront-theme';
 
-let components = [{
-  name: 'App',
-  constructor: App
-}, {
-  name: 'Img' + appSuffix,
-  constructor: Img
-}, {
-  name: 'HomePage' + appSuffix,
-  constructor: Home
-}, {
-  name: 'ProductPage' + appSuffix,
-  constructor: Product
-}, {
-  name: 'CheckoutPage' + appSuffix,
-  constructor: Checkout
-}, {
-  name: 'SuccessPage' + appSuffix,
-  constructor: Success
-}];
+let components = [
+  {
+    name: 'App',
+    constructor: App
+  },
+  {
+    name: 'HomePage' + appSuffix,
+    constructor: HomePage
+  }
+];
 
 dispatcher.actions.ComponentActions.register(components);
 

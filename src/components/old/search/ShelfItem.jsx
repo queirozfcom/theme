@@ -1,5 +1,5 @@
+import storefront from 'storefront';
 import React from 'react';
-import { dispatcher } from 'sdk';
 import Img from '../Img';
 import { FormattedNumber } from 'react-intl';
 import { Button } from 'react-bootstrap';
@@ -16,7 +16,7 @@ let ShelfItem = React.createClass({
       'seller': sampleProduct.offers[0].seller.id
     };
 
-    dispatcher.actions.CartActions.addToCart(orderForm.orderFormId, [item]);
+    storefront.flux.actions.CartActions.addToCart(orderForm.orderFormId, [item]);
   },
 
   render() {
