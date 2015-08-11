@@ -14,7 +14,7 @@ class Shelf extends React.Component {
           </div>
 
           {this.props.products.map((product) =>
-            <div className="v-shelf__product col-xs-8">
+            <div className="v-shelf__product col-xs-8" key={(product.name + product.image)}>
               <img className="v-shelf__product-photo" src={product.image}/>
               <p className="v-shelf__product-title">{product.name}</p>
               <p className="v-shelf__product-price">{product.price}</p>
