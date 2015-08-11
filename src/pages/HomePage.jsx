@@ -8,6 +8,22 @@ import Policies from 'components/policies/Policies';
 import Shelf from 'components/shelf/Shelf';
 import style from 'styles/pages/HomePage.less'; // eslint-disable-line
 
+let destaques = [
+  {
+    name: 'Body de lycra',
+    price: 'R$149,80',
+    image: 'http://i.imgur.com/Q2TDtMp.png'
+  }
+];
+
+let promocoes = [
+  {
+    name: 'Camiseta regata',
+    price: 'R$79,00',
+    image: 'http://i.imgur.com/Vprm8x2.png'
+  }
+];
+
 @connectToStores([
   dispatcher.stores.SearchStore,
   dispatcher.stores.ShopStore
@@ -18,8 +34,8 @@ class HomePage extends React.Component {
       <div>
         <Header/>
         <Banner/>
-        <Shelf/>
-        <Shelf/>
+        <Shelf title="Destaques" products={destaques}/>
+        <Shelf title="Promoções" products={promocoes}/>
         <Policies/>
         <Newsletter/>
         <Footer/>
