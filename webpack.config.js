@@ -89,6 +89,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin()
   ] : hot ? [
+    new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ] : [],
 
