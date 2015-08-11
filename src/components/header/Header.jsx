@@ -9,7 +9,9 @@ class Header extends React.Component {
           <div className="v-icon v-icon__hamburger"></div>
         </div>
 
-        <h1 className="header-brand col-xs-7">Fera fashion</h1>
+        <h1 className="header-brand col-xs-8">
+          Fera fashion
+        </h1>
 
         <div className="col-xs-1">
           <div className="v-icon v-icon__search"></div>
