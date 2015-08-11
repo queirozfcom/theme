@@ -26,6 +26,11 @@ let promocoes = [
     name: 'Camiseta regata',
     price: 'R$79,00',
     image: 'http://i.imgur.com/Vprm8x2.png'
+  },
+  {
+    name: 'Body de lycra',
+    price: 'R$149,80',
+    image: 'http://i.imgur.com/Q2TDtMp.png'
   }
 ];
 
