@@ -5,6 +5,13 @@ var pkg = require('./package.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 var hot = process.env.NODE_ENV === 'hot';
+var svgoConfig = JSON.stringify({
+  plugins: [
+    {removeTitle: true},
+    {convertColors: {shorthex: false}},
+    {convertPathData: false}
+  ]
+});
 
 module.exports = {
   devtool: 'sourcemap',
@@ -40,6 +47,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     alias: {
       'editors': path.join(__dirname, '/src/editors/'),
+      'assets': path.join(__dirname, '/src/assets/'),
       'components': path.join(__dirname, '/src/components/'),
       'pages': path.join(__dirname, '/src/pages/'),
       'styles': path.join(__dirname, '/src/styles/'),
@@ -84,7 +92,10 @@ module.exports = {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
       }, {
-        test: /\.(png|jpg|woff|ttf|eot|svg|woff2)$/,
+        test: /\.svg$/,
+        loaders: ['raw-loader', 'svgo-loader?' + svgoConfig]
+      }, {
+        test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
         loader: 'url-loader?limit=100000'
       }, {
         test: /\.jpg$/,
