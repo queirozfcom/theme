@@ -1,7 +1,13 @@
+import { dispatcher, connectToStores } from 'sdk';
 import React from 'react';
 import Product from './Product';
 import style from 'styles/components/shelf/Shelf.less'; // eslint-disable-line
 
+@connectToStores([
+  dispatcher.stores.SettingsStore,
+  dispatcher.stores.ComponentStore,
+  dispatcher.stores.EditorStore
+])
 class Shelf extends React.Component {
   state = {
     currentProductVisible: 0
@@ -25,6 +31,12 @@ class Shelf extends React.Component {
   }
 
   render() {
+    const editMode = this.props.EditorStore.get('isActive');
+    const EditComponent = this.props.ComponentStore.getIn(['ShelfEditMode', 'constructor']);
+    if (editMode && EditComponent) {
+      return <EditComponent {...this.props}/>;
+    }
+
     return (
       <div className="v-shelf row-fluid">
         <h2 className="v-shelf__title">{this.props.title}</h2>
