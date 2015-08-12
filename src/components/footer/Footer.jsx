@@ -1,5 +1,9 @@
 import React from 'react';
 import style from 'styles/components/footer/Footer.less'; // eslint-disable-line
+import SVGIcon from 'components/utils/SVGIcon';
+import instagramIcon from 'assets/icons/instagram.svg';
+import facebookIcon from 'assets/icons/facebook.svg';
+import pinterestIcon from 'assets/icons/pinterest.svg';
 
 class Footer extends React.Component {
   render() {
@@ -18,9 +22,9 @@ class Footer extends React.Component {
         </div>
 
         <div className="v-footer__social-icons col-xs-2">
-          <div className="v-icon v-icon__instagram"></div>
-          <div className="v-icon v-icon__facebook"></div>
-          <div className="v-icon v-icon__pinterest"></div>
+          <SVGIcon className="v-footer__instagram" svg={instagramIcon} width={33} height={33} fill="#FFFFFF"/>
+          <SVGIcon className="v-footer__facebook" svg={facebookIcon} width={33} height={33} fill="#FFFFFF"/>
+          <SVGIcon className="v-footer__pinterest" svg={pinterestIcon} width={33} height={33} fill="#FFFFFF"/>
         </div>
       </div>
     );
