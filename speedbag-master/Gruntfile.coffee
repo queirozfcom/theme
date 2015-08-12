@@ -23,6 +23,8 @@ module.exports = (grunt) ->
       dev:
         singleRun: false
 
+  defaultConfig.watch.main.files.push('src/product.html')
+
   tasks =
     # Building block tasks
     build: ['clean', 'jshint', 'concat:templates', 'copy:main', 'copy:pkg', 'copy:janus_index', 'nginclude', 'coffeelint', 'coffee', 'recess', 'less', 'ngtemplates']
