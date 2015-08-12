@@ -11,13 +11,22 @@ module.exports = {
 
   watch: production ? false : true,
 
-  entry: hot ? [
-    'webpack-dev-server/client?http://0.0.0.0:3000',
-    'webpack/hot/only-dev-server',
-    './src/' + pkg.name + '.jsx'
-  ] : [
-    './src/' + pkg.name + '.jsx'
-  ],
+  entry: hot ? {
+    '.':
+      [
+        'webpack-dev-server/client?http://0.0.0.0:3000',
+        'webpack/hot/only-dev-server',
+        './src/' + pkg.name + '.jsx'
+      ],
+    editor:
+      [
+        'webpack/hot/only-dev-server',
+        './src/' + pkg.name + '-editor.jsx'
+      ]
+  } : {
+    '.': './src/' + pkg.name + '.jsx',
+    editor: './src/' + pkg.name + '-editor.jsx'
+  },
 
   externals: {
     'sdk': 'storefront.sdk',
@@ -30,6 +39,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
+      'editors': path.join(__dirname, '/src/editors/'),
       'components': path.join(__dirname, '/src/components/'),
       'pages': path.join(__dirname, '/src/pages/'),
       'styles': path.join(__dirname, '/src/styles/'),
@@ -40,9 +50,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './storefront/assets/'),
     publicPath: publicPath,
-    filename: pkg.name + '.js',
+    filename: '[name]/' + pkg.name + '.js',
     chunkFilename: pkg.name + '-[name].js',
-    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[id]-[hash]'
+    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[hash][id]'
   },
 
   eslint: {
