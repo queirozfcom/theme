@@ -25,7 +25,21 @@ const cleanups = {
   sketchMSLayerGroup: / +sketch:type=\"MSLayerGroup\"/gi
 };
 
+function browserSupportsInlineSVG() {
+  if (!document) {
+    return false;
+  }
+  var div = document.createElement('div');
+  div.innerHTML = '<svg/>';
+  return (typeof SVGRect !== 'undefined' && div.firstChild && div.firstChild.namespaceURI) === 'http://www.w3.org/2000/svg';
+}
+
+let browserSupport = browserSupportsInlineSVG();
+
 class SVGIcon extends React.Component {
+  state = {
+    browserSupport: browserSupport
+  }
 
   static defaultProps = {
     component: 'div',
@@ -58,7 +72,7 @@ class SVGIcon extends React.Component {
       .trim();
   }
 
-  render() {
+  _renderSVG = () => {
     const { className, component, svg, fill } = this.props;
 
     let cleanup = this.props.cleanup;
@@ -130,6 +144,27 @@ class SVGIcon extends React.Component {
         }
       )
     );
+  }
+
+  _renderFallback = () => {
+    const { className, component, fallback, width, height } = this.props;
+    const props = {...this.props, svg: null, fill: null, width: null, height: null};
+
+    let classes = 'SVGICon SVGIcon--fallback ' + className;
+
+    return (
+      <component {...props} className={classes}>
+        <img src={fallback} width={width} height={height} className="SVGICon--fallback-image"/>
+      </component>
+    );
+  }
+
+  render() {
+    if (this.state.browserSupport) {
+      return this._renderSVG();
+    } else {
+      return this._renderFallback();
+    }
   }
 }
 
