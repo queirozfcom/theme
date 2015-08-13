@@ -1,16 +1,20 @@
 import React from 'react';
 import style from 'styles/components/shelf/Product.less'; // eslint-disable-line
+import Img from 'components/utils/Img';
 
 class Product extends React.Component {
   render() {
-    let product = this.props.product;
     let display = this.props.isVisible ? 'block' : 'none';
+    let defaultSku = this.props.skus[0];
+    let name = this.props.name;
+    let imageUrl = defaultSku.images[0].src;
+    let price = defaultSku.offers[0].price;
 
     return (
       <div className="v-shelf__product col-xs-12" style={{display: display}}>
-        <img className="v-shelf__product-photo" src={product.image}/>
-        <p className="v-shelf__product-title">{product.name}</p>
-        <p className="v-shelf__product-price">{product.price}</p>
+        <Img className="v-shelf__product-photo" src={imageUrl} width={167} height={235}/>
+        <p className="v-shelf__product-title">{name}</p>
+        <p className="v-shelf__product-price">{price}</p>
         <div className="v-btn btn btn-block">
           <p>Adicionar ao carrinho</p>
         </div>
