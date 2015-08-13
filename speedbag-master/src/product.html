@@ -92,17 +92,15 @@
     </div>
   </header>
 
-  <section class="product">
+  <section class="v-dream__product">
     <div class="container-fluid">
       <div class="row">
-        <div class="photos">
-          <ul>
-            <li><img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/></li>
-            <!-- <li><img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/></li>
-            <li><img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/></li>
-            <li><img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/></li>
-            <li><img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/></li> -->
-          </ul>
+        <div class="v-dream__product__photo-caroussel">
+            <img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/>
+            <!-- <img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/>
+            <img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/>
+            <img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/>
+            <img class="product-photo" src="http://i.imgur.com/Q2TDtMp.png"/> -->
         </div>
       </div>
       <div class="row">
@@ -111,28 +109,31 @@
           <h3 class="product-price">R$149,80</h3>
         </div>
       </div>
-      <div class="row">
-        <h3 class="size-selector-title col-xs-11 col-xs-offset-1">Selecione o tamanho:</h3>
-        <div class="size-selector col-xs-2 col-xs-offset-1">
-          <p>PP</p>
-        </div>
-        <div class="size-selector col-xs-2">
-          <p>P</p>
-        </div>
-        <div class="size-selector col-xs-2">
-          <p>M</p>
-        </div>
-        <div class="size-selector col-xs-2">
-          <p>G</p>
-        </div>
-        <div class="size-selector col-xs-2">
-          <p>GG</p>
-        </div>
+      <div class="row v-dream__selector-row">
+        <h3 class="v-dream__selector__title col-xs-11 col-xs-offset-1">Selecione o tamanho:</h3>
+        <button class="v-dream__size-selector col-xs-2 col-xs-offset-1">
+          PP
+        </button>
+        <button class="v-dream__size-selector col-xs-2">
+          P
+        </button>
+        <button class="v-dream__size-selector col-xs-2">
+          M
+        </button>
+        <button class="v-dream__size-selector--unavailable col-xs-2">
+          G
+        </button>
+        <button class="v-dream__size-selector col-xs-2">
+          GG
+        </button>
       </div>
-      <div class="row">
-        <h3 class="size-selector-title col-xs-11 col-xs-offset-1">Selecione a cor:</h3>
-        <div class="color-01 col-xs2 col-xs-offset-1">
-        </div>
+      <div class="row v-dream__selector-row">
+          <h3 class="v-dream__selector__title col-xs-10 col-xs-offset-2">Selecione a cor:</h3>
+          <div className="v-dream__color-selector__wrapper">
+            <button class="v-dream__color-selector col-xs-2 col-xs-offset-1"></button>
+            <button class="v-dream__color-selector col-xs-2"></button>
+            <button class="v-dream__color-selector col-xs-2"></button>
+          </div>
       </div>
     </div>
   </section>
