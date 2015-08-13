@@ -15,11 +15,8 @@ h2 {
   font-style: italic;
   font-weight: 400;
   color: #153243;
-  text-align: center;
 }
 h3 {
-  padding: 0;
-  margin: 0;
   font-family: 'Lato';
   font-size: 20px;
   font-weight: 300;
@@ -31,10 +28,13 @@ p {
   font-weight: 300;
   color: #153243;
 }
-
+.row {
+  margin: 0;
+}
 
 // Classes
 
+// Header
 .header {
   width: 100%;
   height: 30px;
@@ -47,110 +47,57 @@ p {
   font-style: italic;
   font-weight: 400;
 }
-.banner {
+
+// Product
+.photos {
   max-width: 100%;
+  overflow: hidden;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  li{
+    float: center;
+  }
 }
-.banner-image {
-  max-width: 100%;
-}
-.featured-product {
-  margin-top: 30px;
-}
-.featured-product-photo {
-  width: 167px;
-  height: 235px;
-}
-.arrow {
-  position: relative;
-  padding-top: 110px;
-  padding-bottom: 170px;
+.product-photo {
+  max-width: 65%;
+  margin-left: 17.5%;
 }
 .product-title {
-  padding-top: 5px;
-  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-style: normal;
+  text-align: left;
 }
 .product-price {
-  font-size: 14px;
-  font-weight: 600;
+  margin-top: 5px;
+  font-weight: 900;
   color: #75CCB1;
 }
-.btn {
-  width: 167px;
-  height: 35px;
-  margin-bottom: 30px;
-  background-color: #75CCB1;
-  border: none;
-  border-radius: 9px;
-  p {
-    font-size: 15px;
-    font-weight: 900;
-    color: #fff;
-  }
-}
-.promotion-product {
+.size-selector-title {
   margin-top: 20px;
+  font-size: 18px;
+  font-style: italic;
+  color: #153243;
 }
-.promotion-product-photo {
-  width: 167px;
-  height: 235px;
+.size-selector {
+  width: 40px;
+  height: 40px;
+  padding-top: 7px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  // margin-bottom: 10px;
+  border: 2px solid #153243;
+  border-radius: 20px;
 }
-.promotion-arrow {
-  position: relative;
-  padding-top: 110px;
-}
-.policie {
-  h3 {
-    margin-top: 30px;
-  }
-  svg {
-    margin-top: 30px;
-  }
-}
-.policie-description {
-  p {
-    padding-top: 7px;
-    font-size: 14px;
-  }
-}
-.newsletter {
-  height: 50px;
-  margin-top: 50px;
-  background-color: #EDAF97;
-  p {
-    padding-top: 6px;
-    margin-bottom: 0;
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 900;
-    line-height: 13px;
-  }
- .btn {
-   width: auto;
-   height: 30px;
-   background-color: #153243;
-   border: none;
-   border-radius: 9px;
-   p {
-     padding-top: 3px;
-     font-size: 12px;
-     font-style: normal;
-     font-weight: 400;
-     color: #fff;
-   }
- }
-}
-.newsletter-form {
-  padding-top: 9px;
-  input {
-    height: 30px;
-    border: none;
-    border-radius: 9px;
-  }
-  button {
-    margin-bottom: 0;
-  }
-}
-.footer {
+
+// Footer
+.main-footer {
+  padding: 0 15px;
   background-color: #153243;
 }
 .footer-menu {
