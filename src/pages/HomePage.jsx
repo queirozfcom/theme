@@ -8,44 +8,24 @@ import Policies from 'components/policies/Policies';
 import Shelf from 'components/shelf/Shelf';
 import style from 'styles/pages/HomePage.less'; // eslint-disable-line
 
-let destaques = [
-  {
-    name: 'Body de lycra',
-    price: 'R$149,80',
-    image: 'http://i.imgur.com/Q2TDtMp.png'
-  },
-  {
-    name: 'Camiseta regata',
-    price: 'R$79,00',
-    image: 'http://i.imgur.com/Vprm8x2.png'
-  }
-];
-
-let promocoes = [
-  {
-    name: 'Camiseta regata',
-    price: 'R$79,00',
-    image: 'http://i.imgur.com/Vprm8x2.png'
-  },
-  {
-    name: 'Body de lycra',
-    price: 'R$149,80',
-    image: 'http://i.imgur.com/Q2TDtMp.png'
-  }
-];
-
 @connectToStores([
+  dispatcher.stores.SettingsStore,
   dispatcher.stores.SearchStore,
   dispatcher.stores.ShopStore
 ])
 class HomePage extends React.Component {
   render() {
+    const SettingsStore = this.props.SettingsStore;
+    const bannerSettings = SettingsStore.getIn(['home', 'home-banner', 'settings']);
+    const shelf1Settings = SettingsStore.getIn(['home', 'home-shelf-1', 'settings']);
+    const shelf2Settings = SettingsStore.getIn(['home', 'home-shelf-2', 'settings']);
+
     return (
       <div>
         <Header/>
-        <Banner/>
-        <Shelf title="Destaques" products={destaques}/>
-        <Shelf title="Promoções" products={promocoes}/>
+        <Banner {...bannerSettings}/>
+        <Shelf {...shelf1Settings} id="home-shelf-1" route="home"/>
+        <Shelf {...shelf2Settings} id="home-shelf-2" route="home"/>
         <Policies/>
         <Newsletter/>
         <Footer/>
