@@ -1,0 +1,6 @@
+{
+  "assets": [
+    "storefront-theme.js",
+    "editor/storefront-theme.js"
+  ]
+}
