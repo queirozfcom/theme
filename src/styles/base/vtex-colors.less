@@ -1,0 +1,42 @@
+// =============================================
+// =            Colors		              =
+// =============================================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.lead {
+	color: @gray-solid-b;
+}
+.btn {
+	box-shadow:inset 0 -1px 0 rgba(255, 255, 255, .4);
+}
+.btn-default {
+	border-color: @gray-solid-a;
+	color: @gray-solid-b;
+	&:hover {
+		background-color: @gray-solid;
+	}
+}
+.btn-primary {
+	background-color: @blue-matter;
+	border-color: darken(@blue-matter, 3%);
+	color: lighten(@blue-matter, 50%);
+}
+.btn-success {
+	background-color: @green-matter;
+	border-color: darken(@green-matter, 3%);
+	color: lighten(@green-matter, 40%);
+}
+.btn-warning {
+	background-color: @yellow-matter;
+	border-color: darken(@yellow-matter, 5%);
+	color: lighten(@yellow-matter, 45%);
+}
+.btn-danger {
+	background-color: @red-matter;
+	border-color: darken(@red-matter, 3%);
+	color: lighten(@red-matter, 35%);
+}

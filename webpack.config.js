@@ -5,19 +5,35 @@ var pkg = require('./package.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 var hot = process.env.NODE_ENV === 'hot';
+var svgoConfig = JSON.stringify({
+  plugins: [
+    {removeTitle: true},
+    {convertColors: {shorthex: false}},
+    {convertPathData: false}
+  ]
+});
 
 module.exports = {
   devtool: 'sourcemap',
 
   watch: production ? false : true,
 
-  entry: hot ? [
-    'webpack-dev-server/client?http://0.0.0.0:3000',
-    'webpack/hot/only-dev-server',
-    './src/' + pkg.name + '.jsx'
-  ] : [
-    './src/' + pkg.name + '.jsx'
-  ],
+  entry: hot ? {
+    '.':
+      [
+        'webpack-dev-server/client?http://0.0.0.0:3000',
+        'webpack/hot/only-dev-server',
+        './src/' + pkg.name + '.jsx'
+      ],
+    editor:
+      [
+        'webpack/hot/only-dev-server',
+        './src/' + pkg.name + '-editor.jsx'
+      ]
+  } : {
+    '.': './src/' + pkg.name + '.jsx',
+    editor: './src/' + pkg.name + '-editor.jsx'
+  },
 
   externals: {
     'sdk': 'storefront.sdk',
@@ -30,6 +46,8 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
+      'editors': path.join(__dirname, '/src/editors/'),
+      'assets': path.join(__dirname, '/src/assets/'),
       'components': path.join(__dirname, '/src/components/'),
       'pages': path.join(__dirname, '/src/pages/'),
       'styles': path.join(__dirname, '/src/styles/'),
@@ -40,9 +58,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './storefront/assets/'),
     publicPath: publicPath,
-    filename: pkg.name + '.js',
+    filename: '[name]/' + pkg.name + '.js',
     chunkFilename: pkg.name + '-[name].js',
-    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[id]-[hash]'
+    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[hash][id]'
   },
 
   eslint: {
@@ -74,7 +92,10 @@ module.exports = {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
       }, {
-        test: /\.(png|jpg|woff|ttf|eot|svg|woff2)$/,
+        test: /\.svg$/,
+        loaders: ['raw-loader', 'svgo-loader?' + svgoConfig]
+      }, {
+        test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
         loader: 'url-loader?limit=100000'
       }, {
         test: /\.jpg$/,
@@ -89,6 +110,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin()
   ] : hot ? [
+    new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ] : [],
 

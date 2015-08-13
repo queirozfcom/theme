@@ -1,0 +1,32 @@
+// Mixins
+// ----------------------------
+.swatch(@name; @i; @bgcolor) when (iscolor(@bgcolor)) {
+	&.swatch-@{name}-@{i} {
+		background-color: @bgcolor;
+	}
+}
+
+/**
+*** @name:    sufixo da classe
+*** @i:       indice do sufixo
+*** ...       lista de 3 cores
+***
+*** Exemplo: .swatch(vtex; 1; @cor1; @cor2; @cor3);
+*** Resultado:
+*** &.swatch-vtex-1 { background-color: #111; }
+*** &.swatch-vtex-2 { background-color: #222; }
+*** &.swatch-vtex-3 { background-color: #333; }
+**/
+.swatch(@name; @i; @bgcolor; @next; @rest...) when (iscolor(@bgcolor)) {
+	&.swatch-@{name}-@{i} {
+		background-color: @bgcolor;
+	}
+	.swatch(@name; (@i + 1); @next; @rest);
+}
+
+.transition (@transition) {
+	-webkit-transition: @transition;
+	   -moz-transition: @transition;
+	    -ms-transition: @transition;
+			transition: @transition;
+}

@@ -1,6 +1,7 @@
 .git/
 node_modules/
 src/
+speedbag-master/
 webpack.config.js
 package.json
 index.js

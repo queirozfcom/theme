@@ -1,48 +1,34 @@
 import React from 'react';
-import { connectToStores, dispatcher } from 'sdk';
-import { Navigation, State, Link } from 'react-router';
-import { FormattedNumber } from 'react-intl';
-import { Button } from 'react-bootstrap';
+import style from 'styles/components/footer/Footer.less'; // eslint-disable-line
+import SVGIcon from 'components/utils/SVGIcon';
+import instagramIcon from 'assets/icons/instagram.svg';
+import facebookIcon from 'assets/icons/facebook.svg';
+import pinterestIcon from 'assets/icons/pinterest.svg';
 
-const stores = [
-  dispatcher.stores.CartStore,
-  dispatcher.stores.ShopStore
-];
-
-let Footer = React.createClass({
-  mixins: [ Navigation, State ],
-
+class Footer extends React.Component {
   render() {
-    let currency = this.props.ShopStore.get('currency');
-    let orderForm = this.props.CartStore.get('orderForm');
-    let valueComponent, value;
-    if (currency && orderForm && orderForm.value) {
-      value = orderForm.value / 100;
-      valueComponent = <FormattedNumber style="currency" value={value} currency={currency} />;
-    }
-
-    if (this.isActive('checkout')) {
-      return (
-        <div className="ds-footer">
-          <span className="ds-value">{ valueComponent }</span>
-          <Link to="success" className="pull-right">
-            <Button>Confirmar</Button>
-          </Link>
-        </div>
-      );
-    }
-
-    if (this.isActive('success')) {
-      return null;
-    }
-
     return (
-      <div className="ds-footer">
-        <span className="ds-value">{ valueComponent }</span>
+      <div className="v-footer clearfix">
+        <div className="col-xs-10">
+          <ul className="v-footer__menu">
+            <li><a href="#" className="v-footer__menu-link">Categorias</a></li>
+            <li><a href="#" className="v-footer__menu-link">FAQ</a></li>
+            <li><a href="#" className="v-footer__menu-link">Sobre</a></li>
+            <li><a href="#" className="v-footer__menu-link">Termos de uso</a></li>
+          </ul>
+          <div className="v-footer__address">
+            <p>Praia de Botafogo, 518, Sobreloja, Botafogo. Rio de Janeiro, RJ - 22250-040</p>
+          </div>
+        </div>
+
+        <div className="v-footer__social-icons col-xs-2">
+          <SVGIcon className="v-footer__instagram" svg={instagramIcon} width={33} height={33} fill="#FFFFFF"/>
+          <SVGIcon className="v-footer__facebook" svg={facebookIcon} width={33} height={33} fill="#FFFFFF"/>
+          <SVGIcon className="v-footer__pinterest" svg={pinterestIcon} width={33} height={33} fill="#FFFFFF"/>
+        </div>
       </div>
     );
   }
+}
 
-});
-
-export default connectToStores(stores)(Footer);
+export default Footer;
