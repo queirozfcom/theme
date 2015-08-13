@@ -1,16 +1,22 @@
 import React from 'react';
+import { dispatcher } from 'sdk';
 
-let Img = React.createClass({
-  propTypes: {
+class Img extends React.Component {
+  static defaultProps = {
+    ShopStore: dispatcher.stores.ShopStore.getState()
+  }
+
+  static propTypes = {
     src: React.PropTypes.string.isRequired,
-    accountName: React.PropTypes.string.isRequired,
     width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired
-  },
+    height: React.PropTypes.number.isRequired,
+    ShopStore: React.PropTypes.object.isRequired
+  }
 
-  getBaseUrl({ accountName }) {
+  getBaseUrl() {
+    let accountName = this.props.ShopStore.get('accountName');
     return `http://${accountName}.vteximg.com.br`;
-  },
+  }
 
   onMouseOver() {
     if (this.props.prefetchOnHover) {
@@ -19,7 +25,7 @@ let Img = React.createClass({
       const prefetchImage = new Image();
       prefetchImage.src = path;
     }
-  },
+  }
 
   render() {
     let path = this.props.src.replace('#width#', this.props.width).replace('#height#', this.props.width);
@@ -34,7 +40,6 @@ let Img = React.createClass({
         title={this.props.title} />
     );
   }
-
-});
+}
 
 export default Img;
