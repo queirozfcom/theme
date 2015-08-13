@@ -69,9 +69,9 @@ class Shelf extends React.Component {
       products = dispatcher.stores.ProductStore.getProducts(productsIds);
     }
 
-    const quantity = this.props.quantity;
-    const canMoveLeft = (this.state.currentProductVisible - 1 >= 0);
-    const canMoveRight = (this.state.currentProductVisible + 1 <= quantity);
+    const maxQuantity = Math.min((products ? (products.length - 1) : 0), this.props.quantity);
+    const canMoveLeft = (this.state.currentProductVisible !== 0);
+    const canMoveRight = (this.state.currentProductVisible !== maxQuantity);
 
     return (
       <div className="v-shelf row-fluid">
