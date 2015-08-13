@@ -46,9 +46,9 @@ class Shelf extends React.Component {
 
         <div className="row-fluid clearfix">
 
-          <div className="v-arrow col-xs-2">
+          <button className="v-arrow col-xs-2 v-clean-btn v-no-outlines">
             <SVGIcon className="v-arrow-icon" svg={arrowLeftIcon} width={26} height={88} onTouchTap={this.moveLeft.bind(this)}/>
-          </div>
+          </button>
 
           <div className="v-shelf__products col-xs-8">
           {this.props.products.map((product, index) =>
@@ -58,9 +58,9 @@ class Shelf extends React.Component {
           )}
           </div>
 
-          <div className="v-arrow col-xs-2">
+          <button className="v-arrow col-xs-2 v-clean-btn v-no-outlines">
             <SVGIcon className="v-arrow-icon" svg={arrowRightIcon} width={26} height={88} onTouchTap={this.moveRight.bind(this)}/>
-          </div>
+          </button>
         </div>
       </div>
     );
