@@ -4,6 +4,7 @@
     "path": "/"
   },
   "assets": [
-    "storefront-theme.js"
+    "storefront-theme.js",
+    "editor/storefront-theme.js"
   ]
 }
