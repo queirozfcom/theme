@@ -17,20 +17,15 @@ class Shelf extends React.Component {
   }
 
   moveLeft() {
-    let newCurrentProductVisible = this.state.currentProductVisible - 1;
-
-    if (newCurrentProductVisible >= 0) {
-      this.setState({currentProductVisible: newCurrentProductVisible});
-    }
+    this.setState({
+      currentProductVisible: this.state.currentProductVisible - 1
+    });
   }
 
   moveRight() {
-    let productsQty = this.props.products.length - 1;
-    let newCurrentProductVisible = this.state.currentProductVisible + 1;
-
-    if (newCurrentProductVisible <= productsQty) {
-      this.setState({currentProductVisible: newCurrentProductVisible});
-    }
+    this.setState({
+      currentProductVisible: this.state.currentProductVisible + 1
+    });
   }
 
   render() {
@@ -40,6 +35,10 @@ class Shelf extends React.Component {
       return <EditComponent {...this.props}/>;
     }
 
+    const productsQty = this.props.products.length - 1;
+    const canMoveLeft = (this.state.currentProductVisible - 1 >= 0);
+    const canMoveRight = (this.state.currentProductVisible + 1 <= productsQty);
+
     return (
       <div className="v-shelf row-fluid">
         <h2 className="v-shelf__title">{this.props.title}</h2>
@@ -47,7 +46,9 @@ class Shelf extends React.Component {
         <div className="row-fluid clearfix">
 
           <button className="v-arrow col-xs-2 v-clean-btn v-no-outlines">
-            <SVGIcon className="v-arrow-icon" svg={arrowLeftIcon} width={26} height={88} onTouchTap={this.moveLeft.bind(this)}/>
+            <SVGIcon className="v-arrow-icon" svg={arrowLeftIcon} width={26} height={88}
+                     data-is-disabled={!canMoveLeft}
+                     onTouchTap={canMoveLeft ? this.moveLeft.bind(this) : null}/>
           </button>
 
           <div className="v-shelf__products col-xs-8">
@@ -59,7 +60,9 @@ class Shelf extends React.Component {
           </div>
 
           <button className="v-arrow col-xs-2 v-clean-btn v-no-outlines">
-            <SVGIcon className="v-arrow-icon" svg={arrowRightIcon} width={26} height={88} onTouchTap={this.moveRight.bind(this)}/>
+            <SVGIcon className="v-arrow-icon" svg={arrowRightIcon} width={26} height={88}
+                     data-is-disabled={!canMoveRight}
+                     onTouchTap={canMoveRight ? this.moveRight.bind(this) : null}/>
           </button>
         </div>
       </div>
