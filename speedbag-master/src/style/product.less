@@ -88,8 +88,30 @@ p {
   color: #75CCB1;
 }
 
-.v-dream__selector-row {
+.v-dream__selector-section {
   margin-top: 1.5em;
+  padding: 0.75em 0em;
+  transition: background-color 0.2s;
+}
+
+.v-dream__selector-section--highlight {
+  .v-dream__selector-section;
+  background-color: #D5F3FD;
+  transition: background-color 0.2s;
+}
+
+.v-dream__selector-section__alert-text {
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.v-dream__selector-row {
+   & + & {
+    margin-top: 0.75em;
+  }
 }
 
 .v-dream__selector__title {
@@ -102,6 +124,7 @@ p {
   .v-clean-btn;
   .v-no-outlines;
   .v-unselectable;
+  background-color: #FFF;
   border: 2px solid #153243;
   border-radius: 50%;
   color: #153243;
