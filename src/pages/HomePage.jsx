@@ -16,9 +16,12 @@ import style from 'styles/pages/HomePage.less'; // eslint-disable-line
 class HomePage extends React.Component {
   render() {
     const SettingsStore = this.props.SettingsStore;
-    const bannerSettings = SettingsStore.getIn(['home', 'home-banner', 'settings']);
-    const shelf1Settings = SettingsStore.getIn(['home', 'home-shelf-1', 'settings']);
-    const shelf2Settings = SettingsStore.getIn(['home', 'home-shelf-2', 'settings']);
+    let bannerSettings = SettingsStore.getIn(['home', 'home-banner', 'settings']);
+    bannerSettings = bannerSettings ? bannerSettings.toJS() : bannerSettings;
+    let shelf1Settings = SettingsStore.getIn(['home', 'home-shelf-1', 'settings']);
+    shelf1Settings = shelf1Settings ? shelf1Settings.toJS() : shelf1Settings;
+    let shelf2Settings = SettingsStore.getIn(['home', 'home-shelf-2', 'settings']);
+    shelf2Settings = shelf2Settings ? shelf2Settings.toJS() : shelf2Settings;
 
     return (
       <div>
