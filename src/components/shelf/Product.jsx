@@ -1,5 +1,6 @@
 import React from 'react';
 import 'styles/components/shelf/Product.less';
+import { Link } from 'react-router';
 import Img from 'components/utils/Img';
 import Price from 'components/utils/Price';
 
@@ -14,7 +15,7 @@ class Product extends React.Component {
     return (
       <div className="v-shelf__product col-xs-12" style={{display: display}}>
         <Img className="v-shelf__product-photo" src={imageUrl} width={200} height={235}/>
-        <p className="v-shelf__product-title">{name}</p>
+        <Link to="product" params={{product: this.props.slug}} className="v-shelf__product-title">{name}</Link>
         <p className="v-shelf__product-price">
           <Price value={price}/>
         </p>
