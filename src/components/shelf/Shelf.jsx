@@ -88,7 +88,7 @@ class Shelf extends React.Component {
           {products ? products.map((product, index) =>
             <Product {...product}
                     isVisible={(index === this.state.currentProductVisible)}
-                    key={(product.slug)}/>
+                    key={product.slug}/>
           ) : <div>Carregando</div>}
           </div>
 
