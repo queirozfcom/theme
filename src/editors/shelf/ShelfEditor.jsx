@@ -7,10 +7,19 @@ class ShelfEditor extends React.Component {
     ShopStore: dispatcher.stores.ShopStore.getState()
   }
 
-  state = {
-    title: '',
-    search: '',
-    quantity: 1
+  constructor(props) {
+    super(props);
+
+    let settings = dispatcher.stores.SettingsStore.getState().getIn([this.props.route, this.props.id, 'settings']);
+    if (settings) {
+      this.state = settings.toJS();
+    } else {
+      this.state = {
+        title: '',
+        search: '',
+        quantity: 1
+      };
+    }
   }
 
   maxQuantity = 6
@@ -34,7 +43,7 @@ class ShelfEditor extends React.Component {
       return false;
     }
     this.setState({
-      quantity: String(parseInt(this.state.quantity) + 1)
+      quantity: (parseInt(this.state.quantity) + 1)
     });
   }
 
@@ -44,7 +53,7 @@ class ShelfEditor extends React.Component {
       return false;
     }
     this.setState({
-      quantity: String(parseInt(this.state.quantity) - 1)
+      quantity: (parseInt(this.state.quantity) - 1)
     });
   }
 
