@@ -6,7 +6,7 @@ import Footer from 'components/footer/Footer';
 import Newsletter from 'components/newsletter/Newsletter';
 import Policies from 'components/policies/Policies';
 import Shelf from 'components/shelf/Shelf';
-import style from 'styles/pages/HomePage.less'; // eslint-disable-line
+import 'styles/pages/HomePage.less';
 
 @connectToStores([
   dispatcher.stores.SettingsStore,

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styles/components/header/Header.less'; // eslint-disable-line
+import 'styles/components/header/Header.less';
 import SVGIcon from 'components/utils/SVGIcon';
 import hamburgerIcon from 'assets/icons/hamburger.svg';
 import searchIcon from 'assets/icons/search.svg';

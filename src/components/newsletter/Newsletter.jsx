@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styles/components/newsletter/Newsletter.less'; // eslint-disable-line
+import 'styles/components/newsletter/Newsletter.less';
 
 class Newsletter extends React.Component {
   render() {

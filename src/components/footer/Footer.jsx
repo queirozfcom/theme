@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styles/components/footer/Footer.less'; // eslint-disable-line
+import 'styles/components/footer/Footer.less';
 import SVGIcon from 'components/utils/SVGIcon';
 import instagramIcon from 'assets/icons/instagram.svg';
 import facebookIcon from 'assets/icons/facebook.svg';

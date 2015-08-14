@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styles/components/shelf/Product.less'; // eslint-disable-line
+import 'styles/components/shelf/Product.less';
 import Img from 'components/utils/Img';
 import Price from 'components/utils/Price';
 

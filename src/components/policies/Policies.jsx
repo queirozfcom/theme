@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styles/components/policies/Policies.less'; // eslint-disable-line
+import 'styles/components/policies/Policies.less';
 import SVGIcon from 'components/utils/SVGIcon';
 import exchangeIcon from 'assets/icons/exchange.svg';
 import shippingIcon from 'assets/icons/shipping.svg';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { dispatcher } from 'sdk';
-import style from 'styles/components/shelf/ShelfEditMode.less'; // eslint-disable-line
+import 'styles/components/shelf/ShelfEditMode.less';
 import SVGIcon from 'components/utils/SVGIcon';
 import arrowLeftIcon from 'assets/icons/arrow-left.svg';
 import arrowRightIcon from 'assets/icons/arrow-right.svg';

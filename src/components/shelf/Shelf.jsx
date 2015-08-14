@@ -1,7 +1,7 @@
 import { dispatcher, connectToStores } from 'sdk';
 import React from 'react';
 import Product from './Product';
-import style from 'styles/components/shelf/Shelf.less'; // eslint-disable-line
+import 'styles/components/shelf/Shelf.less';
 import SVGIcon from 'components/utils/SVGIcon';
 import arrowLeftIcon from 'assets/icons/arrow-left.svg';
 import arrowRightIcon from 'assets/icons/arrow-right.svg';
