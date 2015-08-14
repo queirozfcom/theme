@@ -30,9 +30,9 @@ class ShelfEditMode extends React.Component {
               <img className="v-shelf__product-photo" src={imagePlaceholder}/>
               <p className="v-shelf-ed__product-title">Produto</p>
               <p className="v-shelf-ed__product-price">R$ 10.00</p>
-              <div className="v-btn--placeholder btn btn-block">
-                <p>Adicionar ao carrinho</p>
-              </div>
+              <button className="v-shelf__product-btn__placeholder btn">
+                Adicionar ao carrinho
+              </button>
             </div>
           </div>
 

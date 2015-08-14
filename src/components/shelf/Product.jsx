@@ -18,7 +18,7 @@ class Product extends React.Component {
         <p className="v-shelf__product-price">
           <Price value={price}/>
         </p>
-        <button className="v-shelf__product-btn btn btn-block">
+        <button className="v-shelf__product-btn btn">
           Adicionar ao carrinho
         </button>
       </div>
