@@ -14,15 +14,15 @@ import arrowRightIcon from 'assets/icons/arrow-right.svg';
 class Shelf extends React.Component {
   static defaultProps = {
     title: 'Titulo',
-    quantity: 2,
-    collectionId: 1,
+    quantity: '2',
+    search: '1',
     ShopStore: dispatcher.stores.ShopStore.getState()
   }
 
   static propTypes = {
     title: React.PropTypes.string.isRequired,
-    quantity: React.PropTypes.oneOf([2, 3, 4, 5, 6]).isRequired,
-    collectionId: React.PropTypes.number.isRequired,
+    quantity: React.PropTypes.oneOf(['2', '3', '4', '5', '6']).isRequired,
+    search: React.PropTypes.string.isRequired,
     ShopStore: React.PropTypes.object.isRequired
   }
 
@@ -46,7 +46,7 @@ class Shelf extends React.Component {
     let search = {
       id: this.props.id,
       accountName: this.props.ShopStore.get('accountName'),
-      query: this.props.collectionId,
+      query: this.props.search,
       pageSize: this.props.quantity
     };
 
