@@ -1,6 +1,7 @@
 import React from 'react';
 import style from 'styles/components/shelf/Product.less'; // eslint-disable-line
 import Img from 'components/utils/Img';
+import Price from 'components/utils/Price';
 
 class Product extends React.Component {
   render() {
@@ -14,7 +15,9 @@ class Product extends React.Component {
       <div className="v-shelf__product col-xs-12" style={{display: display}}>
         <Img className="v-shelf__product-photo" src={imageUrl} width={167} height={235}/>
         <p className="v-shelf__product-title">{name}</p>
-        <p className="v-shelf__product-price">{price}</p>
+        <p className="v-shelf__product-price">
+          <Price value={price}/>
+        </p>
         <div className="v-btn btn btn-block">
           <p>Adicionar ao carrinho</p>
         </div>
