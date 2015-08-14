@@ -1,0 +1,19 @@
+{
+  "route": {
+    "name": "product",
+    "path": "/:product/p"
+  },
+  "models": {
+    "name": "product@vtex.storefront-sdk",
+    "params": {
+      "product": "{{ route.params.product }}"
+    }
+  },
+  "assets": [
+    "storefront-theme.js",
+    "editor/storefront-theme.js"
+  ],
+  "exports": {
+    "product": "{{ route.params.product }}"
+  }
+}
