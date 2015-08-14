@@ -13,7 +13,7 @@ class Product extends React.Component {
 
     return (
       <div className="v-shelf__product col-xs-12" style={{display: display}}>
-        <Img className="v-shelf__product-photo" src={imageUrl} width={167} height={235}/>
+        <Img className="v-shelf__product-photo" src={imageUrl} width={200} height={235}/>
         <p className="v-shelf__product-title">{name}</p>
         <p className="v-shelf__product-price">
           <Price value={price}/>
