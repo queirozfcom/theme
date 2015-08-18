@@ -3,10 +3,10 @@
     "name": "product",
     "path": "/:product/p"
   },
-  "models": {
-    "name": "product@vtex.storefront-sdk",
+  "resourceBinding": {
+    "locator": "product@vtex.storefront-sdk",
     "params": {
-      "product": "{{ route.params.product }}"
+      "product": "'{{ route.params.product }}'"
     }
   },
   "assets": [

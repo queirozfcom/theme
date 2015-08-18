@@ -1,6 +1,6 @@
 {
-  "model": {
-    "name": "products@vtex.storefront-sdk",
+  "resourceBinding": {
+    "locator": "products@vtex.storefront-sdk",
     "params": {
       "query": "{{ settings.search }}"
     }
