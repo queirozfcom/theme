@@ -1,5 +1,6 @@
 import React from 'react';
 import 'styles/components/header/Header.less';
+import { Link } from 'react-router';
 import SVGIcon from 'components/utils/SVGIcon';
 import hamburgerIcon from 'assets/icons/hamburger.svg';
 import searchIcon from 'assets/icons/search.svg';
@@ -14,7 +15,7 @@ class Header extends React.Component {
         </div>
 
         <h1 className="v-header__brand col-xs-8">
-          Fera fashion
+          <Link to="home">Fera fashion</Link>
         </h1>
 
         <div className="col-xs-1">
