@@ -1,4 +1,4 @@
-import { dispatcher, connectToStores } from 'sdk';
+import { dispatcher, connectToStores, editable } from 'sdk';
 import React from 'react';
 import Product from './Product';
 import 'styles/components/shelf/Shelf.less';
@@ -53,13 +53,8 @@ class Shelf extends React.Component {
     dispatcher.actions.SearchActions.requestSearch(search);
   }
 
+  @editable
   render() {
-    const editMode = this.props.EditorStore.get('isActive');
-    const EditComponent = this.props.ComponentStore.getIn(['ShelfEditMode', 'constructor']);
-    if (editMode && EditComponent) {
-      return <EditComponent {...this.props}/>;
-    }
-
     let products;
     // If there is results for the query at the SearchStore
     if (this.props.SearchStore.getIn([this.props.id, 'results'])) {
