@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var nodeModulesDir = path.join(__dirname, 'node_modules');
 var pkg = require('./package.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
@@ -79,11 +78,11 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx$/,
-        exclude: [nodeModulesDir],
+        exclude: /node_modules/,
         loaders: hot ? ['react-hot', 'babel-loader?stage=0'] : ['babel-loader?stage=0']
       }, {
         test: /\.js$/,
-        exclude: [nodeModulesDir],
+        exclude: /node_modules/,
         loaders: ['babel-loader?stage=0']
       }, {
         test: /\.less$/,
