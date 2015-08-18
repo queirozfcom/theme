@@ -21,7 +21,7 @@ class Shelf extends React.Component {
 
   static propTypes = {
     title: React.PropTypes.string.isRequired,
-    quantity: React.PropTypes.oneOf(['2', '3', '4', '5', '6']).isRequired,
+    quantity: React.PropTypes.oneOf(['2', '3', '4', '5', '6', 2, 3, 4, 5, 6]).isRequired,
     search: React.PropTypes.string.isRequired,
     ShopStore: React.PropTypes.object.isRequired
   }
