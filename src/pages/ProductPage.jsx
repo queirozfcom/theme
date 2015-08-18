@@ -5,8 +5,7 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import Newsletter from 'components/newsletter/Newsletter';
 import 'styles/pages/ProductPage.less';
-import Img from 'components/utils/Img';
-
+import Product from 'components/product/Product';
 
 @connectToStores([
   dispatcher.stores.ProductStore
@@ -37,15 +36,7 @@ class ProductPage extends React.Component {
     return (
       <div>
         <Header/>
-        { productData ?
-          (
-            <div>{productData.slug}</div>
-          )
-          :
-          (
-            <div>Carregando</div>
-          )
-        }
+        {productData ? <Product {...productData}/> : <div>Carregando</div>}
         <Newsletter/>
         <Footer/>
       </div>

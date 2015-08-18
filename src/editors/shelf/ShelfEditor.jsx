@@ -16,7 +16,7 @@ class ShelfEditor extends React.Component {
     } else {
       this.state = {
         title: '',
-        search: '',
+        category: '',
         quantity: 1
       };
     }
@@ -89,9 +89,9 @@ class ShelfEditor extends React.Component {
                      placeholder="Ex: Destaques, Promoção"/>
             </div>
             <div className="v-shelf-ed__text-field">
-              <label htmlFor="shelf-search">Termo da Busca</label>
-              <input id="shelf-search" className="form-control" name="search" type="text"
-                     value={this.state.search} onChange={this.changeValue.bind(this)}
+              <label htmlFor="shelf-category">Categoria</label>
+              <input id="shelf-category" className="form-control" name="category" type="text"
+                     value={this.state.category} onChange={this.changeValue.bind(this)}
                      placeholder="Ex: camiseta, cadeira"/>
             </div>
             <div className="v-shelf-ed__quant-field">

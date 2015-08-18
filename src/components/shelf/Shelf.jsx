@@ -46,7 +46,7 @@ class Shelf extends React.Component {
     let search = {
       id: this.props.id,
       accountName: this.props.ShopStore.get('accountName'),
-      query: this.props.search,
+      category: this.props.category,
       pageSize: this.props.quantity
     };
 
