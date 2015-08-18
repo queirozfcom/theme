@@ -45,12 +45,12 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'editors': path.join(__dirname, '/src/editors/'),
-      'assets': path.join(__dirname, '/src/assets/'),
-      'components': path.join(__dirname, '/src/components/'),
-      'pages': path.join(__dirname, '/src/pages/'),
-      'styles': path.join(__dirname, '/src/styles/'),
-      'utils': path.join(__dirname, '/src/utils/')
+      'editors': path.join(__dirname, '/src/editors'),
+      'assets': path.join(__dirname, '/src/assets'),
+      'components': path.join(__dirname, '/src/components'),
+      'pages': path.join(__dirname, '/src/pages'),
+      'styles': path.join(__dirname, '/src/styles'),
+      'utils': path.join(__dirname, '/src/utils')
     }
   },
 
