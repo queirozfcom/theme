@@ -3,12 +3,6 @@
     "name": "product",
     "path": "/:product/p"
   },
-  "resourceBinding": {
-    "locator": "product@vtex.storefront-sdk",
-    "params": {
-      "product": "'{{ route.params.product }}'"
-    }
-  },
   "assets": [
     "storefront-theme.js",
     "editor/storefront-theme.js"
