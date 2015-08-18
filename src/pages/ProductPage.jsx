@@ -11,10 +11,6 @@ import Product from 'components/product/Product';
   dispatcher.stores.ProductStore
 ])
 class ProductPage extends React.Component {
-  static defaultProps = {
-    ShopStore: dispatcher.stores.ShopStore.getState()
-  }
-
   static contextTypes = State.contextTypes
 
   componentWillMount(){
@@ -22,7 +18,6 @@ class ProductPage extends React.Component {
 
     if (!this.props.ProductStore.get(product)) {
       let params = {
-        accountName: this.props.ShopStore.get('accountName'),
         product: product
       };
       dispatcher.actions.SearchActions.requestSearch(params);
