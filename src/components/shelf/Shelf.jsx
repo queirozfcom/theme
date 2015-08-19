@@ -43,14 +43,15 @@ class Shelf extends React.Component {
   }
 
   componentWillMount() {
-    let search = {
-      id: this.props.id,
-      accountName: this.props.ShopStore.get('accountName'),
-      category: this.props.category,
-      pageSize: this.props.quantity
-    };
+    if (!this.props.SearchStore.get(this.props.id)) {
+      let search = {
+        id: this.props.id,
+        category: this.props.category,
+        pageSize: this.props.quantity
+      };
 
-    dispatcher.actions.SearchActions.requestSearch(search);
+      dispatcher.actions.SearchActions.requestSearch(search);
+    }
   }
 
   @editable
