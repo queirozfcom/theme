@@ -14,9 +14,9 @@ class ProductPage extends React.Component {
   static contextTypes = State.contextTypes
 
   componentWillMount() {
-    let product = this.context.router.getCurrentParams().product;
+    let slug = this.context.router.getCurrentParams().slug;
     let params = {
-      slug: product
+      slug: slug
     };
 
     if (!dispatcher.stores.ResourceStore.getResources('product', params)) {
@@ -25,8 +25,8 @@ class ProductPage extends React.Component {
   }
 
   render() {
-    let product = this.context.router.getCurrentParams().product;
-    let productData = this.props.ProductStore.get(product);
+    let slug = this.context.router.getCurrentParams().slug;
+    let productData = this.props.ProductStore.get(slug);
 
     return (
       <div>

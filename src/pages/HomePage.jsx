@@ -10,9 +10,7 @@ import Shelf from 'components/shelf/Shelf';
 import 'styles/pages/HomePage.less';
 
 @connectToStores([
-  dispatcher.stores.SettingsStore,
-  dispatcher.stores.SearchStore,
-  dispatcher.stores.ShopStore
+  dispatcher.stores.SettingsStore
 ])
 class HomePage extends React.Component {
   static contextTypes = State.contextTypes
