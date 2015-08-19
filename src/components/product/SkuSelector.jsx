@@ -1,5 +1,32 @@
 import React from 'react';
 import 'styles/components/product/SkuSelector.less';
+
+let mock = {
+  name: 'Short Balneário',
+  skus: [
+    {
+      id: 111,
+      size: 'PP',
+      availability: 100
+    },
+    {
+      id: 222,
+      size: 'P',
+      availability: 0
+    },
+    {
+      id: 333,
+      size: 'M',
+      availability: 203
+    },
+    {
+      id: 444,
+      size: 'G',
+      availability: 2
+    }
+  ]
+};
+
 class SkuSelector extends React.Component {
   changeAvailability(availability) {
     if (availability > 0) {
