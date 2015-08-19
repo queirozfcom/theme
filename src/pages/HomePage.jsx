@@ -1,5 +1,6 @@
-import { connectToStores, dispatcher } from 'sdk';
 import React from 'react';
+import { dispatcher, connectToStores } from 'sdk';
+import { State } from 'react-router';
 import Banner from 'components/banner/Banner';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
@@ -14,6 +15,14 @@ import 'styles/pages/HomePage.less';
   dispatcher.stores.ShopStore
 ])
 class HomePage extends React.Component {
+  static contextTypes = State.contextTypes
+
+  componentWillMount() {
+    if (!dispatcher.stores.ResourceStore.getResources('home')) {
+      dispatcher.actions.ResourceActions.getRouteResources('home');
+    }
+  }
+
   render() {
     const SettingsStore = this.props.SettingsStore;
     let bannerSettings = SettingsStore.getIn(['home', 'home-banner', 'settings']);

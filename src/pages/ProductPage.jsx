@@ -13,14 +13,14 @@ import Product from 'components/product/Product';
 class ProductPage extends React.Component {
   static contextTypes = State.contextTypes
 
-  componentWillMount(){
+  componentWillMount() {
     let product = this.context.router.getCurrentParams().product;
+    let params = {
+      slug: product
+    };
 
-    if (!this.props.ProductStore.get(product)) {
-      let params = {
-        product: product
-      };
-      dispatcher.actions.SearchActions.requestSearch(params);
+    if (!dispatcher.stores.ResourceStore.getResources('product', params)) {
+      dispatcher.actions.ResourceActions.getRouteResources('product', params);
     }
   }
 
