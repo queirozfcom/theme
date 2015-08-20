@@ -13,7 +13,7 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
 
     return (
-      <div className="v-shelf__product col-xs-12" style={{display: display}}>
+      <div className="v-shelf__product" style={{display: display}}>
         <Img className="v-shelf__product-photo" src={imageUrl} width={200} height={235}/>
         <Link to="product" params={{slug: this.props.slug}} className="v-shelf__product-title">{name}</Link>
         <p className="v-shelf__product-price">

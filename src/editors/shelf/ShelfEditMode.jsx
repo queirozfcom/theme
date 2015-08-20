@@ -26,7 +26,7 @@ class ShelfEditMode extends React.Component {
           </button>
 
           <div className="v-shelf__products col-xs-8">
-            <div className="v-shelf__product col-xs-12">
+            <div className="v-shelf__product">
               <img className="v-shelf__product-photo" src={imagePlaceholder}/>
               <p className="v-shelf-ed__product-title">Produto</p>
               <p className="v-shelf-ed__product-price">R$ 10.00</p>
