@@ -3,6 +3,7 @@ import 'styles/components/product/Product.less';
 import Img from 'components/utils/Img';
 import Price from 'components/utils/Price';
 import SkuSelector from 'components/product/SkuSelector';
+import Description from  'components/product/Description';
 
 class Product extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector/>
+        <Description/>
       </div>
     );
   }
