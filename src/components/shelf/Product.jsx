@@ -1,10 +1,17 @@
 import React from 'react';
 import 'styles/components/shelf/Product.less';
-import { Link } from 'react-router';
+import { Link, Navigation } from 'react-router';
 import Img from 'components/utils/Img';
 import Price from 'components/utils/Price';
 
 class Product extends React.Component {
+  static contextTypes = Navigation.contextTypes
+
+  _handleDetails = (ev) => {
+    ev.preventDefault();
+    this.context.router.transitionTo('product', { slug: this.props.slug });
+  }
+
   render() {
     let display = this.props.isVisible ? 'block' : 'none';
     let defaultSku = this.props.skus[0];
@@ -13,15 +20,25 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
 
     return (
-      <div className="v-shelf__product" style={{display: display}}>
-        <Img className="v-shelf__product-photo" src={imageUrl} width={200} height={235}/>
-        <Link to="product" params={{slug: this.props.slug}} className="v-shelf__product-title">{name}</Link>
-        <p className="v-shelf__product-price">
-          <Price value={price}/>
-        </p>
-        <button className="v-shelf__product-btn btn">
-          Adicionar ao carrinho
-        </button>
+      <div className="v-shelf__product row" style={{display: display}}>
+        <div className="col-xs-12">
+          <div className="row">
+            <Img className="v-shelf__product-photo col-xs-12" src={imageUrl} width={200} height={235}/>
+          </div>
+          <div className="row">
+            <Link to="product" params={{slug: this.props.slug}} className="v-shelf__product-title col-xs-12">{name}</Link>
+          </div>
+          <div className="row">
+            <p className="v-shelf__product-price col-xs-12">
+              <Price value={price}/>
+            </p>
+          </div>
+          <div className="row">
+            <button className="v-shelf__product-btn btn col-xs-12" onTouchTap={this._handleDetails.bind(this)}>
+              Ver detalhes
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
