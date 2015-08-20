@@ -3,7 +3,8 @@ import { dispatcher } from 'sdk';
 
 class Img extends React.Component {
   static defaultProps = {
-    ShopStore: dispatcher.stores.ShopStore.getState()
+    ShopStore: dispatcher.stores.ShopStore.getState(),
+    prefetchOnHover: false
   }
 
   static propTypes = {
