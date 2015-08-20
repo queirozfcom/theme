@@ -33,6 +33,11 @@
    user-drag: none;
 }
 
+.v-dream__size-selector:active {
+  background-color: #153243;
+  color: #fff;
+}
+
 .v-dream__size-selector {
   .v-clean-btn;
   .v-no-outlines;
@@ -88,6 +93,17 @@
 
   &:nth-child(1) {
     background-color: #153243;
+  }
+
+  .v-dream__color-selector:active {
+    box-shadow: inset 0px 0px 0px 8px darken(#fff, 10%);
+    transition: box-shadow 0.25s, border-color 0.25s;
+  }
+
+  .v-dream__checkout-button:active {
+    box-shadow: none;
+    margin: 2px 0px -2px 2px;
+    //transition: margin 0.1s;
   }
 
   &:nth-child(2) {
