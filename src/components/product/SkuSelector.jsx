@@ -74,8 +74,8 @@ class SkuSelector extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="row v-dream__selector-section--highlight">
+      <div className="row">
+        <div className="col-xs-12 v-dream__selector-section--highlight">
           <div className="row v-dream__selector-row">
             <div>
               { this.checkVariations(mock.skus) }
@@ -85,7 +85,7 @@ class SkuSelector extends React.Component {
               { this.displayColorVariations() }
           </div>
           <div className="row">
-            <p className="col-xs-12 v-dream__selector-section__alert-text">Escolha um tamanho e cor para adicionar o produto ao carrinho.</p>
+            <p className="col-xs-offset-1 col-xs-10 v-dream__selector-section__alert-text">Escolha um tamanho e cor para adicionar o produto ao carrinho.</p>
           </div>
         </div>
       </div>
