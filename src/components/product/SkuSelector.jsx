@@ -40,31 +40,25 @@ class SkuSelector extends React.Component {
       return <div></div>;
     }
     return (
-          <div>
-            <h3 className="v-dream__selector__title col-xs-11 col-xs-offset-1">Selecione o tamanho:</h3>
-            {mock.skus.map( (sku, index) => {
-              if (index === 0) {
-                return (
-                  <button key={sku.id} className={ this.changeAvailability(sku.availability) + ' col-xs-offset-1 col-xs-2'}>
-                    { sku.size }
-                  </button> );
-              }
-              return (
-                <button key={sku.id} className={ this.changeAvailability(sku.availability) + ' col-xs-2'}>
-                  { sku.size }
-                </button> );
-              }
+          <div className="col-xs-12">
+            <h3 className="v-dream__selector__title col-xs-11">Selecione o tamanho:</h3>
+            <div className="v-dream__size-selector__wrapper col-xs-11">
+            {mock.skus.map((sku) =>
+              <button key={sku.id} className={ this.changeAvailability(sku.availability) + ' col-xs-2'}>
+                { sku.size }
+              </button>
             )}
+            </div>
           </div>
     );
   }
 
   displayColorVariations() {
     return (
-      <div>
-        <h3 className="v-dream__selector__title col-xs-11 col-xs-offset-1">Selecione a cor:</h3>
-        <div className="v-dream__color-selector__wrapper">
-          <button className="v-dream__color-selector col-xs-2 col-xs-offset-1"></button>
+      <div className="col-xs-12">
+        <h3 className="v-dream__selector__title col-xs-11">Selecione a cor:</h3>
+        <div className="v-dream__color-selector__wrapper col-xs-11">
+          <button className="v-dream__color-selector col-xs-2"></button>
           <button className="v-dream__color-selector col-xs-2"></button>
           <button className="v-dream__color-selector col-xs-2"></button>
         </div>
@@ -75,16 +69,16 @@ class SkuSelector extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xs-12 v-dream__selector-section--highlight">
-          <div className="row v-dream__selector-row">
+        <div className="v-dream__selector-section--highlight col-xs-12">
+          <div className="v-dream__selector-row  row-fluid">
             <div>
               { this.checkVariations(mock.skus) }
             </div>
           </div>
-          <div className="row v-dream__selector-row">
+          <div className="v-dream__selector-row row-fluid">
               { this.displayColorVariations() }
           </div>
-          <div className="row">
+          <div className="row-fluid">
             <p className="col-xs-offset-1 col-xs-10 v-dream__selector-section__alert-text">Escolha um tamanho e cor para adicionar o produto ao carrinho.</p>
           </div>
         </div>
