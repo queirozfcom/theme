@@ -27,7 +27,7 @@ class ShelfEditor extends React.Component {
 
   handleSave(ev) {
     ev.preventDefault();
-    dispatcher.actions.ResourcesActions.saveSettings({
+    dispatcher.actions.ResourceActions.saveSettings({
       accountName: this.props.ShopStore.get('accountName'),
       route: this.props.route,
       component: 'Shelf@vtex.storefront-theme',
