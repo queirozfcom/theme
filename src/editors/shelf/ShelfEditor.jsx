@@ -25,8 +25,7 @@ class ShelfEditor extends React.Component {
   maxQuantity = 6
   minQuantity = 1
 
-  handleSave(ev) {
-    ev.preventDefault();
+  saveSettings() {
     dispatcher.actions.ResourceActions.saveSettings({
       accountName: this.props.ShopStore.get('accountName'),
       route: this.props.route,
@@ -35,6 +34,16 @@ class ShelfEditor extends React.Component {
       settings: this.state
     });
     dispatcher.actions.EditorActions.closeEditor();
+  }
+
+  handleSubmit(ev) {
+    ev.preventDefault();
+    this.handleSave(ev);
+  }
+
+  handleSave(ev) {
+    ev.preventDefault();
+    this.saveSettings();
   }
 
   incrementQuantity(ev) {
@@ -81,28 +90,28 @@ class ShelfEditor extends React.Component {
 
     return (
       <div className="v-shelf-ed">
-        <form className="v-shelf-ed__inner">
-            <div className="v-shelf-ed__text-field">
-              <label htmlFor="shelf-title">Título da Prateleira</label>
-              <input id="shelf-title" className="form-control" name="title" type="text"
-                     value={this.state.title} onChange={this.changeValue.bind(this)}
-                     placeholder="Ex: Destaques, Promoção"/>
+        <form className="v-shelf-ed__inner" onSubmit={this.handleSubmit.bind(this)}>
+          <div className="v-shelf-ed__text-field">
+            <label htmlFor="shelf-title">Título da Prateleira</label>
+            <input id="shelf-title" className="form-control" name="title" type="text"
+                   value={this.state.title} onChange={this.changeValue.bind(this)}
+                   placeholder="Ex: Destaques, Promoção"/>
+          </div>
+          <div className="v-shelf-ed__text-field">
+            <label htmlFor="shelf-category">Categoria</label>
+            <input id="shelf-category" className="form-control" name="category" type="text"
+                   value={this.state.category} onChange={this.changeValue.bind(this)}
+                   placeholder="Ex: camiseta, cadeira"/>
+          </div>
+          <div className="v-shelf-ed__quant-field">
+            <label htmlFor="shelf-quantity">Quantidade de Produtos na Prateleira</label>
+            <div className="v-shelf-ed__quant-selector">
+              <button className="v-shelf-ed__quant-button--left" onTouchTap={this.decrementQuantity.bind(this)}> - </button>
+                <input id="shelf-quantity" className="v-shelf-ed__quant-selector__input" name="quantity" type="text"
+                       value={this.state.quantity} onChange={this.changeQuantity.bind(this)}/>
+              <button className="v-shelf-ed__quant-button--right" onTouchTap={this.incrementQuantity.bind(this)}> + </button>
             </div>
-            <div className="v-shelf-ed__text-field">
-              <label htmlFor="shelf-category">Categoria</label>
-              <input id="shelf-category" className="form-control" name="category" type="text"
-                     value={this.state.category} onChange={this.changeValue.bind(this)}
-                     placeholder="Ex: camiseta, cadeira"/>
-            </div>
-            <div className="v-shelf-ed__quant-field">
-              <label htmlFor="shelf-quantity">Quantidade de Produtos na Prateleira</label>
-              <div className="v-shelf-ed__quant-selector">
-                <button className="v-shelf-ed__quant-button--left" onTouchTap={this.decrementQuantity.bind(this)}> - </button>
-                  <input id="shelf-quantity" className="v-shelf-ed__quant-selector__input" name="quantity" type="text"
-                         value={this.state.quantity} onChange={this.changeQuantity.bind(this)}/>
-                <button className="v-shelf-ed__quant-button--right" onTouchTap={this.incrementQuantity.bind(this)}> + </button>
-              </div>
-            </div>
+          </div>
         </form>
 
         <ActionBar onSave={this.handleSave.bind(this)}/>
