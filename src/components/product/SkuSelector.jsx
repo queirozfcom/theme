@@ -40,7 +40,7 @@ class SkuSelector extends React.Component {
       return <div></div>;
     }
     return (
-          <div className="col-xs-12">
+          <div className="col-xs-12" margin-bottom='10px'>
             <h3 className="v-dream__selector__title col-xs-11">Selecione o tamanho:</h3>
             <div className="v-dream__size-selector__wrapper col-xs-11">
             {mock.skus.map((sku) =>
