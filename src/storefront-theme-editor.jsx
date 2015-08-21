@@ -1,6 +1,8 @@
 import { dispatcher } from 'sdk';
 import ShelfEditor from 'editors/shelf/ShelfEditor';
 import ShelfEditMode from 'editors/shelf/ShelfEditMode';
+import BannerEditor from 'editors/banner/BannerEditor';
+import BannerEditMode from 'editors/banner/BannerEditMode';
 
 let components = [
   {
@@ -10,6 +12,14 @@ let components = [
   {
     name: 'ShelfEditMode',
     constructor: ShelfEditMode
+  },
+  {
+    name: 'BannerEditor',
+    constructor: BannerEditor
+  },
+  {
+    name: 'BannerEditMode',
+    constructor: BannerEditMode
   }
 ];
 
