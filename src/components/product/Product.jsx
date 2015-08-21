@@ -3,7 +3,7 @@ import 'styles/components/product/Product.less';
 import Img from 'components/utils/Img';
 import Price from 'components/utils/Price';
 import SkuSelector from 'components/product/SkuSelector';
-import Checkout from 'components/checkout/Checkout';
+import AddToCartButton from 'components/product/AddToCartButton';
 import Description from  'components/product/Description';
 
 class Product extends React.Component {
@@ -27,7 +27,7 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector/>
-        <Checkout/>
+        <AddToCartButton skuId={defaultSku.id}/>
         <Description/>
       </div>
     );
