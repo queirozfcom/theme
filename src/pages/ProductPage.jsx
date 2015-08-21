@@ -14,6 +14,12 @@ class ProductPage extends React.Component {
   static contextTypes = State.contextTypes
 
   componentWillMount() {
+    // TODO fix scroll behavior
+    var contentEl = document.getElementsByClassName('v-editor__app-container')[0];
+    if (contentEl) {
+      contentEl.scrollTop = 0;
+    }
+
     let slug = this.context.router.getCurrentParams().slug;
     let params = {
       slug: slug
