@@ -1,12 +1,12 @@
 {
   "route": {
     "name": "product",
-    "path": "/:product/p"
+    "path": "/:slug/p"
   },
   "resourceBinding": {
     "locator": "product@vtex.storefront-sdk",
     "params": {
-      "product": "'{{ route.params.product }}'"
+      "slug": "{{ route.slug }}"
     }
   },
   "assets": [
@@ -14,6 +14,6 @@
     "editor/storefront-theme.js"
   ],
   "exports": {
-    "product": "{{ route.params.product }}"
+    "product": "{{ route.params.slug }}"
   }
 }

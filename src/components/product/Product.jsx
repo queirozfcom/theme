@@ -2,6 +2,9 @@ import React from 'react';
 import 'styles/components/product/Product.less';
 import Img from 'components/utils/Img';
 import Price from 'components/utils/Price';
+import SkuSelector from 'components/product/SkuSelector';
+import AddToCartButton from 'components/product/AddToCartButton';
+import Description from  'components/product/Description';
 
 class Product extends React.Component {
   render() {
@@ -23,6 +26,9 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
+        <SkuSelector/>
+        <AddToCartButton skuId={defaultSku.id}/>
+        <Description/>
       </div>
     );
   }

@@ -11,27 +11,28 @@ import Product from 'components/product/Product';
   dispatcher.stores.ProductStore
 ])
 class ProductPage extends React.Component {
-  static defaultProps = {
-    ShopStore: dispatcher.stores.ShopStore.getState()
-  }
-
   static contextTypes = State.contextTypes
 
-  componentWillMount(){
-    let product = this.context.router.getCurrentParams().product;
+  componentWillMount() {
+    // TODO fix scroll behavior
+    var contentEl = document.getElementsByClassName('v-editor__app-container')[0];
+    if (contentEl) {
+      contentEl.scrollTop = 0;
+    }
 
-    if (!this.props.ProductStore.get(product)) {
-      let params = {
-        accountName: this.props.ShopStore.get('accountName'),
-        product: product
-      };
-      dispatcher.actions.SearchActions.requestSearch(params);
+    let slug = this.context.router.getCurrentParams().slug;
+    let params = {
+      slug: slug
+    };
+
+    if (!dispatcher.stores.ResourceStore.getResources('product', params)) {
+      dispatcher.actions.ResourceActions.getRouteResources('product', params);
     }
   }
 
   render() {
-    let product = this.context.router.getCurrentParams().product;
-    let productData = this.props.ProductStore.get(product);
+    let slug = this.context.router.getCurrentParams().slug;
+    let productData = this.props.ProductStore.get(slug);
 
     return (
       <div>

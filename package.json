@@ -48,9 +48,6 @@
     "url": "https://github.com/vtex-apps/storefront-theme/issues"
   },
   "dependencies": {
-    "lodash": "^3.8.0",
-    "react-bootstrap": "^0.23.5",
-    "react-document-title": "^1.0.2"
   },
   "engines": {
     "node": ">=0.10",

@@ -23,9 +23,11 @@ module.exports = (grunt) ->
       dev:
         singleRun: false
 
+  defaultConfig.watch.main.files.push('src/product.html')
+
   tasks =
     # Building block tasks
-    build: ['clean', 'jshint', 'concat:templates', 'copy:main', 'copy:pkg', 'copy:janus_index', 'nginclude', 'coffeelint', 'coffee', 'recess', 'less', 'ngtemplates']
+    build: ['clean', 'jshint', 'concat:templates', 'copy:main', 'copy:pkg', 'copy:janus_index', 'nginclude', 'coffeelint', 'coffee', 'less', 'ngtemplates']
     min: ['useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin'] # minifies files
     # Deploy tasks
     dist: ['build', 'min', 'copy:deploy'] # Dist - minifies files

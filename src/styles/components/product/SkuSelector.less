@@ -1,0 +1,124 @@
+.v-dream__selector-section--highlight {
+  .v-dream__selector-section;
+  background-color: #D5F3FD;
+  transition: background-color 0.2s;
+}
+
+.v-dream__selector-section__alert-text {
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.v-clean-btn {
+  background-color: transparent;
+  border: none;
+}
+.v-no-outlines {
+  &:active, &:focus {
+    outline: none;
+  }
+}
+.v-unselectable {
+   /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+   /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+   -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+   -webkit-user-select: none;
+   -ms-user-select: none; /* From IE10 only */
+   user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+   -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+   user-drag: none;
+}
+
+.v-dream__size-selector:active {
+  background-color: #153243;
+  color: #fff;
+}
+
+.v-dream__size-selector {
+  .v-clean-btn;
+  .v-no-outlines;
+  .v-unselectable;
+  background-color: #FFF;
+  border: 2px solid #153243;
+  border-radius: 50%;
+  color: #153243;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 40px;
+  padding: 0px;
+  width: 40px;
+}
+
+.v-dream__size-selector--unavailable {
+  .v-dream__size-selector;
+  border: 2px solid darken(#fff, 40%);
+  color: darken(#fff, 40%);
+  //background-color: darken(#fff, 5%);
+}
+
+.v-dream__selector-section {
+  margin-top: 1.5em;
+  padding: 0.75em 0em;
+  transition: background-color 0.2s;
+}
+
+.v-dream__selector-row {
+   & + & {
+    margin-top: 0.75em;
+  }
+}
+
+.v-dream__selector__title {
+  font-size: 18px;
+  font-style: italic;
+  color: #153243;
+}
+.v-dream__color-selector {
+  .v-clean-btn;
+  .v-no-outlines;
+  .v-unselectable;
+  border: 2px solid #153243;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+  transition: box-shadow 0.25s;
+
+  &:nth-child(1) {
+    background-color: #153243;
+  }
+
+  .v-dream__color-selector:active {
+    box-shadow: inset 0px 0px 0px 8px darken(#fff, 10%);
+    transition: box-shadow 0.25s, border-color 0.25s;
+  }
+
+  .v-dream__checkout-button:active {
+    box-shadow: none;
+    margin: 2px 0px -2px 2px;
+    //transition: margin 0.1s;
+  }
+
+  &:nth-child(2) {
+    background-color: #fff;
+  }
+
+  &:nth-child(3) {
+    background-color: #000;
+  }
+}
+.v-dream__selector-section__alert-text {
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  padding: 0px;
+}

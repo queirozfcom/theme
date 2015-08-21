@@ -38,7 +38,8 @@ module.exports = {
     'sdk': 'storefront.sdk',
     'react': 'React',
     'react-router': 'ReactRouter',
-    intl: 'Intl',
+    'lodash': 'lodash',
+    'intl': 'Intl',
     'react-intl': 'ReactIntl'
   },
 

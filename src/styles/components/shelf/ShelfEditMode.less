@@ -1,23 +1,21 @@
-@import "../../base/base";
-@import "./Shelf.less";
-@import "./Product.less";
 
-.v-arrow-icon--edit {
-  .v-arrow-icon;
-  stroke: darken(#fff, 40%);
+.v-shelf-ed__placeholder {
+  outline: 2px solid red;
+  outline-offset: -2px;
+  position: relative;
+  box-shadow: inset 0px 0px 20px 1px fadeout(#444, 40%);
 }
 
-.v-shelf-ed__product-price {
-  .v-shelf__product-price;
-  color: darken(#fff, 40%);
-}
-
-.v-shelf-ed__product-title, {
-  .v-shelf__product-title;
-  color: darken(#fff, 40%);
-}
-
-.v-shelf__product-btn__placeholder {
-  .v-shelf__product-btn;
-  background-color: darken(#fff, 60%);
+.v-shelf-ed__component-name {
+  font-family: Arial;
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #e74c3c;
+  padding: 5px;
+  border-radius: 0 0 5px 0;
 }

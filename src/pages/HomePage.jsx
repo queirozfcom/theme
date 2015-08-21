@@ -1,5 +1,6 @@
-import { connectToStores, dispatcher } from 'sdk';
 import React from 'react';
+import { dispatcher, connectToStores } from 'sdk';
+import { State } from 'react-router';
 import Banner from 'components/banner/Banner';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
@@ -10,25 +11,29 @@ import 'styles/pages/HomePage.less';
 
 @connectToStores([
   dispatcher.stores.SettingsStore,
-  dispatcher.stores.SearchStore,
-  dispatcher.stores.ShopStore
+  dispatcher.stores.EditorStore
 ])
 class HomePage extends React.Component {
+  static contextTypes = State.contextTypes
+
+  componentWillMount() {
+    if (!dispatcher.stores.ResourceStore.getResources('home')) {
+      dispatcher.actions.ResourceActions.getRouteResources('home');
+    }
+  }
+
   render() {
     const SettingsStore = this.props.SettingsStore;
     let bannerSettings = SettingsStore.getIn(['home', 'home-banner', 'settings']);
-    bannerSettings = bannerSettings ? bannerSettings.toJS() : bannerSettings;
     let shelf1Settings = SettingsStore.getIn(['home', 'home-shelf-1', 'settings']);
-    shelf1Settings = shelf1Settings ? shelf1Settings.toJS() : shelf1Settings;
     let shelf2Settings = SettingsStore.getIn(['home', 'home-shelf-2', 'settings']);
-    shelf2Settings = shelf2Settings ? shelf2Settings.toJS() : shelf2Settings;
 
     return (
       <div>
         <Header/>
-        <Banner {...bannerSettings}/>
-        <Shelf {...shelf1Settings} id="home-shelf-1" route="home"/>
-        <Shelf {...shelf2Settings} id="home-shelf-2" route="home"/>
+        <Banner id="home-banner" route="home" settings={bannerSettings} EditorStore={this.props.EditorStore}/>
+        <Shelf id="home-shelf-1" route="home" settings={shelf1Settings} EditorStore={this.props.EditorStore}/>
+        <Shelf id="home-shelf-2" route="home" settings={shelf2Settings} EditorStore={this.props.EditorStore}/>
         <Policies/>
         <Newsletter/>
         <Footer/>
