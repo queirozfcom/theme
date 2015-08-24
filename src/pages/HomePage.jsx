@@ -17,13 +17,15 @@ class HomePage extends React.Component {
   static contextTypes = State.contextTypes
 
   componentWillMount() {
-    if (!dispatcher.stores.ResourceStore.getResources('home')) {
-      dispatcher.actions.ResourceActions.getRouteResources('home');
+    let currentURL = (window.location.pathname + window.location.search);
+    if (!dispatcher.stores.ResourceStore.getState().get(currentURL)) {
+      dispatcher.actions.ResourceActions.getRouteResources(currentURL, 'home');
     }
   }
 
   render() {
     const SettingsStore = this.props.SettingsStore;
+
     let bannerSettings = SettingsStore.getIn(['home', 'home-banner', 'settings']);
     let shelf1Settings = SettingsStore.getIn(['home', 'home-shelf-1', 'settings']);
     let shelf2Settings = SettingsStore.getIn(['home', 'home-shelf-2', 'settings']);

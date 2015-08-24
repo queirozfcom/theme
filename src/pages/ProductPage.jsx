@@ -25,8 +25,9 @@ class ProductPage extends React.Component {
       slug: slug
     };
 
-    if (!dispatcher.stores.ResourceStore.getResources('product', params)) {
-      dispatcher.actions.ResourceActions.getRouteResources('product', params);
+    let currentURL = (window.location.pathname + window.location.search);
+    if (!dispatcher.stores.ResourceStore.getState().get(currentURL)) {
+      dispatcher.actions.ResourceActions.getRouteResources(currentURL, 'product', params);
     }
   }
 
