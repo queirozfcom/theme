@@ -1,4 +1,4 @@
-import { dispatcher, hashRoute } from 'sdk';
+import { dispatcher } from 'sdk';
 import React from 'react';
 import Product from './Product';
 import 'styles/components/shelf/Shelf.less';
@@ -39,11 +39,9 @@ class ShelfSlider extends React.Component {
       return;
     }
 
-    let search = this._getSearch(this.props);
-    let hash = hashRoute('search', search);
-
-    if (!this.props.SearchStore.get(hash)) {
-      search.$id = hash;
+    if (!this.props.SearchStore.get(this.props.id)) {
+      let search = this._getSearch(this.props);
+      search.$id = this.props.id;
       dispatcher.actions.SearchActions.requestSearch(search);
     }
   }
@@ -53,11 +51,9 @@ class ShelfSlider extends React.Component {
       return;
     }
 
-    let search = this._getSearch(nextProps);
-    let hash = hashRoute('search', search);
-
-    if (!nextProps.SearchStore.get(hash)) {
-      search.$id = hash;
+    if (!this.props.SearchStore.get(this.props.id)) {
+      let search = this._getSearch(this.props);
+      search.$id = this.props.id;
       dispatcher.actions.SearchActions.requestSearch(search);
     }
   }
@@ -66,16 +62,10 @@ class ShelfSlider extends React.Component {
     let products;
     let title = this.props.settings.get('title');
 
-    let search = {
-      category: this.props.settings.get('category'),
-      pageSize: this.props.settings.get('quantity')
-    };
-
-    let hash = hashRoute('search', search);
     // If there is results for the query at the SearchStore
-    if (this.props.SearchStore.getIn([hash, 'results'])) {
+    if (this.props.SearchStore.getIn([this.props.id, 'results'])) {
       // Get the results
-      let productsIds = this.props.SearchStore.getIn([hash, 'results']);
+      let productsIds = this.props.SearchStore.getIn([this.props.id, 'results']);
       // Get the products in ProductStore
       products = dispatcher.stores.ProductStore.getProducts(productsIds);
     }
