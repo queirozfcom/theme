@@ -1,6 +1,5 @@
 import React from 'react';
-import includes from 'lodash/collection/includes';
-import keys from 'lodash/object/keys';
+import { includes, keys } from 'lodash';
 import style from 'styles/components/utils/SVGIcon.less' // eslint-disable-line
 
 const cleanups = {
