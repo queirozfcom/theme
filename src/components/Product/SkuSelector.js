@@ -3,9 +3,10 @@ import SelectVariation from './SelectVariation';
 import './SkuSelector.less';
 
 class SkuSelector extends React.Component {
-    static defaultProps = {
+    state = {
+      selectedVariation: false,
       selectedSku: null,
-      validationError: false
+      validationError: true
     }
 
   // static propTypes = {
