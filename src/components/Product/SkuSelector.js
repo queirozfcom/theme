@@ -2,39 +2,16 @@ import React from 'react';
 import SelectVariation from './SelectVariation';
 import './SkuSelector.less';
 
-let mock = {
-  name: 'Short Balneário',
-  skus: [
-    {
-      id: 111,
-      tamanho: 'PP',
-      availability: 100
-    },
-    {
-      id: 222,
-      tamanho: 'P',
-      availability: 0
-    },
-    {
-      id: 333,
-      tamanho: 'M',
-      availability: 203
-    },
-    {
-      id: 444,
-      tamanho: 'G',
-      availability: 2
-    }
-  ]
-};
-
 class SkuSelector extends React.Component {
-  static defaultProps = {
-    name: mock.name,
-    skus: mock.skus,
-    selectedSku: null,
-    validationError: false
-  }
+    static defaultProps = {
+      selectedSku: null,
+      validationError: false
+    }
+
+  // static propTypes = {
+  //   value: React.PropTypes.number.isRequired,
+  //   ShopStore: React.PropTypes.object.isRequired
+  // }
 
   render() {
     let classes = 'v-dream__selector-section col-xs-12';
