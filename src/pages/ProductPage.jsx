@@ -20,13 +20,12 @@ class ProductPage extends React.Component {
       contentEl.scrollTop = 0;
     }
 
-    let slug = this.context.router.getCurrentParams().slug;
-    let params = {
-      slug: slug
-    };
-
     let currentURL = (window.location.pathname + window.location.search);
     if (!dispatcher.stores.ResourceStore.getState().get(currentURL)) {
+      let slug = this.context.router.getCurrentParams().slug;
+      let params = {
+        slug: slug
+      };
       dispatcher.actions.ResourceActions.getRouteResources(currentURL, 'product', params);
     }
   }
