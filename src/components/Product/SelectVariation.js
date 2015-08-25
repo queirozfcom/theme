@@ -14,37 +14,25 @@ class SelectVariation extends React.Component {
       return null;
     }
 
-    let getSkuGroups = function(skus, facet = 0) {
-      let grupo = {};
-
-      each(skus, function(sku) {
-        let chave = sku.properties[facet].facet.values[0];
-
-        try {
-          grupo[chave].push(sku);
-        } catch(error) {
-          grupo[chave] = [sku];
-        }
-      });
-
-      return grupo;
-    };
-
-    console.log(getSkuGroups(this.props.skus));
-    console.log(getSkuGroups(getSkuGroups(this.props.skus).PP, 1));
-
-    let groups = getSkuGroups(this.props.skus);
+    let groups = this.props.getSkuGroups(this.props.skus, 0);
     return (
       <div className="col-xs-12">
         <h3 className="v-dream__selector__title col-xs-11">Selecione o {this.props.variation}:</h3>
         <div className="v-dream__size-selector__wrapper col-xs-11">
-        {Object.keys(groups).map(function(group) {
-          return (
-            <div key={group}>
-              <VariationButton skus={groups[group]} value={group} getSkuGroups={getSkuGroups} />
-            </div>
-          );
-        })}
+          {
+            Object.keys(groups).map((group) => {
+              let isActive = false;
+              if (group === this.props.selectedVariation) {
+                isActive = true;
+              }
+              return (
+                <div key={group}>
+                  <VariationButton skus={groups[group]} value={group} changeVariationState={this.props.changeVariationState}
+                                   getSkuGroups={this.props.getSkuGroups} isActive={isActive} />
+                </div>
+              );
+            })
+          }
         </div>
       </div>
     );

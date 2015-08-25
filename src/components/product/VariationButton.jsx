@@ -1,12 +1,8 @@
 import React from 'react';
 
 class VariationButton extends React.Component {
-  state = {
-    isActive: false
-  }
-
-  changeAvailability(availability, isActive) {
-    if (availability > 0) {
+  changeAvailability(skus, isActive) {
+    if (skus[0].offers[0].availability > 0) { //checa a availability de skus da variation "groups", não de um sku especifico
       if(isActive)
         return 'v-dream__size-selector--active ';
       return 'v-dream__size-selector';
@@ -14,21 +10,16 @@ class VariationButton extends React.Component {
     return 'v-dream__size-selector--unavailable';
   }
 
-  changeState(sku) {
-    return () => {
-      this.setState({isActive: !this.state.isActive});
-      console.log(sku.tamanho + ' selecionado'); //imprime todos os skus, mesmo sem selecionar nada
-      console.log(this.props.getSkuGroups(this.props.skus, 1));
-    }
+  changeState = () => {
+    this.props.changeVariationState(this.props.value);
   }
 
   render() {
-    let isActive = this.state.isActive;
-    let sku = this.props.skus[0]; //availability somente do primeiro sku
-    console.log(this.state.isActive);
+    let isActive = this.props.isActive;
+    let skus = this.props.skus;
 
     return (
-      <button className={ this.changeAvailability(sku.offers[0].availability, isActive) + ' col-xs-2' } onTouchTap={this.changeState(sku)}>
+      <button className={ this.changeAvailability(skus, isActive) + ' col-xs-2' } onTouchTap={this.changeState}>
         { this.props.value }
       </button>
     );
