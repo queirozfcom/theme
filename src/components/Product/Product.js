@@ -21,12 +21,12 @@ class Product extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-11">
+          <div className="col-xs-11 col-xs-offset-1">
             <h2 className="v-product__title">{name}</h2>
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector/>
+        <SkuSelector skus={this.props.skus}/>
         <AddToCartButton skuId={defaultSku.id} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
