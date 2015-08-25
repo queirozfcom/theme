@@ -16,23 +16,20 @@ class VariationButton extends React.Component {
 
   changeState(sku) {
     return () => {
-      console.log(this.state.isActive);
       this.setState({isActive: !this.state.isActive});
       console.log(sku.tamanho + ' selecionado'); //imprime todos os skus, mesmo sem selecionar nada
-
+      console.log(this.props.getSkuGroups(this.props.skus, 1));
     }
   }
 
-
   render() {
     let isActive = this.state.isActive;
-    let sku = this.props.sku;
+    let sku = this.props.skus[0]; //availability somente do primeiro sku
     console.log(this.state.isActive);
 
-
     return (
-      <button className={ this.changeAvailability(sku.availability, isActive) + ' col-xs-2' } onTouchTap={this.changeState(sku)}>
-        { sku[this.props.variation] }
+      <button className={ this.changeAvailability(sku.offers[0].availability, isActive) + ' col-xs-2' } onTouchTap={this.changeState(sku)}>
+        { this.props.value }
       </button>
     );
   }
