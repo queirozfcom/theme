@@ -17,7 +17,7 @@ class SelectVariation extends React.Component {
     let groups = this.props.getSkuGroups(this.props.skus, 0);
     return (
       <div className="col-xs-12">
-        <h3 className="v-dream__selector__title col-xs-11">Selecione o {this.props.variation}:</h3>
+        <h3 className="v-dream__selector__title col-xs-11">{this.props.variation}:</h3>
         <div className="v-dream__size-selector__wrapper col-xs-11">
           {
             Object.keys(groups).map((group) => {
