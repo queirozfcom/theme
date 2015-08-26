@@ -44,7 +44,7 @@ class SkuSelector extends React.Component {
       <div className="row">
         <div id="selector" className={classes}>
           <div className="v-dream__selector-row row-fluid">
-            <SelectVariation skus={this.props.skus} variation={variation} selectedVariation={this.props.selectedVariation}
+            <SelectVariation skus={this.props.skus} variation={variation} displayAlert={this.props.displayAlert} selectedVariation={this.props.selectedVariation}
                              getSkuGroups={this.getSkuGroups} changeVariationState={this.props.changeVariationState}/>
           </div>
             { this.props.validationError ?
