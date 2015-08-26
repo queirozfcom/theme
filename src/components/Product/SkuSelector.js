@@ -31,7 +31,6 @@ class SkuSelector extends React.Component {
     let classes = 'v-dream__selector-section col-xs-12';
     classes = this.props.validationError ? ('v-dream__selector-section--highlight ' + classes) : classes;
     let variation = this.props.skus[0].properties[0].facet.name;
-
     // let levels = {};
     // for (let i = 0, x = this.props.skus.properties.length; i < x; i++) {
     //   this.props.skus.properties[i].forEach((facet) => {
