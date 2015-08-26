@@ -1,15 +1,10 @@
 import { dispatcher } from 'sdk';
-import App from './App';
 import HomePage from 'pages/HomePage';
 import ProductPage from 'pages/ProductPage';
 
 const appSuffix = '@vtex.storefront-theme';
 
 let components = [
-  {
-    name: 'App',
-    constructor: App
-  },
   {
     name: 'HomePage' + appSuffix,
     constructor: HomePage
