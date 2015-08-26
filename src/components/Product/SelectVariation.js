@@ -28,7 +28,7 @@ class SelectVariation extends React.Component {
               return (
                 <div key={group}>
                   <VariationButton skus={groups[group]} value={group} changeVariationState={this.props.changeVariationState}
-                                   getSkuGroups={this.props.getSkuGroups} isActive={isActive} />
+                                   getSkuGroups={this.props.getSkuGroups} isActive={isActive}/>
                 </div>
               );
             })

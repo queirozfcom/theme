@@ -7,6 +7,29 @@ import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCa
 import ProductDescription from  './ProductDescription';
 
 class Product extends React.Component {
+  state = {
+    selectedVariation: null,
+    selectedSku: null,
+    validationError: false
+
+  }
+
+  changeVariationState = (activeVar) => {
+    if (activeVar === this.state.selectedVariation) {
+      this.setState({selectedVariation: null});
+    } else {
+      this.setState({selectedVariation: activeVar});
+    }
+  }
+
+  displayAlert = () => {
+    console.log('display alert');
+    if(this.props.selectedVariation === null)
+      this.setState({validationError: true});
+    this.setState({validationError: false});
+  }
+
+
   render() {
     let defaultSku = this.props.skus[0];
     let name = this.props.name;

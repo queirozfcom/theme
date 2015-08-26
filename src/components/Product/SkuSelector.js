@@ -3,24 +3,11 @@ import SelectVariation from './SelectVariation';
 import './SkuSelector.less';
 
 class SkuSelector extends React.Component {
-    state = {
-      selectedVariation: false,
-      selectedSku: null,
-      validationError: true
-    }
 
   // static propTypes = {
   //   value: React.PropTypes.number.isRequired,
   //   ShopStore: React.PropTypes.object.isRequired
   // }
-
-  changeVariationState = (activeVar) => {
-    if (activeVar === this.state.selectedVariation) {
-      this.setState({selectedVariation: null});
-    } else {
-      this.setState({selectedVariation: activeVar});
-    }
-  }
 
   getSkuGroups(skus, facetLevel) {
     let group = {};
