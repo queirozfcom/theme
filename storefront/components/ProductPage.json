@@ -14,6 +14,6 @@
     "editor/storefront-theme.js"
   ],
   "exports": {
-    "product": "{{ route.params.slug }}"
+    "product": "{{ route.slug }}"
   }
 }
