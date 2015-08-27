@@ -17,8 +17,10 @@ class Product extends React.Component {
   changeVariationState = (activeVar) => {
     if (activeVar === this.state.selectedVariation) {
       this.setState({selectedVariation: null});
+      this.setState({validationError: true});
     } else {
       this.setState({selectedVariation: activeVar});
+      this.setState({validationError: false});
     }
   }
 
@@ -51,8 +53,9 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={this.props.skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation} validationError={this.state.validationError}/>
-        <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert}/>
+        <SkuSelector skus={this.props.skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
+                                            displayAlert={this.displayAlert.bind(this)} validationError={this.state.validationError}/>
+        <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
       </div>
     );
