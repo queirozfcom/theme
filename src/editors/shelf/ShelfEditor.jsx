@@ -7,10 +7,6 @@ class ShelfEditor extends React.Component {
     title: 'Prateleira'
   }
 
-  static defaultProps = {
-    ShopStore: dispatcher.stores.ShopStore.getState()
-  }
-
   constructor(props) {
     super(props);
 
@@ -31,7 +27,7 @@ class ShelfEditor extends React.Component {
 
   saveSettings() {
     dispatcher.actions.ResourceActions.saveSettings({
-      accountName: this.props.ShopStore.get('accountName'),
+      accountName: dispatcher.stores.ContextStore.getState().get('accountName'),
       route: this.props.route,
       component: 'Shelf@vtex.storefront-theme',
       id: this.props.id,

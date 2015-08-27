@@ -7,10 +7,6 @@ import arrowLeftIcon from 'assets/icons/arrow-left.svg';
 import arrowRightIcon from 'assets/icons/arrow-right.svg';
 
 class ShelfSlider extends React.Component {
-  static defaultProps = {
-    ShopStore: dispatcher.stores.ShopStore.getState()
-  }
-
   state = {
     currentProductVisible: 0
   }

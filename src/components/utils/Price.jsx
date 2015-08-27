@@ -4,16 +4,16 @@ import { FormattedNumber } from 'react-intl';
 
 class Price extends React.Component {
   static defaultProps = {
-    ShopStore: dispatcher.stores.ShopStore.getState()
+    ContextStore: dispatcher.stores.ContextStore.getState()
   }
 
   static propTypes = {
     value: React.PropTypes.number.isRequired,
-    ShopStore: React.PropTypes.object.isRequired
+    ContextStore: React.PropTypes.object.isRequired
   }
 
   render() {
-    let currency = this.props.ShopStore.get('currency');
+    let currency = this.props.ContextStore.getIn(['culture' ,'currency']);
 
     return (
       <FormattedNumber style="currency" value={this.props.value} currency={currency} />

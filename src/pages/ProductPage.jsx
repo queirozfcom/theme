@@ -1,6 +1,5 @@
 import React from 'react';
 import { dispatcher, connectToStores } from 'sdk';
-import { State } from 'react-router';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import Newsletter from 'components/newsletter/Newsletter';
@@ -11,8 +10,6 @@ import Product from 'components/product/Product';
   dispatcher.stores.ProductStore
 ])
 class ProductPage extends React.Component {
-  static contextTypes = State.contextTypes
-
   componentWillMount() {
     // TODO fix scroll behavior
     var contentEl = document.getElementsByClassName('v-editor__app-container')[0];
@@ -22,7 +19,7 @@ class ProductPage extends React.Component {
 
     let currentURL = (window.location.pathname + window.location.search);
     if (!dispatcher.stores.ResourceStore.getState().get(currentURL)) {
-      let slug = this.context.router.getCurrentParams().slug;
+      let slug = dispatcher.stores.ContextStore.getState().getIn(['route', 'params', 'slug']);
       let params = {
         slug: slug
       };
@@ -31,7 +28,7 @@ class ProductPage extends React.Component {
   }
 
   render() {
-    let slug = this.context.router.getCurrentParams().slug;
+    let slug = dispatcher.stores.ContextStore.getState().getIn(['route', 'params', 'slug']);
     let productData = this.props.ProductStore.get(slug);
 
     return (

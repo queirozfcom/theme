@@ -1,6 +1,5 @@
 import React from 'react';
 import { dispatcher, connectToStores } from 'sdk';
-import { State } from 'react-router';
 import Banner from 'components/banner/Banner';
 import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
@@ -14,8 +13,6 @@ import 'styles/pages/HomePage.less';
   dispatcher.stores.EditorStore
 ])
 class HomePage extends React.Component {
-  static contextTypes = State.contextTypes
-
   componentWillMount() {
     let currentURL = (window.location.pathname + window.location.search);
     if (!dispatcher.stores.ResourceStore.getState().get(currentURL)) {

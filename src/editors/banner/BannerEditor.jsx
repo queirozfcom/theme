@@ -5,7 +5,6 @@ import BannerImage from 'components/banner/BannerImage';
 import BannerPlaceholder from 'editors/banner/BannerPlaceholder';
 
 @connectToStores([
-  dispatcher.stores.ShopStore,
   dispatcher.stores.SettingsStore
 ])
 class BannerEditor extends React.Component {
@@ -38,7 +37,7 @@ class BannerEditor extends React.Component {
 
   handleSave = () => {
     dispatcher.actions.ResourceActions.saveSettings({
-      accountName: this.props.ShopStore.get('accountName'),
+      accountName: dispatcher.stores.ContextStore.getState().get('accountName'),
       route: this.props.route,
       component: 'Banner@vtex.storefront-theme',
       id: this.props.id,
