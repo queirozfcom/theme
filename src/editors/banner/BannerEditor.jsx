@@ -10,12 +10,12 @@ import BannerPlaceholder from 'editors/banner/BannerPlaceholder';
 class BannerEditor extends React.Component {
   constructor(props) {
     super(props);
-    let config = props.SettingsStore.getIn([this.props.route, this.props.id, 'settings']);
 
+    let settings = this.props.settings;
     this.state = {
-      imageUrl: config ? config.get('imageUrl') : null,
-      link: config ? config.get('link') : null,
-      altText: config ? config.get('altText') : null
+      imageUrl: settings ? settings.get('imageUrl') : null,
+      link: settings ? settings.get('link') : null,
+      altText: settings ? settings.get('altText') : null
     };
   }
 
@@ -32,14 +32,7 @@ class BannerEditor extends React.Component {
   }
 
   handleSave = () => {
-    dispatcher.actions.ResourceActions.saveSettings({
-      accountName: dispatcher.stores.ContextStore.getState().get('accountName'),
-      route: this.props.route,
-      component: 'Banner@vtex.storefront-theme',
-      id: this.props.id,
-      settings: this.state
-    });
-    dispatcher.actions.EditorActions.closeEditor();
+    this.props.saveSettings(this.state);
   }
 
   onTouchBannerLink = (e) => {
@@ -84,7 +77,7 @@ class BannerEditor extends React.Component {
             </div>
           </form>
         </div>
-        <ActionBar onSave={this.handleSave}/>
+        <ActionBar onSave={this.handleSave.bind(this)}/>
       </div>
     );
   }

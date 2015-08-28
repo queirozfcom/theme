@@ -6,7 +6,7 @@ class ShelfEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    let settings = dispatcher.stores.SettingsStore.getState().getIn([this.props.route, this.props.id, 'settings']);
+    let settings = this.props.settings;
     if (settings) {
       this.state = settings.toJS();
     } else {
@@ -21,23 +21,16 @@ class ShelfEditor extends React.Component {
   maxQuantity = 6
   minQuantity = 1
 
-  saveSettings() {
-    dispatcher.actions.ResourceActions.saveSettings({
-      accountName: dispatcher.stores.ContextStore.getState().get('accountName'),
-      route: this.props.route,
-      component: 'Shelf@vtex.storefront-theme',
-      id: this.props.id,
-      settings: this.state
-    });
-    dispatcher.actions.EditorActions.closeEditor();
+  saveSettings = () => {
+    this.props.saveSettings(this.state);
   }
 
-  handleSubmit(ev) {
+  handleSubmit = (ev) => {
     ev.preventDefault();
     this.handleSave(ev);
   }
 
-  handleSave(ev) {
+  handleSave = (ev) => {
     ev.preventDefault();
     this.saveSettings();
   }
