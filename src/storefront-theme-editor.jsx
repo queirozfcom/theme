@@ -4,11 +4,11 @@ import BannerEditor from 'editors/banner/BannerEditor';
 
 let components = [
   {
-    name: 'ShelfEditor',
+    name: 'ShelfEditor@vtex.storefront-theme',
     constructor: ShelfEditor
   },
   {
-    name: 'BannerEditor',
+    name: 'BannerEditor@vtex.storefront-theme',
     constructor: BannerEditor
   }
 ];

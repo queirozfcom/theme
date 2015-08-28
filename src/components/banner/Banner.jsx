@@ -6,7 +6,8 @@ import BannerImage from './BannerImage';
 @editable(dispatcher)
 class Banner extends React.Component {
   static storefront = {
-    name: 'Banner'
+    name: 'Banner@vtex.storefront-theme',
+    title: 'Banner'
   }
 
   render() {

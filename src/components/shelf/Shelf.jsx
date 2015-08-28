@@ -10,7 +10,8 @@ import ShelfSlider from './ShelfSlider';
 ])
 class Shelf extends React.Component {
   static storefront = {
-    name: 'Shelf'
+    name: 'Shelf@vtex.storefront-theme',
+    title: 'Shelf'
   }
 
   render() {

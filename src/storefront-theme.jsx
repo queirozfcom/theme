@@ -1,6 +1,8 @@
 import { dispatcher } from 'sdk';
 import HomePage from 'pages/HomePage';
 import ProductPage from 'pages/ProductPage';
+import Banner from 'components/banner/Banner';
+import Shelf from 'components/shelf/Shelf';
 
 const appSuffix = '@vtex.storefront-theme';
 
@@ -12,6 +14,14 @@ let components = [
   {
     name: 'ProductPage' + appSuffix,
     constructor: ProductPage
+  },
+  {
+    name: 'Banner' + appSuffix,
+    constructor: Banner
+  },
+  {
+    name: 'Shelf' + appSuffix,
+    constructor: Shelf
   }
 ];
 

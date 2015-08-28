@@ -3,10 +3,6 @@ import { dispatcher } from 'sdk';
 import style from '../../styles/components/shelf/ShelfEditor.less'; //eslint-disable-line
 
 class ShelfEditor extends React.Component {
-  static storefront = {
-    title: 'Prateleira'
-  }
-
   constructor(props) {
     super(props);
 
