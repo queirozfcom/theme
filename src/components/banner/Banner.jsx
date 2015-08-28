@@ -1,16 +1,14 @@
 import React from 'react';
-import { dispatcher, connectToStores, editable } from 'sdk';
+import { dispatcher, editable } from 'sdk';
 import style from 'styles/components/banner/Banner.less'; // eslint-disable-line
 import BannerImage from './BannerImage';
 
-@connectToStores([
-  dispatcher.stores.SettingsStore,
-  dispatcher.stores.ComponentStore,
-  dispatcher.stores.EditorStore
-])
+@editable(dispatcher)
 class Banner extends React.Component {
+  static storefront = {
+    name: 'Banner'
+  }
 
-  @editable
   render() {
     let imageUrl, link, altText;
     if (this.props.settings) {

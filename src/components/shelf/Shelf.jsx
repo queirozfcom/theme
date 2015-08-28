@@ -4,12 +4,15 @@ import 'styles/components/shelf/Shelf.less';
 import ShelfPlaceholder from './ShelfPlaceholder';
 import ShelfSlider from './ShelfSlider';
 
+@editable(dispatcher)
 @connectToStores([
-  dispatcher.stores.SearchStore,
-  dispatcher.stores.ComponentStore
+  dispatcher.stores.SearchStore
 ])
 class Shelf extends React.Component {
-  @editable
+  static storefront = {
+    name: 'Shelf'
+  }
+
   render() {
     if (!this.props.settings) {
       return (
