@@ -1,5 +1,4 @@
 import React from 'react';
-import { dispatcher } from 'sdk';
 import style from '../../styles/components/shelf/ShelfEditor.less'; //eslint-disable-line
 
 class ShelfEditor extends React.Component {
