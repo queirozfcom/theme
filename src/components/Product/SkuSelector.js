@@ -26,29 +26,20 @@ class SkuSelector extends React.Component {
   }
 
   render() {
-    // console.log(this.props.selectedVariation + ' eh o estado do pai');
-
     let classes = 'v-dream__selector-section col-xs-12';
     classes = this.props.validationError ? ('v-dream__selector-section--highlight ' + classes) : classes;
     let variation = this.props.skus[0].properties[0].facet.name;
-    // let levels = {};
-    // for (let i = 0, x = this.props.skus.properties.length; i < x; i++) {
-    //   this.props.skus.properties[i].forEach((facet) => {
-    //     let key = levels[i.toString()];
-    //
-    //   });
-    // }
 
     return (
       <div className="row">
         <div id="selector" className={classes}>
           <div className="v-dream__selector-row row-fluid">
-            <SelectVariation skus={this.props.skus} variation={variation} displayAlert={this.props.displayAlert} selectedVariation={this.props.selectedVariation}
+            <SelectVariation skus={this.props.skus} variation={variation} selectedVariation={this.props.selectedVariation}
                              getSkuGroups={this.getSkuGroups} changeVariationState={this.props.changeVariationState}/>
           </div>
             { this.props.validationError ?
               <div className="row-fluid">
-                <p className="col-xs-offset-1 col-xs-10 v-dream__selector-section__alert-text">Escolha uma opção para adicionar o produto ao carrinho.</p>
+                <p className="col-xs-offset-1 col-xs-10 v-dream__selector-section__alert-text">Escolha uma opção disponível para adicionar o produto ao carrinho.</p>
               </div>
               : null}
         </div>

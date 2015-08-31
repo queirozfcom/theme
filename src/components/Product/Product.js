@@ -11,7 +11,6 @@ class Product extends React.Component {
     selectedVariation: null,
     selectedSku: null,
     validationError: false
-
   }
 
   changeVariationState = (activeVar) => {
@@ -54,7 +53,7 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector skus={this.props.skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
-                                            displayAlert={this.displayAlert.bind(this)} validationError={this.state.validationError}/>
+                                            displayAlert={this.displayAlert} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
       </div>

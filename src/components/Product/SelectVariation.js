@@ -2,6 +2,12 @@ import React from 'react';
 import VariationButton from './VariationButton';
 
 class SelectVariation extends React.Component {
+
+  getVariationKey(i) {
+      let sortOrder = ['PP','P','M', 'G', 'GG'];
+      return sortOrder[i];
+  }
+
   changeAvailability(availability) {
     if (availability > 0) {
       return 'v-dream__size-selector';
@@ -13,7 +19,7 @@ class SelectVariation extends React.Component {
     if (this.props.skus.length <= 1) {
       return null;
     }
-
+    let i=0;
     let groups = this.props.getSkuGroups(this.props.skus, 0);
     return (
       <div className="col-xs-12">
@@ -25,11 +31,13 @@ class SelectVariation extends React.Component {
               if (group === this.props.selectedVariation) {
                 isActive = true;
               }
-              return (
-                <div key={group}>
-                  <VariationButton skus={groups[group]} value={group}  displayAlert={this.props.displayAlert} changeVariationState={this.props.changeVariationState}
-                                   getSkuGroups={this.props.getSkuGroups} isActive={isActive}/>
-                </div>
+              let variationKey = this.getVariationKey(i);
+              i++;
+                return (
+                  <div key={variationKey}>
+                    <VariationButton skus={groups[variationKey]} value={variationKey}  displayAlert={this.props.displayAlert} changeVariationState={this.props.changeVariationState}
+                                     getSkuGroups={this.props.getSkuGroups} isActive={isActive}/>
+                  </div>
               );
             })
           }
