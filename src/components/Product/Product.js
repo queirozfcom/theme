@@ -24,7 +24,6 @@ class Product extends React.Component {
   }
 
   displayAlert = () => {
-    console.log('display alert');
     if (this.state.selectedVariation === null) {
       this.setState({validationError: true});
     } else {
