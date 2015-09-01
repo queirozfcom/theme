@@ -9,20 +9,22 @@ class SkuSelector extends React.Component {
   //   ShopStore: React.PropTypes.object.isRequired
   // }
 
-  getSkuGroups(skus, facetLevel) {
-    let group = {};
+  getSkuVariations(skus) {
+    let facetLevel = 0;
+    let variations = [];
 
     skus.forEach(function(sku) {
-      let key = sku.properties[facetLevel].facet.values[0];
 
-      if (Array.isArray(group[key])) {
-        group[key].push(sku);
+      if (Array.isArray(variations)) {
+        if(variations.indexOf(sku.properties[facetLevel].facet.values[0]) === -1) {
+          variations.push(sku.properties[facetLevel].facet.values[0]);
+        }
       } else {
-        group[key] = [sku];
+        variations[0] = (sku.properties[facetLevel].facet.values[0]);
       }
     });
-
-    return group;
+    console.log(variations);
+    return variations;
   }
 
   render() {
