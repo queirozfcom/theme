@@ -8,12 +8,12 @@ class Checkout extends React.Component {
   }
 
   render() {
-    //let addUrl = `/checkout/cart/add?sku=${this.props.skuId}&qty=${this.props.quantity}&seller=${this.props.seller}&redirect=true&sc=1`;
-    
+    let addUrl = `/checkout/cart/add?sku=${this.props.skuId}&qty=${this.props.quantity}&seller=${this.props.seller}&redirect=true&sc=1`;
+
     return (
       <div className="row v-dream__checkout-wrapper">
         <div className="col-xs-12">
-          <a className="v-dream__checkout-button btn btn-block" onTouchTap={this.props.displayAlert}>Adicionar ao carrinho</a>
+          <a href={addUrl} className="v-dream__checkout-button btn btn-block" onTouchTap={this.props.displayAlert}>Adicionar ao carrinho</a>
         </div>
       </div>
     );

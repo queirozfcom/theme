@@ -2,7 +2,6 @@ import React from 'react';
 import VariationButton from './VariationButton';
 
 class SelectVariation extends React.Component {
-
   getVariationKey(i) {
       let sortOrder = ['PP','P','M', 'G', 'GG'];
       return sortOrder[i];
