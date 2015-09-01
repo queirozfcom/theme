@@ -23,6 +23,16 @@ class Product extends React.Component {
     }
   }
 
+  changeAvailability = (skus, isActive) => {
+    if (skus[0].offers[0].availability > 0) {
+      if(isActive)
+        return 'v-dream__size-selector--active ';
+      return 'v-dream__size-selector';
+    }
+    return 'v-dream__size-selector--unavailable';
+  }
+
+
   displayAlert = () => {
     if (this.state.selectedVariation === null) {
       this.setState({validationError: true});
@@ -52,7 +62,7 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector skus={this.props.skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
-                                            displayAlert={this.displayAlert} validationError={this.state.validationError}/>
+                                            changeAvailability={this.changeAvailability} displayAlert={this.displayAlert} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
       </div>

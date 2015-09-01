@@ -29,7 +29,8 @@ class SelectVariation extends React.Component {
           {
             Object.keys(variations).map((variation) => {
               let isActive = false;
-              if (group === this.props.selectedVariation) {
+              let variationKey = this.getVariationKey(i);
+              if (variationKey === this.props.selectedVariation) {
                 isActive = true;
               }
               let variationKey = this.getVariationKey(i);
@@ -37,7 +38,7 @@ class SelectVariation extends React.Component {
                 return (
                   <div key={variationKey}>
                     <VariationButton skus={groups[variationKey]} value={variationKey}  displayAlert={this.props.displayAlert} changeVariationState={this.props.changeVariationState}
-                                     getSkuGroups={this.props.getSkuGroups} isActive={isActive}/>
+                                     getSkuGroups={this.props.getSkuGroups} changeAvailability={this.props.changeAvailability} isActive={isActive}/>
                   </div>
               );
             })
@@ -49,3 +50,4 @@ class SelectVariation extends React.Component {
 }
 
 export default SelectVariation;
+ 
