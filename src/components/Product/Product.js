@@ -13,6 +13,31 @@ class Product extends React.Component {
     validationError: false
   }
 
+  getAllSkus = () => {
+    let allSkus = [];
+      this.props.skus.forEach(function(sku) {
+
+        if (Array.isArray(allSkus)) {
+            allSkus.push(sku);
+          } else {
+              allSkus[0] = (sku);
+            }
+      });
+      return allSkus;
+  }
+  //
+  // applySkuFilter = (facetLevel, variation) => {
+  //
+  // }
+
+  // addFacet = () => {
+  //
+  // }
+  //
+  // removeFacet = () => {
+  //
+  // }
+
   changeVariationState = (activeVar) => {
     if (activeVar === this.state.selectedVariation) {
       this.setState({selectedVariation: null});
@@ -47,6 +72,10 @@ class Product extends React.Component {
     let name = this.props.name;
     let imageUrl = defaultSku.images[0].src;
     let price = defaultSku.offers[0].price;
+    // let facets = []; para cada facet deste array, haverá uma chamada da função de applySkuFilter
+    let allSkus = this.getAllSkus();
+
+
 
     return (
       <div className="v-product container-fluid">

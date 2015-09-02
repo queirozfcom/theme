@@ -4,11 +4,6 @@ import './SkuSelector.less';
 
 class SkuSelector extends React.Component {
 
-  // static propTypes = {
-  //   value: React.PropTypes.number.isRequired,
-  //   ShopStore: React.PropTypes.object.isRequired
-  // }
-
   getSkuVariations(skus) {
     let facetLevel = 0;
     let variations = [];
