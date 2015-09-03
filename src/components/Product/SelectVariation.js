@@ -33,12 +33,11 @@ class SelectVariation extends React.Component {
               if (variationKey === this.props.selectedVariation) {
                 isActive = true;
               }
-              let variationKey = this.getVariationKey(i);
               i++;
                 return (
                   <div key={variationKey}>
-                    <VariationButton skus={groups[variationKey]} value={variationKey}  displayAlert={this.props.displayAlert} changeVariationState={this.props.changeVariationState}
-                                     getSkuGroups={this.props.getSkuGroups} changeAvailability={this.props.changeAvailability} isActive={isActive}/>
+                    <VariationButton skus={skus} value={variationKey} changeVariationState={this.props.changeVariationState}
+                                                 addFacet={this.props.addFacet} variationName={this.props.variationName} changeAvailability={this.props.changeAvailability} isActive={isActive}/>
                   </div>
               );
             })
@@ -50,4 +49,3 @@ class SelectVariation extends React.Component {
 }
 
 export default SelectVariation;
- 

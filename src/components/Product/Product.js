@@ -10,33 +10,53 @@ class Product extends React.Component {
   state = {
     selectedVariation: null,
     selectedSku: null,
-    validationError: false
+    validationError: false,
+    facets: []
   }
 
-  getAllSkus = () => {
-    let allSkus = [];
-      this.props.skus.forEach(function(sku) {
+  getSkuVariations = () => {
+    let facetLevel = 0; //criar uma função para gerar o facetIndex a partir do variationName
+    let skuVariation = [];
 
-        if (Array.isArray(allSkus)) {
-            allSkus.push(sku);
-          } else {
-              allSkus[0] = (sku);
-            }
-      });
-      return allSkus;
+    this.props.skus.forEach(function(sku) {
+        if(skuVariation.indexOf(sku.properties[facetLevel].facet.values[0]) === -1) {
+          skuVariation.push(sku.properties[facetLevel].facet.values[0]);
+        }
+    });
+    console.log(skuVariation);
+    return skuVariation;
   }
   //
   // applySkuFilter = (facetLevel, variation) => {
   //
   // }
 
-  // addFacet = () => {
+  addFacet = (variationName, variationValue) => {
+    this.state.facets.push({name: variationName, value: variationValue})
+    this.setState({
+      facets: this.state.facets
+    });
+  }
+
+  // removeFacet = (variationName, variationValue) => {
   //
   // }
-  //
-  // removeFacet = () => {
-  //
-  // }
+
+  filterSkus = (skus, facets) => {
+    let result = [];
+    skus.forEach((sku) => {
+      sku.properties.forEach((property)=> {
+        facets.forEach((facet)=>{
+          if(property.facet.name === facet.name) {
+            if(property.facet.values[0] === facet.value) {
+              result.push(sku);
+            }
+          }
+        })
+      })
+    });
+    return result;
+  }
 
   changeVariationState = (activeVar) => {
     if (activeVar === this.state.selectedVariation) {
@@ -57,7 +77,6 @@ class Product extends React.Component {
     return 'v-dream__size-selector--unavailable';
   }
 
-
   displayAlert = () => {
     if (this.state.selectedVariation === null) {
       this.setState({validationError: true});
@@ -66,15 +85,18 @@ class Product extends React.Component {
     }
   }
 
-
   render() {
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
     let imageUrl = defaultSku.images[0].src;
     let price = defaultSku.offers[0].price;
+    let skus = this.props.skus;
+    let skuVariation = this.getSkuVariations();
     // let facets = []; para cada facet deste array, haverá uma chamada da função de applySkuFilter
-    let allSkus = this.getAllSkus();
-
+    if (this.state.facets.length !== 0) {
+      skus = this.filterSkus(this.props.skus, this.state.facets);
+    }
+    //skus = this.applySkuFilter(0,'P', allSkus, skus);
 
 
     return (
@@ -90,8 +112,8 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={this.props.skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
-                                            changeAvailability={this.changeAvailability} displayAlert={this.displayAlert} validationError={this.state.validationError}/>
+        <SkuSelector skus={skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
+                                            skuVariation={skuVariation} addFacet={this.addFacet.bind(this)} changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
       </div>
