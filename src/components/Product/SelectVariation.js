@@ -19,12 +19,11 @@ class SelectVariation extends React.Component {
       return null;
     }
     let i=0;
-    let variations = this.props.getSkuVariations(this.props.skus);
-    console.log(variations);
+    let variations = this.props.skuVariation;
     let skus = this.props.skus;
     return (
       <div className="col-xs-12">
-        <h3 className="v-dream__selector__title col-xs-11">{this.props.variation}:</h3>
+        <h3 className="v-dream__selector__title col-xs-11">{this.props.variationName}:</h3>
         <div className="v-dream__size-selector__wrapper col-xs-11">
           {
             Object.keys(variations).map((variation) => {

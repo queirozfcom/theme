@@ -68,7 +68,7 @@ class Product extends React.Component {
     }
   }
 
-  changeAvailability = (skus, isActive) => {
+  changeAvailability = (skus, isActive) => {   //volta para o VariationButton , mas recebe a availability como parâmetro
     if (skus[0].offers[0].availability > 0) {
       if(isActive)
         return 'v-dream__size-selector--active ';
