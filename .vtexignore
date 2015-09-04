@@ -5,3 +5,6 @@ speedbag-master/
 webpack.config.js
 package.json
 index.js
+.eslintrc
+.gitignore
+README.md

@@ -1,4 +1,3 @@
 node_modules/
 npm-debug.log
-storefront/assets/**/*storefront*
-storefront/assets/**/*.hot-update*
+storefront/assets/**/*

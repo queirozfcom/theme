@@ -1,7 +1,7 @@
 {
   "route": {
-    "name": "product",
-    "path": "/:slug/p"
+    "path": "/:slug/p",
+    "name": "product"
   },
   "resourceBinding": {
     "locator": "product@vtex.storefront-sdk",
@@ -10,8 +10,8 @@
     }
   },
   "assets": [
-    "storefront-theme.js",
-    "editor/storefront-theme.js"
+    "common.js",
+    "ProductPage.js"
   ],
   "exports": {
     "product": "{{ route.slug }}"

@@ -1,10 +1,10 @@
 {
   "route": {
-    "name": "home",
-    "path": "/"
+    "path": "/",
+    "name": "home"
   },
   "assets": [
-    "storefront-theme.js",
-    "editor/storefront-theme.js"
+    "common.js",
+    "HomePage.js"
   ]
 }

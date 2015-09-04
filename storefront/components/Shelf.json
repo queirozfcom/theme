@@ -6,7 +6,8 @@
     }
   },
   "assets": [
-    "storefront-theme.js",
-    "editor/storefront-theme.js"
+    "common.js",
+    "Shelf.js",
+    "editors/ShelfEditor.js"
   ]
 }
