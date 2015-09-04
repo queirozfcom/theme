@@ -5,7 +5,7 @@ import BannerImage from './BannerImage';
 import 'react-proxy?name=editors/BannerEditor!./editor/BannerEditor';
 
 @register({
-  id: 'Banner@vtex.storefront-theme',
+  name: 'Banner@vtex.storefront-theme',
   title: 'Banner',
   editable: true
 })

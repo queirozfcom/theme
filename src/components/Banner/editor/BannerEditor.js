@@ -5,7 +5,7 @@ import BannerImage from '../BannerImage';
 import BannerPlaceholder from './BannerPlaceholder';
 
 @register({
-  id: 'BannerEditor@vtex.storefront-theme'
+  name: 'BannerEditor@vtex.storefront-theme'
 })
 @connectToStores([
   stores.SettingsStore

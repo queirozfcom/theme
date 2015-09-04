@@ -9,7 +9,7 @@ import Shelf from 'react-proxy?name=Shelf!components/Shelf/Shelf';
 import './HomePage.less';
 
 @register({
-  id: 'HomePage@vtex.storefront-theme'
+  name: 'HomePage@vtex.storefront-theme'
 })
 class HomePage extends React.Component {
   componentWillMount() {

@@ -7,7 +7,7 @@ import './ProductPage.less';
 import Product from 'components/Product/Product';
 
 @register({
-  id: 'ProductPage@vtex.storefront-theme'
+  name: 'ProductPage@vtex.storefront-theme'
 })
 @connectToStores([
   stores.ProductStore

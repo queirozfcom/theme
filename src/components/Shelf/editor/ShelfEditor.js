@@ -3,7 +3,7 @@ import { register } from 'sdk';
 import './ShelfEditor.less';
 
 @register({
-  id: 'ShelfEditor@vtex.storefront-theme'
+  name: 'ShelfEditor@vtex.storefront-theme'
 })
 class ShelfEditor extends React.Component {
   constructor(props) {

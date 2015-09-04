@@ -6,7 +6,7 @@ import ShelfSlider from './ShelfSlider';
 import 'react-proxy?name=editors/ShelfEditor!./editor/ShelfEditor';
 
 @register({
-  id: 'Shelf@vtex.storefront-theme',
+  name: 'Shelf@vtex.storefront-theme',
   title: 'Shelf',
   editable: true
 })
