@@ -1,5 +1,5 @@
 import React from 'react';
-import './Product.less';
+import './ShelfProduct.less';
 import { Link, Navigation } from 'react-router';
 import Img from 'utils/Img';
 import Price from 'utils/Price';

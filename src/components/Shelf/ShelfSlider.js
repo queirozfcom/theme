@@ -1,6 +1,6 @@
 import { stores, actions } from 'sdk';
 import React from 'react';
-import Product from './Product';
+import ShelfProduct from './ShelfProduct';
 import './Shelf.less';
 import SVGIcon from 'utils/SVGIcon';
 import arrowLeftIcon from 'assets/icons/arrow-left.svg';
@@ -83,7 +83,7 @@ class ShelfSlider extends React.Component {
 
           <div className="v-shelf__products col-xs-8">
           {products ? products.map((product, index) =>
-            <Product {...product}
+            <ShelfProduct {...product}
                     isVisible={(index === this.state.currentProductVisible)}
                     key={product.slug}/>
           ) : <div>Carregando</div>}

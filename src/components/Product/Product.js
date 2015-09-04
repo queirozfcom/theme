@@ -4,7 +4,7 @@ import Img from 'utils/Img';
 import Price from 'utils/Price';
 import SkuSelector from './SkuSelector';
 import AddToCartButton from './AddToCartButton';
-import Description from  './Description';
+import ProductDescription from  './ProductDescription';
 
 class Product extends React.Component {
   render() {
@@ -28,7 +28,7 @@ class Product extends React.Component {
         </div>
         <SkuSelector/>
         <AddToCartButton skuId={defaultSku.id}/>
-        <Description/>
+        <ProductDescription/>
       </div>
     );
   }
