@@ -1,5 +1,5 @@
 import React from 'react';
-import { actions, stores, storefront } from 'sdk';
+import { actions, stores } from 'sdk';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
@@ -8,9 +8,6 @@ import Banner from 'react-proxy?name=Banner!components/Banner/Banner';
 import Shelf from 'react-proxy?name=Shelf!components/Shelf/Shelf';
 import './HomePage.less';
 
-@storefront({
-  name: 'HomePage@vtex.storefront-theme'
-})
 class HomePage extends React.Component {
   componentWillMount() {
     let currentURL = (window.location.pathname + window.location.search);

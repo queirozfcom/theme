@@ -3,6 +3,7 @@ import ProductPage from './ProductPage';
 
 let components = [
   {
+    name: 'ProductPage@vtex.storefront-theme',
     constructor: ProductPage
   }
 ];

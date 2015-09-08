@@ -1,14 +1,11 @@
 import React from 'react';
-import { stores, actions, storefront, connectToStores } from 'sdk';
+import { stores, actions, connectToStores } from 'sdk';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import './ProductPage.less';
 import Product from 'components/Product/Product';
 
-@storefront({
-  name: 'ProductPage@vtex.storefront-theme'
-})
 @connectToStores([
   stores.ProductStore
 ])
