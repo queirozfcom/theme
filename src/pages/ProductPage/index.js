@@ -1,7 +1,11 @@
 import { actions } from 'sdk';
 import ProductPage from './ProductPage';
 
-let components = [ ProductPage ];
+let components = [
+  {
+    constructor: ProductPage
+  }
+];
 
 actions.ComponentActions.register(components);
 

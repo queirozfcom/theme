@@ -1,11 +1,11 @@
 import React from 'react';
 import { actions, stores, storefront } from 'sdk';
-import Banner from 'components/Banner/Banner';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import Policies from 'components/Policies/Policies';
-import Shelf from 'components/Shelf/Shelf';
+import Banner from 'react-proxy?name=Banner!components/Banner/Banner';
+import Shelf from 'react-proxy?name=Shelf!components/Shelf/Shelf';
 import './HomePage.less';
 
 @storefront({

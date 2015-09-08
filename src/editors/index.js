@@ -3,8 +3,12 @@ import BannerEditor from './BannerEditor/BannerEditor';
 import ShelfEditor from './ShelfEditor/ShelfEditor';
 
 let components = [
-  BannerEditor,
-  ShelfEditor
+  {
+    constructor: BannerEditor
+  },
+  {
+    constructor: ShelfEditor
+  }
 ];
 
 actions.ComponentActions.register(components);

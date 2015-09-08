@@ -1,12 +1,18 @@
 import { actions } from 'sdk';
 import HomePage from './HomePage';
-import Banner from 'components/Banner/Banner';
-import Shelf from 'components/Shelf/Shelf';
+import Banner from 'react-proxy?name=Banner!components/Banner/Banner';
+import Shelf from 'react-proxy?name=Shelf!components/Shelf/Shelf';
 
 let components = [
-  HomePage,
-  Banner,
-  Shelf
+  {
+    constructor: HomePage
+  },
+  {
+    constructor: Banner,
+  },
+  {
+    constructor: Shelf
+  }
 ];
 
 actions.ComponentActions.register(components);
