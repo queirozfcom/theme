@@ -7,7 +7,6 @@
   },
   "assets": [
     "common.js",
-    "Shelf.js",
-    "editors/ShelfEditor.js"
+    "HomePage.js"
   ]
 }

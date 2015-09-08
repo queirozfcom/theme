@@ -1,10 +1,6 @@
 import React from 'react';
-import { register } from 'sdk';
 import './ShelfEditor.less';
 
-@register({
-  name: 'ShelfEditor@vtex.storefront-theme'
-})
 class ShelfEditor extends React.Component {
   constructor(props) {
     super(props);

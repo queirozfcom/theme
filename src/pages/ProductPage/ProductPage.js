@@ -1,12 +1,12 @@
 import React from 'react';
-import { stores, actions, register, connectToStores } from 'sdk';
+import { stores, actions, storefront, connectToStores } from 'sdk';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import './ProductPage.less';
 import Product from 'components/Product/Product';
 
-@register({
+@storefront({
   name: 'ProductPage@vtex.storefront-theme'
 })
 @connectToStores([
@@ -46,9 +46,3 @@ class ProductPage extends React.Component {
 }
 
 export default ProductPage;
-
-// Enable react hot loading with external React
-// see https://github.com/gaearon/react-hot-loader/tree/master/docs#usage-with-external-react
-if (module.hot) {
-  window.RootInstanceProvider = require('react-hot-loader/Injection').RootInstanceProvider;
-}

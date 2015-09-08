@@ -1,7 +1,7 @@
 import React from 'react';
-import { stores, register, connectToStores } from 'sdk';
+import { stores, actions, register, connectToStores } from 'sdk';
 import './BannerEditor.less';
-import BannerImage from '../BannerImage';
+import BannerImage from 'components/Banner/BannerImage';
 import BannerPlaceholder from './BannerPlaceholder';
 
 @register({
@@ -87,3 +87,7 @@ class BannerEditor extends React.Component {
 }
 
 export default BannerEditor;
+
+let components = [ BannerEditor ];
+
+actions.ComponentActions.register(components);

@@ -1,7 +1,6 @@
 {
   "assets": [
     "common.js",
-    "Banner.js",
-    "editors/BannerEditor.js"
+    "Banner.js"
   ]
 }

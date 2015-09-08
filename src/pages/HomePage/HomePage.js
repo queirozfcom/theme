@@ -1,14 +1,14 @@
 import React from 'react';
-import { actions, stores, register } from 'sdk';
-import Banner from 'react-proxy?name=Banner!components/Banner/Banner';
+import { actions, stores, storefront } from 'sdk';
+import Banner from 'components/Banner/Banner';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import Policies from 'components/Policies/Policies';
-import Shelf from 'react-proxy?name=Shelf!components/Shelf/Shelf';
+import Shelf from 'components/Shelf/Shelf';
 import './HomePage.less';
 
-@register({
+@storefront({
   name: 'HomePage@vtex.storefront-theme'
 })
 class HomePage extends React.Component {
@@ -35,6 +35,14 @@ class HomePage extends React.Component {
 }
 
 export default HomePage;
+
+let components = [
+  HomePage,
+  Banner,
+  Shelf
+];
+
+actions.ComponentActions.register(components);
 
 // Enable react hot loading with external React
 // see https://github.com/gaearon/react-hot-loader/tree/master/docs#usage-with-external-react

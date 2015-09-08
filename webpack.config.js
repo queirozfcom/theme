@@ -22,17 +22,23 @@ module.exports = {
       [
         'webpack-dev-server/client?http://127.0.0.1:3000',
         'webpack/hot/only-dev-server',
-        './src/pages/HomePage/HomePage.js'
+        './src/pages/HomePage/index.js'
       ],
     'ProductPage':
       [
         'webpack-dev-server/client?http://127.0.0.1:3000',
         'webpack/hot/only-dev-server',
-        './src/pages/ProductPage/ProductPage.js'
+        './src/pages/ProductPage/index.js'
+      ],
+    'editors/index':
+      [
+        'webpack/hot/only-dev-server',
+        './src/editors/index.js'
       ]
   } : {
-    'HomePage': './src/pages/HomePage/HomePage.js',
-    'ProductPage': './src/pages/ProductPage/ProductPage.js'
+    'HomePage': './src/pages/HomePage/index.js',
+    'ProductPage': './src/pages/ProductPage/index.js',
+    'editors/index': './src/editors/index.js'
   },
 
   externals: {
@@ -49,6 +55,7 @@ module.exports = {
     alias: {
       'assets': path.join(__dirname, '/src/assets'),
       'components': path.join(__dirname, '/src/components'),
+      'editors': path.join(__dirname, '/src/editors'),
       'pages': path.join(__dirname, '/src/pages'),
       'utils': path.join(__dirname, '/src/utils')
     }

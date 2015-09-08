@@ -1,11 +1,10 @@
-import { stores, connectToStores, register } from 'sdk';
+import { stores, connectToStores, storefront } from 'sdk';
 import React from 'react';
 import './Shelf.less';
 import ShelfPlaceholder from './ShelfPlaceholder';
 import ShelfSlider from './ShelfSlider';
-import 'react-proxy?name=editors/ShelfEditor!./editor/ShelfEditor';
 
-@register({
+@storefront({
   name: 'Shelf@vtex.storefront-theme',
   title: 'Shelf',
   editable: true

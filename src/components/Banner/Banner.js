@@ -1,10 +1,9 @@
 import React from 'react';
-import { register } from 'sdk';
+import { storefront } from 'sdk';
 import './Banner.less';
 import BannerImage from './BannerImage';
-import 'react-proxy?name=editors/BannerEditor!./editor/BannerEditor';
 
-@register({
+@storefront({
   name: 'Banner@vtex.storefront-theme',
   title: 'Banner',
   editable: true
