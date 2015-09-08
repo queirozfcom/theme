@@ -15,16 +15,23 @@ class Product extends React.Component {
   }
 
   getSkuVariations = () => {
-    let facetLevel = 0; //criar uma função para gerar o facetIndex a partir do variationName
-    let skuVariation = [];
-
-    this.props.skus.forEach(function(sku) {
-        if(skuVariation.indexOf(sku.properties[facetLevel].facet.values[0]) === -1) {
-          skuVariation.push(sku.properties[facetLevel].facet.values[0]);
-        }
-    });
-    console.log(skuVariation);
-    return skuVariation;
+  //  let facetLevel = 0; //criar uma função para gerar o facetIndex a partir do variationName
+    let skuVariations = [];
+  //  let i = 0;
+    let variationNumber = this.props.skus[0].properties.length; //numero de variações
+    for(let i=0; i<variationNumber; i++) {
+      let eachVariation = {name: '', values: [] };
+      eachVariation.name = this.props.skus[0].properties[i].facet.name;
+      this.props.skus.forEach(function(sku) {
+            if(eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
+              eachVariation.values.push(sku.properties[i].facet.values[0]);
+          }
+        });
+      //  console.log(eachVariation);
+        skuVariations.push(eachVariation);
+    }
+    console.log(skuVariations);
+    return skuVariations;
   }
   //
   // applySkuFilter = (facetLevel, variation) => {
@@ -32,15 +39,30 @@ class Product extends React.Component {
   // }
 
   addFacet = (variationName, variationValue) => {
-    this.state.facets.push({name: variationName, value: variationValue})
+  //  let facet = {name: variationName, value: variationValue};
+    if(this.state.facets.length > 0) {
+      this.removeFacet(variationName, variationValue);
+    } else {
+      this.state.facets.push({name: variationName, value: variationValue})
+      this.setState({
+        facets: this.state.facets
+      });
+    }
+  }
+
+  removeFacet = (variationName, variationValue) => {
+    this.state.facets.forEach((facet)=>{
+      if(facet.name === variationName) {
+        if(facet.value === variationValue) {
+          let index = this.state.facets.indexOf(facet);
+          this.state.facets.splice(index,1);
+        }
+      }
+    })
     this.setState({
       facets: this.state.facets
     });
   }
-
-  // removeFacet = (variationName, variationValue) => {
-  //
-  // }
 
   filterSkus = (skus, facets) => {
     let result = [];

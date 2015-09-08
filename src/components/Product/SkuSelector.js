@@ -8,14 +8,17 @@ class SkuSelector extends React.Component {
   render() {
     let classes = 'v-dream__selector-section col-xs-12';
     classes = this.props.validationError ? ('v-dream__selector-section--highlight ' + classes) : classes;
-    let variationName = this.props.skus[0].properties[0].facet.name;
+    let variationName = this.props.skuVariations[0].name;
+    let index = 0;
 
     return (
       <div className="row">
         <div id="selector" className={classes}>
           <div className="v-dream__selector-row row-fluid">
             <SelectVariation skus={this.props.skus} variationName={variationName} selectedVariation={this.props.selectedVariation}
-                             skuVariation={this.props.skuVariation} addFacet={this.props.addFacet} getSkuVariations={this.getSkuVariations} changeAvailability={this.props.changeAvailability} changeVariationState={this.props.changeVariationState}/>
+                             skuVariations={this.props.skuVariations[index]} addFacet={this.props.addFacet} getAvailability={this.props.getAvailability}
+                             getSkuVariations={this.getSkuVariations} removeFacet={this.props.removeFacet} changeAvailability={this.props.changeAvailability}
+                             changeVariationState={this.props.changeVariationState}/>
           </div>
             { this.props.validationError ?
               <div className="row-fluid">
