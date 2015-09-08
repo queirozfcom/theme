@@ -36,7 +36,9 @@ class SelectVariation extends React.Component {
                 return (
                   <div key={variationKey}>
                     <VariationButton skus={skus} value={variationKey} changeVariationState={this.props.changeVariationState}
-                                                 addFacet={this.props.addFacet} variationName={this.props.variationName} changeAvailability={this.props.changeAvailability} isActive={isActive}/>
+                                                 getAvailability={this.props.getAvailability} removeFacet={this.props.removeFacet} addFacet={this.props.addFacet}
+                                                 variationName={variationName} changeAvailability={this.props.changeAvailability}
+                                                 isActive={isActive}/>
                   </div>
               );
             })

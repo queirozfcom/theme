@@ -80,23 +80,15 @@ class Product extends React.Component {
     return result;
   }
 
-  changeVariationState = (activeVar) => {
+  changeVariationState = (varName, activeVar) => {
     if (activeVar === this.state.selectedVariation) {
       this.setState({selectedVariation: null});
       this.setState({validationError: true});
     } else {
       this.setState({selectedVariation: activeVar});
       this.setState({validationError: false});
+      //this.removeFacet(varName, activeVar);
     }
-  }
-
-  changeAvailability = (skus, isActive) => {   //volta para o VariationButton , mas recebe a availability como parâmetro
-    if (skus[0].offers[0].availability > 0) {
-      if(isActive)
-        return 'v-dream__size-selector--active ';
-      return 'v-dream__size-selector';
-    }
-    return 'v-dream__size-selector--unavailable';
   }
 
   displayAlert = () => {
@@ -107,17 +99,30 @@ class Product extends React.Component {
     }
   }
 
+  getAvailability = (value) => {
+    let availability = 0;
+    this.props.skus.forEach(function(sku) {
+      sku.properties.forEach((property)=> {
+            if(property.facet.values[0] === value && availability === 0) {
+              return availability = sku.offers[0].availability;
+            }
+      })
+    });
+    return availability;
+  }
+
   render() {
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
     let imageUrl = defaultSku.images[0].src;
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
-    let skuVariation = this.getSkuVariations();
+    let skuVariations = this.getSkuVariations();
     // let facets = []; para cada facet deste array, haverá uma chamada da função de applySkuFilter
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(this.props.skus, this.state.facets);
     }
+    console.log(this.state.facets);
     //skus = this.applySkuFilter(0,'P', allSkus, skus);
 
 
@@ -135,7 +140,8 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector skus={skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
-                                            skuVariation={skuVariation} addFacet={this.addFacet.bind(this)} changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
+                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
+                     changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
       </div>
