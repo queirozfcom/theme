@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var pkg = require('./package.json');
+var meta = require('./meta.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 var hot = process.env.NODE_ENV === 'hot';
@@ -66,6 +67,7 @@ module.exports = {
     publicPath: publicPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
+    jsonpFunction: 'webpackJsonp_' + meta.vendor.replace('-', '') + '_' + meta.name.replace('-', ''),
     devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[hash][id]'
   },
 
@@ -111,7 +113,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('init.js')
+    new webpack.optimize.CommonsChunkPlugin('common.js')
   ] : hot ? [
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
