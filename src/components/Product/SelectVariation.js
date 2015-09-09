@@ -2,9 +2,12 @@ import React from 'react';
 import VariationButton from './VariationButton';
 
 class SelectVariation extends React.Component {
-  getVariationKey(i) {
-      let sortOrder = ['PP','P','M', 'G', 'GG'];
-      return sortOrder[i];
+  getVariationKey(variationName) {
+    if(variationName === 'Tamanho') {
+      return ['PP','P','M', 'G', 'GG'];
+    } else if (variationName === 'Cor'){
+      return ['Branco', 'Azul'];
+    }
   }
 
   changeAvailability(availability) {
@@ -15,32 +18,29 @@ class SelectVariation extends React.Component {
   }
 
   render() {
-    if (this.props.skus.length <= 1) {
-      return null;
-    }
-    let i=0;
-    let skuVariation = this.props.skuVariation;
-    let variations = skuVariation.values;
-    let variationName = skuVariation.name;
+    // if (this.props.skus.length <= 1) {
+    //   return null;
+    // }
+    let variationName = this.props.skuVariations.name;
     let skus = this.props.skus;
+    let variationKey = this.getVariationKey(variationName);
     return (
       <div className="col-xs-12">
         <h3 className="v-dream__selector__title col-xs-11">{variationName}:</h3>
         <div className="v-dream__size-selector__wrapper col-xs-11">
           {
-            Object.keys(variations).map((variation) => {
+            variationKey.map((variation) => {
               let isActive = false;
-              let variationKey = this.getVariationKey(i);
-              if (variationKey === this.props.selectedVariation) {
-                isActive = true;
-              }
-              i++;
+              this.props.facets.forEach(function(facet) {
+                if(facet.value === variation) {
+                  isActive = true;
+                }
+              })
                 return (
-                  <div key={variationKey}>
-                    <VariationButton skus={skus} value={variationKey} changeVariationState={this.props.changeVariationState}
-                                                 getAvailability={this.props.getAvailability} removeFacet={this.props.removeFacet} addFacet={this.props.addFacet}
-                                                 variationName={variationName} changeAvailability={this.props.changeAvailability}
-                                                 isActive={isActive}/>
+                  <div key={variation}>
+                    <VariationButton skus={skus} value={variation} getAvailability={this.props.getAvailability}
+                                     removeFacet={this.props.removeFacet} addFacet={this.props.addFacet} isActive={isActive}
+                                     variationName={variationName} changeAvailability={this.props.changeAvailability}/>
                   </div>
               );
             })

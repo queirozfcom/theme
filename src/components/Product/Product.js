@@ -15,10 +15,8 @@ class Product extends React.Component {
   }
 
   getSkuVariations = () => {
-  //  let facetLevel = 0; //criar uma função para gerar o facetIndex a partir do variationName
     let skuVariations = [];
-  //  let i = 0;
-    let variationNumber = this.props.skus[0].properties.length; //numero de variações
+    let variationNumber = this.props.skus[0].properties.length;
     for(let i=0; i<variationNumber; i++) {
       let eachVariation = {name: '', values: [] };
       eachVariation.name = this.props.skus[0].properties[i].facet.name;
@@ -51,7 +49,7 @@ class Product extends React.Component {
   }
 
   removeFacet = (variationName, variationValue) => {
-    this.state.facets.forEach((facet)=>{
+    this.state.facets.forEach((facet) => {
       if(facet.name === variationName) {
         if(facet.value === variationValue) {
           let index = this.state.facets.indexOf(facet);
@@ -118,12 +116,15 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let skuVariations = this.getSkuVariations();
-    // let facets = []; para cada facet deste array, haverá uma chamada da função de applySkuFilter
+
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(this.props.skus, this.state.facets);
     }
+    console.log('facets:');
     console.log(this.state.facets);
-    //skus = this.applySkuFilter(0,'P', allSkus, skus);
+    console.log('selectedSku ' + this.state.selectedSku);
+    console.log('skus ')
+    console.log(skus);
 
 
     return (
