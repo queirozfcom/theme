@@ -25,10 +25,8 @@ class Product extends React.Component {
               eachVariation.values.push(sku.properties[i].facet.values[0]);
           }
         });
-      //  console.log(eachVariation);
         skuVariations.push(eachVariation);
     }
-    console.log(skuVariations);
     return skuVariations;
   }
   //
@@ -36,8 +34,15 @@ class Product extends React.Component {
   //
   // }
 
+  getSelectedSku = () => {
+    if(this.state.facets.length === this.skuVariations.length) {
+      if(this.skus.length === 1) {
+        this.setState({selectedSku: this.skus});
+      }
+    }
+  }
+
   addFacet = (variationName, variationValue) => {
-  //  let facet = {name: variationName, value: variationValue};
     if(this.state.facets.length > 0) {
       this.removeFacet(variationName, variationValue);
     } else {
@@ -78,23 +83,12 @@ class Product extends React.Component {
     return result;
   }
 
-  changeVariationState = (varName, activeVar) => {
-    if (activeVar === this.state.selectedVariation) {
-      this.setState({selectedVariation: null});
-      this.setState({validationError: true});
-    } else {
-      this.setState({selectedVariation: activeVar});
-      this.setState({validationError: false});
-      //this.removeFacet(varName, activeVar);
-    }
-  }
-
   displayAlert = () => {
-    if (this.state.selectedVariation === null) {
-      this.setState({validationError: true});
-    } else {
-      this.setState({validationError: false});
-    }
+    if(this.state.facets.length === 0) {
+          this.setState({validationError: true});
+      } else {
+        this.setState({validationError: false});
+      }
   }
 
   getAvailability = (value) => {
@@ -140,8 +134,8 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={skus} changeVariationState={this.changeVariationState} selectedVariation={this.state.selectedVariation}
-                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
+        <SkuSelector skus={skus} facets={this.state.facets} addFacet={this.addFacet.bind(this)}
+                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} removeFacet={this.removeFacet.bind(this)}
                      changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
