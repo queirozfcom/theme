@@ -89,6 +89,7 @@
   font-style: italic;
   color: #153243;
 }
+
 .v-dream__color-selector {
   .v-clean-btn;
   .v-no-outlines;
@@ -106,17 +107,6 @@
     background-color: #153243;
   }
 
-  .v-dream__color-selector--active {
-    box-shadow: inset 0px 0px 0px 8px darken(#fff, 10%);
-    transition: box-shadow 0.25s, border-color 0.25s;
-  }
-
-  .v-dream__checkout-button--active {
-    box-shadow: none;
-    margin: 2px 0px -2px 2px;
-    //transition: margin 0.1s;
-  }
-
   &:nth-child(2) {
     background-color: #fff;
   }
@@ -125,6 +115,20 @@
     background-color: #000;
   }
 }
+
+.v-dream__color-selector--active {
+  .v-dream__color-selector;
+  box-shadow: inset 0px 0px 0px 8px darken(#fff, 10%);
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+
+.v-dream__color-selector--unavailable {
+  .v-dream__color-selector;
+  border: 2px solid darken(#fff, 40%);
+  color: darken(#fff, 40%);
+  //background-color: darken(#fff, 5%);
+}
+
 .v-dream__selector-section__alert-text {
   font-weight: 500;
   font-style: italic;
@@ -132,4 +136,10 @@
   margin-top: 1.2em;
   margin-bottom: 0.5em;
   padding: 0px;
+}
+
+.v-dream__checkout-button--active {
+  box-shadow: none;
+  margin: 2px 0px -2px 2px;
+  //transition: margin 0.1s;
 }
