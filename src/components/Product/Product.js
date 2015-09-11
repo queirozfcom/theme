@@ -44,22 +44,19 @@ class Product extends React.Component {
 
   addFacet = (variationName, variationValue) => {
     if(this.state.facets.length > 0) {
-      this.removeFacet(variationName, variationValue);
-    } else {
+      this.removeFacet(variationName);
+    }
       this.state.facets.push({name: variationName, value: variationValue})
       this.setState({
         facets: this.state.facets
       });
-    }
   }
 
-  removeFacet = (variationName, variationValue) => {
+  removeFacet = (variationName) => {
     this.state.facets.forEach((facet) => {
       if(facet.name === variationName) {
-        if(facet.value === variationValue) {
           let index = this.state.facets.indexOf(facet);
           this.state.facets.splice(index,1);
-        }
       }
     })
     this.setState({
@@ -134,8 +131,8 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={skus} facets={this.state.facets} addFacet={this.addFacet.bind(this)}
-                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} removeFacet={this.removeFacet.bind(this)}
+        <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
+                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations}
                      changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
         <ProductDescription/>
