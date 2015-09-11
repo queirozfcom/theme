@@ -50,6 +50,9 @@ class Product extends React.Component {
       this.setState({
         facets: this.state.facets
       });
+      if(this.getAvailability(variationValue) > 0) {
+        this.setState({validationError:false});
+    }
   }
 
   removeFacet = (variationName) => {
@@ -62,6 +65,7 @@ class Product extends React.Component {
     this.setState({
       facets: this.state.facets
     });
+    this.setState({validationError:true});
   }
 
   filterSkus = (skus, facets) => {
