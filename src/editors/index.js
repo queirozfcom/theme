@@ -4,9 +4,11 @@ import ShelfEditor from './ShelfEditor/ShelfEditor';
 
 let components = [
   {
+    name: 'BannerEditor@vtex.storefront-theme',
     constructor: BannerEditor
   },
   {
+    name: 'ShelfEditor@vtex.storefront-theme',
     constructor: ShelfEditor
   }
 ];
