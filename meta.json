@@ -3,8 +3,5 @@
   "title": "Default Storefront theme",
   "version": "0.5.1",
   "vendor": "vtex",
-  "dependencies": {},
-  "schemas": {
-    "storefront": 1
-  }
+  "dependencies": {}
 }
