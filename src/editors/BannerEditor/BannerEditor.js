@@ -1,12 +1,9 @@
 import React from 'react';
-import { stores, actions, register, connectToStores } from 'sdk';
+import { stores, actions, connectToStores } from 'sdk';
 import './BannerEditor.less';
 import BannerImage from 'components/Banner/BannerImage';
 import BannerPlaceholder from './BannerPlaceholder';
 
-@register({
-  name: 'BannerEditor@vtex.storefront-theme'
-})
 @connectToStores([
   stores.SettingsStore
 ])
