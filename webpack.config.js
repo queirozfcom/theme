@@ -44,6 +44,7 @@ module.exports = {
 
   externals: {
     'sdk': 'storefront.sdk',
+    'immutable': 'Immutable',
     'react': 'React',
     'react-router': 'ReactRouter',
     'lodash': 'lodash',

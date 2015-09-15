@@ -1,5 +1,6 @@
 import { stores, connectToStores, storefront } from 'sdk';
 import React from 'react';
+import Immutable from 'immutable';
 import './Shelf.less';
 import ShelfPlaceholder from './ShelfPlaceholder';
 import ShelfSlider from './ShelfSlider';
@@ -13,6 +14,13 @@ import ShelfSlider from './ShelfSlider';
   stores.SearchStore
 ])
 class Shelf extends React.Component {
+  static defaultProps = {
+    settings: Immutable.fromJS({
+      category: 'fera-fashion',
+      quantity: 3
+    })
+  }
+
   render() {
     if (!this.props.settings) {
       return (
