@@ -70,16 +70,20 @@ class Product extends React.Component {
 
   filterSkus = (skus, facets) => {
     let result = [];
-    skus.forEach((sku) => {
-      sku.properties.forEach((property)=> {
-        facets.forEach((facet)=>{
+    facets.forEach((facet) => {
+      result = [];
+      skus.forEach((sku) => {
+        sku.properties.forEach((property) => {
           if(property.facet.name === facet.name) {
             if(property.facet.values[0] === facet.value) {
-              result.push(sku);
+              if(result.indexOf(sku) === -1) {
+                result.push(sku);
+              }
             }
           }
         })
-      })
+    })
+    skus = result;
     });
     return result;
   }
@@ -113,8 +117,9 @@ class Product extends React.Component {
     let skuVariations = this.getSkuVariations();
 
     if (this.state.facets.length !== 0) {
-      skus = this.filterSkus(this.props.skus, this.state.facets);
+      skus = this.filterSkus(skus, this.state.facets);
     }
+
     console.log('facets:');
     console.log(this.state.facets);
     console.log('selectedSku ' + this.state.selectedSku);
