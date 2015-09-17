@@ -5,7 +5,7 @@ class VariationButton extends React.Component {
   changeState = (ev) => {
     ev.preventDefault();
     this.props.isActive ? this.props.removeFacet(this.props.variationName, this.props.value) :
-    this.props.addFacet(this.props.variationName, this.props.value);
+    this.props.addFacet(this.props.variationName, this.props.value, this.props.skus);
   }
 
   changeAvailability = (isActive, variationName) => {

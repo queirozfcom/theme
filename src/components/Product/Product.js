@@ -3,13 +3,12 @@ import './Product.less';
 import Img from 'utils/Img';
 import Price from 'utils/Price';
 import SkuSelector from './SkuSelector';
-import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
+import AddToCartButton from './AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
 class Product extends React.Component {
   state = {
-    selectedVariation: null,
-    selectedSku: null,
+    selectedSku: [],
     validationError: false,
     facets: []
   }
@@ -29,31 +28,19 @@ class Product extends React.Component {
     }
     return skuVariations;
   }
-  //
-  // applySkuFilter = (facetLevel, variation) => {
-  //
-  // }
 
-  getSelectedSku = () => {
-    if(this.state.facets.length === this.skuVariations.length) {
-      if(this.skus.length === 1) {
-        this.setState({selectedSku: this.skus});
-      }
-    }
-  }
-
-  addFacet = (variationName, variationValue) => {
-    if(this.state.facets.length > 0) {
-      this.removeFacet(variationName);
-    }
-      this.state.facets.push({name: variationName, value: variationValue})
+  addFacet = (variationName, variationValue, skus) => {
+    this.state.facets.push({name: variationName, value: variationValue});
+    this.getAvailability(variationValue) > 0 ?
       this.setState({
-        facets: this.state.facets
-      });
-      if(this.getAvailability(variationValue) > 0) {
-        this.setState({validationError:false});
+        facets: this.state.facets,
+        validationError: false,
+        selectedSku: skus
+      }) :
+      this.setState({ facets: this.state.facets
+      })
     }
-  }
+  
 
   removeFacet = (variationName) => {
     this.state.facets.forEach((facet) => {
@@ -63,9 +50,9 @@ class Product extends React.Component {
       }
     })
     this.setState({
-      facets: this.state.facets
+      facets: this.state.facets,
+      validationError: true
     });
-    this.setState({validationError:true});
   }
 
   filterSkus = (skus, facets) => {
@@ -118,6 +105,10 @@ class Product extends React.Component {
 
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(skus, this.state.facets);
+    }
+
+    if(this.state.selectedSku.length === 1) {
+      defaultSku = this.state.selectedSku[0];
     }
 
     console.log('facets:');
