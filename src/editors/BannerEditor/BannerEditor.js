@@ -1,12 +1,9 @@
 import React from 'react';
-import { stores, actions, connectToStores } from 'sdk';
+import { actions } from 'sdk';
 import './BannerEditor.less';
 import BannerImage from 'components/Banner/BannerImage';
 import BannerPlaceholder from './BannerPlaceholder';
 
-@connectToStores([
-  stores.SettingsStore
-])
 class BannerEditor extends React.Component {
   constructor(props) {
     super(props);
