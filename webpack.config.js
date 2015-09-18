@@ -4,7 +4,7 @@ var pkg = require('./package.json');
 var meta = require('./meta.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
-var hot = process.env.NODE_ENV === 'hot';
+
 var svgoConfig = JSON.stringify({
   plugins: [
     {removeTitle: true},
@@ -13,34 +13,65 @@ var svgoConfig = JSON.stringify({
   ]
 });
 
+var entryPoints = {
+  'HomePage': './src/pages/HomePage/index.js',
+  'ProductPage': './src/pages/ProductPage/index.js',
+  'editors/index': production ? './src/editors/index.js' : [
+    'webpack-hot-middleware/client',
+    './src/editors/index.js'
+  ]
+};
+
 module.exports = {
-  devtool: 'sourcemap',
+  entry: entryPoints,
 
-  watch: production ? false : true,
+  module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        include: path.join(__dirname, 'src'),
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+    ],
 
-  entry: hot ? {
-    'HomePage':
-      [
-        'webpack-dev-server/client?http://127.0.0.1:3000',
-        'webpack/hot/only-dev-server',
-        './src/pages/HomePage/index.js'
-      ],
-    'ProductPage':
-      [
-        'webpack-dev-server/client?http://127.0.0.1:3000',
-        'webpack/hot/only-dev-server',
-        './src/pages/ProductPage/index.js'
-      ],
-    'editors/index':
-      [
-        'webpack/hot/only-dev-server',
-        './src/editors/index.js'
-      ]
-  } : {
-    'HomePage': './src/pages/HomePage/index.js',
-    'ProductPage': './src/pages/ProductPage/index.js',
-    'editors/index': './src/editors/index.js'
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src'),
+        loader: 'babel'
+      }, {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }, {
+        test: /\.svg$/,
+        loaders: ['raw-loader', 'svgo-loader?' + svgoConfig]
+      }, {
+        test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
+        loader: 'url-loader?limit=100000'
+      }, {
+        test: /\.jpg$/,
+        loader: 'file-loader'
+      }
+    ]
   },
+
+  plugins: production ? [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('common.js')
+  ] : [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('common.js')
+  ],
 
   externals: {
     'sdk': 'storefront.sdk',
@@ -76,74 +107,15 @@ module.exports = {
     configFile: '.eslintrc'
   },
 
-  module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      }
-    ],
+  devtool: 'sourcemap',
 
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: hot ? ['react-hot', 'babel-loader?stage=0'] : ['babel-loader?stage=0']
-      }, {
-        test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader'
-      }, {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
-      }, {
-        test: /\.svg$/,
-        loaders: ['raw-loader', 'svgo-loader?' + svgoConfig]
-      }, {
-        test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
-        loader: 'url-loader?limit=100000'
-      }, {
-        test: /\.jpg$/,
-        loader: 'file-loader'
-      }
-    ]
-  },
+  watch: production ? false : true,
 
-  plugins: production ? [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('common.js')
-  ] : hot ? [
-    new webpack.NoErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('common.js')
-  ] : [
-    new webpack.optimize.CommonsChunkPlugin('common.js')
-  ],
+  quiet: true,
 
-  quiet: false,
+  noInfo: true,
 
-  noInfo: false,
-
-  devServer: {
-    publicPath: publicPath,
-    port: 3000,
-    hot: true,
-    inline: true,
-    stats: {
-      assets: false,
-      colors: true,
-      version: true,
-      hash: false,
-      timings: true,
-      chunks: true,
-      chunkModules: false
-    },
-    historyApiFallback: true,
-    proxy: {
-      '*': 'http://janus-edge.vtex.com.br/'
-    }
+  proxy: {
+    '*': 'http://janus-edge.vtex.com.br/'
   }
 };
