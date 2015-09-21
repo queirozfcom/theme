@@ -29,6 +29,10 @@ class Product extends React.Component {
     return skuVariations;
   }
 
+  addFacet = (variationName, variationValue) => {
+    if(this.state.facets.length > 0) {
+      this.removeFacet(variationName, variationValue);
+    }
     this.state.facets.push({name: variationName, value: variationValue});
     this.getAvailability(variationValue) > 0 ?
       this.setState({

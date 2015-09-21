@@ -26,8 +26,8 @@ class VariationButton extends React.Component {
 }
 }
 
-  displayValue = (variationName) => {
-    if(variationName === 'Tamanho') {
+  displayValue = () => {
+    if(this.props.variationName === 'Tamanho') {
       return this.props.value;
     } else {
       return null;
@@ -38,8 +38,8 @@ class VariationButton extends React.Component {
     let isActive = this.props.isActive;
 
     return (
-      <button className={ this.changeAvailability(isActive, this.props.variationName) + ' col-xs-2' } onTouchTap={this.changeState}>
-        { this.displayValue(this.props.variationName) }
+      <button className={ this.changeAvailability(isActive) + ' col-xs-2' } onTouchTap={this.changeState}>
+        { this.displayValue() }
       </button>
     );
   }
