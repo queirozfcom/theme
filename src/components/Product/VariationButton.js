@@ -5,19 +5,19 @@ class VariationButton extends React.Component {
   changeState = (ev) => {
     ev.preventDefault();
     this.props.isActive ? this.props.removeFacet(this.props.variationName, this.props.value) :
-    this.props.addFacet(this.props.variationName, this.props.value, this.props.skus);
+    this.props.addFacet(this.props.variationName, this.props.value);
   }
 
-  changeAvailability = (isActive, variationName) => {
-    if(variationName === 'Tamanho') {
-      if (this.props.getAvailability(this.props.value) > 0) {
+  changeAvailability = (isActive) => {
+    if(this.props.variationName === 'Tamanho') {
+      if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
         if(isActive)
           return 'v-dream__size-selector--active ';
         return 'v-dream__size-selector ';
       }
       return 'v-dream__size-selector--unavailable ';
-  } else if(variationName === 'Cor') {
-    if (this.props.getAvailability(this.props.value) > 0) {
+  } else if(this.props.variationName === 'Cor') {
+    if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
       if(isActive)
         return 'v-dream__color-selector--active ';
       return 'v-dream__color-selector ';

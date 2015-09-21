@@ -29,13 +29,12 @@ class Product extends React.Component {
     return skuVariations;
   }
 
-  addFacet = (variationName, variationValue, skus) => {
     this.state.facets.push({name: variationName, value: variationValue});
     this.getAvailability(variationValue) > 0 ?
       this.setState({
         facets: this.state.facets,
         validationError: false,
-        selectedSku: skus
+        selectedSku: this.filterSkus(this.props.skus)
       }) :
       this.setState({ facets: this.state.facets
       })
@@ -55,9 +54,9 @@ class Product extends React.Component {
     });
   }
 
-  filterSkus = (skus, facets) => {
+  filterSkus = (skus) => {
     let result = [];
-    facets.forEach((facet) => {
+    this.state.facets.forEach((facet) => {
       result = [];
       skus.forEach((sku) => {
         sku.properties.forEach((property) => {
@@ -83,9 +82,13 @@ class Product extends React.Component {
       }
   }
 
-  getAvailability = (value) => {
+  getAvailability = (value, valueName) => {
     let availability = 0;
-    this.props.skus.forEach(function(sku) {
+    let skus = this.props.skus;
+    if(this.state.facets.length >= 1 && this.state.facets[0].name != valueName) {
+      skus = this.filterSkus(skus);
+    }
+    skus.forEach(function(sku) {
       sku.properties.forEach((property)=> {
             if(property.facet.values[0] === value && availability === 0) {
               return availability = sku.offers[0].availability;
@@ -104,7 +107,7 @@ class Product extends React.Component {
     let skuVariations = this.getSkuVariations();
 
     if (this.state.facets.length !== 0) {
-      skus = this.filterSkus(skus, this.state.facets);
+      skus = this.filterSkus(skus);
     }
 
     if(this.state.selectedSku.length === 1) {
