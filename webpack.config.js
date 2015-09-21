@@ -5,14 +5,6 @@ var meta = require('./meta.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 
-var svgoConfig = JSON.stringify({
-  plugins: [
-    {removeTitle: true},
-    {convertColors: {shorthex: false}},
-    {convertPathData: false}
-  ]
-});
-
 var entryPoints = {
   'HomePage': './src/pages/HomePage/index.js',
   'ProductPage': './src/pages/ProductPage/index.js',
@@ -49,7 +41,13 @@ module.exports = {
         loader: 'style-loader!css-loader'
       }, {
         test: /\.svg$/,
-        loaders: ['raw-loader', 'svgo-loader?' + svgoConfig]
+        loaders: ['raw-loader', 'svgo-loader?' + JSON.stringify({
+          plugins: [
+            {removeTitle: true},
+            {convertColors: {shorthex: false}},
+            {convertPathData: false}
+          ]
+        })]
       }, {
         test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
         loader: 'url-loader?limit=100000'
@@ -61,9 +59,17 @@ module.exports = {
   },
 
   plugins: production ? [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.CommonsChunkPlugin('common.js')
   ] : [
@@ -107,7 +113,7 @@ module.exports = {
     configFile: '.eslintrc'
   },
 
-  devtool: 'sourcemap',
+  devtool: 'source-map',
 
   watch: production ? false : true,
 
