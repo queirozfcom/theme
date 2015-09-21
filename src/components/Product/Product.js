@@ -21,7 +21,7 @@ class Product extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-11 col-xs-offset-1">
+          <div className="col-xs-11">
             <h2 className="v-product__title">{name}</h2>
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>

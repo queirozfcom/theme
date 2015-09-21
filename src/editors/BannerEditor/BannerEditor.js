@@ -1,5 +1,4 @@
 import React from 'react';
-import { actions } from 'sdk';
 import './BannerEditor.less';
 import BannerImage from 'components/Banner/BannerImage';
 import BannerPlaceholder from './BannerPlaceholder';
@@ -81,7 +80,3 @@ class BannerEditor extends React.Component {
 }
 
 export default BannerEditor;
-
-let components = [ BannerEditor ];
-
-actions.ComponentActions.register(components);

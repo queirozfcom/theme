@@ -14,8 +14,8 @@ class SelectVariation extends React.Component {
     }
     return (
       <div className="col-xs-12" margin-bottom='10px'>
-        <h3 className="v-dream__selector__title col-xs-11">Selecione o {this.props.variation}:</h3>
-        <div className="v-dream__size-selector__wrapper col-xs-11">
+        <h3 className="v-dream__selector__title">Selecione o {this.props.variation}:</h3>
+        <div className="v-dream__size-selector__wrapper">
         {this.props.skus.map((sku) =>
           <button key={sku.id} className={ this.changeAvailability(sku.availability) + ' col-xs-2'}>
             { sku[this.props.variation] }
