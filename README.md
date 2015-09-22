@@ -56,7 +56,7 @@ http://sualoja.beta.myvtex.com
 
 ## FAQ
 
-### Como desativar a minifĩcação de arquivos
+### Como desativar a minificação de arquivos
 
 Adicione no fim da URL `?bundle=false`, por ex:
 
