@@ -55,14 +55,14 @@ class AddToCartButtonEditor extends React.Component {
                        value={this.state.label} onChange={this.changeValue.bind(this)} placeholder="Adicionar ao carrinho"/>
               </div>
 
-              { /* <div>
+              <div>
                 <label htmlFor="label">Cor</label>
                 <div className="row">
                   <div className="v-add-to-cart-button__color-picker col-xs-12">
                     <ColorPicker color={this.state.color} onChange={this.handleColorChange.bind(this)}/>
                   </div>
                 </div>
-              </div> */ }
+              </div>
             </div>
           </form>
         </div>
