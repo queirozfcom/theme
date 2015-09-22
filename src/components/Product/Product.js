@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './Product.less';
 import Img from 'utils/Img';
@@ -43,7 +44,6 @@ class Product extends React.Component {
       this.setState({ facets: this.state.facets
       })
     }
-  
 
   removeFacet = (variationName) => {
     this.state.facets.forEach((facet) => {

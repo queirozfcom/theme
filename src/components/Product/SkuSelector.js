@@ -18,7 +18,7 @@ class SkuSelector extends React.Component {
             return (
               <div className="v-dream__selector-row row-fluid" key={variationType.name}>
                 <SelectVariation skus={this.props.skus} variationName={variationName} removeFacet={this.props.removeFacet} facets={this.props.facets}
-                                 skuVariations={variationType} addFacet={this.props.addFacet} getAvailability={this.props.getAvailability} 
+                                 skuVariations={variationType} addFacet={this.props.addFacet} getAvailability={this.props.getAvailability}
                                  getSkuVariations={this.getSkuVariations} changeAvailability={this.props.changeAvailability}/>
               </div>
             )

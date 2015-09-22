@@ -10,13 +10,6 @@ class SelectVariation extends React.Component {
     }
   }
 
-  changeAvailability(availability) {
-    if (availability > 0) {
-      return 'v-dream__size-selector';
-    }
-    return 'v-dream__size-selector--unavailable';
-  }
-
   render() {
     // if (this.props.skus.length <= 1) {
     //   return null;
