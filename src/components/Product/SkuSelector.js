@@ -1,7 +1,13 @@
 import React from 'react';
 import SelectVariation from './SelectVariation';
 import './SkuSelector.less';
+import { storefront } from 'sdk';
 
+@storefront({
+  name: 'SkuSelector@vtex.storefront-theme',
+  title: 'SkuSelector',
+  editable: true 
+})
 class SkuSelector extends React.Component {
 
 
