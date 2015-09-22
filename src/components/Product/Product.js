@@ -3,7 +3,7 @@ import './Product.less';
 import Img from 'utils/Img';
 import Price from 'utils/Price';
 import SkuSelector from './SkuSelector';
-import AddToCartButton from './AddToCartButton';
+import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
 class Product extends React.Component {
@@ -27,7 +27,7 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector/>
-        <AddToCartButton skuId={defaultSku.id}/>
+        <AddToCartButton skuId={defaultSku.id} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );

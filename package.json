@@ -56,7 +56,10 @@
   "bugs": {
     "url": "https://github.com/vtex-apps/storefront-theme/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "colr": "^1.2.2",
+    "react-colorpicker": "^0.3.14"
+  },
   "engines": {
     "node": ">=0.10",
     "npm": ">=2.0"
