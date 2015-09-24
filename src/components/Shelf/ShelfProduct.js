@@ -1,15 +1,15 @@
 import React from 'react';
 import './ShelfProduct.less';
-import { Link, Navigation } from 'react-router';
+import { Link, History } from 'react-router';
 import Img from 'utils/Img';
 import Price from 'utils/Price';
 
 class Product extends React.Component {
-  static contextTypes = Navigation.contextTypes
+  static contextTypes = History.contextTypes
 
   _handleDetails = (ev) => {
     ev.preventDefault();
-    this.context.router.transitionTo('product', { slug: this.props.slug });
+    this.context.history.pushState(null, `/${this.props.slug}/p`);
   }
 
   render() {
@@ -26,7 +26,7 @@ class Product extends React.Component {
             <Img className="v-shelf__product-photo col-xs-12" src={imageUrl} width={200} height={235}/>
           </div>
           <div className="row">
-            <Link to="product" params={{slug: this.props.slug}} className="v-shelf__product-title col-xs-12">{name}</Link>
+            <Link to={`/${this.props.slug}/p`} className="v-shelf__product-title col-xs-12">{name}</Link>
           </div>
           <div className="row">
             <p className="v-shelf__product-price col-xs-12">

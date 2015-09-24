@@ -28,7 +28,7 @@ class ProductPage extends React.Component {
   }
 
   render() {
-    let slug = stores.ContextStore.getState().getIn(['route', 'params', 'slug']);
+    let slug = this.props.params.slug;
     let productData = this.props.ProductStore.get(slug);
 
     return (
