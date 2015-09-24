@@ -15,7 +15,7 @@ class Header extends React.Component {
         </div>
 
         <h1 className="v-header__brand col-xs-8">
-          <Link to="home">Fera fashion</Link>
+          <Link to="/">Fera fashion</Link>
         </h1>
 
         <div className="col-xs-1">
