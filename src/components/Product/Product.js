@@ -2,8 +2,8 @@ import React from 'react';
 import './Product.less';
 import Img from 'utils/Img';
 import Price from 'utils/Price';
-import SkuSelector from './SkuSelector';
-import AddToCartButton from 'components/AddToCartButton/AddToCartButton';
+import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
+import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
 class Product extends React.Component {
@@ -140,7 +140,7 @@ class Product extends React.Component {
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations}
                      changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
-        <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)}/>
+        <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );

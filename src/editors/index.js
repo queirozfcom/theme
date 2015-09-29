@@ -2,7 +2,7 @@ import { actions } from 'sdk';
 import BannerEditor from './BannerEditor/BannerEditor';
 import ShelfEditor from './ShelfEditor/ShelfEditor';
 import AddToCartButtonEditor from './AddToCartButtonEditor/AddToCartButtonEditor';
-import SkuSelectorEditor from './ProductEditor/SkuSelectorEditor';
+import SelectVariationEditor from './SkuSelectorEditor/SelectVariationEditor';
 
 let components = [
   {
@@ -18,8 +18,8 @@ let components = [
     constructor: AddToCartButtonEditor
   },
   {
-    name: 'SkuSelectorEditor@vtex.storefront-theme',
-    constructor: SkuSelectorEditor
+    name: 'SelectVariationEditor@vtex.storefront-theme',
+    constructor: SelectVariationEditor
   }
 ];
 
