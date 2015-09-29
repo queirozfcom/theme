@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'utils/Img';
 
 class VariationButton extends React.Component {
 
@@ -18,21 +19,22 @@ class VariationButton extends React.Component {
         return 'v-dream__size-selector ';
       }
       return 'v-dream__size-selector--unavailable ';
-  } else if(this.props.variationName === 'Cor') {
-    if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
-      if(isActive)
-        return 'v-dream__color-selector--active ';
-      return 'v-dream__color-selector ';
     }
-    return 'v-dream__color-selector--unavailable ';
-}
+//  else if(this.props.variationName === 'Cor') {
+//     if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
+//       if(isActive)
+//         return 'v-dream__color-selector--active ';
+//       return 'v-dream__color-selector ';
+//     }
+//     return 'v-dream__color-selector--unavailable ';
+// }
 }
 
   displayValue = () => {
     if(this.props.variationName === 'Tamanho') {
       return this.props.value;
     } else {
-      return null;
+      return ( <Img className="v-product__photo" src={this.props.skus[0].images[0].src} width={200} height={235}/> );
     }
   }
 
