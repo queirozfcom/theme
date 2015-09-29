@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './Product.less';
 import Img from 'utils/Img';
