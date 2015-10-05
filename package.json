@@ -25,6 +25,7 @@
     "less": "^2.4.0",
     "less-loader": "^2.2.0",
     "loader-utils": "^0.2.6",
+    "lodash-compat": "^3.10.1",
     "minimist": "^1.1.1",
     "raw-loader": "^0.5.1",
     "react": "^0.14.0",
