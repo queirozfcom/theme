@@ -80,13 +80,14 @@ module.exports = {
   ],
 
   externals: {
-    'sdk': 'storefront.sdk',
+    'alt': 'alt',
+    'axios': 'axios',
     'immutable': 'Immutable',
-    'react': 'React',
-    'react-router': 'ReactRouter',
-    'lodash': 'lodash',
     'intl': 'Intl',
-    'react-intl': 'ReactIntl'
+    'react': 'React',
+    'react-intl': 'ReactIntl',
+    'react-router': 'ReactRouter',
+    'sdk': 'storefront.sdk'
   },
 
   resolve: {

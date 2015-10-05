@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "colr": "^1.2.2",
+    "lodash-compat": "^3.10.1",
     "react-colorpicker": "^0.3.14"
   },
   "engines": {

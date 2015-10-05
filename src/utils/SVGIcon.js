@@ -1,5 +1,6 @@
 import React from 'react';
-import { includes, keys } from 'lodash';
+import { keys } from 'lodash-compat/object';
+import { includes } from 'lodash-compat/collection';
 import './SVGIcon.less';
 
 const cleanups = {
