@@ -10,67 +10,21 @@ class Product extends React.Component {
   state = {
     selectedSku: [],
     selectedImg: null,
-    facets: [],
-    affix: false
-  }
-
-  propTypes: {
-    offset: React.PropTypes.number
-  }
-
-  static defaultProps = {
-    offset: 10
-  }
-
-  componentDidMount() {
-    window.addEventListener('touchmove', this.handleScroll.bind(this));
-    window.addEventListener('wheel', this.handleScroll.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('touchmove', this.handleScroll.bind(this));
-    window.removeEventListener('wheel', this.handleScroll.bind(this));
-  }
-
-  handleScroll() {
-    let affix = this.state.affix;
-    let offset = this.props.offset;
-    let elems = [];
-    if (document.getElementsByClassName) {
-      elems = document.getElementsByClassName('v-editor__app-container');
-    } else {
-      elems = document.querySelectorAll('.v-editor__app-container');
-    }
-    let scrollTop = elems.length != 0 ? elems[0].scrollTop : 0;
-    if (elems.length === 0) {
-      scrollTop = document.body.scrollTop;
-    }
-
-    if (!affix && scrollTop >= offset) {
-      this.setState({
-        affix: true
-      });
-    }
-
-    if (affix && scrollTop < offset) {
-      this.setState({
-        affix: false
-      });
-    }
+    facets: []
   }
 
   getSkuVariations = () => {
     let skuVariations = [];
     let variationNumber = this.props.skus[0].properties.length;
-    for (let i=0; i<variationNumber; i++) {
+    for(let i=0; i<variationNumber; i++) {
       let eachVariation = {name: '', values: [] };
       eachVariation.name = this.props.skus[0].properties[i].facet.name;
       this.props.skus.forEach(function(sku) {
-        if (eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
-          eachVariation.values.push(sku.properties[i].facet.values[0]);
-        }
-      });
-      skuVariations.push(eachVariation);
+            if(eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
+              eachVariation.values.push(sku.properties[i].facet.values[0]);
+          }
+        });
+        skuVariations.push(eachVariation);
     }
     return skuVariations;
   }
@@ -108,7 +62,7 @@ class Product extends React.Component {
       }) :
       this.setState({ facets: this.state.facets, selectedImg: selectedImg
       })
-  }
+    }
 
   removeFacet = (variationName) => {
     this.state.facets.forEach((facet) => {
@@ -166,10 +120,6 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let skuVariations = this.getSkuVariations();
-    let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
-
-    let classes = this.state.affix ? 'v-add-to-cart-button--fixed btn btn-block col-xs-8' : 'v-add-to-cart-button btn btn-block';
-    var {className, offset, ...props} = this.props;
 
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(skus);
@@ -178,6 +128,13 @@ class Product extends React.Component {
     if (this.state.selectedSku.length === 1) {
       defaultSku = this.state.selectedSku[0];
     }
+
+    console.log('facets:');
+    console.log(this.state.facets);
+    console.log('selectedSku ' + this.state.selectedSku);
+    console.log('skus ')
+    console.log(skus);
+
 
     return (
       <div className="v-product container-fluid">
@@ -195,13 +152,7 @@ class Product extends React.Component {
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
                      changeAvailability={this.changeAvailability}/>
-        { this.state.affix ?
-          <div>
-            <AddToCartButton skuId={defaultSku.id} classes = {classes} id="product-button" route="product"/>
-            <h3 className="v-product__price--fixed col-xs-4"><Price value={price}/></h3>
-          </div>
-          : <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} classes = {classes} id="product-button" route="product"/>
-        }
+        <AddToCartButton skuId={defaultSku.id} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );

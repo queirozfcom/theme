@@ -5,16 +5,23 @@ import './SkuSelector.less';
 class VariationButton extends React.Component {
 
   changeState = (ev) => {
-    let displayType;
-    if (this.props.variationName === 'Cor') {
-      displayType = 'image';
-    }
     ev.preventDefault();
     if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
       this.props.isActive ? this.props.removeFacet(this.props.variationName) :
       this.props.addFacet(this.props.variationName, this.props.value, displayType);
     }
   }
+
+  changeAvailability = (isActive) => {
+    if(this.props.variationName === 'Tamanho') {
+      if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
+        if(isActive)
+          return 'v-dream__size-selector--active ';
+        return 'v-dream__size-selector ';
+      }
+      return 'v-dream__size-selector--unavailable ';
+    }
+}
 
   displayValue = () => {
     if (this.props.variationName === 'Tamanho') {
@@ -36,10 +43,12 @@ class VariationButton extends React.Component {
   }
 
   render() {
+    let isActive = this.props.isActive;
+
     return (
-      <div className="col-xs-2">
+      <button className={ this.changeAvailability(isActive) + ' col-xs-2' } onTouchTap={this.changeState}>
         { this.displayValue() }
-      </div>
+      </button>
     );
   }
 }
