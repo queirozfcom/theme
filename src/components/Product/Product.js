@@ -9,7 +9,6 @@ import ProductDescription from  './ProductDescription';
 class Product extends React.Component {
   state = {
     selectedSku: [],
-    validationError: false,
     facets: []
   }
 
@@ -51,7 +50,6 @@ class Product extends React.Component {
     this.getAvailability(variationValue) > 0 ?
       this.setState({
         facets: this.state.facets,
-        validationError: false,
         selectedSku: this.filterSkus(this.props.skus)
       }) :
       this.setState({ facets: this.state.facets
@@ -67,7 +65,6 @@ class Product extends React.Component {
     })
     this.setState({
       facets: this.state.facets,
-      validationError: true
     });
   }
 
@@ -89,14 +86,6 @@ class Product extends React.Component {
     skus = result;
     });
     return result;
-  }
-
-  displayAlert = () => {
-    if(this.state.facets.length === 0) {
-          this.setState({validationError: true});
-      } else {
-        this.setState({validationError: false});
-      }
   }
 
   getAvailability = (value, valueName) => {
@@ -153,8 +142,8 @@ class Product extends React.Component {
         </div>
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
-                     changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
-        <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)} id="product-button" route="product"/>
+                     changeAvailability={this.changeAvailability}/>
+        <AddToCartButton skuId={defaultSku.id} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );
