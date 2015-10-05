@@ -8,20 +8,12 @@ import { storefront } from 'sdk';
   editable: true
 })
 class SelectVariation extends React.Component {
-  getVariationKey(variationName) {
-    if(variationName === 'Tamanho') {
-      return ['PP','P','M', 'G', 'GG'];
-    } else if (variationName === 'Cor'){
-      return ['Branco', 'Azul'];
-    }
-  }
 
   render() {
     let variationName = this.props.skuVariations.name;
     let skus = this.props.skus;
-    let variationKey = this.getVariationKey(variationName);
+    let variationKey = this.props.skuVariations.values;
 
-    // Pega as configurações do componente
     if (this.props.settings) {
        variationKey = this.props.settings.get('variationKey');
     }
