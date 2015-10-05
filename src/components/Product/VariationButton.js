@@ -26,7 +26,7 @@ class VariationButton extends React.Component {
     if(this.props.variationName === 'Tamanho') {
       return this.props.value;
     } else if (this.props.variationName === 'Cor') {
-      return ( <Img className="v-product__photo" src={this.props.getImg(this.props.variationName)} width={200} height={235}/> );
+      return ( <Img className="v-product__photo" src={this.props.getImg(this.props.variationName, this.props.value)} width={200} height={235}/> );
     }
   }
 

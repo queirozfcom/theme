@@ -29,12 +29,15 @@ class Product extends React.Component {
     return skuVariations;
   }
 
-  getImgByVariation = (variationName) => {
+  getImgByVariation = (variationName, variationValue) => {
     let img;
     this.props.skus.forEach(function(sku) {
       sku.properties.forEach(function(property) {
-        if(property.facet.name === variationName)
-          img = sku.images[0].src;
+        if(property.facet.name === variationName) {
+          if(property.facet.values[0] === variationValue) {
+            img = sku.images[0].src;
+          }
+        }
       })
     })
     return img;
