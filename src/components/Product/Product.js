@@ -9,6 +9,7 @@ import ProductDescription from  './ProductDescription';
 class Product extends React.Component {
   state = {
     selectedSku: [],
+    selectedImg: null,
     facets: []
   }
 
@@ -42,17 +43,24 @@ class Product extends React.Component {
     return img;
   }
 
-  addFacet = (variationName, variationValue) => {
+  addFacet = (variationName, variationValue, displayType) => {
+    let selectedImg;
+    if(displayType === 'image') {
+      selectedImg = this.getImgByVariation(variationName, variationValue);
+    } else {
+      selectedImg = null;
+    }
     if(this.state.facets.length > 0) {
-      this.removeFacet(variationName, variationValue);
+      this.removeFacet(variationName);
     }
     this.state.facets.push({name: variationName, value: variationValue});
     this.getAvailability(variationValue) > 0 ?
       this.setState({
         facets: this.state.facets,
+        selectedImg: selectedImg,
         selectedSku: this.filterSkus(this.props.skus)
       }) :
-      this.setState({ facets: this.state.facets
+      this.setState({ facets: this.state.facets, selectedImg: selectedImg
       })
     }
 
@@ -65,6 +73,7 @@ class Product extends React.Component {
     })
     this.setState({
       facets: this.state.facets,
+      selectedImg: null
     });
   }
 
@@ -131,7 +140,7 @@ class Product extends React.Component {
       <div className="v-product container-fluid">
         <div className="row-fluid">
           <div className="v-product__photo-caroussel">
-            <Img className="v-product__photo" src={imageUrl} width={200} height={235}/>
+            <Img className="v-product__photo" src={imageUrl} width={200} height={235}  selectedImg={this.state.selectedImg}/>
           </div>
         </div>
         <div className="row">
