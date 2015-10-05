@@ -29,6 +29,17 @@ class Product extends React.Component {
     return skuVariations;
   }
 
+  getImgByVariation = (variationName) => {
+    let img;
+    this.props.skus.forEach(function(sku) {
+      sku.properties.forEach(function(property) {
+        if(property.facet.name === variationName)
+          img = sku.images[0].src;
+      })
+    })
+    return img;
+  }
+
   addFacet = (variationName, variationValue) => {
     if(this.state.facets.length > 0) {
       this.removeFacet(variationName, variationValue);
@@ -138,7 +149,7 @@ class Product extends React.Component {
           </div>
         </div>
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
-                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations}
+                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
                      changeAvailability={this.changeAvailability} validationError={this.state.validationError}/>
         <AddToCartButton skuId={defaultSku.id} displayAlert={this.displayAlert.bind(this)} id="product-button" route="product"/>
         <ProductDescription/>

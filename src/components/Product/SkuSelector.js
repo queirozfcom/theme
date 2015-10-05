@@ -23,7 +23,7 @@ class SkuSelector extends React.Component {
                 <SelectVariation skus={this.props.skus} removeFacet={this.props.removeFacet} facets={this.props.facets}
                                  skuVariations={variationType} addFacet={this.props.addFacet} getAvailability={this.props.getAvailability}
                                  getSkuVariations={this.getSkuVariations} changeAvailability={this.props.changeAvailability}
-                                 id="select-variation" route="product"/>
+                                 getImg={this.props.getImg} id="select-variation" route="product"/>
               </div>
             )
           })
