@@ -5,17 +5,12 @@ var meta = require('./meta.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 
-var entryPoints = {
-  'HomePage': './src/pages/HomePage/index.js',
-  'ProductPage': './src/pages/ProductPage/index.js',
-  'editors/index': production ? './src/editors/index.js' : [
-    'webpack-hot-middleware/client',
-    './src/editors/index.js'
-  ]
-};
-
-module.exports = {
-  entry: entryPoints,
+var config = {
+  entry: {
+    'HomePage': ['./src/pages/HomePage/index.js'],
+    'ProductPage': ['./src/pages/ProductPage/index.js'],
+    'editors/index': ['./src/editors/index.js']
+  },
 
   module: {
     preLoaders: [
@@ -60,22 +55,11 @@ module.exports = {
 
   plugins: production ? [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    }),
+    new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}}),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.CommonsChunkPlugin('common.js')
   ] : [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin('common.js')
   ],
 
@@ -85,6 +69,7 @@ module.exports = {
     'immutable': 'Immutable',
     'intl': 'Intl',
     'react': 'React',
+    'react-dom': 'ReactDOM',
     'react-intl': 'ReactIntl',
     'react-router': 'ReactRouter',
     'sdk': 'storefront.sdk'
@@ -126,3 +111,12 @@ module.exports = {
     '*': 'http://janus-edge.vtex.com.br/'
   }
 };
+
+if (process.env.HOT) {
+  config.devtool = 'eval';
+  config.entry['editors/index'].unshift('webpack-hot-middleware/client');
+  config.plugins.unshift(new webpack.NoErrorsPlugin());
+  config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+}
+
+module.exports = config;
