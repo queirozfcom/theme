@@ -1,4 +1,4 @@
-import { stores, connectToStores, storefront } from 'sdk';
+import { stores, storefront, utils } from 'sdk';
 import React from 'react';
 import Immutable from 'immutable';
 import './Shelf.less';
@@ -10,10 +10,18 @@ import ShelfSlider from './ShelfSlider';
   title: 'Shelf',
   editable: true
 })
-@connectToStores([
-  stores.SearchStore
-])
+@utils.connectToStores()
 class Shelf extends React.Component {
+  static getStores() {
+    return [stores.SearchStore];
+  }
+
+  static getPropsFromStores() {
+    return {
+      SearchStore: stores.SearchStore.getState()
+    };
+  }
+
   static defaultProps = {
     settings: Immutable.fromJS({
       category: 'fera-fashion',

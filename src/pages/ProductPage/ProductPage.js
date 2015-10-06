@@ -1,15 +1,23 @@
 import React from 'react';
-import { stores, actions, connectToStores } from 'sdk';
+import { stores, actions, utils } from 'sdk';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import './ProductPage.less';
 import Product from 'components/Product/Product';
 
-@connectToStores([
-  stores.ProductStore
-])
+@utils.connectToStores()
 class ProductPage extends React.Component {
+  static getStores() {
+    return [stores.ProductStore];
+  }
+
+  static getPropsFromStores(props) {
+    return {
+      product: stores.ProductStore.getState().get(props.params.slug)
+    }
+  }
+
   componentWillMount() {
     // TODO fix scroll behavior
     var contentEl = document.getElementsByClassName('v-editor__app-container')[0];
@@ -28,13 +36,12 @@ class ProductPage extends React.Component {
   }
 
   render() {
-    let slug = this.props.params.slug;
-    let productData = this.props.ProductStore.get(slug);
+    let product = this.props.product;
 
     return (
       <div>
         <Header/>
-        {productData ? <Product {...productData}/> : <div>Carregando</div>}
+        {product ? <Product {...product}/> : <div>Carregando</div>}
         <Newsletter/>
         <Footer/>
       </div>
