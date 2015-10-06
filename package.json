@@ -28,7 +28,7 @@
     "lodash-compat": "^3.10.1",
     "minimist": "^1.1.1",
     "raw-loader": "^0.5.1",
-    "react": "^0.14.0",
+    "react": "^0.14.0-rc1",
     "react-proxy-loader": "^0.3.4",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
