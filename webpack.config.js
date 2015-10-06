@@ -113,7 +113,7 @@ var config = {
 };
 
 if (process.env.HOT) {
-  config.devtool = 'eval';
+  config.devtool = 'source-map';
   config.entry['editors/index'].unshift('webpack-hot-middleware/client');
   config.plugins.unshift(new webpack.NoErrorsPlugin());
   config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
