@@ -92,7 +92,7 @@ var config = {
     filename: '[name].js',
     chunkFilename: '[name].js',
     jsonpFunction: 'webpackJsonp_' + meta.vendor.replace(/\-/g, '') + '_' + meta.name.replace(/\-/g, ''),
-    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]?[hash][id]'
+    devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]'
   },
 
   eslint: {
