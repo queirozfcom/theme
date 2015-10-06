@@ -9,7 +9,7 @@ class BannerImage extends React.Component {
 
   render() {
     let link = this.props.link ? this.props.link : '#';
-    let onTouchBannerLink = this.props.onTouchBannerLink ? this.props.onTouchBannerLink : false;
+    let onTouchBannerLink = this.props.onTouchBannerLink ? this.props.onTouchBannerLink : null;
 
     return (
       <a className="v-banner__link" href={link} onTouchTap={onTouchBannerLink} onClick={onTouchBannerLink}>
