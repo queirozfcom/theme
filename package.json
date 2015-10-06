@@ -3,6 +3,11 @@
   "description": "Default Storefront theme for new VTEX stores",
   "version": null,
   "private": true,
+  "dependencies": {
+    "colr": "^1.2.2",
+    "lodash-compat": "^3.10.1",
+    "react-colorpicker": "^0.3.14"
+  },
   "devDependencies": {
     "babel-core": "^5.4.7",
     "babel-eslint": "^3.1.20",
@@ -30,7 +35,7 @@
     "svgo": "^0.5.5",
     "svgo-loader": "^1.1.0",
     "url-loader": "^0.5.5",
-    "webpack": "^1.9.6",
+    "webpack": "^1.12.2",
     "webpack-hot-middleware": "^2.0.0"
   },
   "scripts": {
@@ -54,11 +59,6 @@
   ],
   "bugs": {
     "url": "https://github.com/vtex-apps/storefront-theme/issues"
-  },
-  "dependencies": {
-    "colr": "^1.2.2",
-    "lodash-compat": "^3.10.1",
-    "react-colorpicker": "^0.3.14"
   },
   "engines": {
     "node": ">=0.10",
