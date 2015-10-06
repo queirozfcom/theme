@@ -77,8 +77,6 @@ var config = {
     'react-intl': 'ReactIntl',
     'react-router': 'ReactRouter',
     'sdk': 'storefront.sdk'
-    'intl': 'Intl',
-    'react-intl': 'ReactIntl'
   },
 
   resolve: {
