@@ -27,11 +27,13 @@ class AddToCartButton extends React.Component {
     }
 
     return (
-      <a href={addUrl} className="v-add-to-cart-button btn btn-block" style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
+      <a href={addUrl} className ={this.props.classes} style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
         {label}
       </a>
     )
   }
+
+
 }
 
 export default AddToCartButton;

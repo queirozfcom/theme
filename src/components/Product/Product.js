@@ -10,7 +10,56 @@ class Product extends React.Component {
   state = {
     selectedSku: [],
     selectedImg: null,
-    facets: []
+    facets: [],
+    affix: false
+  }
+
+  propTypes: {
+    offset: React.PropTypes.number
+  }
+
+  static defaultProps = {
+    offset: 30
+  }
+
+  componentDidMount() {
+    window.addEventListener('touchmove', this.handleScroll.bind(this));
+    window.addEventListener('wheel', this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('touchmove', this.handleScroll.bind(this));
+    window.removeEventListener('wheel', this.handleScroll.bind(this));
+  }
+
+  handleScroll() {
+    let affix = this.state.affix;
+    let offset = this.props.offset; // 0
+    let elems;
+    if (document.getElementsByClassName) {
+      elems = document.getElementsByClassName('v-editor__app-container');
+    } else {
+      elems = document.querySelectorAll('.v-editor__app-container');
+    }
+    let scrollTop = elems ? elems[0].scrollTop : 0;
+
+    // if (elements.length === 0) {
+    //   elems = document.getElementById('product-page');
+    // }
+    // scrollTop = elems.scrollTop;
+
+
+    if (!affix && scrollTop >= offset) {
+      this.setState({
+        affix: true
+      });
+    }
+
+    if (affix && scrollTop < offset) {
+      this.setState({
+        affix: false
+      });
+    }
   }
 
   getSkuVariations = () => {
@@ -121,6 +170,9 @@ class Product extends React.Component {
     let skus = this.props.skus;
     let skuVariations = this.getSkuVariations();
 
+    let classes = this.state.affix ? 'v-add-to-cart-button--fixed btn btn-block col-xs-8' : 'v-add-to-cart-button btn btn-block';
+    var {className, offset, ...props} = this.props;
+
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(skus);
     }
@@ -152,7 +204,13 @@ class Product extends React.Component {
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
                      changeAvailability={this.changeAvailability}/>
-        <AddToCartButton skuId={defaultSku.id} id="product-button" route="product"/>
+        { this.state.affix ?
+          <div>
+            <AddToCartButton skuId={defaultSku.id} classes = {classes} id="product-button" route="product"/>
+            <h3 className="v-product__price--fixed col-xs-4"><Price value={price}/></h3>
+          </div>
+          : <AddToCartButton skuId={defaultSku.id} classes = {classes} id="product-button" route="product"/>
+        }
         <ProductDescription/>
       </div>
     );
