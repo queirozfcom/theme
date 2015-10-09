@@ -35,18 +35,16 @@ class Product extends React.Component {
   handleScroll() {
     let affix = this.state.affix;
     let offset = this.props.offset; // 0
-    let elems;
+    let elems = [];
     if (document.getElementsByClassName) {
       elems = document.getElementsByClassName('v-editor__app-container');
     } else {
       elems = document.querySelectorAll('.v-editor__app-container');
     }
-    let scrollTop = elems ? elems[0].scrollTop : 0;
-
-    // if (elements.length === 0) {
-    //   elems = document.getElementById('product-page');
-    // }
-    // scrollTop = elems.scrollTop;
+    let scrollTop = elems.length != 0 ? elems[0].scrollTop : 0;
+    if (elems.length === 0) {
+      scrollTop = document.body.scrollTop;
+    }
 
 
     if (!affix && scrollTop >= offset) {
