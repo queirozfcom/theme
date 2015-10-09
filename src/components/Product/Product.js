@@ -19,7 +19,7 @@ class Product extends React.Component {
   }
 
   static defaultProps = {
-    offset: 30
+    offset: 10
   }
 
   componentDidMount() {
@@ -34,7 +34,7 @@ class Product extends React.Component {
 
   handleScroll() {
     let affix = this.state.affix;
-    let offset = this.props.offset; // 0
+    let offset = this.props.offset;
     let elems = [];
     if (document.getElementsByClassName) {
       elems = document.getElementsByClassName('v-editor__app-container');
@@ -45,7 +45,6 @@ class Product extends React.Component {
     if (elems.length === 0) {
       scrollTop = document.body.scrollTop;
     }
-
 
     if (!affix && scrollTop >= offset) {
       this.setState({
