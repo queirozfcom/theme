@@ -124,14 +124,16 @@ if (process.env.HOT) {
 
   config.module.loaders[0].query.plugins.push('react-transform');
   config.module.loaders[0].query.extra = {
-    'react-transform': [{
-      target: 'react-transform-hmr',
-      imports: ['react-native'],
-      locals: ['module']
-    }, {
-      'transform': 'react-transform-catch-errors',
-      'imports': ['react', 'redbox-react', 'utils/reporterOptions']
-    }]
+    'react-transform': {
+      transforms: [{
+        transform: 'react-transform-hmr',
+        imports: ['react'],
+        locals: ['module']
+      }, {
+        transform: 'react-transform-catch-errors',
+        imports: ['react', 'redbox-react', 'utils/reporterOptions']
+      }]
+    }
   };
 }
 
