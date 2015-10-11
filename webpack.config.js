@@ -27,7 +27,11 @@ var config = {
         test: /\.js$/,
         exclude: /node_modules/,
         include: path.join(__dirname, 'src'),
-        loader: 'babel'
+        loader: 'babel',
+        query: {
+          stage: 0,
+          plugins: []
+        }
       }, {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
@@ -117,6 +121,18 @@ if (process.env.HOT) {
   config.entry['editors/index'].unshift('webpack-hot-middleware/client');
   config.plugins.unshift(new webpack.NoErrorsPlugin());
   config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+
+  config.module.loaders[0].query.plugins.push('react-transform');
+  config.module.loaders[0].query.extra = {
+    'react-transform': [{
+      target: 'react-transform-hmr',
+      imports: ['react-native'],
+      locals: ['module']
+    }, {
+      'transform': 'react-transform-catch-errors',
+      'imports': ['react', 'redbox-react', 'utils/reporterOptions']
+    }]
+  };
 }
 
 module.exports = config;
