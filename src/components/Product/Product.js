@@ -62,15 +62,15 @@ class Product extends React.Component {
   getSkuVariations = () => {
     let skuVariations = [];
     let variationNumber = this.props.skus[0].properties.length;
-    for(let i=0; i<variationNumber; i++) {
+    for (let i=0; i<variationNumber; i++) {
       let eachVariation = {name: '', values: [] };
       eachVariation.name = this.props.skus[0].properties[i].facet.name;
       this.props.skus.forEach(function(sku) {
-            if(eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
-              eachVariation.values.push(sku.properties[i].facet.values[0]);
-          }
-        });
-        skuVariations.push(eachVariation);
+        if (eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
+          eachVariation.values.push(sku.properties[i].facet.values[0]);
+        }
+      });
+      skuVariations.push(eachVariation);
     }
     return skuVariations;
   }
@@ -79,8 +79,8 @@ class Product extends React.Component {
     let img;
     this.props.skus.forEach(function(sku) {
       sku.properties.forEach(function(property) {
-        if(property.facet.name === variationName) {
-          if(property.facet.values[0] === variationValue) {
+        if (property.facet.name === variationName) {
+          if (property.facet.values[0] === variationValue) {
             img = sku.images[0].src;
           }
         }
@@ -91,12 +91,12 @@ class Product extends React.Component {
 
   addFacet = (variationName, variationValue, displayType) => {
     let selectedImg;
-    if(displayType === 'image') {
+    if (displayType === 'image') {
       selectedImg = this.getImgByVariation(variationName, variationValue);
     } else {
       selectedImg = null;
     }
-    if(this.state.facets.length > 0) {
+    if (this.state.facets.length > 0) {
       this.removeFacet(variationName);
     }
     this.state.facets.push({name: variationName, value: variationValue});
@@ -108,13 +108,13 @@ class Product extends React.Component {
       }) :
       this.setState({ facets: this.state.facets, selectedImg: selectedImg
       })
-    }
+  }
 
   removeFacet = (variationName) => {
     this.state.facets.forEach((facet) => {
-      if(facet.name === variationName) {
-          let index = this.state.facets.indexOf(facet);
-          this.state.facets.splice(index,1);
+      if (facet.name === variationName) {
+        let index = this.state.facets.indexOf(facet);
+        this.state.facets.splice(index,1);
       }
     })
     this.setState({
@@ -129,16 +129,16 @@ class Product extends React.Component {
       result = [];
       skus.forEach((sku) => {
         sku.properties.forEach((property) => {
-          if(property.facet.name === facet.name) {
-            if(property.facet.values[0] === facet.value) {
-              if(result.indexOf(sku) === -1) {
+          if (property.facet.name === facet.name) {
+            if (property.facet.values[0] === facet.value) {
+              if (result.indexOf(sku) === -1) {
                 result.push(sku);
               }
             }
           }
         })
-    })
-    skus = result;
+      })
+      skus = result;
     });
     return result;
   }
@@ -146,14 +146,14 @@ class Product extends React.Component {
   getAvailability = (value, valueName) => {
     let availability = 0;
     let skus = this.props.skus;
-    if(this.state.facets.length >= 1 && this.state.facets[0].name != valueName) {
+    if (this.state.facets.length >= 1 && this.state.facets[0].name != valueName) {
       skus = this.filterSkus(skus);
     }
     skus.forEach(function(sku) {
       sku.properties.forEach((property)=> {
-            if(property.facet.values[0] === value && availability === 0) {
-              return availability = sku.offers[0].availability;
-            }
+        if (property.facet.values[0] === value && availability === 0) {
+          return availability = sku.offers[0].availability;
+        }
       })
     });
     return availability;
@@ -175,7 +175,7 @@ class Product extends React.Component {
       skus = this.filterSkus(skus);
     }
 
-    if(this.state.selectedSku.length === 1) {
+    if (this.state.selectedSku.length === 1) {
       defaultSku = this.state.selectedSku[0];
     }
 

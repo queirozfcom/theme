@@ -15,7 +15,7 @@ class SelectVariation extends React.Component {
     let variationKey = this.props.skuVariations.values;
 
     if (this.props.settings) {
-       variationKey = this.props.settings.get('variationKey');
+      variationKey = this.props.settings.get('variationKey');
     }
     return (
       <div className="v-dream__selector-row row" key={variationName}>
@@ -26,18 +26,17 @@ class SelectVariation extends React.Component {
               variationKey.map((variation) => {
                 let isActive = false;
                 this.props.facets.forEach(function(facet) {
-                  if(facet.value === variation) {
+                  if (facet.value === variation) {
                     isActive = true;
                   }
                 })
-
-                  return (
-                    <div key={variation}>
-                      <VariationButton skus={skus} value={variation} removeFacet={this.props.removeFacet} getAvailability={this.props.getAvailability}
-                                       facets={this.props.facets} addFacet={this.props.addFacet} isActive={isActive} getImg={this.props.getImg}
-                                       variationName={variationName} changeAvailability={this.props.changeAvailability}/>
-                    </div>
-                );
+                return (
+                  <div key={variation}>
+                    <VariationButton skus={skus} value={variation} removeFacet={this.props.removeFacet} getAvailability={this.props.getAvailability}
+                                     facets={this.props.facets} addFacet={this.props.addFacet} isActive={isActive} getImg={this.props.getImg}
+                                     variationName={variationName} changeAvailability={this.props.changeAvailability}/>
+                  </div>
+              );
               })
             }
           </div>
