@@ -16,15 +16,15 @@ class Product extends React.Component {
   getSkuVariations = () => {
     let skuVariations = [];
     let variationNumber = this.props.skus[0].properties.length;
-    for(let i=0; i<variationNumber; i++) {
+    for (let i=0; i<variationNumber; i++) {
       let eachVariation = {name: '', values: [] };
       eachVariation.name = this.props.skus[0].properties[i].facet.name;
       this.props.skus.forEach(function(sku) {
-            if(eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
-              eachVariation.values.push(sku.properties[i].facet.values[0]);
-          }
-        });
-        skuVariations.push(eachVariation);
+        if (eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
+          eachVariation.values.push(sku.properties[i].facet.values[0]);
+        }
+      });
+      skuVariations.push(eachVariation);
     }
     return skuVariations;
   }
@@ -62,7 +62,7 @@ class Product extends React.Component {
       }) :
       this.setState({ facets: this.state.facets, selectedImg: selectedImg
       })
-    }
+  }
 
   removeFacet = (variationName) => {
     this.state.facets.forEach((facet) => {
