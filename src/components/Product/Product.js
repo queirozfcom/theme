@@ -166,6 +166,7 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let skuVariations = this.getSkuVariations();
+    let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
     let classes = this.state.affix ? 'v-add-to-cart-button--fixed btn btn-block col-xs-8' : 'v-add-to-cart-button btn btn-block';
     var {className, offset, ...props} = this.props;
@@ -177,13 +178,6 @@ class Product extends React.Component {
     if(this.state.selectedSku.length === 1) {
       defaultSku = this.state.selectedSku[0];
     }
-
-    console.log('facets:');
-    console.log(this.state.facets);
-    console.log('selectedSku ' + this.state.selectedSku);
-    console.log('skus ')
-    console.log(skus);
-
 
     return (
       <div className="v-product container-fluid">
@@ -206,7 +200,7 @@ class Product extends React.Component {
             <AddToCartButton skuId={defaultSku.id} classes = {classes} id="product-button" route="product"/>
             <h3 className="v-product__price--fixed col-xs-4"><Price value={price}/></h3>
           </div>
-          : <AddToCartButton skuId={defaultSku.id} classes = {classes} id="product-button" route="product"/>
+          : <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} classes = {classes} id="product-button" route="product"/>
         }
         <ProductDescription/>
       </div>

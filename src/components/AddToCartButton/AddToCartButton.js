@@ -12,9 +12,9 @@ class AddToCartButton extends React.Component {
     quantity: 1,
     seller: '1'
   }
-  
+
   render() {
-    let addUrl = `/checkout/cart/add?sku=${this.props.skuId}&qty=${this.props.quantity}&seller=${this.props.seller}&redirect=true&sc=1`;
+    let addUrl = this.props.cartValidation ? `/checkout/cart/add?sku=${this.props.skuId}&qty=${this.props.quantity}&seller=${this.props.seller}&redirect=true&sc=1` : null;
 
     let label = 'Adicionar ao carrinho';
     let color = '#75CCB1';
