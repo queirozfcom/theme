@@ -162,9 +162,8 @@ class SVGIcon extends React.Component {
   render() {
     if (this.state.browserSupport) {
       return this._renderSVG();
-    } else {
-      return this._renderFallback();
     }
+    return this._renderFallback();
   }
 }
 
