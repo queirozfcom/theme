@@ -12,28 +12,20 @@
   margin-bottom: 0.5em;
 }
 
-.v-clean-btn {
-  background-color: transparent;
-  border: none;
-}
-.v-no-outlines {
-  &:active, &:focus {
-    outline: none;
-  }
-}
-.v-unselectable {
-   /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
-   /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
-   -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
-   -webkit-user-select: none;
-   -ms-user-select: none; /* From IE10 only */
-   user-select: none; /* Not valid CSS yet, as of July 2012 */
-
-   -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
-   user-drag: none;
+.v-dream__selector-btn {
+  background-color: #FFF;
+  border: 2px solid #153243;
+  border-radius: 50%;
+  color: #153243;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 40px;
+  padding: 0px;
+  width: 40px;
 }
 
-.v-dream__size-selector--active {
+.v-dream__selector-btn[data-is-active='true'] {
   .v-clean-btn;
   .v-no-outlines;
   .v-unselectable;
@@ -49,27 +41,27 @@
   width: 40px;
 }
 
-.v-dream__size-selector {
-  .v-clean-btn;
-  .v-no-outlines;
-  .v-unselectable;
-  background-color: #FFF;
-  border: 2px solid #153243;
-  border-radius: 50%;
-  color: #153243;
-  font-weight: 500;
-  margin-top: 10px;
-  margin-right: 10px;
-  height: 40px;
-  padding: 0px;
-  width: 40px;
-}
-
-.v-dream__size-selector--unavailable {
-  .v-dream__size-selector;
+.v-dream__selector-btn[data-is-available='0'] {
+  .v-dream__selector-btn;
   border: 2px solid darken(#fff, 40%);
   color: darken(#fff, 40%);
   //background-color: darken(#fff, 5%);
+}
+
+.v-dream__selector-img {
+  width: 50px;
+  margin-top: 5px;
+  padding: 0px;
+}
+
+.v-dream__selector-img[data-is-available='0'] {
+  .v-dream__selector-img;
+  opacity: 0.3;
+}
+
+.v-dream__selector-img[data-is-active='true'] {
+  .v-dream__selector-img;
+  border: 2px solid #153243;
 }
 
 .v-dream__selector-section {
