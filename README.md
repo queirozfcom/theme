@@ -22,13 +22,13 @@ npm install
 
 ### 2 - Configurando a sandbox
 
-> A sandbox é usada para testar apps que não estão publicadas. Você irá usar uma sandbox apenas se você é um desenvolvedor de apps VTEX - [Docs](http://vtex.github.io/docs/pt-br/portal/fundacao/sandbox.html)
+> A sandbox é usada para testar apps que não estão publicadas. Você irá usar uma sandbox apenas se você é um desenvolvedor de apps VTEX - [Docs](https://github.com/vtex-apps/docs/blob/master/guia/1-primeiros-passos.md#sandbox)
 
 A sandbox é como uma versão alternativa de uma app que só você vê durante desenvolvimento.
 
 Precisamos indicar para o Storefront que **iremos utilizar** uma nova sandbox. Neste exemplo, usaremos o nome `minhasandbox`, mas você pode escolher o nome que quiser.
 
-Faremos isso definindo um **cookie especial no seu browser**, com o nome `vtex_sandbox` e o valor `vtex/minhasandbox=dreamstore-theme`.
+Faremos isso definindo um **cookie especial no seu browser**, com o nome `vtex_sandbox` e o valor `vtex/minhasandbox=storefront-theme`.
 
 Para isso, baixe uma extensão do navegador que possibilite a alteração dos cookies. Recomendamos o [Cookie Inspector](https://chrome.google.com/webstore/detail/cookie-inspector/jgbbilmfbammlbbhmmgaagdkbkepnijn?utm_source=chrome-app-launcher-info-dialog). Para criar um novo cookie, abra o Developer Tools e clique na aba Cookies. Clique com o botão direito do mouse e escolha "Add New Cookie".
 
