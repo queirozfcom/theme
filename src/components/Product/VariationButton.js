@@ -5,23 +5,16 @@ import './SkuSelector.less';
 class VariationButton extends React.Component {
 
   changeState = (ev) => {
+    let displayType;
+    if (this.props.variationName === 'Cor') {
+      displayType = 'image';
+    }
     ev.preventDefault();
     if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
       this.props.isActive ? this.props.removeFacet(this.props.variationName) :
       this.props.addFacet(this.props.variationName, this.props.value, displayType);
     }
   }
-
-  changeAvailability = (isActive) => {
-    if(this.props.variationName === 'Tamanho') {
-      if (this.props.getAvailability(this.props.value, this.props.variationName) > 0) {
-        if(isActive)
-          return 'v-dream__size-selector--active ';
-        return 'v-dream__size-selector ';
-      }
-      return 'v-dream__size-selector--unavailable ';
-    }
-}
 
   displayValue = () => {
     if (this.props.variationName === 'Tamanho') {
@@ -33,22 +26,21 @@ class VariationButton extends React.Component {
         </button>);
     } else if (this.props.variationName === 'Cor') {  // if displayType === image (editor)
       return (
-        <button className="v-clean-btn">
-          <Img className=" v-dream__selector-img" data-is-active={this.props.isActive}
-          data-is-available={this.props.getAvailability(this.props.value, this.props.variationName)}
-          onTouchTap={this.changeState} src={this.props.getImg(this.props.variationName, this.props.value)}
+        <button className="v-clean-btn" style={{ border: 1}}
+                data-is-available={this.props.getAvailability(this.props.value, this.props.variationName)}
+                data-is-active={this.props.isActive} onTouchTap={this.changeState}>
+          <Img className=" v-dream__selector-img"
+          src={this.props.getImg(this.props.variationName, this.props.value)}
           width={200} height={235}/>
         </button>);
     }
   }
 
   render() {
-    let isActive = this.props.isActive;
-
     return (
-      <button className={ this.changeAvailability(isActive) + ' col-xs-2' } onTouchTap={this.changeState}>
+      <div className="col-xs-2 v-dream__btn-align ">
         { this.displayValue() }
-      </button>
+      </div>
     );
   }
 }
