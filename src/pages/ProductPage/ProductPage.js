@@ -27,11 +27,7 @@ class ProductPage extends React.Component {
 
     let currentURL = (window.location.pathname + window.location.search);
     if (!stores.ResourceStore.getState().get(currentURL)) {
-      let slug = stores.ContextStore.getState().getIn(['route', 'params', 'slug']);
-      let params = {
-        slug: slug
-      };
-      actions.ResourceActions.getRouteResources(currentURL, 'product', params);
+      actions.ResourceActions.getRouteResources(currentURL, 'product', this.props.params);
     }
   }
 
