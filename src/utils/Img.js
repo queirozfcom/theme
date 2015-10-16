@@ -30,6 +30,7 @@ class Img extends React.Component {
       path = src.replace('#width#', this.props.width).replace('#height#', this.props.width);
       path = this.getBaseUrl(this.props) + path;
     }
+
     return (
       <img
         className={this.props.className}
