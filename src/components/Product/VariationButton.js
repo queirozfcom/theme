@@ -26,7 +26,7 @@ class VariationButton extends React.Component {
         </button>);
     } else if (this.props.variationName === 'Cor') {  // if displayType === image (editor)
       return (
-        <button className="v-clean-btn" style={{ border: 1}}
+        <button className="v-clean-btn"
                 data-is-available={this.props.getAvailability(this.props.value, this.props.variationName)}
                 data-is-active={this.props.isActive} onTouchTap={this.changeState}>
           <Img className=" v-dream__selector-img"

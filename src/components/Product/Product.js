@@ -11,7 +11,54 @@ class Product extends React.Component {
     selectedSku: [],
     selectedImg: null,
     facets: []
+    // affix: false
   }
+
+  // propTypes: {
+  //   offset: React.PropTypes.number
+  // }
+  //
+  // static defaultProps = {
+  //   offset: 10
+  // }
+
+  // componentDidMount() {
+  //   window.addEventListener('touchmove', this.handleScroll.bind(this));
+  //   window.addEventListener('wheel', this.handleScroll.bind(this));
+  // }
+  //
+  // componentWillUnmount() {
+  //   window.removeEventListener('touchmove', this.handleScroll.bind(this));
+  //   window.removeEventListener('wheel', this.handleScroll.bind(this));
+  // }
+
+  // handleScroll() {
+  //   let affix = this.state.affix;
+  //   let offset = this.props.offset;
+  //   let elems = [];
+  //   if (document.getElementsByClassName) {
+  //     elems = document.getElementsByClassName('v-editor__app-container');
+  //   } else {
+  //     elems = document.querySelectorAll('.v-editor__app-container');
+  //   }
+  //   let scrollTop = elems.length != 0 ? elems[0].scrollTop : 0;
+  //   if (elems.length === 0) {
+  //     elems = document.getElementById('storefront-container')
+  //     scrollTop = elems.scrollTop;
+  //   }
+  //
+  //   if (!affix && scrollTop >= offset) {
+  //     this.setState({
+  //       affix: true
+  //     });
+  //   }
+  //
+  //   if (affix && scrollTop < offset) {
+  //     this.setState({
+  //       affix: false
+  //     });
+  //   }
+  // }
 
   getSkuVariations = () => {
     let skuVariations = [];
@@ -120,6 +167,10 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let skuVariations = this.getSkuVariations();
+    let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
+
+    let classes = 'v-add-to-cart-button--fixed btn btn-block';
+    // var {className, offset, ...props} = this.props;
 
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(skus);
@@ -129,15 +180,8 @@ class Product extends React.Component {
       defaultSku = this.state.selectedSku[0];
     }
 
-    console.log('facets:');
-    console.log(this.state.facets);
-    console.log('selectedSku ' + this.state.selectedSku);
-    console.log('skus ')
-    console.log(skus);
-
-
     return (
-      <div className="v-product container-fluid">
+      <div className="container-fluid">
         <div className="row-fluid">
           <div className="v-product__photo-caroussel">
             <Img className="v-product__photo" src={imageUrl} width={200} height={235}  selectedImg={this.state.selectedImg}/>
@@ -152,7 +196,7 @@ class Product extends React.Component {
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
                      changeAvailability={this.changeAvailability}/>
-        <AddToCartButton skuId={defaultSku.id} id="product-button" route="product"/>
+        <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} classes = {classes} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );

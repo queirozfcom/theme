@@ -1,12 +1,6 @@
 import React from 'react';
 import VariationButton from './VariationButton';
-import { storefront } from 'sdk';
 
-@storefront({
-  name: 'SelectVariation@vtex.storefront-theme',
-  title: 'VariationSelector',
-  editable: true
-})
 class SelectVariation extends React.Component {
 
   render() {
