@@ -122,7 +122,7 @@ class Product extends React.Component {
     let skuVariations = this.getSkuVariations();
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
-    let classes = 'v-add-to-cart-button--fixed btn btn-block';
+    let className = 'v-add-to-cart-button--fixed btn btn-block';
     let selectedImg = this.state.selectedImg;
 
     if (this.state.facets.length !== 0) {
@@ -149,7 +149,7 @@ class Product extends React.Component {
         <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
                      changeAvailability={this.changeAvailability}/>
-        <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} classes = {classes} id="product-button" route="product"/>
+        <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className} id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );
