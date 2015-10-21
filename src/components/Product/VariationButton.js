@@ -20,14 +20,14 @@ class VariationButton extends React.Component {
     if (this.props.variationName === 'Tamanho') {
       return (
         <button className="v-dream__selector-btn" data-is-active={this.props.isActive}
-        data-is-available={this.props.getAvailability(this.props.value, this.props.variationName)}
+        data-is-available={this.props.getAvailability(this.props.value, this.props.variationName) > 0}
         onTouchTap={this.changeState}>
           { this.props.value }
         </button>);
     } else if (this.props.variationName === 'Cor') {  // if displayType === image (editor)
       return (
         <button className="v-clean-btn"
-                data-is-available={this.props.getAvailability(this.props.value, this.props.variationName)}
+                data-is-available={this.props.getAvailability(this.props.value, this.props.variationName) > 0}
                 data-is-active={this.props.isActive} onTouchTap={this.changeState}>
           <Img className=" v-dream__selector-img"
           src={this.props.getImg(this.props.variationName, this.props.value)}
