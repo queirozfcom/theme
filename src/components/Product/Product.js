@@ -11,54 +11,7 @@ class Product extends React.Component {
     selectedSku: [],
     selectedImg: null,
     facets: []
-    // affix: false
   }
-
-  // propTypes: {
-  //   offset: React.PropTypes.number
-  // }
-  //
-  // static defaultProps = {
-  //   offset: 10
-  // }
-
-  // componentDidMount() {
-  //   window.addEventListener('touchmove', this.handleScroll.bind(this));
-  //   window.addEventListener('wheel', this.handleScroll.bind(this));
-  // }
-  //
-  // componentWillUnmount() {
-  //   window.removeEventListener('touchmove', this.handleScroll.bind(this));
-  //   window.removeEventListener('wheel', this.handleScroll.bind(this));
-  // }
-
-  // handleScroll() {
-  //   let affix = this.state.affix;
-  //   let offset = this.props.offset;
-  //   let elems = [];
-  //   if (document.getElementsByClassName) {
-  //     elems = document.getElementsByClassName('v-editor__app-container');
-  //   } else {
-  //     elems = document.querySelectorAll('.v-editor__app-container');
-  //   }
-  //   let scrollTop = elems.length != 0 ? elems[0].scrollTop : 0;
-  //   if (elems.length === 0) {
-  //     elems = document.getElementById('storefront-container')
-  //     scrollTop = elems.scrollTop;
-  //   }
-  //
-  //   if (!affix && scrollTop >= offset) {
-  //     this.setState({
-  //       affix: true
-  //     });
-  //   }
-  //
-  //   if (affix && scrollTop < offset) {
-  //     this.setState({
-  //       affix: false
-  //     });
-  //   }
-  // }
 
   getSkuVariations = () => {
     let skuVariations = [];
@@ -170,7 +123,6 @@ class Product extends React.Component {
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
     let classes = 'v-add-to-cart-button--fixed btn btn-block';
-    // var {className, offset, ...props} = this.props;
 
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(skus);
