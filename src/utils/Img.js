@@ -20,9 +20,6 @@ class Img extends React.Component {
 
   render() {
     let src = this.props.src;
-    if (this.props.selectedImg != null) {
-      src = this.props.selectedImg;
-    }
     let path;
     if (src.indexOf('http') !== -1) {
       path = src;

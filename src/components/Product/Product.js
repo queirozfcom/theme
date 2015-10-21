@@ -123,6 +123,7 @@ class Product extends React.Component {
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
     let classes = 'v-add-to-cart-button--fixed btn btn-block';
+    let selectedImg = this.state.selectedImg;
 
     if (this.state.facets.length !== 0) {
       skus = this.filterSkus(skus);
@@ -136,7 +137,7 @@ class Product extends React.Component {
       <div className="container-fluid">
         <div className="row-fluid">
           <div className="v-product__photo-caroussel">
-            <Img className="v-product__photo" src={imageUrl} width={200} height={235}  selectedImg={this.state.selectedImg}/>
+            <Img className="v-product__photo" src={selectedImg ? selectedImg : imageUrl} width={200} height={235}/>
           </div>
         </div>
         <div className="row">
