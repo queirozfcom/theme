@@ -22,9 +22,10 @@ class SelectVariation extends React.Component {
               })
               return (
                 <div key={variation}>
-                  <VariationButton skus={skus} value={variation} removeFacet={this.props.removeFacet} getAvailability={this.props.getAvailability}
-                                   facets={this.props.facets} addFacet={this.props.addFacet} isActive={isActive} getImg={this.props.getImg}
-                                   variationName={variationName} changeAvailability={this.props.changeAvailability}/>
+                  <VariationButton value={variation} variationName={variationName}
+                                   skus={skus} filteredSkus={this.props.filteredSkus}
+                                   isActive={isActive} facets={this.props.facets}
+                                   addFacet={this.props.addFacet} removeFacet={this.props.removeFacet}/>
                 </div>
             );
             })

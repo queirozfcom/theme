@@ -19,10 +19,10 @@ class SkuSelector extends React.Component {
           this.props.skuVariations.map((variationType) => {
             return (
               <div className="v-dream__selector-row row-fluid" key={variationType.name}>
-                <SelectVariation skus={this.props.skus} removeFacet={this.props.removeFacet} facets={this.props.facets}
-                                 skuVariations={variationType} addFacet={this.props.addFacet} getAvailability={this.props.getAvailability}
-                                 getSkuVariations={this.getSkuVariations} changeAvailability={this.props.changeAvailability}
-                                 getImg={this.props.getImg} id="select-variation" route="product"/>
+                <SelectVariation skus={this.props.skus} filteredSkus={this.props.filteredSkus}
+                                 addFacet={this.props.addFacet} removeFacet={this.props.removeFacet}
+                                 facets={this.props.facets} skuVariations={variationType}
+                                 id="select-variation" route="product"/>
               </div>
             )
           })

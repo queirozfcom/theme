@@ -29,24 +29,10 @@ class Product extends React.Component {
     return skuVariations;
   }
 
-  getImgByVariation = (variationName, variationValue) => {
-    let img;
-    this.props.skus.forEach(function(sku) {
-      sku.properties.forEach(function(property) {
-        if (property.facet.name === variationName) {
-          if (property.facet.values[0] === variationValue) {
-            img = sku.images[0].src;
-          }
-        }
-      })
-    })
-    return img;
-  }
-
   addFacet = (variationName, variationValue, displayType) => {
     let selectedImg;
-    if (displayType === 'image') {
-      selectedImg = this.getImgByVariation(variationName, variationValue);
+    if (displayType != null) {
+      selectedImg = displayType;
     } else {
       selectedImg = null;
     }
@@ -54,14 +40,11 @@ class Product extends React.Component {
       this.removeFacet(variationName);
     }
     this.state.facets.push({name: variationName, value: variationValue});
-    this.getAvailability(variationValue) > 0 ?
-      this.setState({
-        facets: this.state.facets,
-        selectedImg: selectedImg,
-        selectedSku: this.filterSkus(this.props.skus)
-      }) :
-      this.setState({ facets: this.state.facets, selectedImg: selectedImg
-      })
+    this.setState({
+      facets: this.state.facets,
+      selectedImg: selectedImg,
+      selectedSku: this.filterSkus(this.props.skus)
+    })
   }
 
   removeFacet = (variationName) => {
@@ -97,28 +80,13 @@ class Product extends React.Component {
     return result;
   }
 
-  getAvailability = (value, valueName) => {
-    let availability = 0;
-    let skus = this.props.skus;
-    if (this.state.facets.length >= 1 && this.state.facets[0].name != valueName) {
-      skus = this.filterSkus(skus);
-    }
-    skus.forEach(function(sku) {
-      sku.properties.forEach((property)=> {
-        if (property.facet.values[0] === value && availability === 0) {
-          return availability = sku.offers[0].availability;
-        }
-      })
-    });
-    return availability;
-  }
-
   render() {
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
     let imageUrl = defaultSku.images[0].src;
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
+    let filteredSkus;
     let skuVariations = this.getSkuVariations();
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
@@ -126,7 +94,7 @@ class Product extends React.Component {
     let selectedImg = this.state.selectedImg;
 
     if (this.state.facets.length !== 0) {
-      skus = this.filterSkus(skus);
+      filteredSkus = this.filterSkus(skus);
     }
 
     if (this.state.selectedSku.length === 1) {
@@ -146,10 +114,11 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={skus} facets={this.state.facets} removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
-                     getAvailability={this.getAvailability.bind(this)} skuVariations={skuVariations} getImg={this.getImgByVariation}
-                     changeAvailability={this.changeAvailability}/>
-        <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className} id="product-button" route="product"/>
+        <SkuSelector skus={skus} filteredSkus={filteredSkus}
+                     removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
+                     skuVariations={skuVariations} facets={this.state.facets}/>
+        <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
+                         id="product-button" route="product"/>
         <ProductDescription/>
       </div>
     );
