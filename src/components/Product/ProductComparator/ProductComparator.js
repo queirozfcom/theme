@@ -91,6 +91,8 @@ class ProductComparator extends React.Component {
 
     let propertiesNames = pluck(pluck(comparation.properties[0], 'facet'), 'name');
     let properties = {};
+
+    // Hackathon legacy for storefront team. 😘
     forEach(propertiesNames, function(propertyName){
       forEach(comparation.properties, function(productProperties){
         forEach(productProperties, function(property){
