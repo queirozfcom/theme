@@ -14,9 +14,9 @@ class ComparatorHeader extends React.Component {
         <td className="clear-td"></td>
 
         {
-          products.map((product) => {
+          products.map((product, i) => {
             return (
-              <td className="product-comparator-name">
+              <td key={i} className="product-comparator-name">
                 <a href={ `/${product.slug}/p` }>
                   <Img className="product-comparator-image" src={ product.skus[0].images[0].src } width={175} height={175}/>
                   <strong>{ product.name }</strong>

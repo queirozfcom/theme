@@ -12,9 +12,9 @@ class ComparatorFooter extends React.Component {
       <tr>
         <td className="clear-td"></td>
         {
-          products.map((product) => {
+          products.map((product, i) => {
             return (
-              <td><a href={ `/checkout/cart/add?sku=${product.skus[0].id}&qty=1&seller=1` } className="btn btn-xs btn-success">Adicionar ao carrinho</a></td>
+              <td key={i}><a href={ `/checkout/cart/add?sku=${product.skus[0].id}&qty=1&seller=1` } className="btn btn-xs btn-success">Adicionar ao carrinho</a></td>
             );
           })
         }

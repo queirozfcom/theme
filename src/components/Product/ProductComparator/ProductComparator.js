@@ -114,12 +114,12 @@ class ProductComparator extends React.Component {
       prices.push(`R$ ${productsSkus[0].offers[0].price},00`);
     });
     comparationRows.push(
-      <ProductComparatorRow title='Preço' values={prices} />
+      <ProductComparatorRow key='preco' title='Preço' values={prices} />
     );
 
     forEach(properties, function(values, key){
       comparationRows.push(
-        <ProductComparatorRow title={key} values={values} />
+        <ProductComparatorRow key={key} title={key} values={values} />
       );
     });
 
