@@ -1,0 +1,12 @@
+{
+  "resourceBinding": {
+    "locator": "recomendation@vtex.storefront-sdk",
+    "params": {
+      "slug": "{{ exports.product }}"
+    }
+  },
+  "assets": [
+    "common.js",
+    "ProductPage.js"
+  ]
+}

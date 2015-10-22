@@ -77,7 +77,7 @@ class ShelfSlider extends React.Component {
   render() {
     let products = this.props.products;
     let title = this.props.settings.get('title');
-
+  
     let maxQuantity = Math.min((products ? (products.length - 1) : 0), this.props.settings.get('quantity'));
     const canMoveLeft = (this.state.currentProductVisible !== 0);
     const canMoveRight = (this.state.currentProductVisible !== maxQuantity);

@@ -5,6 +5,7 @@ import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import './ProductPage.less';
 import Product from 'components/Product/Product';
+import RecomendationShelf from 'react-proxy?name=RecomendationShelf!components/Shelf/RecomendationShelf'
 
 @utils.connectToStores()
 class ProductPage extends React.Component {
@@ -38,6 +39,7 @@ class ProductPage extends React.Component {
       <div>
         <Header/>
         {product ? <Product {...product}/> : <div>Carregando</div>}
+        <RecomendationShelf/>
         <Newsletter/>
         <Footer/>
       </div>
