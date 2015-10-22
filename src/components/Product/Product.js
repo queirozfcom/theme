@@ -14,6 +14,7 @@ class Product extends React.Component {
     selectedImg: null,
     facets: [],
     skuIsAvailable: true,
+    mailInput: false
   }
 
   getSkuVariations = () => {
@@ -94,6 +95,15 @@ class Product extends React.Component {
     return result;
   }
 
+  showMailInput = (view) => {
+    view ? this.setState({
+      mailInput: true
+    }) : this.setState({
+      mailInput: false
+    })
+  }
+
+
   render() {
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
@@ -137,6 +147,10 @@ class Product extends React.Component {
                          id="product-button" route="product"/> :
             <LetMeKnowButton sku={this.state.selectedSku} showMailInput={this.showMailInput}/>
         }
+        {
+          this.state.mailInput ?
+            <MailInput showMailInput={this.showMailInput}/> :
+            null
         }
         <ProductDescription/>
       </div>
