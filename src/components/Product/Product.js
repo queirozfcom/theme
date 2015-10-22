@@ -109,6 +109,17 @@ class Product extends React.Component {
             <Img className="v-product__photo" src={selectedImg ? selectedImg : imageUrl} width={200} height={235}/>
           </div>
         </div>
+        <div className="row-fluid">
+          <div className="v-product__photo-caroussel">
+            {
+              defaultSku.images.map(function(img) {
+                return (
+                  <Img className="v-product__photo" src={img.src} width={50} height={60} />
+                );
+              }, this)
+            }
+          </div>
+        </div>
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
             <h2 className="v-product__title">{name}</h2>
