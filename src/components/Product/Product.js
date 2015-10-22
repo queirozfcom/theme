@@ -14,7 +14,8 @@ class Product extends React.Component {
     selectedImg: null,
     facets: [],
     skuIsAvailable: true,
-    mailInput: true
+    mailInput: false,
+    mailToSend: null
   }
 
   getSkuVariations = () => {
@@ -73,6 +74,7 @@ class Product extends React.Component {
       selectedImg: null,
       skuIsAvailable: true
     });
+    this.handleMailInput(false);
   }
 
   filterSkus = (skus) => {
@@ -95,7 +97,7 @@ class Product extends React.Component {
     return result;
   }
 
-  showMailInput = (view) => {
+  handleMailInput = (view) => {
     view ? this.setState({
       mailInput: true
     }) : this.setState({
@@ -145,11 +147,11 @@ class Product extends React.Component {
           this.state.skuIsAvailable ?
             <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
                          id="product-button" route="product"/> :
-            <LetMeKnowButton sku={this.state.selectedSku} showMailInput={this.showMailInput}/>
+            <LetMeKnowButton sku={this.state.selectedSku} mailInput={this.state.mailInput} handleMailInput={this.handleMailInput.bind(this)}/>
         }
         {
           this.state.mailInput ?
-            <MailInput showMailInput={this.showMailInput}/> :
+            <MailInput/> :
             null
         }
         <ProductDescription/>
