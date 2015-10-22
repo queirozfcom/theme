@@ -1,9 +1,59 @@
 import React from 'react';
 import './ProductComparator.less';
 import { assign } from 'lodash-compat/object';
+import { actions, stores, utils } from 'sdk';
 
+@utils.connectToStores()
 class ProductComparator extends React.Component {
-  chooseMostEspecificCategory(categories){
+
+  static getStores() {
+    return [stores.SearchStore];
+  }
+
+  static getPropsFromStores(props) {
+    let query = getSearch(props);
+    let searchStore = stores.SearchStore.getState();
+    let productsIds = searchStore.getIn([props.id, 'results'])
+    productsIds = productsIds ? productsIds : searchStore.getIn([query, 'results']);
+    let products = productsIds ? stores.ProductStore.getProducts(productsIds) : null;
+
+    return {
+      products: products
+    };
+  }
+
+  static getSearch(props) {
+    let category = this.chooseMostEspecificCategory(props.categories);
+
+    return Immutable.Map({
+      category: category,
+      pageSize: props.settings.get('quantity')
+    });
+  }
+
+  requestSearch(props) {
+    if (!props.settings) {
+      return;
+    }
+
+    if (!props.products) {
+      let search = getSearch(props);
+      let alreadyRequested = stores.SearchStore.getState().getIn([search, 'loading']);
+      if (!alreadyRequested) {
+        actions.SearchActions.requestSearch(search);
+      }
+    }
+  }
+
+  componentWillMount() {
+    this.requestSearch(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.requestSearch(nextProps);
+  }
+
+  chooseMostEspecificCategory(categories) {
     if (categories.length == 0){
       return undefined;
     }
@@ -28,10 +78,10 @@ class ProductComparator extends React.Component {
   }
 
   render() {
-    let sku = this.props.skus[0];
-    let properties = assign(this.props.properties, sku.properties);
-    let category = this.chooseMostEspecificCategory(this.props.categories);
-    console.log(sku, properties, category);
+    let category = this.chooseMostEspecificCategory(props.categories);
+    let properties = assign(this.props.properties, this.props.sku.properties);
+    console.log(properties);
+    console.log('products', this.props.products);
 
     return (
       <div className="product-comparator">
