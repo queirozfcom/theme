@@ -1,4 +1,6 @@
 import React from 'react';
+import Slider from 'react-slick';
+import 'utils/slick/slick.css';
 import './Product.less';
 import { utils } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
@@ -6,6 +8,32 @@ import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCa
 import ProductDescription from  './ProductDescription';
 
 let { Price, Img } = utils;
+
+var SimpleSlider = React.createClass({
+  render: function () {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
+    let images = this.props.images;
+
+    return (
+      <Slider>
+          {
+            images.map(function(img, i) {
+              return (
+                <Img className="v-product__photo" key={i} src={img.src} width={50} height={50} />
+              );
+            }, this)
+          }
+      </Slider>
+    );
+  }
+});
 
 class Product extends React.Component {
   state = {
@@ -106,19 +134,11 @@ class Product extends React.Component {
       <div className="container-fluid">
         <div className="row-fluid">
           <div className="v-product__photo-caroussel">
-            <Img className="v-product__photo" src={selectedImg ? selectedImg : imageUrl} width={200} height={235}/>
+            <Img className="v-product__photo" src={selectedImg ? selectedImg : imageUrl} width={600} height={600}/>
           </div>
         </div>
         <div className="row-fluid">
-          <div className="v-product__photo-caroussel">
-            {
-              defaultSku.images.map(function(img) {
-                return (
-                  <Img className="v-product__photo" src={img.src} width={50} height={60} />
-                );
-              }, this)
-            }
-          </div>
+          <SimpleSlider images={defaultSku.images} />
         </div>
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
