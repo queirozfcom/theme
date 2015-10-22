@@ -1,13 +1,13 @@
 import React from 'react';
 import './ProductComparator.less';
-import { assign, keys } from 'lodash-compat/object';
+import { keys } from 'lodash-compat/object';
 import { clone } from 'lodash-compat/lang';
 import { uniq } from 'lodash-compat/array';
 import { forEach, pluck } from 'lodash-compat/collection';
 import { actions, stores, utils } from 'sdk';
 import ComparatorHeader from './ComparatorHeader';
 import ComparatorFooter from './ComparatorFooter';
-
+import ProductComparatorRow from './ProductComparatorRow';
 
 let chooseMostEspecificCategory = (categories) => {
   if (categories.length == 0){
@@ -83,6 +83,46 @@ class ProductComparator extends React.Component {
     this.requestSearch(nextProps);
   }
 
+  getComparationRows(products){
+    let comparation = {};
+    forEach(keys(this.props.product), function(key){
+      comparation[key] = pluck(products, key);
+    });
+
+    let propertiesNames = pluck(pluck(comparation.properties[0], 'facet'), 'name');
+    let properties = {};
+    forEach(propertiesNames, function(propertyName){
+      forEach(comparation.properties, function(productProperties){
+        forEach(productProperties, function(property){
+          if (property.facet.name == propertyName){
+            if (!properties[propertyName]){
+              properties[propertyName] = [];
+            }
+            properties[propertyName].push(property.facet.values[0]);
+          }
+        });
+      });
+    });
+
+    let comparationRows = [];
+
+    let prices = []
+    forEach(comparation.skus, function(productsSkus){
+      prices.push(`R$ ${productsSkus[0].offers[0].price},00`);
+    });
+    comparationRows.push(
+      <ProductComparatorRow title='Preço' values={prices} />
+    );
+
+    forEach(properties, function(values, key){
+      comparationRows.push(
+        <ProductComparatorRow title={key} values={values} />
+      );
+    });
+
+    return comparationRows;
+  }
+
   render() {
     let category = chooseMostEspecificCategory(this.props.product.categories);
     let products = clone(this.props.products);
@@ -91,13 +131,7 @@ class ProductComparator extends React.Component {
       products = uniq(products, 'slug');
     }
 
-    let comparation = {};
-    forEach(keys(this.props.product), function(key){
-      comparation[key] = pluck(products, key);
-    });
-
-    console.log(comparation);
-    //let properties = assign(this.props.properties, this.props.sku.properties);
+    var comparationRows = this.getComparationRows(products);
 
     return (
       <div className="product-comparator">
@@ -111,50 +145,7 @@ class ProductComparator extends React.Component {
               <ComparatorFooter products={products} />
             </tfoot>
             <tbody>
-              <tr>
-                <td className="active">
-                  <strong>Preço</strong>
-                </td>
-                <td>
-                  R$ 3.300,00
-                </td>
-                <td>
-                  R$ 2.300,00
-                </td>
-                <td>
-                  R$ 1.300,00
-                </td>
-              </tr>
-
-              <tr>
-                <td className="active">
-                  <strong>Memória</strong>
-                </td>
-                <td>
-                  32gb
-                </td>
-                <td>
-                  16gb
-                </td>
-                <td>
-                  16gb
-                </td>
-              </tr>
-
-              <tr>
-                <td className="active">
-                  <strong>Câmera</strong>
-                </td>
-                <td>
-                  12mp
-                </td>
-                <td>
-                  8mp
-                </td>
-                <td>
-                  8mp
-                </td>
-              </tr>
+              {comparationRows}
             </tbody>
           </table>
         </div>
