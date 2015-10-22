@@ -8,6 +8,7 @@ import { actions, stores, utils } from 'sdk';
 import ComparatorHeader from './ComparatorHeader';
 import ComparatorFooter from './ComparatorFooter';
 import ProductComparatorRow from './ProductComparatorRow';
+import Loader from '../../Loader/Loader';
 
 let chooseMostEspecificCategory = (categories) => {
   if (categories.length == 0){
@@ -126,6 +127,10 @@ class ProductComparator extends React.Component {
   }
 
   render() {
+    if (!this.props.products){
+      return (<Loader />);
+    }
+
     let category = chooseMostEspecificCategory(this.props.product.categories);
     let products = clone(this.props.products);
     if (products){
