@@ -1,14 +1,36 @@
-import { stores, actions } from 'sdk';
+import { stores, actions, utils } from 'sdk';
 import React from 'react';
+import Immutable from 'immutable';
 import ShelfProduct from './ShelfProduct';
 import './Shelf.less';
 import SVGIcon from 'utils/SVGIcon';
 import arrowLeftIcon from 'assets/icons/arrow-left.svg';
 import arrowRightIcon from 'assets/icons/arrow-right.svg';
 
+@utils.connectToStores()
 class ShelfSlider extends React.Component {
   state = {
     currentProductVisible: 0
+  }
+
+  static getStores() {
+    return [stores.SearchStore];
+  }
+
+  static getPropsFromStores(props) {
+    let query = Immutable.Map({
+      category: props.settings.get('category'),
+      pageSize: props.settings.get('quantity')
+    });
+
+    let searchStore = stores.SearchStore.getState();
+    let productsIds = searchStore.getIn([props.id, 'results'])
+    productsIds = productsIds ? productsIds : searchStore.getIn([query, 'results']);
+    let products = productsIds ? stores.ProductStore.getProducts(productsIds) : null;
+
+    return {
+      products: products
+    };
   }
 
   moveLeft() {
@@ -23,48 +45,38 @@ class ShelfSlider extends React.Component {
     });
   }
 
-  _getSearch(props) {
-    return {
+  getSearch(props) {
+    return Immutable.Map({
       category: props.settings.get('category'),
       pageSize: props.settings.get('quantity')
-    };
+    });
+  }
+
+  requestSearch = (props) => {
+    if (!props.settings) {
+      return;
+    }
+
+    if (!props.products) {
+      let search = this.getSearch(props);
+      let alreadyRequested = stores.SearchStore.getState().getIn([search, 'loading']);
+      if (!alreadyRequested) {
+        actions.SearchActions.requestSearch(search);
+      }
+    }
   }
 
   componentWillMount() {
-    if (!this.props.settings) {
-      return;
-    }
-
-    if (!this.props.SearchStore.get(this.props.id)) {
-      let search = this._getSearch(this.props);
-      search.$id = this.props.id;
-      actions.SearchActions.requestSearch(search);
-    }
+    this.requestSearch(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.settings) {
-      return;
-    }
-
-    if (!this.props.SearchStore.get(this.props.id)) {
-      let search = this._getSearch(this.props);
-      search.$id = this.props.id;
-      actions.SearchActions.requestSearch(search);
-    }
+    this.requestSearch(nextProps);
   }
 
   render() {
-    let products;
+    let products = this.props.products;
     let title = this.props.settings.get('title');
-
-    // If there is results for the query at the SearchStore
-    if (this.props.SearchStore.getIn([this.props.id, 'results'])) {
-      // Get the results
-      let productsIds = this.props.SearchStore.getIn([this.props.id, 'results']);
-      // Get the products in ProductStore
-      products = stores.ProductStore.getProducts(productsIds);
-    }
 
     let maxQuantity = Math.min((products ? (products.length - 1) : 0), this.props.settings.get('quantity'));
     const canMoveLeft = (this.state.currentProductVisible !== 0);
