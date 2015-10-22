@@ -1,8 +1,9 @@
 import React from 'react';
 import './ProductComparator.less';
-import { assign } from 'lodash-compat/object';
+import { assign, keys } from 'lodash-compat/object';
 import { clone } from 'lodash-compat/lang';
 import { uniq } from 'lodash-compat/array';
+import { forEach, pluck } from 'lodash-compat/collection';
 import { actions, stores, utils } from 'sdk';
 
 let chooseMostEspecificCategory = (categories) => {
@@ -87,8 +88,12 @@ class ProductComparator extends React.Component {
       products = uniq(products, 'slug');
     }
 
-    console.log('products', products);
+    let comparation = {};
+    forEach(keys(this.props.product), function(key){
+      comparation[key] = pluck(products, key);
+    });
 
+    console.log(comparation);
     //let properties = assign(this.props.properties, this.props.sku.properties);
 
     return (
