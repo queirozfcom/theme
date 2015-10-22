@@ -5,6 +5,8 @@ import { clone } from 'lodash-compat/lang';
 import { uniq } from 'lodash-compat/array';
 import { forEach, pluck } from 'lodash-compat/collection';
 import { actions, stores, utils } from 'sdk';
+import ComparatorHeader from  './ComparatorHeader';
+
 
 let chooseMostEspecificCategory = (categories) => {
   if (categories.length == 0){
@@ -102,23 +104,7 @@ class ProductComparator extends React.Component {
         <div className="product-comparator-table-container">
           <table className="table">
             <thead>
-              <tr>
-                <td className="clear-td"></td>
-                <td className="product-comparator-name">
-                  <img className="product-comparator-image" src="http://www.case-custom.com/media/catalog/product/cache/1/image/500x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone6-clear-silicone-case-slim-tough.jpg" />
-                  <strong>iPhone 6</strong>
-                </td>
-
-                <td className="product-comparator-name">
-                  <img className="product-comparator-image" src="http://www.case-custom.com/media/catalog/product/cache/1/image/500x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone6-clear-silicone-case-slim-tough.jpg" />
-                  <strong>iPhone 5s</strong>
-                </td>
-
-                <td className="product-comparator-name">
-                  <img className="product-comparator-image" src="http://www.case-custom.com/media/catalog/product/cache/1/image/500x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone6-clear-silicone-case-slim-tough.jpg" />
-                  <strong>iPhone 5</strong>
-                </td>
-              </tr>
+              <ComparatorHeader products={products} />
             </thead>
             <tfoot>
               <tr>
