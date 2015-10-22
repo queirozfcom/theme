@@ -39,12 +39,15 @@ var ProductImage = React.createClass({
             dots={false}
             infinite={false}
             speed={500}
-            slidesToShow={1}
-            slidesToScroll={1}>
+            variableWidth={true}
+            swipe={true}
+            swipeToSlide={true}>
               {
                 images.map(function(img, i) {
                   return (
-                    <Img className="v-product__thumbnail" key={i} src={img.src} width={50} height={50} />
+                    <div className="v-product__thumbnail-caroussel">
+                      <Img className="v-product__thumbnail" key={i} src={img.src} width={50} height={50} />
+                    </div>
                   );
                 }, this)
               }
