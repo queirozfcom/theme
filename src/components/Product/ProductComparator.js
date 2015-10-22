@@ -3,6 +3,39 @@ import './ProductComparator.less';
 import { assign } from 'lodash-compat/object';
 import { actions, stores, utils } from 'sdk';
 
+let chooseMostEspecificCategory = (categories) => {
+  if (categories.length == 0){
+    return undefined;
+  }
+
+  if (categories.length == 1){
+    return categories[0];
+  }
+
+  let category = categories[0];
+
+  let countChilds = function(category){
+    return (category.slug.match(/\//g) || []).length;
+  };
+
+  for (var i = 1; i < categories.length; i++) {
+    if (countChilds(categories[i]) > countChilds(categories[i-1])){
+      category = categories[i];
+    }
+  }
+
+  return category;
+}
+
+let getSearch = (props) => {
+  let category = chooseMostEspecificCategory(props.categories);
+
+  return Immutable.Map({
+    category: category.slug,
+    pageSize: props.settings.quantity
+  });
+}
+
 @utils.connectToStores()
 class ProductComparator extends React.Component {
 
@@ -20,15 +53,6 @@ class ProductComparator extends React.Component {
     return {
       products: products
     };
-  }
-
-  static getSearch(props) {
-    let category = this.chooseMostEspecificCategory(props.categories);
-
-    return Immutable.Map({
-      category: category,
-      pageSize: props.settings.get('quantity')
-    });
   }
 
   requestSearch(props) {
@@ -53,34 +77,10 @@ class ProductComparator extends React.Component {
     this.requestSearch(nextProps);
   }
 
-  chooseMostEspecificCategory(categories) {
-    if (categories.length == 0){
-      return undefined;
-    }
-
-    if (categories.length == 1){
-      return categories[0];
-    }
-
-    let category = categories[0];
-
-    let countChilds = function(category){
-      return (category.slug.match(/\//g) || []).length;
-    };
-
-    for (var i = 1; i < categories.length; i++) {
-      if (countChilds(categories[i]) > countChilds(categories[i-1])){
-        category = categories[i];
-      }
-    }
-
-    return category;
-  }
-
   render() {
-    let category = this.chooseMostEspecificCategory(props.categories);
+    let category = chooseMostEspecificCategory(this.props.categories);
     let properties = assign(this.props.properties, this.props.sku.properties);
-    console.log(properties);
+    console.log(category, properties);
     console.log('products', this.props.products);
 
     return (
