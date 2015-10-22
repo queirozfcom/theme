@@ -6,8 +6,8 @@ class MailInput extends React.Component {
     mailToSend: null
   }
 
-  getEmail = (e) => {
-    this.setState({ mailToSend: e.target.value });
+  handleChange = (e) => {
+    this.props.getEmail(e.target.value);
   }
 
   render() {
@@ -22,7 +22,7 @@ class MailInput extends React.Component {
             id="MailInput"
             className="v-dream__mail-input col-xs-10 col-xs-offset-1"
             placeholder="seu e-mail"
-            onChange={this.getEmail}/>
+            onChange={this.getHandleChange}/>
         </div>
       </div>
     )

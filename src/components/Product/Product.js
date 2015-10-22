@@ -97,6 +97,10 @@ class Product extends React.Component {
     return result;
   }
 
+  getEmail = (mail) => {
+    this.setState({ mailToSend: mail });
+  }
+
   handleMailInput = (view) => {
     view ? this.setState({
       mailInput: true
@@ -151,7 +155,7 @@ class Product extends React.Component {
         }
         {
           this.state.mailInput ?
-            <MailInput/> :
+            <MailInput getEmail={this.getEmail}/> :
             null
         }
         <ProductDescription/>
