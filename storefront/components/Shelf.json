@@ -2,7 +2,8 @@
   "resourceBinding": {
     "locator": "products@vtex.storefront-sdk",
     "params": {
-      "category": "{{ settings.category }}"
+      "category": "{{ settings.category }}",
+      "pageSize": "{{ settings.quantity }}"
     }
   },
   "assets": [
