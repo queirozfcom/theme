@@ -12,12 +12,27 @@ class Product extends React.Component {
     this.context.history.pushState(null, `/${this.props.slug}/p`);
   }
 
+  composeDetailsBtn() {
+    const shouldShow = this.props.shouldShowDetails === undefined ? true : this.props.shouldShowDetails;
+    if (shouldShow) {
+      return (<div className="row">
+        <button className="v-shelf__product-btn btn col-xs-12" onTouchTap={this._handleDetails.bind(this)}>
+          Ver detalhes
+        </button>
+      </div>);
+    }
+
+    return '';
+  }
+
   render() {
     let display = this.props.isVisible ? 'block' : 'none';
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
     let imageUrl = defaultSku.images.length > 0 ? defaultSku.images[0].src : 'http://placehold.it/200x235';
     let price = defaultSku.offers[0].price;
+
+    let shelfDetailsBtn = this.composeDetailsBtn();
 
     return (
       <div className="v-shelf__product row" style={{display: display}}>
@@ -33,11 +48,7 @@ class Product extends React.Component {
               <Price value={price}/>
             </p>
           </div>
-          <div className="row">
-            <button className="v-shelf__product-btn btn col-xs-12" onTouchTap={this._handleDetails.bind(this)}>
-              Ver detalhes
-            </button>
-          </div>
+          {shelfDetailsBtn}
         </div>
       </div>
     );

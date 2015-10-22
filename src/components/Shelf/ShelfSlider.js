@@ -100,7 +100,7 @@ class ShelfSlider extends React.Component {
 
           <div className="v-shelf__products col-xs-8">
           {products ? products.map((product, index) =>
-            <ShelfProduct {...product}
+            <ShelfProduct {...product} shouldShowDetails={this.props.shouldShowDetails}
                     isVisible={(index === this.state.currentProductVisible)}
                     key={product.slug}/>
           ) : <div>Carregando</div>}
