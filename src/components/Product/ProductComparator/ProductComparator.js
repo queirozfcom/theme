@@ -5,7 +5,8 @@ import { clone } from 'lodash-compat/lang';
 import { uniq } from 'lodash-compat/array';
 import { forEach, pluck } from 'lodash-compat/collection';
 import { actions, stores, utils } from 'sdk';
-import ComparatorHeader from  './ComparatorHeader';
+import ComparatorHeader from './ComparatorHeader';
+import ComparatorFooter from './ComparatorFooter';
 
 
 let chooseMostEspecificCategory = (categories) => {
@@ -107,12 +108,7 @@ class ProductComparator extends React.Component {
               <ComparatorHeader products={products} />
             </thead>
             <tfoot>
-              <tr>
-                <td className="clear-td"></td>
-                <td><button className="btn btn-xs btn-success">Adicionar ao carrinho</button></td>
-                <td><button className="btn btn-xs btn-success">Adicionar ao carrinho</button></td>
-                <td><button className="btn btn-xs btn-success">Adicionar ao carrinho</button></td>
-              </tr>
+              <ComparatorFooter products={products} />
             </tfoot>
             <tbody>
               <tr>
