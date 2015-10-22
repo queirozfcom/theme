@@ -14,7 +14,7 @@ class Header extends React.Component {
           <SVGIcon className="v-header__icon" svg={hamburgerIcon} width={18} height={18} fill="#153243"/>
         </div>
 
-        <h1 className="v-header__brand col-xs-8">
+        <h1 className="v-header__brand col-xs-7">
           <Link to="/">Fera fashion</Link>
         </h1>
 

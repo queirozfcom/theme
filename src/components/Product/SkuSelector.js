@@ -1,56 +1,32 @@
 import React from 'react';
 import SelectVariation from './SelectVariation';
 import './SkuSelector.less';
+import { storefront } from 'sdk';
 
-let mock = {
-  name: 'Short Balneário',
-  skus: [
-    {
-      id: 111,
-      tamanho: 'PP',
-      availability: 100
-    },
-    {
-      id: 222,
-      tamanho: 'P',
-      availability: 0
-    },
-    {
-      id: 333,
-      tamanho: 'M',
-      availability: 203
-    },
-    {
-      id: 444,
-      tamanho: 'G',
-      availability: 2
-    }
-  ]
-};
-
+@storefront({
+  name: 'SkuSelector@vtex.storefront-theme',
+  title: 'SkuSelector',
+  editable: true
+})
 class SkuSelector extends React.Component {
-  static defaultProps = {
-    name: mock.name,
-    skus: mock.skus,
-    selectedSku: null,
-    validationError: false
-  }
-
   render() {
     let classes = 'v-dream__selector-section col-xs-12';
-    classes = this.props.validationError ? ('v-dream__selector-section--highlight ' + classes) : classes;
 
     return (
-      <div className="row">
-        <div id="selector" className={classes}>
-          <div className="v-dream__selector-row row-fluid">
-            <SelectVariation skus={this.props.skus} variation="tamanho"/>
-          </div>
-            { this.props.validationError ?
-              <div className="row-fluid">
-                <p className="col-xs-offset-1 col-xs-10 v-dream__selector-section__alert-text">Escolha um tamanho e cor para adicionar o produto ao carrinho.</p>
+      <div className="row clearfix">
+        <div className={classes}>
+        {
+          this.props.skuVariations.map((variationType) => {
+            return (
+              <div className="v-dream__selector-row row-fluid" key={variationType.name}>
+                <SelectVariation skus={this.props.skus} filteredSkus={this.props.filteredSkus}
+                                 addFacet={this.props.addFacet} removeFacet={this.props.removeFacet}
+                                 facets={this.props.facets} skuVariations={variationType}
+                                 id="select-variation" route="product"/>
               </div>
-              : null}
+            )
+          })
+        }
         </div>
       </div>
     );

@@ -19,11 +19,12 @@ class Img extends React.Component {
   }
 
   render() {
+    let src = this.props.src;
     let path;
-    if (this.props.src.indexOf('http') !== -1) {
-      path = this.props.src;
+    if (src.indexOf('http') !== -1) {
+      path = src;
     } else {
-      path = this.props.src.replace('#width#', this.props.width).replace('#height#', this.props.width);
+      path = src.replace('#width#', this.props.width).replace('#height#', this.props.width);
       path = this.getBaseUrl(this.props) + path;
     }
 

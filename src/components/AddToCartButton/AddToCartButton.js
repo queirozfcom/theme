@@ -14,7 +14,7 @@ class AddToCartButton extends React.Component {
   }
 
   render() {
-    let addUrl = `/checkout/cart/add?sku=${this.props.skuId}&qty=${this.props.quantity}&seller=${this.props.seller}&redirect=true&sc=1`;
+    let addUrl = this.props.cartValidation ? `/checkout/cart/add?sku=${this.props.skuId}&qty=${this.props.quantity}&seller=${this.props.seller}&redirect=true&sc=1` : null;
 
     let label = 'Adicionar ao carrinho';
     let color = '#75CCB1';
@@ -25,13 +25,14 @@ class AddToCartButton extends React.Component {
       color = this.props.settings.get('color');
       boxShadowColor = this.props.settings.get('boxShadowColor');
     }
-
     return (
-      <a href={addUrl} className="v-add-to-cart-button btn btn-block" style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
+      <a href={addUrl} className={this.props.className} style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
         {label}
       </a>
     )
   }
+
+
 }
 
 export default AddToCartButton;
