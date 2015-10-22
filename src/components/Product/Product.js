@@ -121,7 +121,7 @@ class Product extends React.Component {
         <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
                          id="product-button" route="product"/>
         <ProductDescription/>
-        <ProductComparator />
+        <ProductComparator properties={this.props.properties} categories={this.props.categories} />
       </div>
     );
   }
