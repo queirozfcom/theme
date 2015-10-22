@@ -5,7 +5,7 @@ import Price from 'utils/Price';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
-import ProductComparator from  './ProductComparator';
+import ProductComparator from  './ProductComparator/ProductComparator';
 
 class Product extends React.Component {
   state = {
