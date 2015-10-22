@@ -14,7 +14,7 @@ class Product extends React.Component {
     selectedImg: null,
     facets: [],
     skuIsAvailable: true,
-    mailInput: false
+    mailInput: true
   }
 
   getSkuVariations = () => {

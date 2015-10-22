@@ -9,8 +9,7 @@ class LetMeKnowButton extends React.Component {
     let boxShadowColor = '#57c1a0';
 
     return (
-      <a className="v-let-me-know-button--fixed " style={{backgroundColor: backgroundColor, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}
-         onTouchTap={this.props.showMailInput(true)}>
+      <a className="v-let-me-know-button--fixed " style={{backgroundColor: backgroundColor, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
         {label}
       </a>
     )
