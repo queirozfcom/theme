@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import 'utils/slick/slick.css';
+import 'utils/slick/slick-theme.css';
 import './Product.less';
 import { utils } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
@@ -9,28 +10,47 @@ import ProductDescription from  './ProductDescription';
 
 let { Price, Img } = utils;
 
-var SimpleSlider = React.createClass({
-  render: function () {
-    var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-
+var ProductImage = React.createClass({
+  render() {
     let images = this.props.images;
 
     return (
-      <Slider>
-          {
-            images.map(function(img, i) {
-              return (
-                <Img className="v-product__photo" key={i} src={img.src} width={50} height={50} />
-              );
-            }, this)
-          }
-      </Slider>
+      <div>
+        <div className="row-fluid">
+          <Slider
+            dots={false}
+            infinite={false}
+            speed={500}
+            slidesToShow={1}
+            slidesToScroll={1}>
+              {
+                images.map(function(img, i) {
+                  return (
+                    <div className="v-product__photo-caroussel">
+                      <Img className="v-product__photo" key={i} src={img.src} width={600} height={600} />
+                    </div>
+                  );
+                }, this)
+              }
+          </Slider>
+        </div>
+        <div className="row-fluid">
+          <Slider
+            dots={false}
+            infinite={false}
+            speed={500}
+            slidesToShow={1}
+            slidesToScroll={1}>
+              {
+                images.map(function(img, i) {
+                  return (
+                    <Img className="v-product__thumbnail" key={i} src={img.src} width={50} height={50} />
+                  );
+                }, this)
+              }
+          </Slider>
+        </div>
+      </div>
     );
   }
 });
@@ -132,14 +152,7 @@ class Product extends React.Component {
 
     return (
       <div className="container-fluid">
-        <div className="row-fluid">
-          <div className="v-product__photo-caroussel">
-            <Img className="v-product__photo" src={selectedImg ? selectedImg : imageUrl} width={600} height={600}/>
-          </div>
-        </div>
-        <div className="row-fluid">
-          <SimpleSlider images={defaultSku.images} />
-        </div>
+        <ProductImage images={defaultSku.images} />
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
             <h2 className="v-product__title">{name}</h2>
