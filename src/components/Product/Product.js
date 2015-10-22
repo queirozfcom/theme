@@ -4,13 +4,16 @@ import Img from 'utils/Img';
 import Price from 'utils/Price';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
+import LetMeKnowButton from  'components/LetMeKnow/LetMeKnowButton';
+import MailInput from 'components/LetMeKnow/MailInput';
 import ProductDescription from  './ProductDescription';
 
 class Product extends React.Component {
   state = {
     selectedSku: [],
     selectedImg: null,
-    facets: []
+    facets: [],
+    skuIsAvailable: true,
   }
 
   getSkuVariations = () => {
@@ -29,7 +32,7 @@ class Product extends React.Component {
     return skuVariations;
   }
 
-  addFacet = (variationName, variationValue, displayType) => {
+  addFacet = (variationName, variationValue, displayType, availability) => {
     let selectedImg;
     if (displayType != null) {
       selectedImg = displayType;
@@ -40,11 +43,21 @@ class Product extends React.Component {
       this.removeFacet(variationName);
     }
     this.state.facets.push({name: variationName, value: variationValue});
-    this.setState({
-      facets: this.state.facets,
-      selectedImg: selectedImg,
-      selectedSku: this.filterSkus(this.props.skus)
-    })
+    if (availability > 0) {
+      this.setState({
+        facets: this.state.facets,
+        selectedImg: selectedImg,
+        selectedSku: this.filterSkus(this.props.skus),
+        skuIsAvailable: true
+      })
+    } else {
+      this.setState({
+        facets: this.state.facets,
+        selectedImg: selectedImg,
+        selectedSku: this.filterSkus(this.props.skus),
+        skuIsAvailable: false
+      })
+    }
   }
 
   removeFacet = (variationName) => {
@@ -56,7 +69,8 @@ class Product extends React.Component {
     })
     this.setState({
       facets: this.state.facets,
-      selectedImg: null
+      selectedImg: null,
+      skuIsAvailable: true
     });
   }
 
@@ -92,7 +106,6 @@ class Product extends React.Component {
 
     let className = 'v-add-to-cart-button--fixed btn btn-block';
     let selectedImg = this.state.selectedImg;
-    let skuIsAvailable = true;
 
     if (this.state.facets.length !== 0) {
       filteredSkus = this.filterSkus(skus);
@@ -100,9 +113,6 @@ class Product extends React.Component {
 
     if (this.state.selectedSku.length === 1) {
       defaultSku = this.state.selectedSku[0];
-      if (this.state.selectedSku.offers[0].availability === 0) {
-        skuIsAvailable = false;
-      }
     }
 
     return (
@@ -122,10 +132,11 @@ class Product extends React.Component {
                      removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      skuVariations={skuVariations} facets={this.state.facets}/>
         {
-          skuIsAvailable ?
+          this.state.skuIsAvailable ?
             <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
                          id="product-button" route="product"/> :
-            <LetMeKnowButton sku={this.state.selectedSku}/>
+            <LetMeKnowButton sku={this.state.selectedSku} showMailInput={this.showMailInput}/>
+        }
         }
         <ProductDescription/>
       </div>

@@ -1,0 +1,25 @@
+@import '../../utils/base';
+
+.v-let-me-know-button--fixed {
+  .v-clean-btn;
+  .v-no-outlines;
+  .v-unselectable;
+
+  position: fixed;
+  bottom:0px;
+  z-index: 5;
+  display: block;
+  background: #ddd;
+  color: #222;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 1.35em;
+  font-weight: 500;
+  padding: 12.5px;
+  width: 100%;
+  left: 0px;
+
+  &:active {
+    box-shadow: none;
+    margin: 2px 0px -2px 2px;
+  }
+}

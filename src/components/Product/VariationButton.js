@@ -39,13 +39,14 @@ class VariationButton extends React.Component {
   }
 
   changeState = (ev) => {
+    let availability = this.getAvailability(this.props.value, this.props.variationName) > 0;
     ev.preventDefault();
     let displayType = null;
     if (this.props.variationName === 'Cor') {
       displayType = this.getImgByVariation(this.props.variationName, this.props.value);
     }
     this.props.isActive ? this.props.removeFacet(this.props.variationName) :
-    this.props.addFacet(this.props.variationName, this.props.value, displayType);
+    this.props.addFacet(this.props.variationName, this.props.value, displayType, availability);
   }
 
   displayValue = () => {
