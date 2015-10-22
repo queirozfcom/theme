@@ -1,6 +1,8 @@
 import React from 'react';
 import './ProductComparator.less';
 import { assign } from 'lodash-compat/object';
+import { clone } from 'lodash-compat/lang';
+import { uniq } from 'lodash-compat/array';
 import { actions, stores, utils } from 'sdk';
 
 let chooseMostEspecificCategory = (categories) => {
@@ -28,7 +30,7 @@ let chooseMostEspecificCategory = (categories) => {
 }
 
 let getSearch = (props) => {
-  let category = chooseMostEspecificCategory(props.categories);
+  let category = chooseMostEspecificCategory(props.product.categories);
 
   return Immutable.Map({
     category: category.slug,
@@ -78,10 +80,16 @@ class ProductComparator extends React.Component {
   }
 
   render() {
-    let category = chooseMostEspecificCategory(this.props.categories);
-    let properties = assign(this.props.properties, this.props.sku.properties);
-    console.log(category, properties);
-    console.log('products', this.props.products);
+    let category = chooseMostEspecificCategory(this.props.product.categories);
+    let products = clone(this.props.products);
+    if (products){
+      products.unshift(this.props.product);
+      products = uniq(products, 'slug');
+    }
+
+    console.log('products', products);
+
+    //let properties = assign(this.props.properties, this.props.sku.properties);
 
     return (
       <div className="product-comparator">
