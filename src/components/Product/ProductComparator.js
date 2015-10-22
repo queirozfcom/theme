@@ -1,11 +1,41 @@
 import React from 'react';
 import './ProductComparator.less';
+import { assign } from 'lodash-compat/object';
 
 class ProductComparator extends React.Component {
+  chooseMostEspecificCategory(categories){
+    if (categories.length == 0){
+      return undefined;
+    }
+
+    if (categories.length == 1){
+      return categories[0];
+    }
+
+    let category = categories[0];
+
+    let countChilds = function(category){
+      return (category.slug.match(/\//g) || []).length;
+    };
+
+    for (var i = 1; i < categories.length; i++) {
+      if (countChilds(categories[i]) > countChilds(categories[i-1])){
+        category = categories[i];
+      }
+    }
+
+    return category;
+  }
+
   render() {
+    let sku = this.props.skus[0];
+    let properties = assign(this.props.properties, sku.properties);
+    let category = this.chooseMostEspecificCategory(this.props.categories);
+    console.log(sku, properties, category);
+
     return (
       <div className="product-comparator">
-        <h3>Compare produtos semelhantes</h3>
+        <h3>Compare produtos da categoria "{category.name}"</h3>
         <div className="product-comparator-table-container">
           <table className="table">
             <thead>
