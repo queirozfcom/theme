@@ -144,9 +144,11 @@ class Product extends React.Component {
             <h3 className="v-product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={skus} filteredSkus={filteredSkus}
-                     removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
-                     skuVariations={skuVariations} facets={this.state.facets}/>
+        { skuVariations.length === 0 ? null :
+          <SkuSelector skus={skus} filteredSkus={filteredSkus}
+                       removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
+                       skuVariations={skuVariations} facets={this.state.facets}/>
+        }
         {
           this.state.skuIsAvailable ?
             <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
