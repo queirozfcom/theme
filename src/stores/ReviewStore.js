@@ -18,6 +18,7 @@ function addReviews(state, reviews) {
 }
 
 function getDataFromResources(state, resources) {
+  //debugger
   let products = [];
   if (resources['review@vtex.review']) {
     products = values(resources['review@vtex.review']);

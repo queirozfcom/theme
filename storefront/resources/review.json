@@ -2,6 +2,6 @@
   "url": "http://reviewsapi-env-beta.elasticbeanstalk.com/product/:productId",
   "cacheDuration": 10,
   "paramaters": {
-    "productId" : "{{ parameters.productId }}",
+    "productId" : "{{ parameters.productId }}"
   }
 }

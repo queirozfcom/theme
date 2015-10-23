@@ -1,0 +1,13 @@
+{
+  "resourceBinding": {
+    "locator": "review@vtex.storefront-theme",
+    "params": {
+      "productId": "{{ exports.product }}"
+    }
+  },
+  "assets": [
+    "common.js",
+    "Review.js",
+    "editors/index.js"
+  ]
+}

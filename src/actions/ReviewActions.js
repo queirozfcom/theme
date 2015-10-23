@@ -1,4 +1,4 @@
-import Review from 'services/Review';
+import Review from '../services/Review';
 
 const review = new Review();
 
