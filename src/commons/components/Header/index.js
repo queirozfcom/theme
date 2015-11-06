@@ -1,7 +1,7 @@
 import React from 'react';
-import './Header.less';
+import './style.less';
 import { Link } from 'react-router';
-import SVGIcon from 'utils/SVGIcon';
+import SVGIcon from 'commons/components/SVGIcon';
 import hamburgerIcon from 'assets/icons/hamburger.svg';
 import searchIcon from 'assets/icons/search.svg';
 import cartIcon from 'assets/icons/cart.svg';

@@ -1,10 +1,10 @@
 import React from 'react';
 import { stores, actions, utils } from 'sdk';
-import Header from 'components/Header/Header';
-import Footer from 'components/Footer/Footer';
-import Newsletter from 'components/Newsletter/Newsletter';
-import './ProductPage.less';
-import Product from 'components/Product/Product';
+import Footer from 'commons/components/Footer';
+import Header from 'commons/components/Header';
+import Newsletter from 'commons/components/Newsletter';
+import Product from './Product';
+import './style.less';
 
 @utils.connectToStores()
 class ProductPage extends React.Component {
@@ -46,3 +46,8 @@ class ProductPage extends React.Component {
 }
 
 export default ProductPage;
+
+actions.ComponentActions.register({
+  name: 'ProductPage@vtex.storefront-theme',
+  constructor: ProductPage
+});

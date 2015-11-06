@@ -1,5 +1,5 @@
 import React from 'react';
-import './Newsletter.less';
+import './style.less';
 
 class Newsletter extends React.Component {
   render() {

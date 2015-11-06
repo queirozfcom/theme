@@ -1,6 +1,6 @@
 import React from 'react';
-import SelectVariation from './SelectVariation';
-import './SkuSelector.less';
+import SelectVariation from '../SelectVariation';
+import './style.less';
 import { storefront } from 'sdk';
 
 @storefront({

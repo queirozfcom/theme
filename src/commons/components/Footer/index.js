@@ -1,6 +1,6 @@
 import React from 'react';
-import './Footer.less';
-import SVGIcon from 'utils/SVGIcon';
+import './style.less';
+import SVGIcon from 'commons/components/SVGIcon';
 import instagramIcon from 'assets/icons/instagram.svg';
 import facebookIcon from 'assets/icons/facebook.svg';
 import pinterestIcon from 'assets/icons/pinterest.svg';

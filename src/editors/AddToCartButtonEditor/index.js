@@ -1,5 +1,6 @@
 import React from 'react';
-import './AddToCartButtonEditor.less';
+import { actions } from 'sdk';
+import './style.less';
 import ColorPicker from 'react-colorpicker'; // eslint-disable-line
 import colr from 'colr';
 
@@ -74,3 +75,12 @@ class AddToCartButtonEditor extends React.Component {
 }
 
 export default AddToCartButtonEditor;
+
+let components = [
+  {
+    name: 'AddToCartButtonEditor@vtex.storefront-theme',
+    constructor: AddToCartButtonEditor
+  }
+];
+
+actions.ComponentActions.register(components);

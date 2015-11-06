@@ -1,6 +1,6 @@
 import React from 'react';
-import './Product.less';
-import { utils } from 'sdk';
+import { utils, Area } from 'sdk';
+import './style.less';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
@@ -118,6 +118,7 @@ class Product extends React.Component {
         <SkuSelector skus={skus} filteredSkus={filteredSkus}
                      removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      skuVariations={skuVariations} facets={this.state.facets}/>
+        <Area id="product/skuSelector" skuId={defaultSku.id} route="product"/>
         <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
                          id="product-button" route="product"/>
         <ProductDescription/>

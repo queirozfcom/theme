@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProductDescription.less';
+import './style.less';
 
 class Description extends React.Component {
   render() {

@@ -10,7 +10,7 @@
     }
   },
   "assets": [
-    "common.js",
+    "commons.js",
     "ProductPage.js"
   ],
   "exports": {

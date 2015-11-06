@@ -1,6 +1,6 @@
 import React from 'react';
-import './Policies.less';
-import SVGIcon from 'utils/SVGIcon';
+import './style.less';
+import SVGIcon from 'commons/components/SVGIcon';
 import exchangeIcon from 'assets/icons/exchange.svg';
 import shippingIcon from 'assets/icons/shipping.svg';
 import giftIcon from 'assets/icons/gift.svg';

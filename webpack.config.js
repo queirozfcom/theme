@@ -1,16 +1,38 @@
 var webpack = require('webpack');
+var fs = require('fs');
 var path = require('path');
 var pkg = require('./package.json');
 var meta = require('./meta.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 
-var config = {
-  entry: {
-    'HomePage': ['./src/pages/HomePage/index.js'],
-    'ProductPage': ['./src/pages/ProductPage/index.js'],
-    'editors/index': ['./src/editors/index.js']
-  },
+// Generate an entry point for each component in 'src/components/'
+var entryPointsNames = fs.readdirSync('src/components');
+var entryPoints = {};
+entryPointsNames.forEach(function(entryPoint) {
+  entryPoints[entryPoint] = './src/components/' + entryPoint + '/index.js';
+});
+
+var editorsEntryPointsNames = fs.readdirSync('src/editors');
+var lastEntryPoint;
+editorsEntryPointsNames.forEach(function(entryPoint) {
+  var entryPointName = 'editors/' + entryPoint;
+  entryPoints[entryPointName] = ['./src/editors/' + entryPoint + '/index.js'];
+  lastEntryPoint = entryPointName;
+});
+
+entryPoints[lastEntryPoint].push('webpack-hot-middleware/client');
+
+// Create a commons file for the public components (all components except editors)
+var publicEntryPoints = [];
+Object.keys(entryPoints).forEach(function(entryPoint) {
+  if (entryPoint.indexOf('editors') === -1) {
+    publicEntryPoints.push(entryPoint);
+  }
+});
+
+module.exports = {
+  entry: entryPoints,
 
   module: {
     preLoaders: [
@@ -61,10 +83,10 @@ var config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}}),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('common.js')
+    new webpack.optimize.CommonsChunkPlugin('commons.js')
   ] : [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('common.js')
+    new webpack.optimize.CommonsChunkPlugin('commons.js')
   ],
 
   externals: {
@@ -83,9 +105,9 @@ var config = {
     extensions: ['', '.js'],
     alias: {
       'assets': path.join(__dirname, '/src/assets'),
-      'components': path.join(__dirname, '/src/components'),
       'editors': path.join(__dirname, '/src/editors'),
-      'pages': path.join(__dirname, '/src/pages'),
+      'components': path.join(__dirname, '/src/components'),
+      'commons': path.join(__dirname, '/src/commons'),
       'utils': path.join(__dirname, '/src/utils')
     }
   },

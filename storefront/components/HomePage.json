@@ -4,7 +4,7 @@
     "name": "home"
   },
   "assets": [
-    "common.js",
+    "commons.js",
     "HomePage.js"
   ]
 }

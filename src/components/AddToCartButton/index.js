@@ -1,6 +1,6 @@
 import React from 'react';
 import { storefront } from 'sdk';
-import './AddToCartButton.less';
+import './style.less';
 
 @storefront({
   name: 'AddToCartButton@vtex.storefront-theme',
@@ -36,3 +36,8 @@ class AddToCartButton extends React.Component {
 }
 
 export default AddToCartButton;
+
+actions.ComponentActions.register({
+  name: 'AddToCartButton@vtex.storefront-theme',
+  constructor: AddToCartButton
+});
