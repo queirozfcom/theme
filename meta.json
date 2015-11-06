@@ -4,6 +4,8 @@
   "version": "0.7.0",
   "vendor": "vtex",
   "dependencies": {
-    "vtex.storefront": "0"
+    "vtex.storefront": "0",
+    "vtex.storefront-banner": "0.x",
+    "vtex.storefront-shelf": "0.x"
   }
 }

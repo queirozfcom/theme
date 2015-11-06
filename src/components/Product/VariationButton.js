@@ -1,6 +1,8 @@
 import React from 'react';
-import Img from 'utils/Img';
+import { utils } from 'sdk';
 import './SkuSelector.less';
+
+let { Img } = utils;
 
 class VariationButton extends React.Component {
 

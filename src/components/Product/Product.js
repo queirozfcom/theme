@@ -1,10 +1,11 @@
 import React from 'react';
 import './Product.less';
-import Img from 'utils/Img';
-import Price from 'utils/Price';
+import { utils } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
+
+let { Price, Img } = utils;
 
 class Product extends React.Component {
   state = {
