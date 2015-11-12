@@ -4,8 +4,6 @@ import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCa
 import SelectVariation from  'react-proxy?name=SelectVariation!components/Product/SelectVariation';
 import SkuSelector from  'react-proxy?name=SkuSelector!components/Product/SkuSelector';
 
-
-
 let components = [
   {
     name: 'ProductPage@vtex.storefront-theme',

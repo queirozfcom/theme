@@ -1,14 +1,4 @@
 {
-  "route": {
-    "path": "/:slug/p",
-    "name": "product"
-  },
-  "resourceBinding": {
-    "locator": "product@vtex.storefront-sdk",
-    "params": {
-      "slug": "{{ route.slug }}"
-    }
-  },
   "assets": [
     "common.js",
     "ProductPage.js"
