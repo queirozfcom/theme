@@ -1,62 +1,12 @@
 import React from 'react';
-import Slider from 'react-slick';
-import 'utils/slick/slick.css';
-import 'utils/slick/slick-theme.css';
 import './Product.less';
 import { utils } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
+import ProductImage from './ProductImage';
 
-let { Price, Img } = utils;
-
-var ProductImage = React.createClass({
-  render() {
-    let images = this.props.images;
-
-    return (
-      <div>
-        <div className="row-fluid">
-          <Slider
-            dots={false}
-            infinite={false}
-            speed={500}
-            slidesToShow={1}
-            slidesToScroll={1}>
-              {
-                images.map(function(img, i) {
-                  return (
-                    <div className="v-product__photo-caroussel">
-                      <Img className="v-product__photo" key={i} src={img.src} width={600} height={600} />
-                    </div>
-                  );
-                }, this)
-              }
-          </Slider>
-        </div>
-        <div className="row-fluid">
-          <Slider
-            dots={false}
-            infinite={false}
-            speed={500}
-            variableWidth={true}
-            swipe={true}
-            swipeToSlide={true}>
-              {
-                images.map(function(img, i) {
-                  return (
-                    <div className="v-product__thumbnail-caroussel">
-                      <Img className="v-product__thumbnail" key={i} src={img.src} width={50} height={50} />
-                    </div>
-                  );
-                }, this)
-              }
-          </Slider>
-        </div>
-      </div>
-    );
-  }
-});
+let { Price } = utils;
 
 class Product extends React.Component {
   state = {
@@ -135,7 +85,6 @@ class Product extends React.Component {
   render() {
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
-    let imageUrl = defaultSku.images[0].src;
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let filteredSkus;
@@ -143,7 +92,6 @@ class Product extends React.Component {
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
     let className = 'v-add-to-cart-button--fixed btn btn-block';
-    let selectedImg = this.state.selectedImg;
 
     if (this.state.facets.length !== 0) {
       filteredSkus = this.filterSkus(skus);
