@@ -8,7 +8,7 @@
     "lodash-compat": "^3.10.1",
     "react-colorpicker": "^0.3.14",
     "react-dragula": "^1.0.12",
-    "react-slick": "^0.8.1"
+    "react-slick": "^0.9.1"
   },
   "devDependencies": {
     "babel-core": "^5.4.7",
