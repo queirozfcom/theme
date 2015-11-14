@@ -51,7 +51,7 @@ var config = {
         test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
         loader: 'url-loader?limit=100000'
       }, {
-        test: /\.(jpg|gif)$/,
+        test: /\.jpg$/,
         loader: 'file-loader'
       }
     ]
