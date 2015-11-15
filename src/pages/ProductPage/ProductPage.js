@@ -21,4 +21,4 @@ class ProductPage extends React.Component {
 
 export default ProductPage;
 
-actions.ProductPageActions.assign(ProductPage);
+actions.ProductPageWrapperActions.assign(ProductPage);
