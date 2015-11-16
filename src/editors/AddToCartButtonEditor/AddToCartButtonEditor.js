@@ -67,7 +67,7 @@ class AddToCartButtonEditor extends React.Component {
           </form>
         </div>
 
-        <ActionBar onSave={this.handleSave.bind(this)}/>
+        <ActionBar title={this.props.title} onSave={this.handleSave.bind(this)}/>
       </div>
     );
   }
