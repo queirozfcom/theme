@@ -15,7 +15,7 @@ class Description extends React.Component {
             </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

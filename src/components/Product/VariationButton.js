@@ -14,14 +14,14 @@ class VariationButton extends React.Component {
         if (facet.name != valueName) {
           skus = this.props.filteredSkus;
         }
-      })
+      });
     }
     skus.forEach(function(sku) {
       sku.properties.forEach((property)=> {
         if (property.facet.values[0] === value && availability === 0) {
           return availability = sku.offers[0].availability;
         }
-      })
+      });
     });
     return availability;
   }
@@ -35,8 +35,8 @@ class VariationButton extends React.Component {
             img = sku.images[0].src;
           }
         }
-      })
-    })
+      });
+    });
     return img;
   }
 

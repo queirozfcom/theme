@@ -29,7 +29,7 @@ class AddToCartButton extends React.Component {
       <a href={addUrl} className={this.props.className} style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
         {label}
       </a>
-    )
+    );
   }
 
 

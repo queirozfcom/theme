@@ -24,7 +24,7 @@ class SkuSelector extends React.Component {
                                  facets={this.props.facets} skuVariations={variationType}
                                  id="select-variation" route="product"/>
               </div>
-            )
+            );
           })
         }
         </div>

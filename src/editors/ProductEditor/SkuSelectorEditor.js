@@ -6,7 +6,6 @@ class SkuSelectorEditor extends React.Component {
 
     return (
       <div>
-        
         <ActionBar/>
       </div>
     );

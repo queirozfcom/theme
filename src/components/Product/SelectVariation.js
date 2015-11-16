@@ -19,7 +19,7 @@ class SelectVariation extends React.Component {
                 if (facet.value === variation) {
                   isActive = true;
                 }
-              })
+              });
               return (
                 <div key={variation}>
                   <VariationButton value={variation} variationName={variationName}

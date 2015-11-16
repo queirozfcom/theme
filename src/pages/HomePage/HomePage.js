@@ -16,7 +16,7 @@ class HomePage extends React.Component {
     return {
       banner: stores.ComponentStore.getState().getIn(['Banner@vtex.storefront-banner']),
       shelf: stores.ComponentStore.getState().getIn(['Shelf@vtex.storefront-shelf'])
-    }
+    };
   }
 
   componentWillMount() {

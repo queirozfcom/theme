@@ -45,7 +45,7 @@ class Product extends React.Component {
       facets: this.state.facets,
       selectedImg: selectedImg,
       selectedSku: this.filterSkus(this.props.skus)
-    })
+    });
   }
 
   removeFacet = (variationName) => {
@@ -54,7 +54,7 @@ class Product extends React.Component {
         let index = this.state.facets.indexOf(facet);
         this.state.facets.splice(index,1);
       }
-    })
+    });
     this.setState({
       facets: this.state.facets,
       selectedImg: null
@@ -74,8 +74,8 @@ class Product extends React.Component {
               }
             }
           }
-        })
-      })
+        });
+      });
       skus = result;
     });
     return result;

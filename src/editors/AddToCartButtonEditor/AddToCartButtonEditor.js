@@ -30,7 +30,7 @@ class AddToCartButtonEditor extends React.Component {
     this.setState({
       color: colorHex,
       boxShadowColor: boxShadowColorHex
-    })
+    });
   }
 
   handleSave = () => {
