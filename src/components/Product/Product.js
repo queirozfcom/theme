@@ -1,17 +1,28 @@
 import React from 'react';
 import './Product.less';
-import { utils } from 'sdk';
+import { stores, utils } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
-let { Price, Img } = utils;
+let { Price } = utils;
 
+@utils.connectToStores()
 class Product extends React.Component {
   state = {
     selectedSku: [],
     selectedImg: null,
     facets: []
+  }
+
+  static getStores = () => {
+    return [ stores.ComponentStore ];
+  }
+
+  static getPropsFromStores = () => {
+    return {
+      productImage: stores.ComponentStore.getState().getIn(['ProductImage@vtex.product-image']),
+    }
   }
 
   getSkuVariations = () => {
@@ -82,9 +93,9 @@ class Product extends React.Component {
   }
 
   render() {
+    let ProductImage = this.props.productImage ? this.props.productImage.get('constructor') : null;
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
-    let imageUrl = defaultSku.images[0].src;
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let filteredSkus;
@@ -92,7 +103,6 @@ class Product extends React.Component {
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
     let className = 'v-add-to-cart-button--fixed btn btn-block';
-    let selectedImg = this.state.selectedImg;
 
     if (this.state.facets.length !== 0) {
       filteredSkus = this.filterSkus(skus);
@@ -104,11 +114,7 @@ class Product extends React.Component {
 
     return (
       <div className="container-fluid">
-        <div className="row-fluid">
-          <div className="v-product__photo-caroussel">
-            <Img className="v-product__photo" src={selectedImg ? selectedImg : imageUrl} width={200} height={235}/>
-          </div>
-        </div>
+        <ProductImage images={defaultSku.images} />
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
             <h2 className="v-product__title">{name}</h2>
