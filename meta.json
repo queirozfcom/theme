@@ -7,7 +7,6 @@
     "vtex.storefront": "0",
     "vtex.storefront-banner": "0.x",
     "vtex.storefront-shelf": "0.x",
-    "vtex.product-page-wrapper": "0.x",
-    "vtex.product-image": "0.x
+    "vtex.product-page-wrapper": "0.x"
   }
 }

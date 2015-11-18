@@ -1,28 +1,17 @@
 import React from 'react';
 import './Product.less';
-import { stores, utils } from 'sdk';
+import { utils } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
 let { Price, Img } = utils;
 
-@utils.connectToStores()
 class Product extends React.Component {
   state = {
     selectedSku: [],
     selectedImg: null,
     facets: []
-  }
-
-  static getStores = () => {
-    return [ stores.ComponentStore ];
-  }
-
-  static getPropsFromStores = () => {
-    return {
-      productImage: stores.ComponentStore.getState().getIn(['ProductImage@vtex.product-image']),
-    }
   }
 
   getSkuVariations = () => {
@@ -93,7 +82,6 @@ class Product extends React.Component {
   }
 
   render() {
-    let ProductImage = this.props.productImage ? this.props.productImage.get('constructor') : null;
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
     let imageUrl = defaultSku.images[0].src;
