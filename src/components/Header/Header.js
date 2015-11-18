@@ -10,11 +10,16 @@ import cartIcon from 'assets/icons/cart.svg';
 
 class Header extends React.Component {
   state = {
-    isMenuOpen: false
+    isMenuOpen: false,
+    isSearchOpen: false
   }
 
   handleMenuTap = () => {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  }
+
+  handleSearchTap = () => {
+    this.setState({ isSearchOpen: !this.state.isSearchOpen });
   }
 
   render() {
@@ -28,7 +33,7 @@ class Header extends React.Component {
       ) : null;
 
     return (
-      <div className="Header clearfix">
+      <div className="Header clearfix" data-is-search-open={this.state.isSearchOpen}>
         <div className="col-xs-1">
           <SVGIcon
             className="Header__icon"
@@ -45,12 +50,14 @@ class Header extends React.Component {
         </h1>
 
         <div className="col-xs-1">
-          <SVGIcon className="Header__icon" svg={searchIcon} width={15} height={18} fill="#153243"/>
+          <SVGIcon className="Header__icon" svg={searchIcon} width={15} height={18} fill="#153243" onTouchTap={this.handleSearchTap}/>
         </div>
 
         <div className="col-xs-1">
           <SVGIcon className="Header__icon" svg={cartIcon} width={18} height={18} fill="#153243"/>
         </div>
+
+        <Area id={`${this.props.areaPath}/search-bar`} visible={this.state.isSearchOpen} handleSearchTap={this.handleSearchTap}/>
 
         <ReactCSSTransitionGroup
           transitionName="NavigationMenu"

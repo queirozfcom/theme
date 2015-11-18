@@ -2,10 +2,30 @@
 
 .Header {
   background: @gray-soft;
-  box-shadow: 0px 0px 1px 2px darken(@gray-soft, 5%);
-  padding-top: 1em;
-  height: 45px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 1px rgba(0,0,0,0.1);
+  position: static;
+  top: 0;
+  height: 55px;
   width: 100%;
+  z-index: @zindex-2;
+
+  &[data-is-search-open='false'] {
+    padding-top: 17.5px;
+    padding-bottom: 17.5px;
+    padding-right: 0px;
+    padding-left: 0px;
+
+    opacity: 1;
+    transition: opacity 0.4s, height 0s 0.4s, padding 0.4s;
+  }
+
+  &[data-is-search-open='true'] {
+    height: 0px;
+    padding: 0px;
+    opacity: 0;
+    transition: opacity 0.4s, height 0s 0.4s, padding 0.4s;
+  }
 
   &__brand {
     position: relative;
