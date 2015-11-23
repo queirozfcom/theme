@@ -21,8 +21,8 @@ class Product extends React.Component {
 
   static getPropsFromStores = () => {
     return {
-      productImage: stores.ComponentStore.getState().getIn(['ProductImage@vtex.product-image']),
-    }
+      productImage: stores.ComponentStore.getState().getIn(['ProductImage@vtex.product-image'])
+    };
   }
 
   getSkuVariations = () => {
