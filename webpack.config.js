@@ -74,6 +74,7 @@ var config = {
     'intl': 'Intl',
     'react': 'React',
     'react-dom': 'ReactDOM',
+    'react-addons-css-transition-group': 'ReactCSSTransitionGroup',
     'react-intl': 'ReactIntl',
     'react-router': 'ReactRouter',
     'sdk': 'storefront.sdk'
