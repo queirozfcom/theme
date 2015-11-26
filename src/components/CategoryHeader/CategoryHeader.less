@@ -1,0 +1,78 @@
+@import "~utils/base/base";
+@import "~vtex-css-utils/less/_css-utils";
+
+.ProductHeader {
+  background: #F7F7F7;
+
+  .icon {
+    float: left;
+    display: inline-block;
+    padding-top: @pad;
+  }
+
+  .icon-label {
+    font-size: 0.9em;
+    float: left;
+    font-weight: 500;
+    padding-top: 6.5px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .gridButton {
+    .v-clean-btn;
+    .v-no-outlines;
+    float: right;
+    padding-left: @pad / 2;
+    padding-right: @pad / 2;
+  }
+
+  .header-container {
+    padding: (@pad * 3) 0px;
+  }
+
+  .categoryTitle {
+    padding: 0px (@pad * 2);
+  }
+
+  .header-title {
+    float: left;
+    font-family: 'Lato';
+    font-weight: 200;
+    margin-top: 0px;
+    margin-bottom: @pad / 2;
+    max-width: 80%;
+    padding: 0px;
+    text-align: left;
+  }
+
+  .header-buttons {
+    margin-top: 0.75em;
+    padding: 0px (@pad * 2);
+  }
+
+  .header-results {
+    color: #777777;
+    display: block;
+    font-family: 'Lato';
+    font-weight: 400;
+  }
+
+  .header-content {
+    margin-bottom: 1em;
+  }
+
+  .category-title {
+    font-size: 28px;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .category-quantity {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 15px;
+    margin-top: 40px;
+  }
+}
