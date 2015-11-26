@@ -9,6 +9,7 @@ var config = {
   entry: {
     'HomePage': ['./src/pages/HomePage/index.js'],
     'ProductPage': ['./src/pages/ProductPage/index.js'],
+    'CategoryPage': ['./src/pages/CategoryPage/index.js'],
     'editors/index': ['./src/editors/index.js']
   },
 
