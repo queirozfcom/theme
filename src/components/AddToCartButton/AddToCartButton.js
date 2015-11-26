@@ -1,11 +1,10 @@
 import React from 'react';
-import { storefront } from 'sdk';
+import { editable } from 'vtex-editor';
 import './AddToCartButton.less';
 
-@storefront({
+@editable({
   name: 'AddToCartButton@vtex.storefront-theme',
-  title: 'Adicionar ao Carrinho',
-  editable: true
+  title: 'Adicionar ao Carrinho'
 })
 class AddToCartButton extends React.Component {
   static defaultProps = {
