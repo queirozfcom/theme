@@ -10,7 +10,7 @@ class HomePage extends React.Component {
   componentWillMount() {
     let currentURL = (window.location.pathname + window.location.search);
     if (!stores.ResourceStore.getState().get(currentURL)) {
-      actions.ResourceActions.getRouteResources(currentURL, 'home');
+      actions.ResourceActions.getAreaResources({currentURL, id: 'home'});
     }
   }
 
