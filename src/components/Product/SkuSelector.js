@@ -1,12 +1,11 @@
 import React from 'react';
 import SelectVariation from './SelectVariation';
 import './SkuSelector.less';
-import { storefront } from 'sdk';
+import { editable } from 'vtex-editor';
 
-@storefront({
+@editable({
   name: 'SkuSelector@vtex.storefront-theme',
-  title: 'SkuSelector',
-  editable: true
+  title: 'SkuSelector'
 })
 class SkuSelector extends React.Component {
   render() {
