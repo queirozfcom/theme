@@ -1,8 +1,4 @@
 {
-  "route": {
-    "path": "/",
-    "name": "home"
-  },
   "assets": [
     "common.js",
     "HomePage.js"

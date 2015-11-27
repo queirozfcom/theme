@@ -1,5 +1,4 @@
 import React from 'react';
-import { actions } from 'sdk';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
@@ -20,5 +19,3 @@ class ProductPage extends React.Component {
 }
 
 export default ProductPage;
-
-actions.ProductPageWrapperActions.assign(ProductPage);
