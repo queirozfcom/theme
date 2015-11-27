@@ -63,7 +63,7 @@ class CategoryHeader extends React.Component {
     }
 
     return (
-      <nav className="ProductHeader container">
+      <nav className="ProductHeader container-fluid">
         <div className="header-container">
           <div className="row header-content">
             <div className="categoryTitle">
