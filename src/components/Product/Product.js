@@ -113,6 +113,7 @@ class Product extends React.Component {
         <SkuSelector skus={skus} filteredSkus={filteredSkus}
                      removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
                      skuVariations={skuVariations} facets={this.state.facets}/>
+        <Area id="product/shipping-calculator" sku={defaultSku} />
         <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
                          id="product-button" route="product"/>
         <ProductDescription/>
