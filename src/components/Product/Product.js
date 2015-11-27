@@ -1,28 +1,17 @@
 import React from 'react';
 import './Product.less';
-import { stores, utils } from 'sdk';
+import { utils, Area } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
 let { Price } = utils;
 
-@utils.connectToStores()
 class Product extends React.Component {
   state = {
     selectedSku: [],
     selectedImg: null,
     facets: []
-  }
-
-  static getStores = () => {
-    return [ stores.ComponentStore ];
-  }
-
-  static getPropsFromStores = () => {
-    return {
-      productImage: stores.ComponentStore.getState().getIn(['ProductImage@vtex.product-image'])
-    };
   }
 
   getSkuVariations = () => {
@@ -93,7 +82,6 @@ class Product extends React.Component {
   }
 
   render() {
-    let ProductImage = this.props.productImage ? this.props.productImage.get('constructor') : null;
     let defaultSku = this.props.skus[0];
     let name = this.props.name;
     let price = defaultSku.offers[0].price;
@@ -114,7 +102,7 @@ class Product extends React.Component {
 
     return (
       <div className="container-fluid">
-        <ProductImage images={defaultSku.images} />
+        <Area id="product/product-image" images={defaultSku.images} />
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
             <h2 className="v-product__title">{name}</h2>
