@@ -41,8 +41,7 @@ class CategoryHeader extends React.Component {
   render() {
     let explorerButton = null;
     let explorerPanel = null;
-    let iconColor = '#777777';
-    let icon = {
+    const icon = {
       svg: this.props.grid ? listIcon : gridIcon,
       img: this.props.grid ? listImg : gridImg
     };
@@ -89,7 +88,7 @@ class CategoryHeader extends React.Component {
                   fallback={icon.img}
                   width={18}
                   cleanupExceptions={['width', 'height']}
-                  fill={iconColor}
+                  fill="#777777"
                 />
               </div>
               <Area
