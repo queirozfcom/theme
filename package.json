@@ -6,6 +6,7 @@
   "dependencies": {
     "colr": "^1.2.2",
     "lodash-compat": "^3.10.1",
+    "vtex-css-utils": "^1.1.7",
     "react-colorpicker": "^0.3.14"
   },
   "devDependencies": {

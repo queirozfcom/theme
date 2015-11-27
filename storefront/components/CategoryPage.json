@@ -1,0 +1,13 @@
+{
+  "resourceBinding": {
+    "locator": "facets@vtex.storefront-sdk",
+    "relativePath": "/dreamstore/facets",
+    "queryParams": {
+      "category": "{{ route.splat }}",
+      "brands": "{{ query.brands }}"
+    }
+  },
+  "assets": [
+    "CategoryPage.js"
+  ]
+}
