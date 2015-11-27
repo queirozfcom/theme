@@ -9,7 +9,7 @@ class ProductPage extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header areaPath="product" />
         {this.props.loading ? <div>Carregando</div> : <Product {...this.props.product}/>}
         <Newsletter/>
         <Footer/>

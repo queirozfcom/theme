@@ -21,7 +21,7 @@ class Header extends React.Component {
     let menu = this.state.isMenuOpen ?
       (
         <Area
-          id={`${this.props.areaPath}/menu`}
+          id={`${this.props.areaPath}/navigation-menu`}
           key="Menu"
           toggleMenu={this.handleMenuTap}
         />

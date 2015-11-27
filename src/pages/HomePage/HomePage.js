@@ -17,7 +17,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header areaPath="home" />
         <Area id="home/banner"/>
         <Area id="home/shelf1"/>
         <Policies/>
