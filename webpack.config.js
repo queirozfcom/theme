@@ -78,7 +78,7 @@ var config = {
     'react-intl': 'ReactIntl',
     'react-router': 'ReactRouter',
     'sdk': 'storefront.sdk',
-    'vtex.editor': 'vtex-editor'
+    'vtex-editor': 'vtex.editor'
   },
 
   resolve: {
