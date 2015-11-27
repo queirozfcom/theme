@@ -82,7 +82,7 @@ class CategoryPage extends React.Component {
       content = category ?
         (
           <div>
-            <Header page="category" />
+            <Header areaPath="category" />
             <CategoryHeader
               category={category}
               filters={filters}
