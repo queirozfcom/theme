@@ -1,20 +1,20 @@
 @import '~utils/base';
 
-.v-add-to-cart-button {
+.AddToCartButton {
   .v-clean-btn;
   .v-no-outlines;
   .v-unselectable;
 
-  display: block;
   background: #75CCB1;
   box-shadow: 2px 2px 0px 0px darken(#75CCB1, 8%);
   color: #fff;
+  display: block;
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
   font-size: 1.35em;
   font-weight: 500;
+  margin-top: 0.8em;
   padding: 12.5px;
   width: 100%;
-  margin-top: 0.8em;
 
   &:active {
     box-shadow: none;
@@ -22,23 +22,23 @@
   }
 }
 
-.v-add-to-cart-button--fixed {
+.AddToCartButton--fixed {
   .v-clean-btn;
   .v-no-outlines;
   .v-unselectable;
 
-  position: fixed;
-  bottom:0px;
-  z-index: 5;
-  display: block;
   background: #75CCB1;
+  bottom:0px;
+  display: block;
   color: #fff;
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
   font-size: 1.35em;
   font-weight: 500;
-  padding: 12.5px;
-  width: 100%;
   left: 0px;
+  padding: 12.5px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 
   &:active {
     box-shadow: none;
