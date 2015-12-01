@@ -14,12 +14,12 @@ class CategoryOption extends React.Component {
   render() {
     return (
       <li className="CategoryOption" onTouchTap={this.handleTouchTap}>
-        <button className="CategoryOption-button">
-          <span className="CategoryOption-label">
+        <button className="CategoryOption__button">
+          <span className="CategoryOption__label">
             { this.props.name }
           </span>
           <SVGIcon
-            className="CategoryOption-icon"
+            className="CategoryOption__icon"
             svg={frontArrowIcon}
             fallback={frontArrowImg}
             width={15}
