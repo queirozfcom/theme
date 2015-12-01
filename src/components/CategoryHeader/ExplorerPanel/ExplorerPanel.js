@@ -21,12 +21,12 @@ class ExplorerPanel extends React.Component {
   render() {
     return (
       <aside className="ExplorerPanel" data-is-open={this.props.isOpen}>
-        <div className="ExplorerPanel-content clearfix">
-          <div className="ExplorerPanel-header clearfix container">
-            <h1 className="ExplorerPanel-title">
+        <div className="ExplorerPanel__content clearfix">
+          <div className="ExplorerPanel__header clearfix container">
+            <h1 className="ExplorerPanel__title">
               { this.props.category.get('name') }
             </h1>
-            <span className="ExplorerPanel-subtitle">Subcategorias</span>
+            <span className="ExplorerPanel__subtitle">Subcategorias</span>
           </div>
           <CategoryList
             categories={this.props.category.get('children') }
@@ -34,7 +34,7 @@ class ExplorerPanel extends React.Component {
             closeExplorerPanel={this.props.closeExplorerPanel}
           />
           <button
-            className="ExplorerPanel-pull-button col-xs-2 col-xs-push-5"
+            className="ExplorerPanel__pull-button col-xs-2 col-xs-push-5"
             onTouchTap={this.handleTouchTap}
           >
             <SVGIcon
