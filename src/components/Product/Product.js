@@ -101,12 +101,12 @@ class Product extends React.Component {
     }
 
     return (
-      <div className="container-fluid">
+      <div className="Product container-fluid">
         <Area id="product/product-image" images={defaultSku.images} />
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
-            <h2 className="v-product__title">{name}</h2>
-            <h3 className="v-product__price"><Price value={price}/></h3>
+            <h2 className="Product__title">{name}</h2>
+            <h3 className="Product__price"><Price value={price}/></h3>
           </div>
         </div>
         <SkuSelector skus={skus} filteredSkus={filteredSkus}
