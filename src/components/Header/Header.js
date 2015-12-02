@@ -14,7 +14,7 @@ class Header extends React.Component {
   }
 
   handleMenuTap = () => {
-    this.setState({ isMenuOpen: !this.state.isMenuOpen});
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
   }
 
   render() {
@@ -22,15 +22,22 @@ class Header extends React.Component {
       (
         <Area
           id={`${this.props.areaPath}/navigation-menu`}
-          key="Menu"
+          key="NavigationMenu"
           toggleMenu={this.handleMenuTap}
         />
       ) : null;
 
     return (
       <div className="Header clearfix">
-        <div className="col-xs-1" onTouchTap={this.handleMenuTap}>
-          <SVGIcon className="Header__icon" svg={hamburgerIcon} width={18} height={18} fill="#153243"/>
+        <div className="col-xs-1">
+          <SVGIcon
+            className="Header__icon"
+            onTouchTap={this.handleMenuTap}
+            svg={hamburgerIcon}
+            width={18}
+            height={18}
+            fill="#153243"
+          />
         </div>
 
         <h1 className="Header__brand col-xs-8 col-xs-push-1">
@@ -46,7 +53,7 @@ class Header extends React.Component {
         </div>
 
         <ReactCSSTransitionGroup
-          transitionName="Menu"
+          transitionName="NavigationMenu"
           transitionEnterTimeout={200}
           transitionLeaveTimeout={250}
         >
