@@ -11,6 +11,7 @@
     "vtex.product-page-wrapper": "0.x",
     "vtex.product-image": "0.x",
     "vtex.filter-panel": "0.x",
-    "vtex.product-list": "0.x"
+    "vtex.product-list": "0.x",
+    "vtex.navigation-menu": "0.x"
   }
 }
