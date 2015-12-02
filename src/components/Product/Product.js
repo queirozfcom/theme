@@ -90,7 +90,7 @@ class Product extends React.Component {
     let skuVariations = this.getSkuVariations();
     let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
 
-    let className = 'AddToCartButton--fixed btn btn-block';
+    let className = 'AddToCartButton--fixed';
 
     if (this.state.facets.length !== 0) {
       filteredSkus = this.filterSkus(skus);
