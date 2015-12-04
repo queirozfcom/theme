@@ -9,23 +9,7 @@
   height: 55px;
   width: 100%;
   z-index: @zindex-2;
-
-  &[data-is-search-open='false'] {
-    padding-top: 17.5px;
-    padding-bottom: 17.5px;
-    padding-right: 0px;
-    padding-left: 0px;
-
-    opacity: 1;
-    transition: opacity 0.4s, height 0s 0.4s, padding 0.4s;
-  }
-
-  &[data-is-search-open='true'] {
-    height: 0px;
-    padding: 0px;
-    opacity: 0;
-    transition: opacity 0.4s, height 0s 0.4s, padding 0.4s;
-  }
+  padding: 17.5px 0;
 
   &__brand {
     position: relative;

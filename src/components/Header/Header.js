@@ -33,7 +33,7 @@ class Header extends React.Component {
       ) : null;
 
     return (
-      <div className="Header clearfix" data-is-search-open={this.state.isSearchOpen}>
+      <div className="Header clearfix">
         <div className="col-xs-1">
           <SVGIcon
             className="Header__icon"
