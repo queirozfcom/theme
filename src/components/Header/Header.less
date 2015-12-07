@@ -2,10 +2,14 @@
 
 .Header {
   background: @gray-soft;
-  box-shadow: 0px 0px 1px 2px darken(@gray-soft, 5%);
-  padding-top: 1em;
-  height: 45px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 1px rgba(0,0,0,0.1);
+  position: static;
+  top: 0;
+  height: 55px;
   width: 100%;
+  z-index: @zindex-2;
+  padding: 17.5px 0;
 
   &__brand {
     position: relative;
