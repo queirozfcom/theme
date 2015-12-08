@@ -1,7 +1,7 @@
 import React from 'react';
+import Immutable from 'immutable';
 import './Product.less';
 import { stores } from 'sdk';
-import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
@@ -19,22 +19,25 @@ class Product extends React.Component {
     let skuVariations = [];
     let variationNumber = this.props.skus[0].properties.length;
     for (let i=0; i<variationNumber; i++) {
-      let eachVariation = {name: '', values: [] };
+      let eachVariation = {name: '', label: '', values: [], orderedValues: [], type: 'PICKER' };
       eachVariation.name = this.props.skus[0].properties[i].facet.name;
+      eachVariation.label = this.props.skus[0].properties[i].facet.name;
       this.props.skus.forEach(function(sku) {
         if (eachVariation.values.indexOf(sku.properties[i].facet.values[0]) === -1) {
           eachVariation.values.push(sku.properties[i].facet.values[0]);
+          eachVariation.orderedValues.push(sku.properties[i].facet.values[0]);
         }
       });
+      eachVariation.type = eachVariation.name === 'Cor' ? 'IMG' : 'PICKER';
       skuVariations.push(eachVariation);
     }
-    return skuVariations;
+    return Immutable.fromJS(skuVariations);
   }
 
-  addFacet = (variationName, variationValue, displayType) => {
+  addFacet = (variationName, variationValue, imgUrl) => {
     let selectedImg;
-    if (displayType != null) {
-      selectedImg = displayType;
+    if (imgUrl != null) {
+      selectedImg = imgUrl;
     } else {
       selectedImg = null;
     }
@@ -89,7 +92,7 @@ class Product extends React.Component {
     let skus = this.props.skus;
     let filteredSkus;
     let skuVariations = this.getSkuVariations();
-    let cartValidation = this.state.facets.length === skuVariations.length && this.state.selectedSku.length === 1 ? true : false;
+    let cartValidation = this.state.facets.length === skuVariations.count() && this.state.selectedSku.length === 1 ? true : false;
 
     let className = 'AddToCartButton--fixed';
 
@@ -110,13 +113,26 @@ class Product extends React.Component {
             <h3 className="Product__price"><Price value={price}/></h3>
           </div>
         </div>
-        <SkuSelector skus={skus} filteredSkus={filteredSkus}
-                     removeFacet={this.removeFacet.bind(this)} addFacet={this.addFacet.bind(this)}
-                     skuVariations={skuVariations} facets={this.state.facets}/>
-        <Area id="product/shipping-calculator" sku={this.state.selectedSku} />
-        <AddToCartButton skuId={defaultSku.id} cartValidation={cartValidation} className={className}
-                         id="product-button" route="product"/>
-        <ProductDescription/>
+        {
+          skuVariations.count() > 0 ?
+            <Area
+              skus={skus}
+              filteredSkus={filteredSkus}
+              removeFacet={this.removeFacet.bind(this)}
+              addFacet={this.addFacet.bind(this)}
+              skuVariations={skuVariations}
+              facets={this.state.facets}
+              id="product/sku-selector"
+            /> : null
+        }
+        <AddToCartButton
+          skuId={defaultSku.id}
+          cartValidation={cartValidation}
+          className={className}
+          id="product-button"
+          route="product"
+        />
+        <ProductDescription />
       </div>
     );
   }
