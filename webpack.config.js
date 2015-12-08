@@ -35,7 +35,7 @@ var config = {
         }
       }, {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader'
+        loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!less-loader'
       }, {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
