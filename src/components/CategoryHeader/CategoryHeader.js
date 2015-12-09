@@ -64,26 +64,26 @@ class CategoryHeader extends React.Component {
 
     return (
       <nav className="CategoryHeader container-fluid">
-        <div className="header-container">
-          <div className="row header-content">
-            <div className="categoryTitle">
-              <h1 className="header-title">
+        <div className="CategoryHeader__container">
+          <div className="CategoryHeader__content row">
+            <div className="CategoryHeader__title">
+              <h1 className="CategoryHeader__title-inner">
                 { this.props.category.get('name') }
               </h1>
 
               { explorerButton }
             </div>
             <div className="col-xs-12">
-              <span className="header-results">
+              <span className="CategoryHeader__results">
                 { this.props.category.get('productQuantity') } Resultados
               </span>
             </div>
           </div>
           <div className="row">
-            <div className="header-buttons">
-              <div className="gridButton" onTouchTap={this.handleGridTap}>
+            <div className="CategoryHeader__buttons">
+              <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
                 <SVGIcon
-                  className="icon"
+                  className="CategoryHeader__icon"
                   svg={icon.svg}
                   fallback={icon.img}
                   width={18}

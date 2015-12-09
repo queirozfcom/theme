@@ -1,4 +1,4 @@
-@import "~utils/base";
+@import "~utils/base/base";
 
 .CategoryOption {
   display: block;
@@ -19,9 +19,9 @@
     border-bottom-right-radius: 3px;
   }
 
-  &-button {
-    .v-clean-btn;
-    .v-no-outlines;
+  &__button {
+    .css-utils-clean-btn();
+    .css-utils-no-outlines();
     background-color: #FFF;
     display: block;
     width: 100%;
@@ -35,7 +35,7 @@
     }
   }
 
-  &-label {
+  &__label {
     color: @gray-solid-b;
     float: left;
     font-size: 0.9em;
@@ -43,7 +43,7 @@
     margin-bottom: 0px;
   }
 
-  &-icon {
+  &__icon {
     float: right;
   }
 }

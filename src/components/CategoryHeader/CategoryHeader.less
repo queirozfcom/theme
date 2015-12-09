@@ -1,9 +1,9 @@
-@import "~utils/base";
+@import "~utils/base/base";
 
 .CategoryHeader {
   background: #F7F7F7;
 
-  .icon {
+  &__icon, .icon {
     float: left;
     display: inline-block;
     padding-top: @pad;
@@ -18,23 +18,27 @@
     text-transform: uppercase;
   }
 
-  .gridButton {
-    .v-clean-btn;
-    .v-no-outlines;
+  &__grid-button {
+    .css-utils-clean-btn();
+    .css-utils-no-outlines();
     float: right;
     padding-left: @pad / 2;
     padding-right: @pad / 2;
   }
 
-  .header-container {
+  &__container {
     padding: (@pad * 3) 0px;
   }
 
-  .categoryTitle {
+  &__content {
+    margin-bottom: 1em;
+  }
+
+  &__title {
     padding: 0px (@pad * 2);
   }
 
-  .header-title {
+  &__title-inner {
     float: left;
     font-family: 'Lato';
     font-weight: 200;
@@ -45,33 +49,15 @@
     text-align: left;
   }
 
-  .header-buttons {
+  &__buttons {
     margin-top: 0.75em;
     padding: 0px (@pad * 2);
   }
 
-  .header-results {
+  &__results {
     color: #777777;
     display: block;
     font-family: 'Lato';
     font-weight: 400;
-  }
-
-  .header-content {
-    margin-bottom: 1em;
-  }
-
-  .category-title {
-    font-size: 28px;
-    padding: 15px;
-    text-align: left;
-  }
-
-  .category-quantity {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0px 15px;
-    margin-top: 40px;
   }
 }

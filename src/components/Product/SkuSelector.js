@@ -9,15 +9,14 @@ import { editable } from 'vtex-editor';
 })
 class SkuSelector extends React.Component {
   render() {
-    let classes = 'v-dream__selector-section col-xs-12';
 
     return (
-      <div className="row clearfix">
-        <div className={classes}>
+      <div className="SkuSelector row clearfix">
+        <div className="SkuSelector__section col-xs-12">
         {
           this.props.skuVariations.map((variationType) => {
             return (
-              <div className="v-dream__selector-row row-fluid" key={variationType.name}>
+              <div className="SkuSelector__row row-fluid" key={variationType.name}>
                 <SelectVariation skus={this.props.skus} filteredSkus={this.props.filteredSkus}
                                  addFacet={this.props.addFacet} removeFacet={this.props.removeFacet}
                                  facets={this.props.facets} skuVariations={variationType}

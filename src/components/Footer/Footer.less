@@ -1,39 +1,39 @@
-.v-footer {
+@import "~utils/base/base";
+
+.Footer {
   background-color: #153243;
-}
 
-.v-footer__menu {
-  padding-top: 20px;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+  &__menu {
+    .css-utils-clean-list();
+    padding-top: 20px;
+  }
 
-  li {
+  &__item {
     font-size: 25px;
     font-weight: 600;
     line-height: 16px;
     color: #fff;
-    margin: 0 0 10px;
+    margin: 0 0 @pad * 2;
   }
 
-  .v-footer__menu-link {
+  &__menu-link {
     color: #fff;
   }
-}
 
-.v-footer__address {
-  padding-top: 15px;
-
-  p {
+  &__address {
+    color: #fff;
+    display: block;
+    padding-top: 15px;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
     font-size: 12px;
-    color: #fff;
+    margin-bottom: 1em;
   }
-}
 
-.v-footer__social-icons {
-  padding-top: 20px;
+  &__social-icons {
+    padding-top: 20px;
+  }
 
-  .v-icon {
-    margin-bottom: 10px;
+  &__icon {
+    margin-bottom: @pad / 2;
   }
 }
