@@ -8,6 +8,7 @@
     "vtex.storefront": "0",
     "vtex.banner": "0.x",
     "vtex.shelf": "0.x",
+    "vtex.sku-selector": "0.x",
     "vtex.product-page-wrapper": "0.x",
     "vtex.product-image": "0.x",
     "vtex.filter-panel": "0.x",
