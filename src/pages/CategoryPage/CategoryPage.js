@@ -4,27 +4,21 @@ import Header from 'components/Header/Header';
 import CategoryHeader from 'components/CategoryHeader/CategoryHeader';
 import Footer from 'components/Footer/Footer';
 
-@utils.connectToStores()
+import { connect } from 'react-redux';
+import { redux } from 'sdk';
+
+@connect((state) => {
+  const currentURL = window.location.pathname + window.location.search;
+
+  return {
+    facets: state.SDK.facets.getIn([currentURL, 'category']),
+    pageResources: state.SDK.resource.get(currentURL)
+  };
+})
 class CategoryPage extends React.Component {
   state = {
     skipRender: false,
     grid: false
-  }
-
-  static getStores() {
-    return [
-      stores.ContextStore,
-      stores.ResourceStore,
-      stores.FacetsStore
-    ];
-  }
-
-  static getPropsFromStores() {
-    let path = window.location.pathname + window.location.search;
-
-    return {
-      facets: stores.FacetsStore.getState().getIn([path, 'category'])
-    };
   }
 
   componentWillMount() {
@@ -50,16 +44,16 @@ class CategoryPage extends React.Component {
   }
 
   getResources = () => {
-    let path = window.location.pathname + window.location.search;
-    let actionConfig = {
-      currentURL: path,
+    const currentURL = window.location.pathname + window.location.search;
+    const actionConfig = {
+      currentURL,
       id: 'category',
       params: this.props.params,
       query: this.props.location.query
     };
 
-    if (!stores.ResourceStore.getState().get(path)) {
-      actions.ResourceActions.getAreaResources(actionConfig);
+    if (!this.props.pageResources) {
+      this.props.dispatch(redux.actionCreators.resource.getAreaResources(actionConfig));
     }
   }
 

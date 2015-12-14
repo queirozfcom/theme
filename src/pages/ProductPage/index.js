@@ -1,4 +1,4 @@
-import { actions } from 'sdk';
+import { actions, redux } from 'sdk';
 import ProductPage from './ProductPage';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import SelectVariation from  'react-proxy?name=SelectVariation!components/Product/SelectVariation';
@@ -23,4 +23,5 @@ let components = [
   }
 ];
 
+redux.store.dispatch(redux.actionCreators.component.register(components));
 actions.ComponentActions.register(components);

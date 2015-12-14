@@ -6,11 +6,22 @@ import Newsletter from 'components/Newsletter/Newsletter';
 import Policies from 'components/Policies/Policies';
 import './HomePage.less';
 
+import { connect } from 'react-redux';
+import { redux } from 'sdk';
+
+@connect((state) => {
+  const currentURL = window.location.pathname + window.location.search;
+
+  return {
+    pageResources: state.SDK.resource.get(currentURL)
+  };
+})
 class HomePage extends React.Component {
   componentWillMount() {
-    let currentURL = (window.location.pathname + window.location.search);
-    if (!stores.ResourceStore.getState().get(currentURL)) {
-      actions.ResourceActions.getAreaResources({currentURL, id: 'home'});
+    const currentURL = window.location.pathname + window.location.search;
+
+    if (!this.props.pageResources) {
+      this.props.dispatch(redux.actionCreators.resource.getAreaResources({currentURL, id: 'home'}));
     }
   }
 

@@ -78,6 +78,8 @@ var config = {
     'react-addons-css-transition-group': 'ReactCSSTransitionGroup',
     'react-intl': 'ReactIntl',
     'react-router': 'ReactRouter',
+    'redux': 'Redux',
+    'react-redux': 'ReactRedux',
     'sdk': 'storefront.sdk',
     'vtex-editor': 'vtex.editor'
   },

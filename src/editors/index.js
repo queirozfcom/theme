@@ -1,4 +1,4 @@
-import { actions } from 'sdk';
+import { actions, redux } from 'sdk';
 import AddToCartButtonEditor from './AddToCartButtonEditor/AddToCartButtonEditor';
 
 let components = [
@@ -8,4 +8,5 @@ let components = [
   }
 ];
 
+redux.store.dispatch(redux.actionCreators.component.register(components));
 actions.ComponentActions.register(components);
