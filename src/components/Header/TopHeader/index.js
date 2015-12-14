@@ -19,27 +19,24 @@ class TopHeader extends React.Component {
     accountURL = '#';
 
     return (
-      <div className="TopHeader">
-        <div className="container">
-          <div className="col-md-2 col-lg-2">
-            <button className="TopHeader__button"><a href="">FB</a></button>
-            <button className="TopHeader__button"><a href="">IG</a></button>
+      <div className="TopHeader clearfix">
+        <div className="col-md-2 col-lg-2 hidden-xs hidden-sm">
+          <button className="TopHeader__button"><a href="">FB</a></button>
+          <button className="TopHeader__button"><a href="">IG</a></button>
+        </div>
+        <div className="TopHeader__contact col-md-10 col-lg-10 col-xs-12 col-sm-12">
+          <div className="TopHeader__login pull-right">
+            <span><a className="TopHeader__login-link" href={loginURL}>Login</a></span>
           </div>
-          <div className="TopHeader__contact col-md-10 col-lg-10">
-            <div className="TopHeader__login">
-              <span><a className="TopHeader__login-link" href={loginURL}>Login</a></span>
-            </div>
-            <div className="TopHeader__login">
-              <span><a className="TopHeader__login-link" href={accountURL}>Minha Conta</a></span>
-            </div>
-
-            <div className="TopHeader__phone-cta">
-              <span className="TopHeader__phone-number">
-                <a href={phoneNumberURL} className="TopHeader__phone-url">
-                  {phoneNumber}
-                </a>
-              </span>
-            </div>
+          <div className="TopHeader__login pull-right">
+            <span><a className="TopHeader__login-link" href={accountURL}>Minha Conta</a></span>
+          </div>
+          <div className="TopHeader__phone-cta">
+            <span className="TopHeader__phone-number">
+              <a href={phoneNumberURL} className="TopHeader__phone-url">
+                {phoneNumber}
+              </a>
+            </span>
           </div>
         </div>
       </div>

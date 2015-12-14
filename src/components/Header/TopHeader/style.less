@@ -4,6 +4,11 @@
   background: darken(@gray-soft, 8%);
   width: 100%;
 
+  @media (min-width: @screen-md-min) {
+    padding: 0 (@pad * 2);
+  }
+
+
   &__button {
     .css-utils-clean-btn();
     background: #F4F7FA;
@@ -32,13 +37,22 @@
   }
 
   &__phone-cta {
-    float: right;
-    padding: 10px;
+    float: left;
+    padding: 10px (@pad * 2.5) 10px 0px;
+
+    @media (min-width: @screen-sm-min) {
+      float: right;
+    }
+
   }
 
   &__login {
     float: right;
-    padding: 10px;
+    padding: 10px 0px;
+
+    & + & {
+      padding-right: @pad * 2.5;
+    }
   }
 
   &__login-link {
@@ -56,6 +70,11 @@
 
   &__phone-url {
       color: darken(@gray-soft, 68%);
+
+      @media (min-width: @screen-sm-min) {
+        font-weight: 800;
+      }
+
       &:hover {
         color: darken(@gray-soft, 48%);
 
