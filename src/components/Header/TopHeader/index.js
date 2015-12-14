@@ -1,6 +1,11 @@
 import React from 'react';
 import './style.less';
-//import SVGIcon from 'utils/SVGIcon';
+import SVGIcon from 'utils/SVGIcon';
+import facebookIcon from 'assets/icons/facebook_icon.svg';
+import facebookImg from 'assets/icons/facebook_icon.png';
+import instagramIcon from 'assets/icons/instagram_icon.svg';
+import instagramImg from 'assets/icons/instagram_icon.png';
+
 
 class TopHeader extends React.Component {
 
@@ -21,8 +26,16 @@ class TopHeader extends React.Component {
     return (
       <div className="TopHeader clearfix">
         <div className="col-md-2 col-lg-2 hidden-xs hidden-sm">
-          <button className="TopHeader__button"><a href="">FB</a></button>
-          <button className="TopHeader__button"><a href="">IG</a></button>
+          <button className="TopHeader__button">
+            <a href="">
+              <SVGIcon className="TopHeader__icon" svg={facebookIcon} fallback={facebookImg} height={12} fill="#2D4966" />
+            </a>
+          </button>
+          <button className="TopHeader__button">
+            <a href="">
+              <SVGIcon className="TopHeader__icon" svg={instagramIcon} fallback={instagramImg} height={12} fill="#2D4966" />
+            </a>
+          </button>
         </div>
         <div className="TopHeader__contact col-md-10 col-lg-10 col-xs-12 col-sm-12">
           <div className="TopHeader__login pull-right">

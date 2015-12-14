@@ -11,10 +11,11 @@
 
   &__button {
     .css-utils-clean-btn();
-    background: #F4F7FA;
+    background: darken(#F4F7FA, 2%);
     height: 20px;
     margin: @pad 0;
-    width: 20px;
+    min-width: 20px;
+    padding: 0px;
 
     a {
       font-size: 0.6em;
@@ -27,8 +28,12 @@
     }
 
     &:hover {
-      background: darken(#F4F7FA, 2%);
+      background: darken(#F4F7FA, 5%);
     }
+  }
+
+  &__icon {
+    padding: 3px 2.5px;
   }
 
   &__contact {
