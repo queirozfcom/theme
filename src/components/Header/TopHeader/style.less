@@ -4,10 +4,16 @@
   background: darken(@gray-soft, 8%);
   width: 100%;
 
-  @media (min-width: @screen-md-min) {
-    padding: 0 (@pad * 2);
+  @media (min-width: @screen-sm-min) and (max-width: @screen-lg-min) {
+    padding: 0 (@pad * 2.5);
   }
 
+  &__wrap {
+    @media (min-width: @screen-lg-min) {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+  }
 
   &__button {
     .css-utils-clean-btn();

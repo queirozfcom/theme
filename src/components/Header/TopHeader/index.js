@@ -25,7 +25,8 @@ class TopHeader extends React.Component {
 
     return (
       <div className="TopHeader clearfix">
-        <div className="col-md-2 col-lg-2 hidden-xs hidden-sm">
+      <div className="TopHeader__wrap">
+        <div className="col-md-2 col-lg-2 col-sm-2 hidden-xs">
           <button className="TopHeader__button">
             <a href="">
               <SVGIcon className="TopHeader__icon" svg={facebookIcon} fallback={facebookImg} height={12} fill="#2D4966" />
@@ -37,7 +38,7 @@ class TopHeader extends React.Component {
             </a>
           </button>
         </div>
-        <div className="TopHeader__contact col-md-10 col-lg-10 col-xs-12 col-sm-12">
+        <div className="TopHeader__contact col-md-10 col-lg-10 col-xs-12 col-sm-10">
           <div className="TopHeader__login pull-right">
             <span><a className="TopHeader__login-link" href={loginURL}>Login</a></span>
           </div>
@@ -52,6 +53,7 @@ class TopHeader extends React.Component {
             </span>
           </div>
         </div>
+      </div>
       </div>
     );
   }
