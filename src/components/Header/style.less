@@ -11,15 +11,24 @@
   z-index: @zindex-2;
 
   &__inner {
-    padding: 17.5px 0;
+    padding: (@pad * 2.3) 0;
+
+    @media (min-width: @screen-md-min) {
+      padding: (@pad * 3) (@pad * 2);
+    }
   }
 
   &__brand {
-    position: relative;
-    margin: 0;
     font-size: 19px;
     font-style: italic;
     font-weight: 400;
+    position: relative;
+    margin: 0;
+
+    @media (min-width: @screen-md-min) {
+      float: left;
+      text-align: left;
+    }
   }
 
   &__icon {

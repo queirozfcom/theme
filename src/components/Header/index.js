@@ -36,22 +36,17 @@ class Header extends React.Component {
     return (
       <div className="Header">
       <TopHeader />
+        <div className="Header__inner clearfix container">
 
-        <div className="Header__inner clearfix">
-          <div className="col-xs-1">
-            <SVGIcon
-              className="Header__icon"
-              onTouchTap={this.handleMenuTap}
-              svg={hamburgerIcon}
-              width={18}
-              height={18}
-              fill="#153243"
-            />
+          <div className="col-xs-1 visible-xs">
+          <SVGIcon className="Header__icon" onTouchTap={this.handleMenuTap} svg={hamburgerIcon} width={18} height={18} fill="#153243" />
           </div>
 
-          <h1 className="Header__brand col-xs-8 col-xs-push-1">
-            <Link to="/">Fera fashion</Link>
-          </h1>
+          <div className="Header__brand-wrapper col-xs-8 col-xs-push-1 col-md-push-0 col-lg-push-0 col-md-10 col-lg-10">
+            <h1 className="Header__brand">
+              <Link to="/">Fera fashion</Link>
+            </h1>
+          </div>
 
           <div className="col-xs-1">
             <SVGIcon className="Header__icon" svg={searchIcon} width={15} height={18} fill="#153243" onTouchTap={this.handleSearchTap}/>
