@@ -29,12 +29,12 @@ class TopHeader extends React.Component {
         <div className="col-md-2 col-lg-2 col-sm-2 hidden-xs">
           <button className="TopHeader__button">
             <a href="">
-              <SVGIcon className="TopHeader__icon" svg={facebookIcon} fallback={facebookImg} height={12} fill="#2D4966" />
+              <SVGIcon className="TopHeader__icon" svg={facebookIcon} fallback={facebookImg} height={15} fill="#2D4966" />
             </a>
           </button>
           <button className="TopHeader__button">
             <a href="">
-              <SVGIcon className="TopHeader__icon" svg={instagramIcon} fallback={instagramImg} height={12} fill="#2D4966" />
+              <SVGIcon className="TopHeader__icon" svg={instagramIcon} fallback={instagramImg} height={15} fill="#2D4966" />
             </a>
           </button>
         </div>
