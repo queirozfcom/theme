@@ -39,7 +39,7 @@ class Header extends React.Component {
 
           <HeaderMenuToggle onTouchTap={this.handleMenuTap} />
           <HeaderLogo />
-          <HeaderSearch />
+          <HeaderSearch onTouchTap={this.handleSearchTap} />
           <HeaderCart />
 
           <Area id={`${this.props.areaPath}/search-bar`} visible={this.state.isSearchOpen} handleSearchTap={this.handleSearchTap}/>

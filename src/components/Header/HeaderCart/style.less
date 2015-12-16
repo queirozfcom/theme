@@ -19,11 +19,25 @@
     @media (min-width: @screen-xs-max) {
       border: 2px solid lighten(#153243, 20%);
       border-radius: @pad / 2;
-      padding: @pad (@pad * 1.2);
+      padding: @pad (@pad * 1.5);
+    }
+
+    &:hover {
+      background: lighten(#153243, 60%);
+    }
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
   &__itens {
+    &:hover {
+      text-decoration: none;
+    }
+
     color: #153243;
     font-weight: 700;
     padding-right: @pad / 2;
