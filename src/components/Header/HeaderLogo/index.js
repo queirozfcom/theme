@@ -29,7 +29,7 @@ class HeaderLogo extends React.Component {
     let logoContent = logoImage ? logoImageMarkup : logoTextMarkup;
 
     return (
-      <div className="HeaderLogo col-xs-7 col-sm-3 col-md-3 col-lg-3">
+      <div className="HeaderLogo col-xs-6 col-sm-3 col-md-3 col-lg-3">
         {logoContent}
       </div>
 

@@ -1,7 +1,10 @@
 @import "~utils/base/base";
 
 .HeaderSearch {
+  .css-utils-clean-btn();
+  .css-utils-no-outlines();
   float: right;
+  padding-left: 0px;
 
   &:hover {
     cursor: pointer;
@@ -10,21 +13,30 @@
   //Mobile Only
   @media (max-width: @screen-xs-max) {
     float: right;
-    padding-top: @pad * 1.5;
   }
 
-  &__inner {
-    //Desktop + Tablet
-    @media (min-width: @screen-xs-max) {
-      border: 2px solid lighten(#153243, 20%);
-      border-radius: @pad / 2;
-      padding: @pad (@pad * 1.5);
-      max-height: 39px;
-      max-width: 44px;
+  &__button {
+    border: 2px solid #153243;
+    border-radius: 2.5px;
+    margin-top: 2px;
+    height: 35.5px;
+
+    @media (min-width: @screen-sm-max) {
+      max-width: 36px;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      height: 40.6px;
+      max-width: 40px;
+      margin-top: 0px;
     }
   }
 
   &__svg {
+    padding: 6px @pad 4px 8px;
 
+    @media (min-width: @screen-sm-min) {
+      padding: 9px @pad 4px 10px;
+    }
   }
 }
