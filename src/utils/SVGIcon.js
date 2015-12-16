@@ -133,8 +133,8 @@ class SVGIcon extends React.Component {
                 width || height
                 ? (
                   ` style="` +
-                    (width ? `width: ${width}px;` : ``) +
-                    (height ? `height: ${height}px;` : ``) +
+                    (width ? `width: ${width === 'auto' ? width : width + 'px'};` : ``) +
+                    (height ? `height: ${height === 'auto' ? height : height + 'px'};` : ``) +
                   `"`
                 )
                 : ''
