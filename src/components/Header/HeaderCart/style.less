@@ -3,7 +3,9 @@
 .HeaderCart {
   float: left;
 
+  //Mobile
   @media (max-width: @screen-xs-max) {
+    padding-top: @pad * 1.5;
     padding-right: @pad * 2;
     float: right;
   }
@@ -13,6 +15,7 @@
   }
 
   &__inner {
+    //Desktop + Tablet
     @media (min-width: @screen-xs-max) {
       border: 2px solid lighten(#153243, 20%);
       border-radius: @pad / 2;
@@ -29,6 +32,7 @@
   &__svg {
     float: left;
 
+    //Desktop + Tablet + Smaller Tablet
     @media (min-width: @screen-sm-min) {
       float: right;
     }

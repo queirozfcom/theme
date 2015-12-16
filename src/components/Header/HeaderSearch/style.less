@@ -3,11 +3,14 @@
 .HeaderSearch {
   float: right;
 
+  //Mobile
   @media (max-width: @screen-xs-max) {
     float: right;
+    padding-top: @pad * 1.5;
   }
 
   &__inner {
+    //Desktop + Tablet
     @media (min-width: @screen-xs-max) {
       border: 2px solid lighten(#153243, 20%);
       border-radius: @pad / 2;
