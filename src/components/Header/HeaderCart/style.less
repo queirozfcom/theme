@@ -1,54 +1,78 @@
 @import "~utils/base/base";
 
 .HeaderCart {
-  float: left;
-
-  //Mobile
-  @media (max-width: @screen-xs-max) {
-    padding-top: @pad * 1.5;
-    padding-right: @pad * 2;
-    float: right;
-  }
+  .css-utils-clean-btn();
+  .css-utils-no-outlines();
+  float: right;
 
   &:hover {
     cursor: pointer;
-  }
+    color: white;
 
-  &__inner {
-    //Desktop + Tablet
-    @media (min-width: @screen-xs-max) {
-      border: 2px solid lighten(#153243, 20%);
-      border-radius: @pad / 2;
-      padding: @pad (@pad * 1.5);
-    }
-
-    &:hover {
-      background: lighten(#153243, 60%);
-    }
-
-    a {
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-
-  &__itens {
-    &:hover {
-      text-decoration: none;
-    }
-
-    color: #153243;
-    font-weight: 700;
-    padding-right: @pad / 2;
   }
 
   &__svg {
     float: left;
+    padding: @pad @pad 1px @pad;
+
+    g {
+      fill: #153243;
+    }
 
     //Desktop + Tablet + Smaller Tablet
     @media (min-width: @screen-sm-min) {
+      padding: 0px;
+      padding-top: 5px;
       float: right;
     }
+  }
+
+  &__button {
+    &:hover {
+      background: #153243;
+
+      g {
+        fill: white;
+      }
+
+      .HeaderCart__desktop-itens {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    //Mobile Only
+    @media (max-width: @screen-xs-max) {
+      float: right;
+      border: 2px solid #153243;
+      border-radius: 2.5px;
+      margin-top: 2px;
+
+      &:hover {
+        background: #153243;
+        color: white;
+      }
+    }
+
+    //Desktop + Tablet
+    @media (min-width: @screen-xs-max) {
+      border: 2px solid #153243;
+      border-radius: @pad / 2;
+      max-width: 115px;
+      padding: 5px (@pad * 1.5);
+    }
+  }
+
+  &__desktop-itens {
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+
+    display: inline-block;
+    color: #153243;
+    font-weight: 700;
+    float: left;
+    padding-top: 2.5px;
   }
 }

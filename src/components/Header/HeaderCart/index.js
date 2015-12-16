@@ -11,14 +11,20 @@ class HeaderCart extends React.Component {
     let cartItens = '3';
 
     return (
-      <div className="HeaderCart col-sm-2 col-md-2 col-lg-2">
-        <div className="HeaderCart__inner">
+      <button className="HeaderCart col-xs-1 col-sm-2 col-md-2 col-lg-2">
+        <div className="HeaderCart__button clearfix">
           <a href="">
-            <span className="HeaderCart__itens hidden-xs">{cartItens} Itens</span>
-            <SVGIcon className="HeaderCart__svg" svg={cartIcon} fallback={cartImg} width={18} height={18} fill="#153243"/>
+            <span className="HeaderCart__desktop-itens hidden-xs">{cartItens} Itens</span>
+            <SVGIcon className="HeaderCart__svg"
+              svg={cartIcon}
+              fallback={cartImg}
+              width={18}
+              height={18}
+              cleanupExceptions={['fill', 'width', 'height']}
+            />
           </a>
         </div>
-      </div>
+      </button>
     );
   }
 }
