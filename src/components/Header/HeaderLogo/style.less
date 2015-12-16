@@ -4,16 +4,23 @@
   position: relative;
   min-height: 38px;
 
+  //Mobile only
   @media (max-width: @screen-xs-max) {
     left: 30px;
   }
 
+  //Desktop & Tablet
   @media (min-width: @screen-sm-min) {
     float: left;
 
     .HeaderLogo__font {
       text-align: left;
     }
+  }
+
+  &__image {
+    display: block;
+    max-height: 40px;
   }
 
   &__font {
@@ -28,10 +35,6 @@
       &:hover {
         text-decoration: none;
       }
-    }
-
-    @media (max-width: @screen-xs-max) {
-      padding-left: 0.7em;
     }
   }
 }

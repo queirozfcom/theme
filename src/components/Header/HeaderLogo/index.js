@@ -12,9 +12,11 @@ class HeaderLogo extends React.Component {
     let logoImage = true;
     let logoAlt = 'Modally';
 
+
     let logoImageMarkup = (
-      <a href="/">
-        <SVGIcon svg={storeLogo} fallback={storeLogoImg} height={45} fill="#153243" alt-text={logoAlt} title={logoAlt} />
+      //HeaderLogo__image max-height is set at 40px
+      <a href="/" className="HeaderLogo__image">
+        <SVGIcon svg={storeLogo} fallback={storeLogoImg} height={'auto'} width={100} alt-text={logoAlt} cleanupExceptions={['fill', 'width', 'height']} />
       </a>
     )
 
@@ -27,7 +29,7 @@ class HeaderLogo extends React.Component {
     let logoContent = logoImage ? logoImageMarkup : logoTextMarkup;
 
     return (
-      <div className="HeaderLogo col-xs-7 col-sm-9 col-md-9 col-lg-9">
+      <div className="HeaderLogo col-xs-7 col-sm-3 col-md-3 col-lg-3">
         {logoContent}
       </div>
 
