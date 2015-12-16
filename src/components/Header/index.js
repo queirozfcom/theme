@@ -5,9 +5,8 @@ import HeaderTop from './HeaderTop';
 import HeaderLogo from './HeaderLogo';
 import HeaderCart from './HeaderCart';
 import HeaderSearch from './HeaderSearch';
+import HeaderMenuToggle from './HeaderMenuToggle';
 import './style.less';
-import SVGIcon from 'utils/SVGIcon';
-import hamburgerIcon from 'assets/icons/hamburger.svg';
 
 class Header extends React.Component {
   state = {
@@ -38,10 +37,7 @@ class Header extends React.Component {
       <HeaderTop />
         <div className="Header__inner clearfix">
 
-          <div className="col-xs-1 visible-xs">
-            <SVGIcon className="Header__menu-icon" onTouchTap={this.handleMenuTap} svg={hamburgerIcon} width={18} height={18} fill="#153243" />
-          </div>
-
+          <HeaderMenuToggle onTouchTap={this.handleMenuTap} />
           <HeaderLogo />
           <HeaderSearch />
           <HeaderCart />

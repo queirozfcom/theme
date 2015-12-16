@@ -3,7 +3,11 @@
 .HeaderSearch {
   float: right;
 
-  //Mobile
+  &:hover {
+    cursor: pointer;
+  }
+
+  //Mobile Only
   @media (max-width: @screen-xs-max) {
     float: right;
     padding-top: @pad * 1.5;
