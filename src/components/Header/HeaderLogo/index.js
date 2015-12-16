@@ -14,9 +14,8 @@ class HeaderLogo extends React.Component {
 
 
     let logoImageMarkup = (
-      //HeaderLogo__image max-height is set at 40px
       <a href="/" className="HeaderLogo__image">
-        <SVGIcon svg={storeLogo} fallback={storeLogoImg} height={'auto'} width={100} alt-text={logoAlt} cleanupExceptions={['fill', 'width', 'height']} />
+        <SVGIcon className="HeaderLogo__svg" svg={storeLogo} fallback={storeLogoImg} height={40} width={100} alt-text={logoAlt} cleanupExceptions={['fill', 'width', 'height']} />
       </a>
     )
 
