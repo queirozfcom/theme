@@ -1,0 +1,18 @@
+@import "~utils/base/base";
+
+.HeaderSearch {
+  float: right;
+
+  @media (max-width: @screen-xs-max) {
+    float: right;
+  }
+
+  &__inner {
+    @media (min-width: @screen-xs-max) {
+      border: 2px solid lighten(#153243, 20%);
+      border-radius: @pad / 2;
+      padding: @pad (@pad * 1.5);
+      max-height: 39px;
+    }
+  }
+}

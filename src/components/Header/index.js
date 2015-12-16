@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Area } from 'sdk';
-import TopHeader from './TopHeader';
+import HeaderTop from './HeaderTop';
 import HeaderLogo from './HeaderLogo';
+import HeaderCart from './HeaderCart';
+import HeaderSearch from './HeaderSearch';
 import './style.less';
 import SVGIcon from 'utils/SVGIcon';
 import hamburgerIcon from 'assets/icons/hamburger.svg';
-import searchIcon from 'assets/icons/search.svg';
-import cartIcon from 'assets/icons/cart.svg';
 
 class Header extends React.Component {
   state = {
@@ -35,7 +35,7 @@ class Header extends React.Component {
 
     return (
       <div className="Header">
-      <TopHeader />
+      <HeaderTop />
         <div className="Header__inner clearfix">
 
           <div className="col-xs-1 visible-xs">
@@ -43,17 +43,8 @@ class Header extends React.Component {
           </div>
 
           <HeaderLogo />
-
-          <div className="Header__icon-row col-xs-3 col-sm-2 col-md-2 col-lg-2">
-
-            <div className="Header__cart-icon">
-              <SVGIcon className="Header__svg" svg={cartIcon} width={18} height={18} fill="#153243"/>
-            </div>
-
-            <div className="Header__search-icon">
-            <SVGIcon className="Header__svg" svg={searchIcon} width={15} height={18} fill="#153243" onTouchTap={this.handleSearchTap}/>
-            </div>
-          </div>
+          <HeaderSearch />
+          <HeaderCart />
 
           <Area id={`${this.props.areaPath}/search-bar`} visible={this.state.isSearchOpen} handleSearchTap={this.handleSearchTap}/>
 

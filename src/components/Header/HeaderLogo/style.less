@@ -2,6 +2,7 @@
 
 .HeaderLogo {
   position: relative;
+  min-height: 38px;
 
   @media (max-width: @screen-xs-max) {
     left: 30px;
@@ -16,11 +17,15 @@
   }
 
   &__font {
-    margin: 0;
     font-family: 'Petala Pro', 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 24px;
     font-style: italic;
     font-weight: 700;
-  }
+    margin: 0;
+    padding: @pad 0;
 
+    @media (max-width: @screen-xs-max) {
+      padding-left: 1em;
+    }
+  }
 }

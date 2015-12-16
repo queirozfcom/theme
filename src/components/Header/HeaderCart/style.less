@@ -1,0 +1,36 @@
+@import "~utils/base/base";
+
+.HeaderCart {
+  float: left;
+
+  @media (max-width: @screen-xs-max) {
+    padding-right: @pad * 2;
+    float: right;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__inner {
+    @media (min-width: @screen-xs-max) {
+      border: 2px solid lighten(#153243, 20%);
+      border-radius: @pad / 2;
+      padding: @pad (@pad * 1.5);
+    }
+  }
+
+  &__itens {
+    color: #153243;
+    font-weight: 700;
+    padding-right: @pad / 2;
+  }
+
+  &__svg {
+    float: left;
+
+    @media (min-width: @screen-sm-min) {
+      float: right;
+    }
+  }
+}
