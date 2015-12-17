@@ -18,7 +18,7 @@
     padding: @pad @pad 1px @pad;
 
     g {
-      fill: #153243;
+      fill: @green-modally;
     }
 
     //Desktop + Tablet + Smaller Tablet
@@ -47,20 +47,20 @@
     //Mobile Only
     @media (max-width: @screen-xs-max) {
       float: right;
-      border: 2px solid #153243;
+      border: 2px solid @green-modally;
       border-radius: 2.5px;
       height: 35.5px;
       margin-top: @pad / 2;
 
       &:hover {
-        background: #153243;
+        background: @green-modally;
         color: white;
       }
     }
 
     //Desktop + Tablet
     @media (min-width: @screen-xs-max) {
-      border: 2px solid #153243;
+      border: 2px solid @green-modally;
       border-radius: 2.5px;
       height: 41.5px;
       margin-top: 4px;
@@ -77,8 +77,8 @@
     }
 
     display: inline-block;
-    color: #153243;
     font-weight: 700;
+    color: @green-modally;
     float: left;
     padding-top: 2.5px;
   }
