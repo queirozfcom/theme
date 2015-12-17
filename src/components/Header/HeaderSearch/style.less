@@ -5,6 +5,7 @@
   .css-utils-no-outlines();
   float: right;
   padding-left: 0px;
+  padding-top: 0px;
 
   &:hover {
     cursor: pointer;
@@ -18,17 +19,20 @@
   &__button {
     border: 2px solid #153243;
     border-radius: 2.5px;
-    margin-top: 2px;
     height: 35.5px;
+    margin-top: 4px;
 
     @media (min-width: @screen-sm-max) {
-      max-width: 36px;
+      width: 40px;
     }
 
     @media (min-width: @screen-sm-min) {
-      height: 40.6px;
+      border-radius: 2.5px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-left: 0px;
+      height: 41.2px;
       max-width: 40px;
-      margin-top: 0px;
     }
   }
 

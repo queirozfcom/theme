@@ -4,6 +4,8 @@
   .css-utils-clean-btn();
   .css-utils-no-outlines();
   float: right;
+  padding-left: 15px;
+  padding-right: 15px;
 
   &:hover {
     cursor: pointer;
@@ -21,13 +23,14 @@
 
     //Desktop + Tablet + Smaller Tablet
     @media (min-width: @screen-sm-min) {
-      padding: 0px;
       padding-top: 5px;
+      padding-bottom: 0px;
       float: right;
     }
   }
 
   &__button {
+
     &:hover {
       background: #153243;
 
@@ -46,7 +49,8 @@
       float: right;
       border: 2px solid #153243;
       border-radius: 2.5px;
-      margin-top: 2px;
+      height: 35.5px;
+      margin-top: @pad / 2;
 
       &:hover {
         background: #153243;
@@ -57,8 +61,11 @@
     //Desktop + Tablet
     @media (min-width: @screen-xs-max) {
       border: 2px solid #153243;
-      border-radius: @pad / 2;
+      border-radius: 2.5px;
+      height: 41.5px;
+      margin-top: 4px;
       max-width: 115px;
+      min-width: 108px;
       padding: 5px (@pad * 1.5);
     }
   }

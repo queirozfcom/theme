@@ -38,9 +38,8 @@ class Header extends React.Component {
         <div className="Header__inner clearfix">
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           <HeaderLogo />
-          <HeaderSearch handleSearchTap={this.handleSearchTap} />
           <HeaderCart />
-
+          <HeaderSearch handleSearchTap={this.handleSearchTap} />
           <Area id={`${this.props.areaPath}/search-bar`} visible={this.state.isSearchOpen} handleSearchTap={this.handleSearchTap}/>
 
           <ReactCSSTransitionGroup
