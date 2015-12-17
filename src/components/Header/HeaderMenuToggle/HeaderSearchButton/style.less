@@ -17,10 +17,11 @@
   }
 
   &__inner {
-    border: 2px solid #153243;
+    border: 2px solid @green-modally;
     border-radius: 2.5px;
     height: 35.5px;
     margin-top: 4px;
+    background: @green-modally;
 
     @media (min-width: @screen-sm-max) {
       width: 40px;
@@ -30,7 +31,6 @@
       border-radius: 2.5px;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
-      border-left: 0px;
       height: 41.2px;
       max-width: 40px;
     }
@@ -39,8 +39,13 @@
   &__svg {
     padding: 6px @pad 4px 8px;
 
+    path {
+      fill: #FFF;
+    }
+
     @media (min-width: @screen-sm-min) {
-      padding: 9px @pad 4px 10px;
+      padding: 10px 9px 4px 10px;
+
     }
   }
 }
