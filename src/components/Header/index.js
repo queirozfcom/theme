@@ -4,7 +4,7 @@ import { Area } from 'sdk';
 import HeaderTop from './HeaderTop';
 import HeaderLogo from './HeaderLogo';
 import HeaderCart from './HeaderCart';
-import HeaderSearch from './HeaderSearch';
+import HeaderSearchButton from './HeaderSearchButton';
 import HeaderMenuToggle from './HeaderMenuToggle';
 import './style.less';
 
@@ -39,7 +39,7 @@ class Header extends React.Component {
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           <HeaderLogo />
           <HeaderCart />
-          <HeaderSearch handleSearchTap={this.handleSearchTap} />
+          <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
           <Area id={`${this.props.areaPath}/search-bar`} visible={this.state.isSearchOpen} handleSearchTap={this.handleSearchTap}/>
 
           <ReactCSSTransitionGroup
