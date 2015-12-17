@@ -59,7 +59,7 @@ class CategoryPage extends React.Component {
     };
 
     if (!stores.ResourceStore.getState().get(path)) {
-      actions.ResourceActions.getAreaResources(actionConfig);
+      actions.AreaActions.getAreaResources(actionConfig);
     }
   }
 
