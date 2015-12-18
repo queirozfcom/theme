@@ -1,10 +1,12 @@
 import React from 'react';
-import { actions, stores, Area } from 'sdk';
+import { actions, stores } from 'sdk';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import Policies from 'components/Policies/Policies';
 import './HomePage.less';
+
+const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
 class HomePage extends React.Component {
   componentWillMount() {

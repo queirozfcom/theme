@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Area } from 'sdk';
+import { stores } from 'sdk';
 import './Header.less';
 import { Link } from 'react-router';
 import SVGIcon from 'utils/SVGIcon';
 import hamburgerIcon from 'assets/icons/hamburger.svg';
 import searchIcon from 'assets/icons/search.svg';
 import cartIcon from 'assets/icons/cart.svg';
+
+const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
 class Header extends React.Component {
   state = {

@@ -1,10 +1,12 @@
 import React from 'react';
-import { stores, actions, utils, Area } from 'sdk';
+import { stores, actions, connectToStores } from 'sdk';
 import Header from 'components/Header/Header';
 import CategoryHeader from 'components/CategoryHeader/CategoryHeader';
 import Footer from 'components/Footer/Footer';
 
-@utils.connectToStores()
+const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+
+@connectToStores()
 class CategoryPage extends React.Component {
   state = {
     skipRender: false,

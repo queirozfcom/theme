@@ -1,11 +1,12 @@
 import React from 'react';
 import './Product.less';
-import { utils, Area } from 'sdk';
+import { stores } from 'sdk';
 import SkuSelector from 'react-proxy?name=SkuSelector!./SkuSelector';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
-let { Price } = utils;
+const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Price = stores.ComponentStore.state.getIn(['Price@vtex.storefront-sdk', 'constructor']);
 
 class Product extends React.Component {
   state = {

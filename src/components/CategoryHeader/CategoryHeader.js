@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from 'sdk';
+import { stores } from 'sdk';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './CategoryHeader.less';
 import ExplorerButton from './ExplorerButton/ExplorerButton';
@@ -9,6 +9,8 @@ import listIcon from 'assets/icons/list_icon.svg';
 import listImg from 'assets/icons/list_icon.png';
 import gridIcon from 'assets/icons/grid_icon.svg';
 import gridImg from 'assets/icons/grid_icon.png';
+
+const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
 class CategoryHeader extends React.Component {
   state = {
