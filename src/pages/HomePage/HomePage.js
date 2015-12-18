@@ -18,12 +18,14 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="HomePage">
         <Header areaPath="home" />
-        <Area id="home/banner"/>
-        <Area id="home/shelf1"/>
-        <Policies/>
-        <Newsletter/>
+        <div className="HomePage__content">
+          <Area id="home/banner"/>
+          <Area id="home/shelf1"/>
+          <Policies/>
+          <Newsletter/>          
+        </div>
         <Footer/>
       </div>
     );
