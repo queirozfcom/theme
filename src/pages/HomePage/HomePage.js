@@ -1,6 +1,6 @@
 import React from 'react';
-import { actions, stores } from 'sdk';
-import Header from 'components/Header/Header';
+import { actions, stores, Area } from 'sdk';
+import Header from 'components/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import Policies from 'components/Policies/Policies';

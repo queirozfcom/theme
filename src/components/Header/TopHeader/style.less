@@ -1,0 +1,71 @@
+@import "~utils/base/base";
+
+.TopHeader {
+  background: darken(@gray-soft, 8%);
+  width: 100%;
+
+  &__wrap {
+    padding: @pad;
+  }
+
+  &__social {
+    .css-utils-clean-btn();
+    font-size: 0.6em;
+    background: #F4F7FA;
+    height: 30px;
+    width: 30px;
+    margin-top: (@pad / 4);
+
+    & + & {
+      margin-left: @pad / 2;
+    }
+
+    &:hover {
+      background: darken(#F4F7FA, 2%);
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__contact {
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  &__phone-cta {
+    float: right;
+    padding: @pad;
+  }
+
+  &__login {
+    float: right;
+    padding: @pad;
+  }
+
+  &__login-link {
+    color: darken(@gray-soft, 68%);
+    &:hover {
+      color: darken(@gray-soft, 48%);
+    }
+  }
+
+  &__phone-number {
+    font-weight: 500;
+  }
+
+  &__phone-url {
+      color: darken(@gray-soft, 68%);
+      &:hover {
+        color: darken(@gray-soft, 48%);
+
+        @media (min-width: @screen-md-min) {
+          color: darken(@gray-soft, 68%);
+          cursor: default;
+          text-decoration: none;
+        }
+      }
+  }
+
+}
