@@ -1,5 +1,5 @@
 import React from 'react';
-import { stores, actions, utils, Area } from 'sdk';
+import { stores, actions, connectToStores } from 'sdk';
 import Header from 'components/Header';
 import CategoryHeader from 'components/CategoryHeader/CategoryHeader';
 import Footer from 'components/Footer/Footer';
