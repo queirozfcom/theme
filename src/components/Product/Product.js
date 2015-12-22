@@ -18,32 +18,30 @@ class Product extends React.Component {
     }
   }
 
-  changeSelectedSku = (selectedSkus) => {
-    this.setState({ selectedSku: selectedSkus });
+  changeSelectedSku = (selectedSku) => {
+    this.setState({ selectedSku });
   }
 
   render() {
-    let defaultSku = this.props.skus[0];
+    let defaultSku = this.state.selectedSku.length === 1 ?
+      this.state.selectedSku[0] : this.props.skus[0];
     let name = this.props.name;
-    let price = defaultSku.offers[0].price; //what if price is different for different skus?
+    let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let cartValidation = this.state.selectedSku.length === 1 ? true : false;
-
-  //need to create interaction between selected variation and image carousel
-
     let className = 'AddToCartButton--fixed';
-
-    if (this.state.selectedSku.length === 1) {
-      defaultSku = this.state.selectedSku[0];
-    }
 
     return (
       <div className="Product container-fluid">
         <Area id="product/product-image" images={defaultSku.images} />
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
-            <h2 className="Product__title">{name}</h2>
-            <h3 className="Product__price"><Price value={price}/></h3>
+            <h2 className="Product__title">
+              { name }
+            </h2>
+            <h3 className="Product__price">
+              <Price value={price}/>
+            </h3>
           </div>
         </div>
         {
