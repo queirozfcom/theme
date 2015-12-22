@@ -8,8 +8,14 @@ const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'con
 const Price = stores.ComponentStore.state.getIn(['Price@vtex.storefront-sdk', 'constructor']);
 
 class Product extends React.Component {
-  state = {
-    selectedSku: []
+  componentWillMount() {
+    if (this.props.skus.length === 1) {
+      let selectedSku = this.props.skus;
+
+      this.setState({ selectedSku });
+    } else {
+      this.setState({ selectedSku: [] });
+    }
   }
 
   changeSelectedSku = (selectedSkus) => {
