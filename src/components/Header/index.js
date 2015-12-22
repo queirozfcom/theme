@@ -34,14 +34,18 @@ class Header extends React.Component {
 
     return (
       <div className="Header">
-      <HeaderTop />
+        <HeaderTop />
         <div className="Header__inner clearfix">
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           <HeaderLogo />
           <HeaderCart />
           <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
-          <Area id={`${this.props.areaPath}/search-bar`} visible={this.state.isSearchOpen} handleSearchTap={this.handleSearchTap}/>
-
+          {/*<Area
+            id={`${this.props.areaPath}/search-bar`}
+            visible={this.state.isSearchOpen}
+            handleSearchTap={this.handleSearchTap}
+          />
+          */}
           <ReactCSSTransitionGroup
             transitionName="NavigationMenu"
             transitionEnterTimeout={200}
@@ -51,7 +55,6 @@ class Header extends React.Component {
           </ReactCSSTransitionGroup>
         </div>
       </div>
-
     );
   }
 }

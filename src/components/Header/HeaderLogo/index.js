@@ -17,7 +17,7 @@ class HeaderLogo extends React.Component {
       <a href="/" className="HeaderLogo__image">
         <SVGIcon className="HeaderLogo__svg" svg={storeLogo} fallback={storeLogoImg} height={40} width={100} alt-text={logoAlt} cleanupExceptions={['fill', 'width', 'height']} />
       </a>
-    )
+    );
 
     let logoTextMarkup = (
       <h1 className="HeaderLogo__font">
