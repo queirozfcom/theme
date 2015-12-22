@@ -16,6 +16,7 @@ var config = {
     'CategoryListSidebar': ['./src/components/CategoryListSidebar/index.js'],
     'AboutPage': ['./src/pages/AboutPage/index.js'],
     'Footer': ['./src/components/Footer/Footer.js'],
+    'AboutPage': ['./src/pages/AboutPage/index.js'],
     'editors/index': ['./src/editors/index.js']
   },
 
