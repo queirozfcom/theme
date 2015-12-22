@@ -1,9 +1,30 @@
-@import "~vtex-css-utils/less/_css-utils";
 @import "theme-variables.less";
+
+@font-face {
+  font-family: 'bebas_neuebold';
+  src: url('~assets/fonts/bebasneue_bold-webfont.eot');
+  src: url('~assets/fonts/bebasneue_bold-webfont.woff2') format('woff2'),
+       url('~assets/fonts/bebasneue_bold-webfont.woff') format('woff'),
+       url('~assets/fonts/bebasneue_bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'bebas_neue_regular';
+  src: url('~assets/fonts/bebasneue_regular-webfont.eot');
+  src: url('~assets/fonts/bebasneue_regular-webfont.woff2') format('woff2'),
+       url('~assets/fonts/bebasneue_regular-webfont.woff') format('woff'),
+       url('~assets/fonts/bebasneue_regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .theme {
   .h1 {
-    font-family: @display-font;
+    font-family: 'bebas_neuebold';
     text-align: center;
   }
 
@@ -42,4 +63,15 @@
     max-width: @mobile-width;
     margin: 0 auto;
   }
+  .content-box {
+    padding: 10px 20px 10px 20px;
+    line-height: 1.5;
+    .h1 {
+      margin-top: 0 !important;
+    }
+  }
+  .cor-secundaria {
+    color: @gray-base;
+  }
+
 }

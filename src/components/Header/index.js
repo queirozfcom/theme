@@ -7,6 +7,7 @@ import HeaderCart from './HeaderCart';
 import HeaderSearchButton from './HeaderSearchButton';
 import HeaderMenuToggle from './HeaderMenuToggle';
 import './style.less';
+import logoImage from 'assets/images/logo.jpg'
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
@@ -39,7 +40,6 @@ class Header extends React.Component {
         <HeaderTop />
         <div className="Header__inner clearfix">
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
-          <HeaderLogo />
           <HeaderCart />
           <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
           <Placeholder
@@ -55,6 +55,10 @@ class Header extends React.Component {
             { menu }
           </ReactCSSTransitionGroup>
         </div>
+        <div className="logo-image">
+          <img src={ logoImage } alt="Pilates Lovers"/>
+        </div>
+        <hr/>
       </div>
     );
   }
