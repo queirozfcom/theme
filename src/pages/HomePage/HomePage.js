@@ -21,8 +21,12 @@ class HomePage extends React.Component {
       <div className="HomePage">
         <Header areaPath="home" />
         <div className="HomePage__wrapper">
-          <Area id="home/banner"/>
-          <Area id="home/shelf1"/>
+          <div className="HomePage__bannerarea">
+            <Area id="home/banner"/>
+          </div>
+          <div className="HomePage__shelfarea">
+            <Area id="home/shelf1"/>
+          </div>
           <Policies/>
         </div>
         <Newsletter/>
