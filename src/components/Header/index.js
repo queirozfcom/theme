@@ -55,9 +55,7 @@ class Header extends React.Component {
           </ReactCSSTransitionGroup>
         </div>
         <div className="logo-image">
-          <a href="/">
-            <img src={ logoImage } alt="Pilates Lovers"/>
-          </a>
+          <img src={ logoImage } alt="Pilates Lovers"/>
         </div>
         <hr/>
       </div>
