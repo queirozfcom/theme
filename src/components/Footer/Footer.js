@@ -9,20 +9,23 @@ class Footer extends React.Component {
   render() {
     return (
       <div className="Footer clearfix">
-        <div className="col-xs-10">
-          <ul className="Footer__menu">
-            <li className="Footer__item"><a href="#" className="Footer__menu-link">Categorias</a></li>
-            <li className="Footer__item"><a href="#" className="Footer__menu-link">FAQ</a></li>
-            <li className="Footer__item"><a href="#" className="Footer__menu-link">Sobre</a></li>
-            <li className="Footer__item"><a href="#" className="Footer__menu-link">Termos de uso</a></li>
-          </ul>
-          <span className="Footer__address">Praia de Botafogo, 518, Sobreloja, Botafogo. Rio de Janeiro, RJ - 22250-040</span>
-        </div>
+        <div className="Footer__wrap">
+          <div className="Footer__social-icons">
+            <button className="Footer__button"><a href=""><SVGIcon svg={instagramIcon} width={33} height={33} fill="#FFFFFF"/></a></button>
+            <button className="Footer__button"><a href=""><SVGIcon svg={facebookIcon} width={33} height={33} fill="#FFFFFF"/></a></button>
+            <button className="Footer__button"><a href=""><SVGIcon svg={pinterestIcon} width={33} height={33} fill="#FFFFFF"/></a></button>
+          </div>
 
-        <div className="Footer__social-icons col-xs-2">
-          <SVGIcon className="Footer__icon" svg={instagramIcon} width={33} height={33} fill="#FFFFFF"/>
-          <SVGIcon className="Footer__icon" svg={facebookIcon} width={33} height={33} fill="#FFFFFF"/>
-          <SVGIcon className="Footer__icon" svg={pinterestIcon} width={33} height={33} fill="#FFFFFF"/>
+          <div className="Footer__links">
+            <ul className="Footer__menu">
+              <li className="Footer__item"><a href="#" className="Footer__menu-link">Categorias</a></li>
+              <li className="Footer__item"><a href="#" className="Footer__menu-link">FAQ</a></li>
+              <li className="Footer__item"><a href="#" className="Footer__menu-link">Sobre</a></li>
+              <li className="Footer__item"><a href="#" className="Footer__menu-link">Termos de uso</a></li>
+            </ul>
+            <span className="Footer__address">Praia de Botafogo, 518, Sobreloja, Botafogo. Rio de Janeiro, RJ - 22250-040</span>
+          </div>
+
         </div>
       </div>
     );

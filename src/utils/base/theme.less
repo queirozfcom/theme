@@ -1,14 +1,14 @@
+@import "~vtex-css-utils/less/_css-utils";
 @import "theme-variables.less";
 
 .theme {
-
-  h1 {
-    font-family: 'Lato';
+  .h1 {
+    font-family: @modally-main;
     text-align: center;
   }
 
-  h2 {
-    font-family: 'Lato';
+  .h2 {
+    font-family: @modally-main;
     font-size: 27px;
     font-style: italic;
     font-weight: 400;
@@ -16,20 +16,30 @@
     text-align: center;
   }
 
-  h3 {
+  .h3 {
     padding: 0;
     margin: 0;
-    font-family: 'Lato';
+    font-family: @modally-main;
     font-size: 20px;
     font-weight: 300;
     color: #EDAF97;
   }
 
-  p, button {
-    font-family: 'Lato';
+  .p, .button {
+    font-family: @modally-regular;
     font-size: 16px;
     font-weight: 300;
     color: #153243;
   }
 
+  .theme-width() {
+    //All Screens Except Mobile
+    @media (min-width: @screen-md-min) {
+      max-width: @desktop-width;
+      margin: 0 auto;
+    }
+
+    max-width: @mobile-width;
+    margin: 0 auto;
+  }
 }

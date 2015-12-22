@@ -1,6 +1,6 @@
 import React from 'react';
 import { actions, stores } from 'sdk';
-import Header from 'components/Header/Header';
+import Header from 'components/Header';
 import Footer from 'components/Footer/Footer';
 import Newsletter from 'components/Newsletter/Newsletter';
 import Policies from 'components/Policies/Policies';
@@ -18,11 +18,13 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="HomePage">
         <Header areaPath="home" />
-        <Area id="home/banner"/>
-        <Area id="home/shelf1"/>
-        <Policies/>
+        <div className="HomePage__wrapper">
+          <Area id="home/banner"/>
+          <Area id="home/shelf1"/>
+          <Policies/>
+        </div>
         <Newsletter/>
         <Footer/>
       </div>

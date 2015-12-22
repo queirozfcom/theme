@@ -1,6 +1,6 @@
 import React from 'react';
 import { stores, actions, connectToStores } from 'sdk';
-import Header from 'components/Header/Header';
+import Header from 'components/Header';
 import CategoryHeader from 'components/CategoryHeader/CategoryHeader';
 import Footer from 'components/Footer/Footer';
 

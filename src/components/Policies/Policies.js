@@ -12,46 +12,46 @@ class Policies extends React.Component {
   render() {
     return (
       <div className="Policies clearfix">
-        <h2 className="Policies__title row-fluid">
-          Só para feras
+        <h2 className="Policies__title">
+          Melhores Condições
         </h2>
 
         <div className="Policies__single row-fluid clearfix">
           <div className="col-xs-1 col-xs-offset-1">
-            <SVGIcon svg={exchangeIcon} fallback={exchangeImg} width={17} height={18} fill="#EDAF97"/>
+            <SVGIcon className="Policies__icon" svg={exchangeIcon} fallback={exchangeImg} width={17} height={18} fill="#EDAF97"/>
           </div>
-          <h3 className="Policy__single-title col-xs-9">
+          <h3 className="Policies__single-title col-xs-9">
             Troca fácil
           </h3>
 
           <div className="col-xs-10 col-xs-offset-1">
-            <p className="Policy__description">A gente dá 30 dias, após o recebimento, para você ter certeza de que a sua roupa ficou perfeita! E com certeza vai ficar.</p>
+            <p className="Policies__description">A gente dá 30 dias, após o recebimento, para você ter certeza de que a sua roupa ficou perfeita! E com certeza vai ficar.</p>
           </div>
         </div>
 
         <div className="Policies__single row-fluid clearfix">
-          <div className="col-xs-1 col-xs-offset-1">
-            <SVGIcon className="v-policies__shipping" svg={shippingIcon} fallback={shippingImg} width={20} height={22} fill="#EDAF97"/>
+          <div className="col-xs-1 col-xs-offset-1 Policies__icon-wrapper">
+            <SVGIcon className="Policies__icon" svg={shippingIcon} fallback={shippingImg} width={20} height={22} fill="#EDAF97"/>
           </div>
-          <h3 className="Policy__single-title col-xs-9">
+          <h3 className="Policies__single-title">
             Frete Grátis
           </h3>
 
           <div className="col-xs-10 col-xs-offset-1">
-            <p className="Policy__description">Oferecemos frete grátis em qualquer compra a partir de 2 produtos. Para (quase) qualquer lugar do Brasil.</p>
+            <p className="Policies__description">Oferecemos frete grátis em qualquer compra a partir de 2 produtos. Para (quase) qualquer lugar do Brasil.</p>
           </div>
         </div>
 
         <div className="Policies__single row-fluid clearfix">
           <div className="col-xs-1 col-xs-offset-1">
-            <SVGIcon svg={giftIcon} fallback={giftImg} width={14} height={18} fill="#EDAF97" />
+            <SVGIcon className="Policies__icon" svg={giftIcon} fallback={giftImg} width={14} height={18} fill="#EDAF97" />
           </div>
-          <h3 className="Policy__single-title col-xs-9">
+          <h3 className="Policies__single-title col-xs-9">
             Mimos de aniversário
           </h3>
 
           <div className="col-xs-10 col-xs-offset-1">
-            <p className="Policy__description">Durante todo o mês do seu aniversário, você ganha 20% de desconto em qualquer produto da loja!</p>
+            <p className="Policies__description">Durante todo o mês do seu aniversário, você ganha 20% de desconto em qualquer produto da loja!</p>
           </div>
         </div>
       </div>
