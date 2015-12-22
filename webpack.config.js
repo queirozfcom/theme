@@ -14,6 +14,7 @@ var config = {
     'SearchHeader': ['./src/components/SearchHeader/index.js'],
     'CategoryHeader': ['./src/components/CategoryHeader/index.js'],
     'CategoryListSidebar': ['./src/components/CategoryListSidebar/index.js'],
+    'AboutPage': ['./src/pages/AboutPage/index.js'],
     'editors/index': ['./src/editors/index.js']
   },
 
@@ -53,10 +54,10 @@ var config = {
           ]
         })]
       }, {
-        test: /\.(png|jpg|woff|ttf|eot|woff2)$/,
+        test: /\.(woff|ttf|eot|woff2)$/,
         loader: 'url-loader?limit=100000'
       }, {
-        test: /\.jpg$/,
+        test: /\.(jpg|png)$/,
         loader: 'file-loader'
       }
     ]
