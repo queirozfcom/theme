@@ -9,12 +9,10 @@ class HeaderCart extends React.Component {
   render() {
 
     let cartItens = '3';
+    let handleCartTap;
 
     return (
-      <button className="HeaderCart col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <div className="HeaderCart__button clearfix">
-          <a href="">
-            <span className="HeaderCart__desktop-itens hidden-xs">{cartItens} Itens</span>
+      <button className="HeaderCart col-xs-2 col-sm-2 col-md-2 col-lg-2 col-sm-push-6 col-md-push-6 col-lg-push-6" onTouchTap={handleCartTap}>
             <SVGIcon className="HeaderCart__svg"
               svg={cartIcon}
               fallback={cartImg}
@@ -22,8 +20,7 @@ class HeaderCart extends React.Component {
               height={18}
               cleanupExceptions={['fill', 'width', 'height']}
             />
-          </a>
-        </div>
+            <span className="HeaderCart__desktop-itens hidden-xs">{cartItens} Itens</span>
       </button>
     );
   }

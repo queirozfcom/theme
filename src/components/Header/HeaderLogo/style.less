@@ -4,10 +4,6 @@
   position: relative;
   min-height: 38px;
 
-  //Mobile only
-  @media (max-width: @screen-xs-max) {
-    left: 30px;
-  }
 
   //Desktop & Tablet
   @media (min-width: @screen-sm-min) {
@@ -19,6 +15,11 @@
   }
 
   &__image {
+    //Mobile only
+    @media (max-width: @screen-xs-max) {
+      margin-left: 30px;
+    }
+
     display: block;
     margin-top: 4px;
   }
