@@ -25,7 +25,6 @@ class Footer extends React.Component {
 
   render() {
     let items = this.props.categories.map((category) => {
-      console.log(category);
       return (
         <Categories cat={category} />
       );
