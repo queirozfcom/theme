@@ -6,7 +6,6 @@ import instagramIcon from 'assets/icons/instagram.svg';
 import facebookIcon from 'assets/icons/facebook.svg';
 import pinterestIcon from 'assets/icons/pinterest.svg';
 import Categories from './Categories';
-//import { map } from 'lodash';
 
 @connectToStores()
 class Footer extends React.Component {
