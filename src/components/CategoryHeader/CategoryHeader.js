@@ -81,23 +81,21 @@ class CategoryHeader extends React.Component {
               </span>
             </div>
           </div>
-          <div className="row">
-            <div className="CategoryHeader__buttons">
-              <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
-                <SVGIcon
-                  className="CategoryHeader__icon"
-                  svg={icon.svg}
-                  fallback={icon.img}
-                  width={18}
-                  cleanupExceptions={['width', 'height']}
-                  fill="#777777"
-                />
-              </div>
-              <Area
-                id="category/filter-button"
-                openFilterPanel={this.toggleFilterPanel(true)}
+          <div className="CategoryHeader__buttons row">
+            <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
+              <SVGIcon
+                className="CategoryHeader__icon"
+                svg={icon.svg}
+                fallback={icon.img}
+                width={18}
+                cleanupExceptions={['width', 'height']}
+                fill="#777777"
               />
             </div>
+            <Area
+              id="category/filter-button"
+              openFilterPanel={this.toggleFilterPanel(true)}
+            />
           </div>
           <div>
             <Area
