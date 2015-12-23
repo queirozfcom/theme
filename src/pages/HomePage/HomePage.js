@@ -29,7 +29,6 @@ class HomePage extends React.Component {
           </div>
           <Policies/>
         </div>
-        <Newsletter/>
         <Area id="home/footer"/>
       </div>
     );
