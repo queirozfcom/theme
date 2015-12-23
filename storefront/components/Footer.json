@@ -1,0 +1,13 @@
+{
+  "resourceBindings": [
+    {
+      "locator": "search@vtex.storefront-sdk",
+      "relativePath": "/{{ account }}/categories",
+      "bindTo": "categories@vtex"
+    }
+  ],
+  "assets": [
+    "common.js",
+    "Footer.js"
+  ]
+}
