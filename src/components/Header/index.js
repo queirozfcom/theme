@@ -2,7 +2,6 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { stores } from 'sdk';
 import HeaderTop from './HeaderTop';
-import HeaderLogo from './HeaderLogo';
 import HeaderCart from './HeaderCart';
 import HeaderSearchButton from './HeaderSearchButton';
 import HeaderMenuToggle from './HeaderMenuToggle';
