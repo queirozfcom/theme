@@ -30,7 +30,7 @@ class HomePage extends React.Component {
           <Policies/>
         </div>
         <Newsletter/>
-        <Footer/>
+        <Area id="home/footer"/>
       </div>
     );
   }

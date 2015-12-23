@@ -41,7 +41,8 @@
     "svgo-loader": "^1.1.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.12.2",
-    "webpack-hot-middleware": "^2.0.0"
+    "webpack-hot-middleware": "^2.0.0",
+    "lodash": "~3.10.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
