@@ -1,7 +1,7 @@
 @import "~utils/base/base";
 
 .HeaderTop {
-  background: darken(@gray-soft, 8%);
+  background: darken(@secondary-bg, -5%);
   width: 100%;
 
   &__wrap {
@@ -72,11 +72,11 @@
   }
 
   &__login-link {
-    color: darken(@gray-soft, 68%);
+    color: @gray-base;
     //text-transform: uppercase;
 
     &:hover {
-      color: darken(@gray-soft, 48%);
+      color: @gray-base;
     }
   }
 
@@ -85,14 +85,14 @@
   }
 
   &__phone-url {
-      color: darken(@gray-soft, 68%);
+      color: @gray-base;
 
       @media (min-width: @screen-sm-min) {
         font-weight: 800;
       }
 
       &:hover {
-        color: darken(@gray-soft, 48%);
+        color: @gray-base;
 
         @media (min-width: @screen-md-min) {
           color: darken(@gray-soft, 68%);
