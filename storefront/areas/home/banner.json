@@ -4,14 +4,22 @@
     "slider": {
       "dots": true,
       "infinite": true,
-      "speed": "600"
+      "speed": "10"
     },
     "images": [
       {
         "index": 0,
-        "url": "http://vtex-fs-env-beta.elasticbeanstalk.com/dreamstore/images/sfilhos2.gif",
+        "url": "https://cdn.awsli.com.br/67/67849/arquivos/MOBILEBANNER_VITRINE_ESTAMPA_V01.jpg",
         "alt": null,
-        "link": null,
+        "link": "/camisetas/c",
+        "editing": false,
+        "isDragging": false
+      },
+      {
+        "index": 0,
+        "url": "https://cdn.awsli.com.br/67/67849/arquivos/MOBILEBANNER_VITRINE_MEIA_V01.jpg",
+        "alt": null,
+        "link": "/meia-pilates-antiderrapante-abertura-superior-preta-teaser/p",
         "editing": false,
         "isDragging": false
       }
