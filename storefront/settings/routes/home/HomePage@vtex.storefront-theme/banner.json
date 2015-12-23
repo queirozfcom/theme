@@ -2,9 +2,9 @@
   "component": "Banner@vtex.banner",
   "settings": {
     "slider": {
-      "dots": true,
+      "dots": false,
       "infinite": true,
-      "speed": "10"
+      "speed": "300"
     },
     "images": [
       {
@@ -16,8 +16,8 @@
         "isDragging": false
       },
       {
-        "index": 0,
-        "url": "https://cdn.awsli.com.br/67/67849/arquivos/MOBILEBANNER_VITRINE_MEIA_V01.jpg",
+        "index": 1,
+        "url": "https://cdn.awsli.com.br/67/67849/arquivos/MOBILEBANNER_VITRINE_MEIA_V02.jpg",
         "alt": null,
         "link": "/meia-pilates-antiderrapante-abertura-superior-preta-teaser/p",
         "editing": false,
