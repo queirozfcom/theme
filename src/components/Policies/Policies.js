@@ -16,7 +16,7 @@ class Policies extends React.Component {
           Melhores Condições
         </h2>
 
-        <div className="Policies__single row-fluid clearfix">
+        <div className="Policies__single row clearfix">
           <div className="col-xs-1 col-xs-offset-1">
             <SVGIcon className="Policies__icon" svg={exchangeIcon} fallback={exchangeImg} width={17} height={18} fill="#EDAF97"/>
           </div>
@@ -29,7 +29,7 @@ class Policies extends React.Component {
           </div>
         </div>
 
-        <div className="Policies__single row-fluid clearfix">
+        <div className="Policies__single row clearfix">
           <div className="col-xs-1 col-xs-offset-1 Policies__icon-wrapper">
             <SVGIcon className="Policies__icon" svg={shippingIcon} fallback={shippingImg} width={20} height={22} fill="#EDAF97"/>
           </div>
@@ -42,7 +42,7 @@ class Policies extends React.Component {
           </div>
         </div>
 
-        <div className="Policies__single row-fluid clearfix">
+        <div className="Policies__single row clearfix">
           <div className="col-xs-1 col-xs-offset-1">
             <SVGIcon className="Policies__icon" svg={giftIcon} fallback={giftImg} width={14} height={18} fill="#EDAF97" />
           </div>

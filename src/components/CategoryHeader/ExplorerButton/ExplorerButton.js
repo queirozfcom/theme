@@ -13,7 +13,7 @@ class ExplorerButton extends React.Component {
     return (
       <button className="ExplorerButton" onTouchTap={this.handleTouchTap}>
         <SVGIcon
-          className="icon"
+          className="ExplorerButton__icon"
           svg={downArrowIcon}
           fallback={downArrowImg}
           width={18}
