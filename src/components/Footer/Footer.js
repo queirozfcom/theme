@@ -42,7 +42,14 @@ class Footer extends React.Component {
             <ul className="Footer__menu">
               {items}
             </ul>
-            <span className="Footer__address">Praia de Botafogo, 518, Sobreloja, Botafogo. Rio de Janeiro, RJ - 22250-040</span>
+            <div className="Footer__contacts">
+              Telefone: (21) 3593-4758<br/>
+              loja@pilateslovers.com.br
+            </div>
+            <span className="Footer__address">
+              Daniela Soria Texeira - CNPJ: 20.865.869/0001-06<br/>
+              Todos os direitos reservados. 2015
+            </span>
           </div>
         </div>
       </div>
