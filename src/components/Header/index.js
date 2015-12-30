@@ -41,12 +41,13 @@ class Header extends React.Component {
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           <HeaderCart />
           <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
-          {/*<Area
-            id={`${this.props.areaPath}/search-bar`}
-            visible={this.state.isSearchOpen}
-            handleSearchTap={this.handleSearchTap}
-          />
-          */}
+          {
+            <Area
+              id={`${this.props.areaPath}/search-bar`}
+              visible={this.state.isSearchOpen}
+              handleSearchTap={this.handleSearchTap}
+            />
+          }
           <ReactCSSTransitionGroup
             transitionName="NavigationMenu"
             transitionEnterTimeout={200}
