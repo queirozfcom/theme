@@ -1,12 +1,5 @@
 import React from 'react';
 import './Policies.less';
-import SVGIcon from 'utils/SVGIcon';
-import exchangeIcon from 'assets/icons/exchange_icon.svg';
-import exchangeImg from 'assets/icons/exchange_icon.png';
-import shippingIcon from 'assets/icons/shipping_icon.svg';
-import shippingImg from 'assets/icons/shipping_icon.png';
-import giftIcon from 'assets/icons/gift_icon.svg';
-import giftImg from 'assets/icons/gift_icon.png';
 
 class Policies extends React.Component {
   render() {

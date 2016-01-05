@@ -4,7 +4,6 @@ import './Footer.less';
 import SVGIcon from 'utils/SVGIcon';
 import instagramIcon from 'assets/icons/instagram.svg';
 import facebookIcon from 'assets/icons/facebook.svg';
-import pinterestIcon from 'assets/icons/pinterest.svg';
 import Categories from './Categories';
 
 @connectToStores()
