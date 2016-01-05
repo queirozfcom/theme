@@ -3,6 +3,7 @@ import { actions, stores } from 'sdk';
 import Header from 'components/Header';
 import Policies from 'components/Policies/Policies';
 import './HomePage.less';
+import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
 
 const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
@@ -16,6 +17,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
+      <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
       <div className="HomePage">
         <Header areaPath="home" />
         <div className="HomePage__wrapper">
@@ -29,6 +31,7 @@ class HomePage extends React.Component {
         </div>
         <Area id="home/footer"/>
       </div>
+      </ReactCSSTransitionGroup>
     );
   }
 }
