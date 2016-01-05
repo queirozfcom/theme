@@ -1,5 +1,5 @@
 import React from 'react';
-import { stores } from 'sdk';
+import { stores, connectToStores } from 'sdk';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './CategoryHeader.less';
 import ExplorerButton from './ExplorerButton/ExplorerButton';
@@ -12,10 +12,40 @@ import gridImg from 'assets/icons/grid_icon.png';
 
 const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
+@connectToStores()
 class CategoryHeader extends React.Component {
   state = {
     isFilterPanelOpen: false,
     isExplorerPanelOpen: false
+  }
+
+  static getStores() {
+    return [
+      stores.ContextStore,
+      stores.FacetsStore
+    ];
+  }
+
+  static getPropsFromStores() {
+    let path = window.location.pathname + window.location.search;
+    let facets = stores.FacetsStore.getState().getIn([path, 'category/category-header']);
+    let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
+    let filters = facets ? facets.getIn(['filters']).takeWhile(function(value, key) {
+      return key !== 'category';
+    }) : undefined;
+
+    return {
+      category,
+      filters
+    };
+  }
+
+  shouldComponentUpdate({ category }) {
+    if (category === undefined) {
+      return false;
+    }
+
+    return true;
   }
 
   handleGridTap = () => {
@@ -100,10 +130,10 @@ class CategoryHeader extends React.Component {
           <div>
             <Area
               id="category/filter-panel"
+              areaPath="category"
               location={this.props.location}
               isOpen={this.state.isFilterPanelOpen}
               closeFilterPanel={this.toggleFilterPanel(false)}
-              skipPageRender={this.props.skipPageRender}
             />
           </div>
           <ReactCSSTransitionGroup

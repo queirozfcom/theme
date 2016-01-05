@@ -12,6 +12,7 @@ var config = {
     'CategoryPage': ['./src/pages/CategoryPage/index.js'],
     'SearchPage': ['./src/pages/SearchPage/index.js'],
     'SearchHeader': ['./src/components/SearchHeader/index.js'],
+    'CategoryHeader': ['./src/components/CategoryHeader/index.js'],
     'editors/index': ['./src/editors/index.js']
   },
 
