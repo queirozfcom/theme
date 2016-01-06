@@ -42,7 +42,7 @@ class SearchPage extends React.Component {
         <Header areaPath="search" />
         <Area
           id="search/search-header"
-          query={this.props.params.query}
+          searchTerm={this.props.params.searchTerm}
           grid={this.state.grid}
           location={this.props.location}
           changeLayout={this.changeLayout}

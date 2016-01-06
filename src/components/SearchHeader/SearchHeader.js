@@ -78,7 +78,7 @@ class SearchHeader extends React.Component {
             </div>
             <div className="SearchHeader__title">
               <h1 className="SearchHeader__title-inner">
-                { this.props.query }
+                { this.props.searchTerm }
               </h1>
             </div>
           </div>
