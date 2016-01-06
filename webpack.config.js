@@ -10,6 +10,8 @@ var config = {
     'HomePage': ['./src/pages/HomePage/index.js'],
     'ProductPage': ['./src/pages/ProductPage/index.js'],
     'CategoryPage': ['./src/pages/CategoryPage/index.js'],
+    'SearchPage': ['./src/pages/SearchPage/index.js'],
+    'SearchHeader': ['./src/components/SearchHeader/index.js'],
     'editors/index': ['./src/editors/index.js']
   },
 
