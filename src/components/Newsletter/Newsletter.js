@@ -9,7 +9,7 @@ class Newsletter extends React.Component {
           <div className="Newsletter__cta">
             <span className="Newsletter__cta-text">Assine nossa newsletter:</span>
           </div>
-          <div className="Newsletter__form row">
+          <div className="Newsletter__form">
             <div className="input-group">
               <input type="e-mail" className="Newsletter__form-input form-control" placeholder="e-mail"/>
               <div className="input-group-btn">
