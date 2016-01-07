@@ -32,8 +32,13 @@ class Product extends React.Component {
     let className = 'AddToCartButton--fixed';
 
     return (
-      <div className="Product container-fluid">
-        <Area id="product/product-image" images={defaultSku.images} />
+      <div className="Product">
+        <h2 className="Product__title col-xs-12 col-sm-push-6">{name}</h2>
+        <div className=" col-sm-pull-12">
+          <Area id="product/product-image" images={defaultSku.images} />
+        </div>
+        <h3 className="Product__price"><Price value={price}/></h3>
+        <ProductDescription/>
         <div className="row">
           <div className="col-xs-11 col-xs-offset-1">
             <h2 className="Product__title">
@@ -52,6 +57,10 @@ class Product extends React.Component {
               id="product/sku-selector"
             /> : null
         }
+        <Area
+          sku={this.state.selectedSku}
+          id="product/shipping-calculator"
+        />
         <AddToCartButton
           skuId={defaultSku.id}
           cartValidation={cartValidation}
@@ -59,11 +68,6 @@ class Product extends React.Component {
           id="product-button"
           route="product"
         />
-        <Area
-          sku={this.state.selectedSku}
-          id="product/shipping-calculator"
-        />
-        <ProductDescription />
       </div>
     );
   }
