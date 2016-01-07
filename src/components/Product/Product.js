@@ -48,7 +48,7 @@ class Product extends React.Component {
               id="product/sku-selector"
             /> : null
         }
-        <div className="col-xs-12 clearfix">
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right Product__shipping-wrapper">
           <Area
             sku={this.state.selectedSku}
             id="product/shipping-calculator"
