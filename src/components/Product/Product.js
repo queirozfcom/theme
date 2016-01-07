@@ -29,7 +29,7 @@ class Product extends React.Component {
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
     let cartValidation = this.state.selectedSku.length === 1 ? true : false;
-    let className = 'AddToCartButton--fixed';
+    let className = 'AddToCartButton';
 
     return (
       <div className="Product">
