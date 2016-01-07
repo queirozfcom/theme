@@ -33,20 +33,11 @@ class Product extends React.Component {
 
     return (
       <div className="Product">
-        <h2 className="Product__title col-xs-12 col-sm-push-6">{name}</h2>
-        <div className=" col-sm-pull-12">
-          <Area id="product/product-image" images={defaultSku.images} />
-        </div>
-        <h3 className="Product__price"><Price value={price}/></h3>
-        <ProductDescription/>
         <div className="row">
-          <div className="col-xs-11 col-xs-offset-1">
-            <h2 className="Product__title">
-              { name }
-            </h2>
-            <h3 className="Product__price">
-              <Price value={price}/>
-            </h3>
+          <Area id="product/product-image" images={defaultSku.images} />
+          <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2 className="Product__title">{name}</h2>
+            <h3 className="Product__price "><Price value={price}/></h3>
           </div>
         </div>
         {
@@ -57,10 +48,12 @@ class Product extends React.Component {
               id="product/sku-selector"
             /> : null
         }
-        <Area
-          sku={this.state.selectedSku}
-          id="product/shipping-calculator"
-        />
+        <div className="col-xs-12 clearfix">
+          <Area
+            sku={this.state.selectedSku}
+            id="product/shipping-calculator"
+          />
+        </div>
         <AddToCartButton
           skuId={defaultSku.id}
           cartValidation={cartValidation}
