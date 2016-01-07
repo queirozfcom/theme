@@ -4,7 +4,7 @@ import './Newsletter.less';
 class Newsletter extends React.Component {
   render() {
     return (
-      <div className="Newsletter row">
+      <div className="Newsletter">
         <div className="Newsletter__wrap clearfix">
           <div className="Newsletter__cta">
             <span className="Newsletter__cta-text">Assine nossa newsletter:</span>
