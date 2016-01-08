@@ -25,7 +25,7 @@ class AddToCartButton extends React.Component {
       boxShadowColor = this.props.settings.get('boxShadowColor');
     }
     return (
-      <button className={this.props.className} style={{backgroundColor: color, boxShadow: `0px 2px 0px 0px ${boxShadowColor}`}}>
+      <button className={`${this.props.className} add-btn`} style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}>
         <a href={addUrl}>
           {label}
         </a>
