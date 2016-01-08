@@ -1,3 +1,5 @@
+@import "theme-variables.less";
+
 .NavigationMenuParent .navigation-menu-parent-button-content {
   display: block;
   background-color: @secondary-bg;
@@ -53,4 +55,53 @@
   padding-left: 0;
   text-align: center;
   color: @gray-base;
+}
+
+/* PRODUCT PAGE */
+
+.Product {
+
+  &__title {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+    color: @secondary-color;
+  }
+
+  &__price {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: @primary-color;
+  }
+
+  .list-price {
+    text-decoration: line-through;
+    color: @secondary-color;
+    opacity: 0.6;
+    font-size: 12px;
+  }
+
+  .brand {
+    margin-top: 5px;
+    color: @secondary-color;
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
+  .ShippingCalculator {
+    margin-bottom: 15px;
+  }
+
+  .ProductDescription {
+    margin-top: 0;
+    padding: 0;
+    &__text {
+      font-weight: normal;
+      color: @secondary-color;
+    }
+  }
 }
