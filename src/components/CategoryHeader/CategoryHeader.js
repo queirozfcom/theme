@@ -96,8 +96,8 @@ class CategoryHeader extends React.Component {
 
     return (
       <nav className="CategoryHeader container-fluid">
-        <div className="CategoryHeader__container">
-          <div className="CategoryHeader__content row">
+        <div className="CategoryHeader__container clearfix">
+          <div className="CategoryHeader__content clearfix">
             <div className="CategoryHeader__title">
               <h1 className="CategoryHeader__title-inner">
                 { this.props.category.get('name') }
@@ -111,7 +111,7 @@ class CategoryHeader extends React.Component {
               </span>
             </div>
           </div>
-          <div className="CategoryHeader__buttons row">
+          <div className="CategoryHeader__buttons">
             <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
               <SVGIcon
                 className="CategoryHeader__icon"

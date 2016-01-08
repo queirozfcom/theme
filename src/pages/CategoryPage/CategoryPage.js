@@ -2,6 +2,7 @@ import React from 'react';
 import { stores, actions } from 'sdk';
 import Header from 'components/Header';
 import Footer from 'components/Footer/Footer';
+import './CategoryPage.less';
 
 const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
@@ -38,20 +39,22 @@ class CategoryPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="CategoryPage">
         <Header areaPath="category" />
-        <Area
+        <div className="CategoryPage__content">
+          <Area
           id="category/category-header"
           grid={this.state.grid}
           location={this.props.location}
           changeLayout={this.changeLayout}
-        />
-        <Area
+          />
+          <Area
           id="category/product-list"
           areaPath="category"
           location={this.props.location}
           grid={this.state.grid}
-        />
+          />
+        </div>
         <Footer />
       </div>
     );
