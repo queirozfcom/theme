@@ -25,7 +25,21 @@ class Product extends React.Component {
   render() {
     let defaultSku = this.state.selectedSku || this.props.skus[0];
     let name = this.props.name;
+    let brand = this.props.brand;
+    let listPrice = defaultSku.offers[0].listPrice;
     let price = defaultSku.offers[0].price;
+    let percentualDiscount = Math.floor((1 - (price/listPrice)) * 100);
+    let availability = defaultSku.offers[0].availability;
+    let availabilityBanner = '';
+
+    if (availability < 3){
+      availabilityBanner = <div className="row">
+        <div className="col-xs-12 well well-sm banner-availability">
+          <div className="text-center">Últimas unidades em estoque</div>
+        </div>
+      </div>;
+    }
+
     let skus = this.props.skus;
     let cartValidation = this.state.selectedSku ? true : false;
     let className = 'AddToCartButton--fixed';
@@ -43,8 +57,16 @@ class Product extends React.Component {
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div className="visible-sm visible-md visible-lg">
               <h2 className="Product__title">{name}</h2>
-              <h3 className="Product__price "><Price value={price}/></h3>
+              <h3 className="Product__price list-price">De <Price value={listPrice}/></h3>
+              <h3 className="Product__price">Por <Price value={price}/></h3>
+              <h3 className="Product__price percentual-discount">Desconto de { percentualDiscount }%</h3>
             </div>
+            <div className="col-xs-6">
+              <Link to={`/${brand.name}/s`}>
+                <h4 className="brand pull-right">{ brand.name }</h4>
+              </Link>
+            </div>
+            {availabilityBanner}
             {
               skus.length > 1 ?
                 <Area
@@ -68,7 +90,7 @@ class Product extends React.Component {
         </div>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 Product__shipping-wrapper">
-            <ProductDescription />
+            <ProductDescription description={ this.props.description } />
           </div>
 
         </div>
