@@ -112,6 +112,10 @@ class CategoryHeader extends React.Component {
             </div>
           </div>
           <div className="CategoryHeader__buttons">
+            <Area
+            id="category/filter-button"
+            openFilterPanel={this.toggleFilterPanel(true)}
+            />
             <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
               <SVGIcon
                 className="CategoryHeader__icon"
@@ -122,10 +126,6 @@ class CategoryHeader extends React.Component {
                 fill="#777777"
               />
             </div>
-            <Area
-              id="category/filter-button"
-              openFilterPanel={this.toggleFilterPanel(true)}
-            />
           </div>
           <div>
             <Area
