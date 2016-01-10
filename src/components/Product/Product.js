@@ -59,6 +59,10 @@ class Product extends React.Component {
           id="product-button"
           route="product"
         />
+        <Area
+          sku={this.state.selectedSku}
+          id="product/shipping-calculator"
+        />
         <ProductDescription />
       </div>
     );
