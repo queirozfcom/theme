@@ -98,18 +98,13 @@ class CategoryHeader extends React.Component {
       <nav className="CategoryHeader container-fluid">
         <div className="CategoryHeader__container clearfix">
           <div className="CategoryHeader__content clearfix">
-            <div className="CategoryHeader__title">
-              <h1 className="CategoryHeader__title-inner">
-                { this.props.category.get('name') }
-              </h1>
-
-              { explorerButton }
-            </div>
-            <div className="col-xs-12">
-              <span className="CategoryHeader__results">
-                { this.props.category.get('productQuantity') } Resultados
-              </span>
-            </div>
+            <h1 className="CategoryHeader__title">
+              { this.props.category.get('name') }
+            </h1>
+            { explorerButton }
+            <span className="CategoryHeader__results">
+              { this.props.category.get('productQuantity') } Resultados
+            </span>
           </div>
           <div className="CategoryHeader__buttons">
             <Area

@@ -2,6 +2,19 @@
 
 .theme {
 
+// ==========  Layout 		==========
+
+.theme__width {
+  //All Screens Except Mobile
+  @media (min-width: 992px) {
+    max-width: @desktop-width;
+    margin: 0 auto;
+  }
+
+  max-width: @mobile-width;
+  margin: 0 auto;
+}
+
 // ==========  Typography 		==========
 
   .theme__font-family--main {
