@@ -4,6 +4,7 @@
   "version": "0.8.2",
   "vendor": "vtex",
   "dependencies": {
+    "vtex.storefront-sdk": "0.x",
     "vtex.editor": "0.x",
     "vtex.storefront": "0",
     "vtex.banner": "0.x",
