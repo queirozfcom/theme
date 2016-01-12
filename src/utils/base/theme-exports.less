@@ -14,8 +14,8 @@
 
 // ==========  Font Colors 		==========
 
-  .theme__color--main {
-    color: @third-color !important;
+  .theme__color--main, .theme__color--primary {
+    color: @primary-color !important;
   }
 
   .theme__color--secondary {
@@ -23,7 +23,7 @@
   }
 
   .theme__color--third {
-    color: @primary-color !important;
+    color: @third-color !important;
   }
 
   .theme__color--black {
@@ -33,6 +33,53 @@
   .theme__color--white {
     color: @light-color !important;
   }
+
+  // ==========  Link Hover Colors 		==========
+
+    .theme__hover-color--main {
+
+      &:hover {
+        color: darken(@primary-color, 15%) !important;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .theme__hover-color--secondary {
+
+      &:hover {
+        color: darken(@secondary-color, 15%) !important;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .theme__hover-color--third {
+
+      &:hover {
+        color: darken(@third-color, 15%) !important;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .theme__hover-color--black {
+
+      &:hover {
+        color: darken(@dark-color, 15%) !important;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .theme__hover-color--white {
+
+      &:hover {
+        color: darken(@light-color, 15%) !important;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
 
   // ==========  BG Colors 		==========
 
