@@ -38,6 +38,11 @@ class Header extends React.Component {
       <div className="Header">
         <HeaderTop />
         <div className="Header__inner clearfix">
+          <div className="Header__logo hidden-xs col-sm-3 col-md-3 col-lg-3">
+            <a href="/">
+              <img src={ logoImage } alt="Pilates Lovers"/>
+            </a>
+          </div>
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           <HeaderCart />
           <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
@@ -54,12 +59,12 @@ class Header extends React.Component {
             { menu }
           </ReactCSSTransitionGroup>
         </div>
-        <div className="logo-image">
+        <div className="Header__logo--mobile hidden-sm hidden-md hidden-lg">
           <a href="/">
             <img src={ logoImage } alt="Pilates Lovers"/>
           </a>
+          <hr/>
         </div>
-        <hr/>
       </div>
     );
   }

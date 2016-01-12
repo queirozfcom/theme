@@ -1,33 +1,41 @@
 @import "~utils/base/base";
 
 .Header {
-  background: white;
-  border-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0px -1px 0px 1px rgba(0,0,0,0.1);
   position: static;
   top: 0;
   width: 100%;
   z-index: @zindex-2;
+
   hr {
-    height: 2px;
+    border: 1px solid darken(#F3F3F3, 10%);
     width: 90%;
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 
   &__inner {
     .theme-width();
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.05);
-    margin-bottom: 15px;
 
     //Fix for medium screens only
     @media (min-width: @screen-sm-min) and (max-width: @screen-lg-min) {
-      padding: (@pad * 2.3) 0px;
+      padding: (3.5px * 2.3) 0px;
     }
   }
 
-  .logo-image {
+  &__logo {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__logo--mobile {
+    img {
+      padding: 10px 0px;
+    }
+    background-color: white;
     text-align: center;
   }
 }
