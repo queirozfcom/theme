@@ -1,6 +1,6 @@
 import React from 'react';
 import './ExplorerPanel.less';
-import CategoryList from './CategoryList/CategoryList';
+import CategoryList from '../../CategoryList/CategoryList';
 import SVGIcon from 'utils/SVGIcon';
 import pullArrowIcon from 'assets/icons/pullArrow_icon.svg';
 import pullArrowImg from 'assets/icons/pullArrow_icon.png';

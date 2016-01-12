@@ -1,0 +1,36 @@
+@import "~utils/base/base";
+
+.ProductListSidebar {
+
+  &__title {
+    color: @primary-color;
+    font-family: @display-font;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: 200;
+    margin-top: 0px;
+  }
+
+  &__list {
+    .css-utils-clean-list();
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__list-option {
+    color: @dark-color;
+    display: block;
+    font-family: @text-font;
+    padding: 8px 0px;
+
+    &:hover {
+      color: darken(@secondary-color, 15%) !important;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
