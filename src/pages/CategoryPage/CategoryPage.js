@@ -48,13 +48,12 @@ class CategoryPage extends React.Component {
         location={this.props.location}
         changeLayout={this.changeLayout}
         />
-        <div className="theme__width">
-
-          <div className="CategoryPage__content row">
-            <div className="CategoryPage__sidebar col-lg-2 col-sm-3 hidden-xs hidden-sm">
+        <div className="CategoryPage__content container-fluid">
+          <div className="row-fluid">
+            <div className="CategoryPage__sidebar hidden-xs hidden-sm col-md-2 col-lg-2">
               <ProductListSidebar />
             </div>
-            <div className="col-lg-10 col-sm-9 CategoryPage__product-list">
+            <div className="col-xs-12 col-sm-12 col-md-10 col-lg-10 CategoryPage__product-list">
               <Area
               id="category/product-list"
               areaPath="category"
@@ -63,7 +62,7 @@ class CategoryPage extends React.Component {
               />
             </div>
           </div>
-          </div>
+        </div>
         <Footer />
       </div>
     );
