@@ -32,38 +32,47 @@ class Product extends React.Component {
     let className = 'AddToCartButton--fixed';
 
     return (
-      <div className="Product container-fluid">
-        <Area id="product/product-image" images={defaultSku.images} />
+      <div className="Product">
         <div className="row">
-          <div className="col-xs-11 col-xs-offset-1">
-            <h2 className="Product__title">
-              { name }
-            </h2>
-            <h3 className="Product__price">
-              <Price value={price}/>
-            </h3>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div className="hidden-sm hidden-md hidden-lg">
+              <h2 className="Product__title">{name}</h2>
+              <h3 className="Product__price"><Price value={price}/></h3>
+            </div>
+            <Area id="product/product-image" images={defaultSku.images} />              
+          </div>
+          <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div className="visible-sm visible-md visible-lg">
+              <h2 className="Product__title">{name}</h2>
+              <h3 className="Product__price "><Price value={price}/></h3>
+            </div>
+            {
+              skus.length > 1 ?
+                <Area
+                  skus={skus}
+                  changeSelectedSku={this.changeSelectedSku}
+                  id="product/sku-selector"
+                /> : null
+            }
+            <AddToCartButton
+              skuId={defaultSku.id}
+              cartValidation={cartValidation}
+              className={className}
+              id="product-button"
+              route="product"
+            />
+            <Area
+              sku={this.state.selectedSku}
+              id="product/shipping-calculator"
+            />
           </div>
         </div>
-        {
-          skus.length > 1 ?
-            <Area
-              skus={skus}
-              changeSelectedSku={this.changeSelectedSku}
-              id="product/sku-selector"
-            /> : null
-        }
-        <AddToCartButton
-          skuId={defaultSku.id}
-          cartValidation={cartValidation}
-          className={className}
-          id="product-button"
-          route="product"
-        />
-        <Area
-          sku={this.state.selectedSku}
-          id="product/shipping-calculator"
-        />
-        <ProductDescription />
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 Product__shipping-wrapper">
+            <ProductDescription />
+          </div>
+
+        </div>
       </div>
     );
   }

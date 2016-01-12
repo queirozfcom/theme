@@ -5,7 +5,7 @@ class Description extends React.Component {
   render() {
     return (
       <div>
-        <div className="ProductDescription row">
+        <div className="ProductDescription">
             <h3 className="ProductDescription__title">Descrição</h3>
             <div className="ProductDescription__text">
               <p>A Modally acredita que o conforto faz um bom guarda-roupa. Queremos que você aproveite sua liberdade com simplicidade, qualidade e ao mesmo tempo tenha certeza que sua roupa é particulamente confortável de usar.</p>

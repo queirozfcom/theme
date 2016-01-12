@@ -8,11 +8,13 @@ import Product from 'components/Product/Product';
 class ProductPage extends React.Component {
   render() {
     return (
-      <div>
+      <div className="ProductPage">
         <Header areaPath="product" />
-        {this.props.loading ? <div>Carregando</div> : <Product {...this.props.product}/>}
-        <Newsletter/>
-        <Footer/>
+        <div className="ProductPage__wrapper container-fluid">
+          {this.props.loading ? <div>Carregando</div> : <Product {...this.props.product}/>}
+        </div>
+      <Newsletter/>
+      <Footer/>
       </div>
     );
   }
