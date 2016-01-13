@@ -49,7 +49,7 @@ class CategoryPage extends React.Component {
         changeLayout={this.changeLayout}
         />
         <div className="CategoryPage__content container-fluid">
-          <div className="row-fluid">
+          <div className="row">
             <div className="CategoryPage__sidebar hidden-xs hidden-sm col-md-2 col-lg-2">
               <ProductListSidebar />
             </div>
