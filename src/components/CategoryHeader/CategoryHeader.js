@@ -118,10 +118,11 @@ class CategoryHeader extends React.Component {
                 className="CategoryHeader__icon"
                 svg={icon.svg}
                 fallback={icon.img}
-                width={18}
+                height={20}
                 cleanupExceptions={['width', 'height']}
                 fill="#777777"
               />
+              <span className="CategoryHeader__icon-label hidden-xs hidden-sm">Grid</span>
             </div>
           </div>
           <div>
