@@ -2,7 +2,8 @@ import React from 'react';
 import { stores, actions } from 'sdk';
 import Header from 'components/Header';
 import Footer from 'components/Footer/Footer';
-import ProductListSidebar from 'components/ProductListSidebar/ProductListSidebar';
+import CategoryListSidebar from 'components/CategoryListSidebar/CategoryListSidebar';
+import FilterListSidebar from 'components/FilterListSidebar/FilterListSidebar';
 import './CategoryPage.less';
 
 const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
@@ -50,10 +51,15 @@ class CategoryPage extends React.Component {
         />
         <div className="CategoryPage__content container-fluid">
           <div className="row">
-            <div className="CategoryPage__sidebar hidden-xs hidden-sm col-md-2 col-lg-2">
-              <ProductListSidebar />
+            <div className="CategoryPage__sidebar hidden-xs hidden-sm col-md-3 col-lg-2">
+              <div className="CategoryPage__category-list">
+                <CategoryListSidebar />
+              </div>
+              <div className="CategoryPage__filter-list">
+                <FilterListSidebar />
+              </div>
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-10 col-lg-10 CategoryPage__product-list">
+            <div className="col-xs-12 col-sm-12 col-md-9 col-lg-10 CategoryPage__product-list">
               <Area
               id="category/product-list"
               areaPath="category"

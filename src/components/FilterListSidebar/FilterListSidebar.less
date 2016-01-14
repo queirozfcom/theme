@@ -1,0 +1,22 @@
+@import "~utils/base/base";
+
+.FilterListSidebar {
+
+  &__title {
+    color: @primary-color;
+    font-family: @display-font;
+    font-size: 1.3em;
+    font-weight: 200;
+    margin-top: 0px;
+  }
+
+  &__list {
+    .css-utils-clean-list();
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

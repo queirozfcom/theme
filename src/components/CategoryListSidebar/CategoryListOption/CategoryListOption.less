@@ -1,0 +1,32 @@
+@import "~utils/base/base";
+
+.CategoryListOption {
+
+  &__link {
+    color: lighten(@dark-color, 15%);
+    display: block;
+    padding: 8px 0px 8px 8px;
+    font-family: @display-font;
+    width: 100%;
+
+    &:hover {
+      color: darken(@secondary-color, 15%) !important;
+      background: darken(@light-color, 5%);
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &__inner {
+    margin-bottom: 0px;
+  }
+
+  &__name {
+    font-weight: 400;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import "~utils/base/base";
+
+.FilterListOption {
+  color: lighten(@dark-color, 15%);
+  display: block;
+  font-family: @display-font;
+  font-weight: 400;
+  padding: 8px;
+
+  &:hover {
+    color: darken(@secondary-color, 15%) !important;
+    background: darken(@light-color, 5%);
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__inner {
+    margin-bottom: 0px;
+  }
+
+  &__name {
+    font-weight: 400;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &[data-is-selected="true"] {
+      color: @secondary-color;
+      font-style: italic;
+    }
+  }
+
+
+  &__checkbox {
+    display: block;
+    float: right;
+    -webkit-appearance: checkbox;
+  }
+}

@@ -95,8 +95,8 @@ class CategoryHeader extends React.Component {
     }
 
     return (
-      <nav className="CategoryHeader container-fluid">
-        <div className="CategoryHeader__container clearfix">
+      <nav className="CategoryHeader">
+        <div className="CategoryHeader__container container-fluid clearfix">
           <div className="CategoryHeader__content clearfix">
             <h1 className="CategoryHeader__title">
               { this.props.category.get('name') }
@@ -107,10 +107,12 @@ class CategoryHeader extends React.Component {
             </span>
           </div>
           <div className="CategoryHeader__buttons">
-            <Area
-            id="category/filter-button"
-            openFilterPanel={this.toggleFilterPanel(true)}
-            />
+            <div className="CategoryHeader__filter-button">
+              <Area
+              id="category/filter-button"
+              openFilterPanel={this.toggleFilterPanel(true)}
+              />
+            </div>
             <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
               <SVGIcon
                 className="CategoryHeader__icon"
@@ -123,13 +125,13 @@ class CategoryHeader extends React.Component {
             </div>
           </div>
           <div>
-            <Area
-              id="category/filter-panel"
-              areaPath="category"
-              location={this.props.location}
-              isOpen={this.state.isFilterPanelOpen}
-              closeFilterPanel={this.toggleFilterPanel(false)}
-            />
+          <Area
+            id="category/filter-panel"
+            areaPath="category"
+            location={this.props.location}
+            isOpen={this.state.isFilterPanelOpen}
+            closeFilterPanel={this.toggleFilterPanel(false)}
+          />
           </div>
           <ReactCSSTransitionGroup
             transitionName="ExplorerPanel"

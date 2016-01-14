@@ -1,12 +1,10 @@
 @import "~utils/base/base";
 
-.ProductListSidebar {
-
+.CategoryListSidebar {  
   &__title {
     color: @primary-color;
     font-family: @display-font;
     font-size: 1.3em;
-    font-style: italic;
     font-weight: 200;
     margin-top: 0px;
   }
@@ -21,11 +19,18 @@
     }
   }
 
+  &__header {
+    color: @secondary-color;
+    font-family: @display-font;
+    font-size: 1.15em;
+    font-style: italic;
+  }
+
   &__list-option {
-    color: @dark-color;
+    color: lighten(@dark-color, 15%);
     display: block;
-    font-family: @text-font;
-    padding: 8px 0px;
+    font-family: @display-font;
+    padding: 8px 0px 8px 8px;
 
     &:hover {
       color: darken(@secondary-color, 15%) !important;
