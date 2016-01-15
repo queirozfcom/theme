@@ -12,7 +12,6 @@ class ProductPage extends React.Component {
         <div className="ProductPage__wrapper container-fluid">
           {this.props.loading ? <div>Carregando</div> : <Product {...this.props.product}/>}
         </div>
-      <Newsletter/>
       <Footer/>
       </div>
     );
