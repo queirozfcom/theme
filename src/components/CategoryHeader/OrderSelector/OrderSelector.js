@@ -1,22 +1,32 @@
 import React from 'react';
+import Select from 'react-select';
+import '../../../../node_modules/react-select/dist/react-select.min.css';
 import './OrderSelector.less';
 
 class OrderSelector extends React.Component {
-
   render() {
+    let options = [
+      { value: 'one', label: 'Nome (A - Z)', clearableValue: false },
+      { value: 'one', label: 'Nome (Z - A)', clearableValue: false },
+      { value: 'two', label: 'Maior Preço', clearableValue: false },
+      { value: 'two', label: 'Menor Preço', clearableValue: false }
+    ]
+
+    function logChange(val) {
+      console.log('Selected: ' + val);
+    }
+
     return (
-      <div className="OrderSelector dropdown">
-        <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          Dropdown
-          <span className="caret"></span>
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" className="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
+      <div className="OrderSelector">
+        <Select
+            name="form-field-name"
+            value="one"
+            clearable={false}
+            options={options}
+            placeholder="Selecione a ordenação"
+            onChange={logChange}
+            name="Ordenação"
+        />
       </div>
     );
   }

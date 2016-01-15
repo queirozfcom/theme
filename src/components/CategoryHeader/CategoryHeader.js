@@ -108,7 +108,7 @@ class CategoryHeader extends React.Component {
             </span>
           </div>
           <div className="CategoryHeader__buttons">
-            <div className="CategoryHeader__filter-button">
+            <div className="CategoryHeader__filter-button hidden-md hidden-lg">
               <Area
               id="category/filter-button"
               openFilterPanel={this.toggleFilterPanel(true)}
