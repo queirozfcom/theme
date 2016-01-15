@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import './Product.less';
 import { stores } from 'sdk';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
@@ -20,7 +21,7 @@ class Product extends React.Component {
 
   changeSelectedSku = (selectedSku) => {
     this.setState({ selectedSku });
-  }
+  };
 
   render() {
     let defaultSku = this.state.selectedSku || this.props.skus[0];
