@@ -122,7 +122,7 @@ class CategoryHeader extends React.Component {
                 cleanupExceptions={['width', 'height']}
                 fill="#777777"
               />
-              <span className="CategoryHeader__icon-label hidden-xs hidden-sm">Grid</span>
+              <span className="CategoryHeader__icon-label visible-md visible-lg">Grid</span>
             </div>
           </div>
           <div>
