@@ -177,16 +177,23 @@
     border-color: @secondary-color !important;
   }
 
-  .theme__border-color--third, .theme__border-color--tertiary {
+  .theme__border-color--tertiary {
     border-color: @primary-color !important;
   }
 
-  .theme__border-color--black, .theme__border-color--dark {
+  .theme__border-color--dark {
     border-color: @dark-color !important;
   }
 
-  .theme__border-color--white, .theme__border-color--light {
+  .theme__border-color--light {
     border-color: @light-color !important;
   }
 
+  .theme__border-color--dark-plus {
+    border-color: darken(@dark-color, 5%) !important;
+  }
+
+  .theme__border-color--light-plus {
+    border-color: darken(@light-color, 5%) !important;
+  }
 }
