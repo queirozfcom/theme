@@ -15,9 +15,10 @@ var config = {
     'CategoryHeader': ['./src/components/CategoryHeader/index.js'],
     'CategoryListSidebar': ['./src/components/CategoryListSidebar/index.js'],
     'AboutPage': ['./src/components/AboutPage/index.js'],
+    'PoliciesPage': ['./src/components/PoliciesPage/index.js'],
     'Footer': ['./src/components/Footer/Footer.js'],
-    'DefaultTemplate': ['./src/components/DefaultTemplate/index.js'],
-    'editors/index': ['./src/editors/index.js']
+    'editors/index': ['./src/editors/index.js'],
+    'DefaultTemplate': ['./src/components/DefaultTemplate/index.js']
   },
   module: {
     preLoaders: [
