@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './CategoryHeader.less';
 import ExplorerButton from './ExplorerButton/ExplorerButton';
 import ExplorerPanel from './ExplorerPanel/ExplorerPanel';
+import OrderSelector from './OrderSelector/OrderSelector';
 import SVGIcon from 'utils/SVGIcon';
 import listIcon from 'assets/icons/list_icon.svg';
 import listImg from 'assets/icons/list_icon.png';
@@ -125,6 +126,7 @@ class CategoryHeader extends React.Component {
               <span className="CategoryHeader__icon-label visible-md visible-lg">Grid</span>
             </div>
           </div>
+          <OrderSelector />
           <div>
           <Area
             id="category/filter-panel"
