@@ -44,6 +44,9 @@ class Footer extends React.Component {
               <li><Link to={`/quem-somos`}>
                 Quem Somos
               </Link></li>
+              <li><Link to={`/politica-de-troca-e-devolucao`}>
+                Política de troca e devolução
+              </Link></li>
             </ul>
             <div className="Footer__contacts">
               Telefone: (21) 3593-4758<br/>
