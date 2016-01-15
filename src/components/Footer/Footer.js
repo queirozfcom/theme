@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { stores, connectToStores } from 'sdk';
 import './Footer.less';
 import SVGIcon from 'utils/SVGIcon';
@@ -38,6 +39,11 @@ class Footer extends React.Component {
           <div className="Footer__links">
             <ul className="Footer__menu">
               {items}
+            </ul>
+            <ul className="Footer__menu institucional">
+              <li><Link to={`/quem-somos`}>
+                Quem Somos
+              </Link></li>
             </ul>
             <div className="Footer__contacts">
               Telefone: (21) 3593-4758<br/>
