@@ -126,7 +126,9 @@ class CategoryHeader extends React.Component {
               <span className="CategoryHeader__icon-label visible-md visible-lg">Grid</span>
             </div>
           </div>
-          <OrderSelector />
+          <div className="hidden-xs hidden-sm">
+            <OrderSelector />
+          </div>
           <div>
           <Area
             id="category/filter-panel"
