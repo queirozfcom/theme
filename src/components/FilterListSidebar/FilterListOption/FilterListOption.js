@@ -5,9 +5,6 @@ class FilterListOption extends React.Component {
   render() {
     return (
       <li className="FilterListOption">
-        <label className="FilterListOption__inner" htmlFor="filter-checkbox">
-          <span className="FilterListOption__name" data-is-selected={this.props.isSelected}>Nome</span>
-        </label>
         <input
           className="FilterListOption__checkbox"
           checked={this.props.isSelected}
@@ -15,6 +12,9 @@ class FilterListOption extends React.Component {
           type="checkbox"
           id="filter-checkbox"
         />
+        <label className="FilterListOption__inner" htmlFor="filter-checkbox">
+          <span className="FilterListOption__name" data-is-selected={this.props.isSelected}>Nome</span>
+        </label>
       </li>
     );
   }
