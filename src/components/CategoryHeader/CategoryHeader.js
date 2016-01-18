@@ -72,11 +72,12 @@ class CategoryHeader extends React.Component {
   }
 
   render() {
+    let layoutName = this.props.grid ? 'Grid' : 'Lista';
     let explorerButton = null;
     let explorerPanel = null;
     const icon = {
-      svg: this.props.grid ? listIcon : gridIcon,
-      img: this.props.grid ? listImg : gridImg
+      svg: this.props.grid ? gridIcon : listIcon,
+      img: this.props.grid ? gridImg : listImg
     };
 
     if (this.props.category.get('children').count() > 0) {
@@ -123,7 +124,7 @@ class CategoryHeader extends React.Component {
                 cleanupExceptions={['width', 'height']}
                 fill="#777777"
               />
-              <span className="CategoryHeader__icon-label visible-md visible-lg">Grid</span>
+              <span className="CategoryHeader__icon-label visible-md visible-lg">{layoutName}</span>
             </div>
           </div>
           <div className="hidden-xs hidden-sm">
