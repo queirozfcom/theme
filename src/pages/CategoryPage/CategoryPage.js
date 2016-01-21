@@ -2,7 +2,6 @@ import React from 'react';
 import { stores, actions } from 'sdk';
 import Header from 'components/Header';
 import Footer from 'components/Footer/Footer';
-import CategoryListSidebar from 'components/CategoryListSidebar/CategoryListSidebar';
 import FilterListSidebar from 'components/FilterListSidebar/FilterListSidebar';
 import './CategoryPage.less';
 
@@ -53,7 +52,10 @@ class CategoryPage extends React.Component {
           <div className="row">
             <div className="CategoryPage__sidebar hidden-xs hidden-sm col-md-3 col-lg-2">
               <div className="CategoryPage__category-list">
-                <CategoryListSidebar />
+                <Area
+                  id="category/category-list-sidebar"
+                  location={this.props.location}
+                />
               </div>
               <div className="CategoryPage__filter-list">
                 <FilterListSidebar />
