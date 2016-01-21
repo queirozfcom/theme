@@ -128,7 +128,7 @@ class CategoryHeader extends React.Component {
             </div>
           </div>
           <div className="hidden-xs hidden-sm">
-            <OrderSelector />
+            <OrderSelector location={this.props.location} />
           </div>
           <div>
           <Area
