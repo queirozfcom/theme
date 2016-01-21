@@ -1,20 +1,19 @@
 import React from 'react';
+import { stores } from 'sdk';
 import './FilterListSidebar.less';
-import FilterListOption from './FilterListOption/FilterListOption.js';
+
+const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
 
 class FilterListSidebar extends React.Component {
   render() {
     return (
       <div className="FilterListSidebar">
         <h3 className="FilterListSidebar__title">Filtros</h3>
-        <ul className="FilterListSidebar__list">
-          <FilterListOption isSelected={true} />
-          <FilterListOption isSelected={false} />
-          <FilterListOption isSelected={false} />
-          <FilterListOption isSelected={false} />
-          <FilterListOption isSelected={false} />
-
-        </ul>
+        <Area
+          id="category/filter-panel/brand-select"
+          areaPath="category"
+          location={this.props.location}
+        />
       </div>
     );
   }

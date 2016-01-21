@@ -1,7 +1,6 @@
 @import "~utils/base/base";
 
 .FilterListSidebar {
-
   &__title {
     color: @primary-color;
     font-family: @display-font;
@@ -18,5 +17,40 @@
         text-decoration: none;
       }
     }
+  }
+
+  .BrandSelect {
+    margin: 0px;
+  }
+
+  .BrandOption {
+    border: 0px;
+    border-radius: 0px;
+
+    &:first-child {
+      border: 0px;
+      border-radius: 0px;
+    }
+
+    &:last-child {
+      border: 0px;
+      border-radius: 0px;
+    }
+
+    &[data-is-selected=true] {
+      background-color: initial;
+    }
+  }
+
+  .BrandOption__inner {
+    padding: 8px 0px;
+  }
+
+  .BrandOption__label {
+    padding-left: 12px;
+  }
+
+  .BrandOption__checkbox {
+    float: left;
   }
 }

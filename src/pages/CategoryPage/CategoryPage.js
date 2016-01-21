@@ -58,7 +58,7 @@ class CategoryPage extends React.Component {
                 />
               </div>
               <div className="CategoryPage__filter-list">
-                <FilterListSidebar />
+                <FilterListSidebar location={this.props.location} />
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-9 col-lg-10 CategoryPage__product-list">
