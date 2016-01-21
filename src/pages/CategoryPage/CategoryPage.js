@@ -43,10 +43,10 @@ class CategoryPage extends React.Component {
       <div className="CategoryPage">
         <Header areaPath="category" />
         <Area
-        id="category/category-header"
-        grid={this.state.grid}
-        location={this.props.location}
-        changeLayout={this.changeLayout}
+          id="category/category-header"
+          grid={this.state.grid}
+          location={this.props.location}
+          changeLayout={this.changeLayout}
         />
         <div className="CategoryPage__content container-fluid">
           <div className="row">
@@ -63,10 +63,10 @@ class CategoryPage extends React.Component {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-9 col-lg-10 CategoryPage__product-list">
               <Area
-              id="category/product-list"
-              areaPath="category"
-              location={this.props.location}
-              grid={this.state.grid}
+                id="category/product-list"
+                areaPath="category"
+                location={this.props.location}
+                grid={this.state.grid}
               />
             </div>
           </div>

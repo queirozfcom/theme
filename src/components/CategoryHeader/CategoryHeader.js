@@ -103,7 +103,9 @@ class CategoryHeader extends React.Component {
             <h1 className="CategoryHeader__title">
               { this.props.category.get('name') }
             </h1>
-            { explorerButton }
+            <div className="CategoryHeader__explorer-button hidden-md hidden-lg">
+              { explorerButton }
+            </div>
             <span className="CategoryHeader__results">
               { this.props.category.get('productQuantity') } Resultados
             </span>
@@ -111,8 +113,8 @@ class CategoryHeader extends React.Component {
           <div className="CategoryHeader__buttons">
             <div className="CategoryHeader__filter-button hidden-md hidden-lg">
               <Area
-              id="category/filter-button"
-              openFilterPanel={this.toggleFilterPanel(true)}
+                id="category/filter-button"
+                openFilterPanel={this.toggleFilterPanel(true)}
               />
             </div>
             <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
@@ -124,20 +126,22 @@ class CategoryHeader extends React.Component {
                 cleanupExceptions={['width', 'height']}
                 fill="#777777"
               />
-              <span className="CategoryHeader__icon-label visible-md visible-lg">{layoutName}</span>
+              <span className="CategoryHeader__icon-label visible-md visible-lg">
+                { layoutName }
+              </span>
             </div>
           </div>
           <div className="hidden-xs hidden-sm">
             <OrderSelector location={this.props.location} />
           </div>
           <div>
-          <Area
-            id="category/filter-panel"
-            areaPath="category"
-            location={this.props.location}
-            isOpen={this.state.isFilterPanelOpen}
-            closeFilterPanel={this.toggleFilterPanel(false)}
-          />
+            <Area
+              id="category/filter-panel"
+              areaPath="category"
+              location={this.props.location}
+              isOpen={this.state.isFilterPanelOpen}
+              closeFilterPanel={this.toggleFilterPanel(false)}
+            />
           </div>
           <ReactCSSTransitionGroup
             transitionName="ExplorerPanel"
