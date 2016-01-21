@@ -8,7 +8,7 @@ import frontArrowImg from 'assets/icons/frontArrow_icon.png';
 class CategoryOption extends React.Component {
   handleTouchTap = () => {
     this.props.closeExplorerPanel();
-    history.pushState(null, this.props.slug, { pageSize: 5 });
+    history.pushState(null, this.props.slug, { pageSize: 10 });
   }
 
   render() {
