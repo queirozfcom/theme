@@ -9,7 +9,6 @@ import Categories from './Categories';
 
 @connectToStores()
 class Footer extends React.Component {
-
   static getStores() {
     return [
       stores.CategoryStore
@@ -23,9 +22,9 @@ class Footer extends React.Component {
   }
 
   render() {
-    let items = this.props.categories.map((category) => {
+    let items = this.props.categories.valueSeq().map((category) => {
       return (
-        <Categories cat={category} />
+        <Categories key={category.get('slug')} cat={category} />
       );
     });
 
@@ -38,7 +37,7 @@ class Footer extends React.Component {
           </div>
           <div className="Footer__links">
             <ul className="Footer__menu">
-              {items}
+              { items }
             </ul>
             <ul className="Footer__menu institucional">
               <li><Link to={`/quem-somos`}>

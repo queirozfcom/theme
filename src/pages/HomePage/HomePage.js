@@ -17,20 +17,26 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-      <div className="HomePage">
-        <Header areaPath="home" />
-        <div className="HomePage__wrapper">
-          <div className="HomePage__bannerarea">
-            <Area id="home/banner"/>
+      <ReactCSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}
+      >
+        <div key="HomePage" className="HomePage">
+          <Header areaPath="home" />
+          <div className="HomePage__wrapper">
+            <div className="HomePage__bannerarea">
+              <Area id="home/banner"/>
+            </div>
+            <div className="HomePage__shelfarea">
+              <Area id="home/shelf1"/>
+            </div>
+            <Policies/>
           </div>
-          <div className="HomePage__shelfarea">
-            <Area id="home/shelf1"/>
-          </div>
-          <Policies/>
+          <Area id="home/footer"/>
         </div>
-        <Area id="home/footer"/>
-      </div>
       </ReactCSSTransitionGroup>
     );
   }
