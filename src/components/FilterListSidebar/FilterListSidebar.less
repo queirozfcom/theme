@@ -23,9 +23,20 @@
     margin: 0px;
   }
 
+  .BrandOption[data-is-selected=true] {
+    background-color: initial;
+
+    .BrandOption__label {
+      color: @secondary-color;
+      font-family: @display-font;
+      font-style: italic;
+    }
+  }
+
   .BrandOption {
     border: 0px;
     border-radius: 0px;
+    font-family: @display-font;
 
     &:first-child {
       border: 0px;
@@ -36,10 +47,6 @@
       border: 0px;
       border-radius: 0px;
     }
-
-    &[data-is-selected=true] {
-      background-color: initial;
-    }
   }
 
   .BrandOption__inner {
@@ -47,10 +54,13 @@
   }
 
   .BrandOption__label {
+    float: right;
     padding-left: 12px;
+    width: 90%;
   }
 
   .BrandOption__checkbox {
     float: left;
+    width: 10%;
   }
 }
