@@ -2,6 +2,19 @@
 
 .theme {
 
+// ==========  Layout 		==========
+
+.theme__width {
+  //All Screens Except Mobile
+  @media (min-width: 992px) {
+    max-width: @desktop-width !important;
+    margin: 0 auto !important;
+  }
+
+  max-width: @mobile-width !important;
+  margin: 0 auto !important;
+}
+
 // ==========  Typography 		==========
 
   .theme__font-family--main {
@@ -22,24 +35,28 @@
     color: @secondary-color !important;
   }
 
-  .theme__color--third {
-    color: @third-color !important;
+  .theme__color--third, .theme__color--tertiary {
+    color: @tertiary-color !important;
   }
 
-  .theme__color--black {
+  .theme__color--black, .theme__color--dark {
     color: @dark-color !important;
   }
 
-  .theme__color--white {
+  .theme__color--white, .theme__color--light {
     color: @light-color !important;
+  }
+
+  .theme__color--accent {
+    color: @accent-color !important;
   }
 
   // ==========  Link Hover Colors 		==========
 
-    .theme__hover-color--main {
+    .theme__hover-color--primary, .theme__hover-color--main {
 
       &:hover {
-        color: darken(@primary-color, 15%) !important;
+        color: darken(@primary-color, 8%) !important;
         text-decoration: none;
         cursor: pointer;
       }
@@ -48,34 +65,43 @@
     .theme__hover-color--secondary {
 
       &:hover {
-        color: darken(@secondary-color, 15%) !important;
+        color: darken(@secondary-color, 8%) !important;
         text-decoration: none;
         cursor: pointer;
       }
     }
 
-    .theme__hover-color--third {
+    .theme__hover-color--third, .theme__hover-color--tertiary {
 
       &:hover {
-        color: darken(@third-color, 15%) !important;
+        color: darken(@tertiary-color, 8%) !important;
         text-decoration: none;
         cursor: pointer;
       }
     }
 
-    .theme__hover-color--black {
+    .theme__hover-color--black, .theme__hover-color--dark {
 
       &:hover {
-        color: darken(@dark-color, 15%) !important;
+        color: darken(@dark-color, 8%) !important;
         text-decoration: none;
         cursor: pointer;
       }
     }
 
-    .theme__hover-color--white {
+    .theme__hover-color--white, .theme__hover-color--light {
 
       &:hover {
-        color: darken(@light-color, 15%) !important;
+        color: darken(@light-color, 8%) !important;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .theme__hover-color--accent {
+
+      &:hover {
+        color: darken(@accent-color, 8%) !important;
         text-decoration: none;
         cursor: pointer;
       }
@@ -83,46 +109,91 @@
 
   // ==========  BG Colors 		==========
 
-  .theme__background-color--main {
-    background: @third-color !important;
+  .theme__background-color--main, .theme__background-color--primary {
+    background: @primary-color !important;
   }
 
   .theme__background-color--secondary {
     background: @secondary-color !important;
   }
 
-  .theme__background-color--third {
-    background: @primary-color !important;
+  .theme__background-color--third, .theme__background-color--tertiary {
+    background: @tertiary-color !important;
   }
 
-  .theme__background-color--black {
+  .theme__background-color--black, .theme__background-color--dark {
     background: @dark-color !important;
   }
 
-  .theme__background-color--white {
+  .theme__background-color--white, .theme__background-color--light {
     background: @light-color !important;
   }
+
+  // ==========  BG Hover Colors 		==========
+
+    .theme__background-hover-color--primary, .theme__background-hover-color--main {
+      &:hover {
+        background-color: darken(@primary-color, 8%) !important;
+      }
+    }
+
+    .theme__background-hover-color--secondary {
+      &:hover {
+        background-color: darken(@secondary-color, 8%) !important;
+      }
+    }
+
+    .theme__background-hover-color--third, .theme__background-hover-color--tertiary {
+      &:hover {
+        background-color: darken(@tertiary-color, 8%) !important;
+      }
+    }
+
+    .theme__background-hover-color--black, .theme__background-hover-color--dark {
+      &:hover {
+        background-color: darken(@dark-color, 8%) !important;
+      }
+    }
+
+    .theme__background-hover-color--white, .theme__background-hover-color--light {
+      &:hover {
+        background-color: darken(@light-color, 8%) !important;
+      }
+    }
+
+    .theme__background-hover-color--accent {
+      &:hover {
+        background-color: darken(@accent-color, 8%) !important;
+      }
+    }
 
   // ==========  Border Colors 		==========
 
   .theme__border-color--main {
-    border-color: @third-color !important;
+    border-color: @tertiary-color !important;
   }
 
   .theme__border-color--secondary {
     border-color: @secondary-color !important;
   }
 
-  .theme__border-color--third {
+  .theme__border-color--tertiary {
     border-color: @primary-color !important;
   }
 
-  .theme__border-color--black {
+  .theme__border-color--dark {
     border-color: @dark-color !important;
   }
 
-  .theme__border-color--white {
+  .theme__border-color--light {
     border-color: @light-color !important;
   }
 
+  .theme__border-color--dark-plus {
+    border-color: darken(@dark-color, 5%) !important;
+  }
+
+  .theme__border-color--light-plus {
+    border-color: darken(@light-color, 5%) !important;
+  }
 }

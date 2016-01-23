@@ -1,0 +1,41 @@
+@import "~utils/base/base";
+
+.CategoryListSidebar {
+  &__title {
+    color: @primary-color;
+    font-family: @display-font;
+    font-size: 1.3em;
+    font-weight: 200;
+    margin-top: 0px;
+  }
+
+  &__list {
+    .css-utils-clean-list();
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__header {
+    color: @secondary-color;
+    font-family: @display-font;
+    font-size: 1.15em;
+    font-style: italic;
+  }
+
+  &__list-option {
+    color: lighten(@dark-color, 15%);
+    display: block;
+    font-family: @display-font;
+    padding: 8px 0px 8px 8px;
+
+    &:hover {
+      color: darken(@secondary-color, 15%) !important;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

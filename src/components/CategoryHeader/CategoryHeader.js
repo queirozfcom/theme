@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './CategoryHeader.less';
 import ExplorerButton from './ExplorerButton/ExplorerButton';
 import ExplorerPanel from './ExplorerPanel/ExplorerPanel';
+import OrderSelector from './OrderSelector/OrderSelector';
 import SVGIcon from 'utils/SVGIcon';
 import listIcon from 'assets/icons/list_icon.svg';
 import listImg from 'assets/icons/list_icon.png';
@@ -71,11 +72,12 @@ class CategoryHeader extends React.Component {
   }
 
   render() {
+    let layoutName = this.props.grid ? 'Grid' : 'Lista';
     let explorerButton = null;
     let explorerPanel = null;
     const icon = {
-      svg: this.props.grid ? listIcon : gridIcon,
-      img: this.props.grid ? listImg : gridImg
+      svg: this.props.grid ? gridIcon : listIcon,
+      img: this.props.grid ? gridImg : listImg
     };
 
     if (this.props.category.get('children').count() > 0) {
@@ -95,37 +97,42 @@ class CategoryHeader extends React.Component {
     }
 
     return (
-      <nav className="CategoryHeader container-fluid">
-        <div className="CategoryHeader__container">
-          <div className="CategoryHeader__content row">
-            <div className="CategoryHeader__title">
-              <h1 className="CategoryHeader__title-inner">
-                { this.props.category.get('name') }
-              </h1>
-
+      <nav className="CategoryHeader">
+        <div className="CategoryHeader__container container-fluid clearfix">
+          <div className="CategoryHeader__content clearfix">
+            <h1 className="CategoryHeader__title">
+              { this.props.category.get('name') }
+            </h1>
+            <div className="CategoryHeader__explorer-button hidden-md hidden-lg">
               { explorerButton }
             </div>
-            <div className="col-xs-12">
-              <span className="CategoryHeader__results">
-                { this.props.category.get('productQuantity') } Resultados
-              </span>
-            </div>
+            <span className="CategoryHeader__results">
+              { this.props.category.get('productQuantity') } Resultados
+            </span>
           </div>
-          <div className="CategoryHeader__buttons row">
+          <div className="CategoryHeader__buttons">
+            <div className="CategoryHeader__filter-button hidden-md hidden-lg">
+              <Area
+                id="category/filter-button"
+                openFilterPanel={this.toggleFilterPanel(true)}
+              />
+            </div>
             <div className="CategoryHeader__grid-button" onTouchTap={this.handleGridTap}>
               <SVGIcon
                 className="CategoryHeader__icon"
                 svg={icon.svg}
                 fallback={icon.img}
-                width={18}
+                height={20}
                 cleanupExceptions={['width', 'height']}
                 fill="#777777"
               />
+              <span className="CategoryHeader__icon-label visible-md visible-lg">
+                { layoutName }
+              </span>
             </div>
-            <Area
-              id="category/filter-button"
-              openFilterPanel={this.toggleFilterPanel(true)}
-            />
+          </div>
+          <div className="hidden-xs hidden-sm">
+            <OrderSelector location={this.props.location} />
           </div>
           <div>
             <Area

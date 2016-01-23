@@ -1,0 +1,68 @@
+@import "~utils/base/base";
+
+.FilterListSidebar {
+  &__title {
+    color: @primary-color;
+    font-family: @display-font;
+    font-size: 1.3em;
+    font-weight: 200;
+    margin-top: 0px;
+  }
+
+  &__list {
+    .css-utils-clean-list();
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .BrandSelect {
+    margin: 0px;
+  }
+
+  .BrandOption[data-is-selected=true] {
+    background-color: initial;
+
+    .BrandOption__label {
+      color: @secondary-color;
+      font-family: @display-font;
+      font-style: italic;
+    }
+  }
+
+  .BrandOption {
+    border: 0px;
+    border-radius: 0px;
+    font-family: @display-font;
+    padding: 8px 0px 8px 0px;
+
+    &:first-child {
+      border: 0px;
+      border-radius: 0px;
+      padding-top: 0px;
+    }
+
+    &:last-child {
+      border: 0px;
+      border-radius: 0px;
+    }
+  }
+
+  .BrandOption__inner {
+    padding: 8px 0px;
+  }
+
+  .BrandOption__label {
+    float: right;
+    padding-left: 12px;
+    width: 90%;
+  }
+
+  .BrandOption__checkbox {
+    float: left;
+    width: 10%;
+  }
+}
