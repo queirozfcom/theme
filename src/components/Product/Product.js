@@ -10,11 +10,11 @@ const Price = stores.ComponentStore.state.getIn(['Price@vtex.storefront-sdk', 'c
 class Product extends React.Component {
   componentWillMount() {
     if (this.props.skus.length === 1) {
-      let selectedSku = this.props.skus;
+      let selectedSku = this.props.skus[0];
 
       this.setState({ selectedSku });
     } else {
-      this.setState({ selectedSku: [] });
+      this.setState({ selectedSku: undefined });
     }
   }
 
@@ -23,12 +23,11 @@ class Product extends React.Component {
   }
 
   render() {
-    let defaultSku = this.state.selectedSku.length === 1 ?
-      this.state.selectedSku[0] : this.props.skus[0];
+    let defaultSku = this.state.selectedSku || this.props.skus[0];
     let name = this.props.name;
     let price = defaultSku.offers[0].price;
     let skus = this.props.skus;
-    let cartValidation = this.state.selectedSku.length === 1 ? true : false;
+    let cartValidation = this.state.selectedSku ? true : false;
     let className = 'AddToCartButton--fixed';
 
     return (
@@ -39,7 +38,7 @@ class Product extends React.Component {
               <h2 className="Product__title">{name}</h2>
               <h3 className="Product__price"><Price value={price}/></h3>
             </div>
-            <Area id="product/product-image" images={defaultSku.images} />              
+            <Area id="product/product-image" images={defaultSku.images} />
           </div>
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div className="visible-sm visible-md visible-lg">
