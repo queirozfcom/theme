@@ -1,7 +1,7 @@
 @import "~utils/base/base";
 
 .CategoryHeader {
-  background: @secondary-bg;
+  background: @light-color;
 
   &__grid-button {
     .css-utils-clean-btn();
@@ -55,13 +55,15 @@
 
   &__title {
     float: left;
-    font-family: 'Lato';
-    font-weight: 200;
-    margin-top: 0px;
+    text-transform: uppercase;
+    color: @secondary-color;
+    font-family: 'bebas_neuebold', 'sans-serif';
+    margin-top: 0;
     margin-bottom: @pad / 2;
     max-width: 80%;
-    padding: 0px;
+    padding: 0;
     text-align: left;
+    font-size: 1.8em;
   }
 
   &__buttons {

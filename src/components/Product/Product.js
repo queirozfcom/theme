@@ -49,20 +49,18 @@ class Product extends React.Component {
       <div className="Product">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div className="hidden-sm hidden-md hidden-lg">
+            <div>
               <h2 className="Product__title">{name}</h2>
-              <h3 className="Product__price"><Price value={price}/></h3>
             </div>
             <Placeholder id="product-image" images={defaultSku.images} />
           </div>
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div className="visible-sm visible-md visible-lg">
-              <h2 className="Product__title">{name}</h2>
+            <div className="prices">
               <h3 className="Product__price list-price">De <Price value={listPrice}/></h3>
               <h3 className="Product__price">Por <Price value={price}/></h3>
               <h3 className="Product__price percentual-discount">Desconto de { percentualDiscount }%</h3>
             </div>
-            <div className="col-xs-6">
+            <div className="brand">
               <Link to={`/${brand.name}/s`}>
                 <h4 className="brand pull-right">{ brand.name }</h4>
               </Link>
