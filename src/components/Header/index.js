@@ -61,7 +61,7 @@ class Header extends React.Component {
         </div>
         <div className="Header__logo--mobile hidden-sm hidden-md hidden-lg">
           <a href="/">
-            <img src={ logoImage } alt="Pilates Lovers"/>
+            <img src={ logoImage } alt="Pilates Lovers" className="pl-logo-img"/>
           </a>
           <hr/>
         </div>

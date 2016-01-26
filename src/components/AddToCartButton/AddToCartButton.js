@@ -17,7 +17,7 @@ class AddToCartButton extends React.Component {
 
     let label = 'Adicionar ao carrinho';
     let color = '#75CCB1';
-    let boxShadowColor = '#84d2b9';
+    let boxShadowColor = '#737373';
 
     if (this.props.settings) {
       label = this.props.settings.get('label');
