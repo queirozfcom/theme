@@ -6,8 +6,8 @@
   .css-utils-unselectable();
 
   background: #75CCB1;
-  box-shadow: 0px 3px 0px 0px darken(#75CCB1, 8%);
-  border-radius: 3.5px;
+  box-shadow: 0 0 0 0 darken(#fff, 8%);
+  border-radius: 0;
   display: block;
   outline: none;
   padding: 12.5px;
@@ -40,16 +40,16 @@
   .AddToCartButton;
 
   @media (max-width: @screen-sm-max) {
-    bottom: 0px;
-    border-radius: 0px;
-    border-top: 3px solid lighten(#75CCB1, 14%);
+    bottom: 0;
+    border-radius: 0;
+    border-top: 0;
     display: block;
-    left: 0px;
+    left: 0;
     position: fixed;
     z-index: @zindex-5;
 
     &:active {
-      border-top: 1px solid lighten(#75CCB1, 14%);
+      border-top: 1px solid lighten(@primary-color, 14%);
       color: darken(#FFF, 8%);
       margin: 0px;
     }

@@ -25,6 +25,7 @@ class Product extends React.Component {
 
   render() {
     let defaultSku = this.state.selectedSku || this.props.skus[0];
+    console.log(defaultSku);
     let name = this.props.name;
     let brand = this.props.brand;
     let listPrice = defaultSku.offers[0].listPrice;
@@ -49,31 +50,49 @@ class Product extends React.Component {
       <div className="Product">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div>
-              <h2 className="Product__title">{name}</h2>
+            <div className="hidden-sm hidden-md hidden-lg">
+              <h2 className="Product__title pl-title-m">{name}</h2>
             </div>
             <Area id="product/product-image" images={defaultSku.images} />
           </div>
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div className="prices">
+            <div className="visible-sm visible-md visible-lg">
+              <h2 className="Product__title">{name}</h2>
               <h3 className="Product__price list-price">De <Price value={listPrice}/></h3>
               <h3 className="Product__price">Por <Price value={price}/></h3>
               <h3 className="Product__price percentual-discount">Desconto de { percentualDiscount }%</h3>
             </div>
-            <div className="brand">
-              <Link to={`/${brand.name}/s`}>
-                <h4 className="brand pull-right">{ brand.name }</h4>
-              </Link>
+            <div className="visible-xs">
+              <div className="row">
+                <div className="col-xs-6">
+                  {
+                    skus.length > 1 ?
+                      <Area
+                        skus={skus}
+                        changeSelectedSku={this.changeSelectedSku}
+                        id="product/sku-selector"
+                      /> :
+                      <div>
+                        <h3 className="Product__price list-price pull-left">De <Price value={listPrice}/></h3>
+                        <h3 className="Product__price pull-left">Por <Price value={price}/></h3>
+                        <h3 className="Product__price percentual-discount pull-left">Desconto de { percentualDiscount }%</h3>
+                      </div>
+                  }
+                </div>
+                <div className="col-xs-6">
+                  {
+                    skus.length > 1 ?
+                      <div>
+                        <h3 className="Product__price list-price pull-right">De <Price value={listPrice}/></h3>
+                        <h3 className="Product__price pull-right">Por <Price value={price}/></h3>
+                        <h3 className="Product__price percentual-discount pull-right">Desconto de { percentualDiscount }%</h3>
+                      </div> : null
+                  }
+                </div>
+              </div>
+
             </div>
             {availabilityBanner}
-            {
-              skus.length > 1 ?
-                <Area
-                  skus={skus}
-                  changeSelectedSku={this.changeSelectedSku}
-                  id="product/sku-selector"
-                /> : null
-            }
             <AddToCartButton
               skuId={defaultSku.id}
               cartValidation={cartValidation}
@@ -90,8 +109,12 @@ class Product extends React.Component {
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 Product__shipping-wrapper">
             <ProductDescription description={ this.props.description } />
+            <div className="brand">
+              Marca: <Link to={`/${brand.name}/s`}>
+                <span className="brand-link">{ brand.name }</span>
+              </Link>
+            </div>
           </div>
-
         </div>
       </div>
     );
