@@ -12,12 +12,12 @@ class CategoryListSidebar extends React.Component {
     ];
   }
 
-  static getPropsFromStores() {
-    let path = window.location.pathname + window.location.search;
+  static getPropsFromStores(props) {
+    let path = props.location.pathname + props.location.search;
     let facets = stores.FacetsStore.getState().getIn([path, 'category/category-header']);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
-    let name = category ? category.get('name') : '';
-    let slug = category ? category.get('slug') : '';
+    let name = category ? category.get('name') : undefined;
+    let slug = category ? category.get('slug') : undefined;
     let children = category ? category.get('children') : undefined;
 
     return {

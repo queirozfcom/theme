@@ -27,26 +27,18 @@ class CategoryHeader extends React.Component {
     ];
   }
 
-  static getPropsFromStores() {
-    let path = window.location.pathname + window.location.search;
+  static getPropsFromStores(props) {
+    let path = props.location.pathname + props.location.search;
     let facets = stores.FacetsStore.getState().getIn([path, 'category/category-header']);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
-    let filters = facets ? facets.getIn(['filters']).takeWhile(function(value, key) {
-      return key !== 'category';
-    }) : undefined;
 
     return {
-      category,
-      filters
+      category
     };
   }
 
   shouldComponentUpdate({ category }) {
-    if (category === undefined) {
-      return false;
-    }
-
-    return true;
+    return category !== undefined;
   }
 
   handleGridTap = () => {

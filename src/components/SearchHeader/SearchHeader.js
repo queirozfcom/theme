@@ -22,8 +22,8 @@ class SearchHeader extends React.Component {
     ];
   }
 
-  static getPropsFromStores() {
-    let path = window.location.pathname + window.location.search;
+  static getPropsFromStores(props) {
+    let path = props.location.pathname + props.location.search;
     let facets = stores.FacetsStore.getState().getIn([path, 'search/search-header']);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
     let qty = category ? category.get('productQuantity') : 0;
@@ -35,11 +35,7 @@ class SearchHeader extends React.Component {
   }
 
   shouldComponentUpdate({ category }) {
-    if (category === undefined) {
-      return false;
-    }
-
-    return true;
+    return category !== undefined;
   }
 
   handleGridTap = () => {
