@@ -32,6 +32,10 @@ class CategoryListSidebar extends React.Component {
   }
 
   render() {
+    if (!this.props.categories) {
+      return null;
+    }
+
     let categoryOptions = this.props.categories.map((category) => {
       let slug = `/${this.props.slug}/${category.get('slug')}/c`;
 

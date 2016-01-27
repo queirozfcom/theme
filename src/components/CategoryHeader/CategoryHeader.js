@@ -64,6 +64,10 @@ class CategoryHeader extends React.Component {
   }
 
   render() {
+    if (!this.props.category) {
+      return null;
+    }
+
     let layoutName = this.props.grid ? 'Grid' : 'Lista';
     let explorerButton = null;
     let explorerPanel = null;
