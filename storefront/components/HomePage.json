@@ -1,4 +1,26 @@
 {
+  "areas": [
+    {
+      "id": "home/shelf1",
+      "intention": "shelf"
+    },
+    {
+      "id": "home/banner",
+      "intention": "banner"
+    },
+    {
+      "id": "home/navigation-menu",
+      "intention": "menu"
+    },
+    {
+      "id": "home/search-bar",
+      "intention": "search-bar"
+    },
+    {
+      "id": "home/0editor",
+      "intention": "editor"
+    }
+  ],
   "assets": [
     "common.js",
     "HomePage.js"

@@ -11,6 +11,7 @@ class FilterListSidebar extends React.Component {
         <h3 className="FilterListSidebar__title">Filtros</h3>
         <Area
           id="category/filter-panel/brand-select"
+          intention="brand-select"
           areaPath="category"
           location={this.props.location}
         />

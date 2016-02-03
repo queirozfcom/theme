@@ -38,7 +38,11 @@ class Product extends React.Component {
               <h2 className="Product__title">{name}</h2>
               <h3 className="Product__price"><Price value={price}/></h3>
             </div>
-            <Area id="product/product-image" images={defaultSku.images} />
+            <Area
+              id="product/product-image"
+              intention="product-image"
+              images={defaultSku.images}
+            />
           </div>
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div className="visible-sm visible-md visible-lg">
@@ -51,6 +55,7 @@ class Product extends React.Component {
                   skus={skus}
                   changeSelectedSku={this.changeSelectedSku}
                   id="product/sku-selector"
+                  intention="sku-selector"
                 /> : null
             }
             <AddToCartButton
@@ -63,6 +68,7 @@ class Product extends React.Component {
             <Area
               sku={this.state.selectedSku}
               id="product/shipping-calculator"
+              intention="shipping-calculator"
             />
           </div>
         </div>

@@ -1,4 +1,5 @@
 {
+  "intention": "header",
   "resourceBindings": [
     {
       "locator": "search@vtex.storefront-sdk",
@@ -8,6 +9,16 @@
         "brands": "{{ query.brands }}"
       },
       "bindTo": "facets@vtex"
+    }
+  ],
+  "areas": [
+    {
+      "id": "category/category-header/filter-panel",
+      "intention": "filter-panel"
+    },
+    {
+      "id": "category/category-header/filter-button",
+      "intention": "filter-button"
     }
   ],
   "assets": [

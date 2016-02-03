@@ -110,6 +110,7 @@ class CategoryHeader extends React.Component {
             <div className="CategoryHeader__filter-button hidden-md hidden-lg">
               <Area
                 id="category/filter-button"
+                intention="filter-button"
                 openFilterPanel={this.toggleFilterPanel(true)}
               />
             </div>
@@ -133,6 +134,7 @@ class CategoryHeader extends React.Component {
           <div>
             <Area
               id="category/filter-panel"
+              intention="filter-panel"
               areaPath="category"
               location={this.props.location}
               isOpen={this.state.isFilterPanelOpen}

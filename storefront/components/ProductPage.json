@@ -1,4 +1,30 @@
 {
+  "areas": [
+    {
+      "id": "product/product-image",
+      "intention": "product-image"
+    },
+    {
+      "id": "product/sku-selector",
+      "intention": "sku-selector"
+    },
+    {
+      "id": "product/shipping-calculator",
+      "intention": "shipping-calculator"
+    },
+    {
+      "id": "product/navigation-menu",
+      "intention": "menu"
+    },
+    {
+      "id": "product/search-bar",
+      "intention": "search-bar"
+    },
+    {
+      "id": "product/0editor",
+      "intention": "editor"
+    }
+  ],
   "assets": [
     "common.js",
     "ProductPage.js"

@@ -1,4 +1,26 @@
 {
+  "areas": [
+    {
+      "id": "search/search-header",
+      "intention": "header"
+    },
+    {
+      "id": "search/navigation-menu",
+      "intention": "menu"
+    },
+    {
+      "id": "search/0editor",
+      "intention": "editor"
+    },
+    {
+      "id": "search/product-list",
+      "intention": "product-list"
+    },
+    {
+      "id": "search/search-bar",
+      "intention": "search-bar"
+    }
+  ],
   "assets": [
     "common.js",
     "SearchPage.js"

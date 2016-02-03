@@ -42,6 +42,7 @@ class SearchPage extends React.Component {
         <Header areaPath="search" />
         <Area
           id="search/search-header"
+          intention="header"
           searchTerm={this.props.params.searchTerm}
           grid={this.state.grid}
           location={this.props.location}
@@ -49,6 +50,7 @@ class SearchPage extends React.Component {
         />
         <Area
           id="search/product-list"
+          intention="product-list"
           areaPath="search"
           location={this.props.location}
           grid={this.state.grid}

@@ -1,4 +1,5 @@
 {
+  "intention": "header",
   "resourceBindings": [
     {
       "locator": "search@vtex.storefront-sdk",
@@ -7,6 +8,16 @@
         "query": "{{ route.searchTerm }}"
       },
       "bindTo": "facets@vtex"
+    }
+  ],
+  "areas": [
+    {
+      "id": "search/search-header/filter-button",
+      "intention": "filter-button"
+    },
+    {
+      "id": "search/search-header/filter-panel",
+      "intention": "filter-panel"
     }
   ],
   "assets": [

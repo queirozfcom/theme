@@ -44,6 +44,7 @@ class CategoryPage extends React.Component {
         <Header areaPath="category" />
         <Area
           id="category/category-header"
+          intention="header"
           grid={this.state.grid}
           location={this.props.location}
           changeLayout={this.changeLayout}
@@ -54,6 +55,7 @@ class CategoryPage extends React.Component {
               <div className="CategoryPage__category-list">
                 <Area
                   id="category/category-list-sidebar"
+                  intention="category-list"
                   location={this.props.location}
                 />
               </div>
@@ -64,6 +66,7 @@ class CategoryPage extends React.Component {
             <div className="col-xs-12 col-sm-12 col-md-9 col-lg-10 CategoryPage__product-list">
               <Area
                 id="category/product-list"
+                intention="product-list"
                 areaPath="category"
                 location={this.props.location}
                 grid={this.state.grid}

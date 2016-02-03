@@ -29,6 +29,7 @@ class Header extends React.Component {
       (
         <Area
           id={`${this.props.areaPath}/navigation-menu`}
+          intention="menu"
           key="NavigationMenu"
           toggleMenu={this.handleMenuTap}
         />
@@ -44,6 +45,7 @@ class Header extends React.Component {
           <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
           <Area
             id={`${this.props.areaPath}/search-bar`}
+            intention="search-bar"
             visible={this.state.isSearchOpen}
             handleSearchTap={this.handleSearchTap}
           />

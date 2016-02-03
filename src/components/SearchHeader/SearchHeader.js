@@ -92,6 +92,7 @@ class SearchHeader extends React.Component {
               </div>
               <Area
                 id="search/filter-button"
+                intention="filter-button"
                 openFilterPanel={this.toggleFilterPanel(true)}
               />
             </div>
@@ -99,6 +100,7 @@ class SearchHeader extends React.Component {
           <div>
             <Area
               id="search/filter-panel"
+              intention="filter-panel"
               areaPath="search"
               location={this.props.location}
               isOpen={this.state.isFilterPanelOpen}

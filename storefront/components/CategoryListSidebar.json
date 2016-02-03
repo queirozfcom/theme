@@ -1,4 +1,5 @@
 {
+  "intention": "category-list",
   "resourceBindings": [
     {
       "locator": "search@vtex.storefront-sdk",
