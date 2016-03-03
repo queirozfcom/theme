@@ -8,7 +8,7 @@ import HeaderSearchButton from './HeaderSearchButton';
 import HeaderMenuToggle from './HeaderMenuToggle';
 import './style.less';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 class Header extends React.Component {
   state = {
@@ -27,8 +27,8 @@ class Header extends React.Component {
   render() {
     let menu = this.state.isMenuOpen ?
       (
-        <Area
-          id={`${this.props.areaPath}/navigation-menu`}
+        <Placeholder
+          id="navigation-menu"
           key="NavigationMenu"
           toggleMenu={this.handleMenuTap}
         />
@@ -42,8 +42,8 @@ class Header extends React.Component {
           <HeaderLogo />
           <HeaderCart />
           <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
-          <Area
-            id={`${this.props.areaPath}/search-bar`}
+          <Placeholder
+            id="search-bar"
             visible={this.state.isSearchOpen}
             handleSearchTap={this.handleSearchTap}
           />

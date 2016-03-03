@@ -1,11 +1,9 @@
 import React from 'react';
 import { stores, actions } from 'sdk';
-import Header from 'components/Header';
-import Footer from 'components/Footer/Footer';
 import FilterListSidebar from 'components/FilterListSidebar/FilterListSidebar';
 import './CategoryPage.less';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 class CategoryPage extends React.Component {
   state = {
@@ -41,9 +39,8 @@ class CategoryPage extends React.Component {
   render() {
     return (
       <div className="CategoryPage">
-        <Header areaPath="category" />
-        <Area
-          id="category/category-header"
+        <Placeholder
+          id="category-header"
           grid={this.state.grid}
           location={this.props.location}
           changeLayout={this.changeLayout}
@@ -52,26 +49,24 @@ class CategoryPage extends React.Component {
           <div className="row">
             <div className="CategoryPage__sidebar hidden-xs hidden-sm col-md-3 col-lg-2">
               <div className="CategoryPage__category-list">
-                <Area
-                  id="category/category-list-sidebar"
+                <Placeholder
+                  id="category-list-sidebar"
                   location={this.props.location}
                 />
               </div>
               <div className="CategoryPage__filter-list">
-                <FilterListSidebar location={this.props.location} />
+                <FilterListSidebar id={this.props.id} location={this.props.location} />
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-9 col-lg-10 CategoryPage__product-list">
-              <Area
-                id="category/product-list"
-                areaPath="category"
+              <Placeholder
+                id="product-list"
                 location={this.props.location}
                 grid={this.state.grid}
               />
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

@@ -18,7 +18,8 @@ class Policies extends React.Component {
 
         <div className="Policies__single clearfix">
           <div className="col-xs-1 col-xs-offset-1">
-            <SVGIcon className="Policies__icon" svg={exchangeIcon} fallback={exchangeImg} width={17} height={18} fill="#EDAF97"/>
+            <SVGIcon className="Policies__icon" svg={exchangeIcon}
+              fallback={exchangeImg} width={17} height={18} fill="#EDAF97"/>
           </div>
           <h3 className="Policies__single-title col-xs-9">
             Troca fácil

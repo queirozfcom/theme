@@ -1,9 +1,6 @@
 import React from 'react';
 import { stores, actions } from 'sdk';
-import Header from 'components/Header';
-import Footer from 'components/Footer/Footer';
-
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 class SearchPage extends React.Component {
   state = {
@@ -39,21 +36,18 @@ class SearchPage extends React.Component {
   render() {
     return (
       <div>
-        <Header areaPath="search" />
-        <Area
-          id="search/search-header"
+        <Placeholder
+          id="search-header"
           searchTerm={this.props.params.searchTerm}
           grid={this.state.grid}
           location={this.props.location}
           changeLayout={this.changeLayout}
         />
-        <Area
-          id="search/product-list"
-          areaPath="search"
+        <Placeholder
+          id="product-list"
           location={this.props.location}
           grid={this.state.grid}
         />
-        <Footer />
       </div>
     );
   }
