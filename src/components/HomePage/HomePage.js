@@ -5,7 +5,7 @@ import './HomePage.less';
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 class HomePage extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     let currentURL = (window.location.pathname + window.location.search);
     if (!stores.ResourceStore.getState().get(currentURL)) {
       actions.AreaActions.getAreaResources({currentURL, id: 'home'});
