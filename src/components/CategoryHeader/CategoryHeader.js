@@ -11,7 +11,7 @@ import listImg from 'assets/icons/list_icon.png';
 import gridIcon from 'assets/icons/grid_icon.svg';
 import gridImg from 'assets/icons/grid_icon.png';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 @connectToStores()
 class CategoryHeader extends React.Component {
@@ -29,7 +29,7 @@ class CategoryHeader extends React.Component {
 
   static getPropsFromStores(props) {
     let path = props.location.pathname + props.location.search;
-    let facets = stores.FacetsStore.getState().getIn([path, 'category/category-header']);
+    let facets = stores.FacetsStore.getState().getIn([path, props.id]);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
 
     return {
@@ -108,8 +108,8 @@ class CategoryHeader extends React.Component {
           </div>
           <div className="CategoryHeader__buttons">
             <div className="CategoryHeader__filter-button hidden-md hidden-lg">
-              <Area
-                id="category/filter-button"
+              <Placeholder
+                id="filter-button"
                 openFilterPanel={this.toggleFilterPanel(true)}
               />
             </div>
@@ -131,9 +131,8 @@ class CategoryHeader extends React.Component {
             <OrderSelector location={this.props.location} />
           </div>
           <div>
-            <Area
-              id="category/filter-panel"
-              areaPath="category"
+            <Placeholder
+              id="filter-panel"
               location={this.props.location}
               isOpen={this.state.isFilterPanelOpen}
               closeFilterPanel={this.toggleFilterPanel(false)}

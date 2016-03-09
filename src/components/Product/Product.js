@@ -4,7 +4,7 @@ import { stores } from 'sdk';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 const Price = stores.ComponentStore.state.getIn(['Price@vtex.storefront-sdk', 'constructor']);
 
 class Product extends React.Component {
@@ -38,7 +38,7 @@ class Product extends React.Component {
               <h2 className="Product__title">{name}</h2>
               <h3 className="Product__price"><Price value={price}/></h3>
             </div>
-            <Area id="product/product-image" images={defaultSku.images} />
+            <Placeholder id="product-image" images={defaultSku.images} />
           </div>
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div className="visible-sm visible-md visible-lg">
@@ -47,10 +47,10 @@ class Product extends React.Component {
             </div>
             {
               skus.length > 1 ?
-                <Area
+                <Placeholder
                   skus={skus}
                   changeSelectedSku={this.changeSelectedSku}
-                  id="product/sku-selector"
+                  id="sku-selector"
                 /> : null
             }
             <AddToCartButton
@@ -60,9 +60,9 @@ class Product extends React.Component {
               id="product-button"
               route="product"
             />
-            <Area
+            <Placeholder
               sku={this.state.selectedSku}
-              id="product/shipping-calculator"
+              id="shipping-calculator"
             />
           </div>
         </div>
@@ -70,7 +70,6 @@ class Product extends React.Component {
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 Product__shipping-wrapper">
             <ProductDescription />
           </div>
-
         </div>
       </div>
     );
