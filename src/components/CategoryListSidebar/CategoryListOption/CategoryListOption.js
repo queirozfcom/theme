@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
 import './CategoryListOption.less';
+import { stores } from 'sdk';
+
+const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 class CategoryListOption extends React.Component {
   render() {
