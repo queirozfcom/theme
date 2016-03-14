@@ -10,7 +10,7 @@ class CategoryPage extends React.Component {
     grid: false
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getResources();
   }
 
