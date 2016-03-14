@@ -7,10 +7,10 @@ var production = process.env.NODE_ENV === 'production';
 
 var config = {
   entry: {
-    'HomePage': ['./src/pages/HomePage/index.js'],
-    'ProductPage': ['./src/pages/ProductPage/index.js'],
-    'CategoryPage': ['./src/pages/CategoryPage/index.js'],
-    'SearchPage': ['./src/pages/SearchPage/index.js'],
+    'HomePage': ['./src/components/HomePage/index.js'],
+    'ProductPage': ['./src/components/ProductPage/index.js'],
+    'CategoryPage': ['./src/components/CategoryPage/index.js'],
+    'SearchPage': ['./src/components/SearchPage/index.js'],
     'SearchHeader': ['./src/components/SearchHeader/index.js'],
     'CategoryHeader': ['./src/components/CategoryHeader/index.js'],
     'CategoryListSidebar': ['./src/components/CategoryListSidebar/index.js'],
