@@ -1,6 +1,7 @@
 import React from 'react';
 import { actions, stores } from 'sdk';
 import './HomePage.less';
+import Policies from 'components/Policies/Policies';
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
@@ -23,6 +24,7 @@ class HomePage extends React.Component {
             <Placeholder id="shelf"/>
           </div>
         </div>
+        <Policies />
       </div>
     );
   }
