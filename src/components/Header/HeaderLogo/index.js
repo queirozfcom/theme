@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
 import './style.less';
+import { stores } from 'sdk';
 import SVGIcon from 'utils/SVGIcon';
 import storeLogo from 'assets/images/store_logo.svg';
 import storeLogoImg from 'assets/images/store_logo.png';
+
+const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 class HeaderLogo extends React.Component {
   render() {

@@ -81,7 +81,6 @@ var config = {
     'react-dom': 'ReactDOM',
     'react-addons-css-transition-group': 'ReactCSSTransitionGroup',
     'react-intl': 'ReactIntl',
-    'react-router': 'ReactRouter',
     'sdk': 'storefront.sdk',
     'vtex-editor': 'vtex.editor'
   },
