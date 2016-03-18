@@ -1,32 +1,10 @@
 import React from 'react';
-import { stores, actions } from 'sdk';
+import { stores } from 'sdk';
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 class SearchPage extends React.Component {
   state = {
     grid: false
-  }
-
-  componentDidMount() {
-    this.getResources();
-  }
-
-  componentDidUpdate() {
-    this.getResources();
-  }
-
-  getResources = () => {
-    let path = this.props.location.pathname + this.props.location.search;
-    let actionConfig = {
-      currentURL: path,
-      id: 'search',
-      params: this.props.params,
-      query: this.props.location.query
-    };
-
-    if (!stores.ResourceStore.getState().get(path)) {
-      actions.AreaActions.getAreaResources(actionConfig);
-    }
   }
 
   changeLayout = () => {

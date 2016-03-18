@@ -1,5 +1,5 @@
 import React from 'react';
-import { stores, actions } from 'sdk';
+import { stores } from 'sdk';
 import FilterListSidebar from 'components/FilterListSidebar/FilterListSidebar';
 import './CategoryPage.less';
 
@@ -8,28 +8,6 @@ const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefr
 class CategoryPage extends React.Component {
   state = {
     grid: false
-  }
-
-  componentDidMount() {
-    this.getResources();
-  }
-
-  componentDidUpdate() {
-    this.getResources();
-  }
-
-  getResources = () => {
-    let path = window.location.pathname + window.location.search;
-    let actionConfig = {
-      currentURL: path,
-      id: 'category',
-      params: this.props.params,
-      query: this.props.location.query
-    };
-
-    if (!stores.ResourceStore.getState().get(path)) {
-      actions.AreaActions.getAreaResources(actionConfig);
-    }
   }
 
   changeLayout = () => {
