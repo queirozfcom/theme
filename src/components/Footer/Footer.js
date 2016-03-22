@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { stores, connectToStores } from 'sdk';
 import './Footer.less';
 import SVGIcon from 'utils/SVGIcon';
 import instagramIcon from 'assets/icons/instagram.svg';
 import facebookIcon from 'assets/icons/facebook.svg';
 import Categories from './Categories';
+
+const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 @connectToStores()
 class Footer extends React.Component {
