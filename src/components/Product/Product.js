@@ -67,7 +67,7 @@ class Product extends React.Component {
                 <div className="col-xs-6">
                   {
                     skus.length > 1 ?
-                      <Area
+                      <Placeholder
                         skus={skus}
                         changeSelectedSku={this.changeSelectedSku}
                         id="product/sku-selector"

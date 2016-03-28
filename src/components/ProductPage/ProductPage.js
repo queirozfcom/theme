@@ -8,7 +8,6 @@ class ProductPage extends React.Component {
   render() {
     return (
       <div className="ProductPage">
-        <Header areaPath="product" />
         <div className="ProductPage__wrapper container-fluid">
           {this.props.loading ? <div>Carregando</div> : <Product {...this.props.product}/>}
         </div>
