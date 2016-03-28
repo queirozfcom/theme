@@ -44,7 +44,8 @@ class Product extends React.Component {
 
     let skus = this.props.skus;
     let cartValidation = this.state.selectedSku ? true : false;
-    let className = 'AddToCartButton--fixed';
+    //let className = 'AddToCartButton--fixed';
+    let className = 'AddToCartButton';
 
     return (
       <div className="Product">
