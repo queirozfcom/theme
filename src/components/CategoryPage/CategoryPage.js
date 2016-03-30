@@ -8,11 +8,11 @@ const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefr
 class CategoryPage extends React.Component {
   state = {
     grid: false
-  }
+  };
 
   changeLayout = () => {
     this.setState({ grid: !this.state.grid });
-  }
+  };
 
   render() {
     return (

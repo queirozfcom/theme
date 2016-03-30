@@ -9,6 +9,7 @@ import './style.less';
 import logoImage from 'assets/images/logo.jpg'
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
+const Link = stores.ComponentStore.state.getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 class Header extends React.Component {
   state = {
@@ -39,9 +40,9 @@ class Header extends React.Component {
         <HeaderTop />
         <div className="Header__inner clearfix">
           <div className="Header__logo hidden-xs col-sm-3 col-md-3 col-lg-3">
-            <a href="/">
+            <Link to="/">
               <img src={ logoImage } alt="Pilates Lovers"/>
-            </a>
+            </Link>
           </div>
           <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           <HeaderCart />
