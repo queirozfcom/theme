@@ -2,27 +2,21 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { stores } from 'sdk';
 import HeaderTop from './HeaderTop';
-import HeaderCart from './HeaderCart';
-import HeaderSearchButton from './HeaderSearchButton';
-import HeaderMenuToggle from './HeaderMenuToggle';
+import HeaderCart from './HeaderCart/HeaderCart';
+import HeaderMenuToggle from './HeaderMenuToggle/HeaderMenuToggle';
+import HeaderLogo from './HeaderLogo/HeaderLogo';
+import HeaderSearchComponent from './HeaderSearchComponent/HeaderSearchComponent';
 import './style.less';
-import logoImage from 'assets/images/logo.jpg'
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
-const Link = stores.ComponentStore.state.getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 class Header extends React.Component {
   state = {
-    isMenuOpen: false,
-    isSearchOpen: false
+    isMenuOpen: false
   }
 
   handleMenuTap = () => {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
-  }
-
-  handleSearchTap = () => {
-    this.setState({ isSearchOpen: !this.state.isSearchOpen });
   }
 
   render() {
@@ -38,20 +32,29 @@ class Header extends React.Component {
     return (
       <div className="Header">
         <HeaderTop />
-        <div className="Header__inner clearfix">
-          <div className="Header__logo hidden-xs col-sm-3 col-md-3 col-lg-3">
-            <Link to="/">
-              <img src={ logoImage } alt="Pilates Lovers"/>
-            </Link>
+        <div className="Header__inner clearfix row">
+          <div className="col-xs-1 col-sm-1 hidden-md hidden-lg">
+            <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
           </div>
-          <HeaderMenuToggle handleMenuTap={this.handleMenuTap} />
-          <HeaderCart />
-          <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
-          <Placeholder
+
+          <div className="hidden-xs col-sm-4 col-md-4 col-lg-3">
+            <HeaderLogo/>
+          </div>
+
+          <div className="col-sm-2 col-md-2 col-lg-2 pull-right">
+            <HeaderCart />
+          </div>
+
+          <div className="col-md-4 col-lg-4 pull-right">
+            <HeaderSearchComponent handleSearchTap={this.handleSearchTap} />
+          </div>
+
+          {/*<HeaderSearchButton handleSearchTap={this.handleSearchTap} />*/}
+          {/*<Placeholder
             id="search-bar"
             visible={this.state.isSearchOpen}
             handleSearchTap={this.handleSearchTap}
-          />
+          />*/}
           <ReactCSSTransitionGroup
             transitionName="NavigationMenu"
             transitionEnterTimeout={200}
@@ -60,11 +63,9 @@ class Header extends React.Component {
             { menu }
           </ReactCSSTransitionGroup>
         </div>
-        <div className="Header__logo--mobile hidden-sm hidden-md hidden-lg">
-          <a href="/">
-            <img src={ logoImage } alt="Pilates Lovers" className="pl-logo-img"/>
-          </a>
-          <hr/>
+
+        <div className="hidden-sm hidden-md hidden-lg">
+          <HeaderLogo isMobile={true} />
         </div>
       </div>
     );

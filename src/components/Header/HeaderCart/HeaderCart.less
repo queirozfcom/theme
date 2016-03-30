@@ -3,45 +3,54 @@
 .HeaderCart {
   .css-utils-clean-btn();
   .css-utils-no-outlines();
-  float: right;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 0;
+  width: 100%;
+  padding: 15px 0px;
 
-  margin: 5px;
-  margin-left: 0;
 
   @media (min-width: @screen-sm-min) {
-    margin: 30px 5px 30px 0px;
+    //Addresses a bug in chrome where the <button> element adds an 8px invisible top-margin
+    margin-top: -8px;
+    padding: 30px 0;
+  }
+
+  @media (min-width: @screen-md-min) {
+    padding: 30px 0;
+  }
+
+  &__wtf {
+    border-radius: 2.5px;
+    width: 40px;
+    background-color: red;
   }
 
   &__svg {
     float: left;
-    padding: @pad @pad 1px @pad;
+    padding: 4px;
 
     g {
       fill: @secondary-color;
     }
 
-    //Desktop + Tablet + Smaller Tablet
     @media (min-width: @screen-sm-min) {
       padding-top: 5px;
       padding-bottom: 0px;
       float: right;
+
     }
   }
 
   &__button {
     background: @primary-color;
     color: white;
+    height: 40px;
+    padding: 5px 8px;
+    width: 100%;
 
-    //Mobile Only
     @media (max-width: @screen-xs-max) {
       float: right;
       border: 2px solid @primary-color;
       border-radius: 2.5px;
-      height: 35.5px;
-      margin-top: 3.75px;
+      width: 40px;
 
       &:hover {
         background: @primary-color;
@@ -49,14 +58,9 @@
       }
     }
 
-    //Desktop + Tablet
     @media (min-width: @screen-xs-max) {
       border: 2px solid @primary-color;
       border-radius: 2.5px;
-      height: 41.5px;
-      margin-top: 4px;
-      min-width: 110px;
-      padding: 5px (@pad * 1.5);
     }
 
     &:hover {
@@ -74,6 +78,9 @@
     .HeaderCart__desktop-itens {
       color: white;
     }
+  }
+
+  &__content {
   }
 
   &__desktop-itens {
