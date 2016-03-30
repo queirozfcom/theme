@@ -2,6 +2,7 @@ import React from 'react';
 import { stores, connectToStores } from 'sdk';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './CategoryHeader.less';
+import './CategoryHeaderCustom.less';
 import ExplorerButton from './ExplorerButton/ExplorerButton';
 import ExplorerPanel from './ExplorerPanel/ExplorerPanel';
 import OrderSelector from './OrderSelector/OrderSelector';
@@ -103,7 +104,7 @@ class CategoryHeader extends React.Component {
               { explorerButton }
             </div>
             <span className="CategoryHeader__results">
-              { this.props.category.get('productQuantity') } Resultados
+              { this.props.category.get('productQuantity') } Produtos
             </span>
           </div>
           <div className="CategoryHeader__buttons">
