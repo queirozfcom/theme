@@ -1,25 +1,25 @@
 var webpack = require('webpack');
 var path = require('path');
 var pkg = require('./package.json');
-var meta = require('./meta.json');
+var manifest = require('./manifest.json');
 var publicPath = '/assets/@vtex.' + pkg.name + '/';
 var production = process.env.NODE_ENV === 'production';
 
 var config = {
   entry: {
-    'HomePage': ['./src/pages/HomePage/index.js'],
-    'ProductPage': ['./src/pages/ProductPage/index.js'],
-    'CategoryPage': ['./src/pages/CategoryPage/index.js'],
-    'SearchPage': ['./src/pages/SearchPage/index.js'],
+    'HomePage': ['./src/components/HomePage/index.js'],
+    'ProductPage': ['./src/components/ProductPage/index.js'],
+    'CategoryPage': ['./src/components/CategoryPage/index.js'],
+    'SearchPage': ['./src/components/SearchPage/index.js'],
     'SearchHeader': ['./src/components/SearchHeader/index.js'],
     'CategoryHeader': ['./src/components/CategoryHeader/index.js'],
     'CategoryListSidebar': ['./src/components/CategoryListSidebar/index.js'],
-    'AboutPage': ['./src/pages/AboutPage/index.js'],
-    'PoliciesPage': ['./src/pages/PoliciesPage/index.js'],
+    'AboutPage': ['./src/components/AboutPage/index.js'],
+    'PoliciesPage': ['./src/components/PoliciesPage/index.js'],
     'Footer': ['./src/components/Footer/Footer.js'],
-    'editors/index': ['./src/editors/index.js']
+    'editors/index': ['./src/editors/index.js'],
+    'DefaultTemplate': ['./src/components/DefaultTemplate/index.js']
   },
-
   module: {
     preLoaders: [
       {
@@ -84,7 +84,6 @@ var config = {
     'react-dom': 'ReactDOM',
     'react-addons-css-transition-group': 'ReactCSSTransitionGroup',
     'react-intl': 'ReactIntl',
-    'react-router': 'ReactRouter',
     'sdk': 'storefront.sdk',
     'vtex-editor': 'vtex.editor'
   },
@@ -105,7 +104,7 @@ var config = {
     publicPath: publicPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
-    jsonpFunction: 'webpackJsonp_' + meta.vendor.replace(/\-/g, '') + '_' + meta.name.replace(/\-/g, ''),
+    jsonpFunction: 'webpackJsonp_' + manifest.vendor.replace(/\-/g, '') + '_' + manifest.name.replace(/\-/g, ''),
     devtoolModuleFilenameTemplate: 'webpack:///' + pkg.name + '/[resource]'
   },
 

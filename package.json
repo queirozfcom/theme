@@ -9,6 +9,7 @@
     "react": "^0.14.6",
     "react-colorpicker": "^0.3.14",
     "react-dom": "^0.14.6",
+    "react-router": "^2.0.1",
     "react-select": "^1.0.0-beta8",
     "vtex-css-utils": "^2.0.2"
   },

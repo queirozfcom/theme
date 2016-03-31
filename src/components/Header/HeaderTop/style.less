@@ -3,6 +3,8 @@
 .HeaderTop {
   background: darken(@secondary-bg, -5%);
   width: 100%;
+  padding-left: -15px;
+  padding-right: -15px;
 
   &__wrap {
     .theme-width();
@@ -85,21 +87,21 @@
   }
 
   &__phone-url {
+    color: @gray-base;
+
+    @media (min-width: @screen-sm-min) {
+      font-weight: 800;
+    }
+
+    &:hover {
       color: @gray-base;
 
-      @media (min-width: @screen-sm-min) {
-        font-weight: 800;
+      @media (min-width: @screen-md-min) {
+        color: darken(@gray-soft, 68%);
+        cursor: default;
+        text-decoration: none;
       }
-
-      &:hover {
-        color: @gray-base;
-
-        @media (min-width: @screen-md-min) {
-          color: darken(@gray-soft, 68%);
-          cursor: default;
-          text-decoration: none;
-        }
-      }
+    }
   }
 
 }

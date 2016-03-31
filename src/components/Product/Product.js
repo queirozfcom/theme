@@ -5,7 +5,7 @@ import { stores } from 'sdk';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 const Price = stores.ComponentStore.state.getIn(['Price@vtex.storefront-sdk', 'constructor']);
 
 class Product extends React.Component {
@@ -44,7 +44,8 @@ class Product extends React.Component {
 
     let skus = this.props.skus;
     let cartValidation = this.state.selectedSku ? true : false;
-    let className = 'AddToCartButton--fixed';
+    //let className = 'AddToCartButton--fixed';
+    let className = 'AddToCartButton';
 
     return (
       <div className="Product">
@@ -53,7 +54,7 @@ class Product extends React.Component {
             <div className="hidden-sm hidden-md hidden-lg">
               <h2 className="Product__title pl-title-m">{name}</h2>
             </div>
-            <Area id="product/product-image" images={defaultSku.images} />
+            <Placeholder id="product-image" images={defaultSku.images} />
           </div>
           <div className="Product__infos col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div className="visible-sm visible-md visible-lg">
@@ -67,7 +68,7 @@ class Product extends React.Component {
                 <div className="col-xs-6">
                   {
                     skus.length > 1 ?
-                      <Area
+                      <Placeholder
                         skus={skus}
                         changeSelectedSku={this.changeSelectedSku}
                         id="product/sku-selector"
@@ -100,9 +101,9 @@ class Product extends React.Component {
               id="product-button"
               route="product"
             />
-            <Area
+            <Placeholder
               sku={this.state.selectedSku}
-              id="product/shipping-calculator"
+              id="shipping-calculator"
             />
           </div>
         </div>

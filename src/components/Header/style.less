@@ -18,24 +18,19 @@
   &__inner {
     .theme-width();
     padding: 0;
+    position: relative;
 
-    //Fix for medium screens only
     @media (min-width: @screen-sm-min) and (max-width: @screen-lg-min) {
-      padding: (3.5px * 2.3) 0px;
+      padding: 8px 0px;
     }
   }
 
-  &__logo {
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  &__menu {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
   }
 
-  &__logo--mobile {
-    img {
-      padding: 10px 0px;
-    }
-    background-color: white;
-    text-align: center;
+  &__menu-inner {
+    .theme-width();
   }
 }

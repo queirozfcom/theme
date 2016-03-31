@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { stores } from 'sdk';
+
+const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 class Categories extends React.Component {
   render() {

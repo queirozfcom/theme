@@ -7,7 +7,7 @@ import listImg from 'assets/icons/list_icon.png';
 import gridIcon from 'assets/icons/grid_icon.svg';
 import gridImg from 'assets/icons/grid_icon.png';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 @connectToStores()
 class SearchHeader extends React.Component {
@@ -22,9 +22,9 @@ class SearchHeader extends React.Component {
     ];
   }
 
-  static getPropsFromStores() {
-    let path = window.location.pathname + window.location.search;
-    let facets = stores.FacetsStore.getState().getIn([path, 'search/search-header']);
+  static getPropsFromStores(props) {
+    let path = props.location.pathname + props.location.search;
+    let facets = stores.FacetsStore.getState().getIn([path, props.id]);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
     let qty = category ? category.get('productQuantity') : 0;
 
@@ -35,11 +35,7 @@ class SearchHeader extends React.Component {
   }
 
   shouldComponentUpdate({ category }) {
-    if (category === undefined) {
-      return false;
-    }
-
-    return true;
+    return category !== undefined;
   }
 
   handleGridTap = () => {
@@ -94,16 +90,15 @@ class SearchHeader extends React.Component {
                   fill="#777777"
                 />
               </div>
-              <Area
-                id="search/filter-button"
+              <Placeholder
+                id="filter-button"
                 openFilterPanel={this.toggleFilterPanel(true)}
               />
             </div>
           </div>
           <div>
-            <Area
-              id="search/filter-panel"
-              areaPath="search"
+            <Placeholder
+              id="filter-panel"
               location={this.props.location}
               isOpen={this.state.isFilterPanelOpen}
               closeFilterPanel={this.toggleFilterPanel(false)}

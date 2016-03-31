@@ -2,6 +2,7 @@ import React from 'react';
 import { stores, connectToStores } from 'sdk';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './CategoryHeader.less';
+import './CategoryHeaderCustom.less';
 import ExplorerButton from './ExplorerButton/ExplorerButton';
 import ExplorerPanel from './ExplorerPanel/ExplorerPanel';
 import OrderSelector from './OrderSelector/OrderSelector';
@@ -11,7 +12,7 @@ import listImg from 'assets/icons/list_icon.png';
 import gridIcon from 'assets/icons/grid_icon.svg';
 import gridImg from 'assets/icons/grid_icon.png';
 
-const Area = stores.ComponentStore.state.getIn(['Area@vtex.storefront-sdk', 'constructor']);
+const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 @connectToStores()
 class CategoryHeader extends React.Component {
@@ -27,26 +28,18 @@ class CategoryHeader extends React.Component {
     ];
   }
 
-  static getPropsFromStores() {
-    let path = window.location.pathname + window.location.search;
-    let facets = stores.FacetsStore.getState().getIn([path, 'category/category-header']);
+  static getPropsFromStores(props) {
+    let path = props.location.pathname + props.location.search;
+    let facets = stores.FacetsStore.getState().getIn([path, props.id]);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
-    let filters = facets ? facets.getIn(['filters']).takeWhile(function(value, key) {
-      return key !== 'category';
-    }) : undefined;
 
     return {
-      category,
-      filters
+      category
     };
   }
 
   shouldComponentUpdate({ category }) {
-    if (category === undefined) {
-      return false;
-    }
-
-    return true;
+    return category !== undefined;
   }
 
   handleGridTap = () => {
@@ -72,6 +65,10 @@ class CategoryHeader extends React.Component {
   }
 
   render() {
+    if (!this.props.category) {
+      return null;
+    }
+
     let layoutName = this.props.grid ? 'Grid' : 'Lista';
     let explorerButton = null;
     let explorerPanel = null;
@@ -107,13 +104,13 @@ class CategoryHeader extends React.Component {
               { explorerButton }
             </div>
             <span className="CategoryHeader__results">
-              { this.props.category.get('productQuantity') } Resultados
+              { this.props.category.get('productQuantity') } Produtos
             </span>
           </div>
           <div className="CategoryHeader__buttons">
             <div className="CategoryHeader__filter-button hidden-md hidden-lg">
-              <Area
-                id="category/filter-button"
+              <Placeholder
+                id="filter-button"
                 openFilterPanel={this.toggleFilterPanel(true)}
               />
             </div>
@@ -135,9 +132,8 @@ class CategoryHeader extends React.Component {
             <OrderSelector location={this.props.location} />
           </div>
           <div>
-            <Area
-              id="category/filter-panel"
-              areaPath="category"
+            <Placeholder
+              id="filter-panel"
               location={this.props.location}
               isOpen={this.state.isFilterPanelOpen}
               closeFilterPanel={this.toggleFilterPanel(false)}
