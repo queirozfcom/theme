@@ -1,0 +1,29 @@
+@import "~utils/base/base";
+
+.SearchPage {
+  &__content {
+    .theme-width();
+  }
+
+  &__sidebar {
+    margin-top: 30px;
+    margin-bottom: 80px;
+    border-right: 1px solid #EFEDED;
+  }
+
+  &__product-list {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: @screen-md-min) {
+      margin-top: 30px;
+    }
+  }
+
+  &__category-list {
+    & > * {
+      margin-bottom: 30px;
+    }
+  }
+}
