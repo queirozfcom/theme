@@ -1,6 +1,7 @@
 import React from 'react';
 //import logoImage from 'assets/images/logo.jpg'
 import './HeaderLogo.less';
+import './HeaderLogoCustom.less';
 import { stores } from 'sdk';
 
 const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
