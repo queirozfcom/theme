@@ -17,25 +17,19 @@ class SearchHeader extends React.Component {
 
   static getStores() {
     return [
-      stores.ContextStore,
-      stores.FacetsStore
+      stores.ContextStore
     ];
   }
 
   static getPropsFromStores(props) {
     let path = props.location.pathname + props.location.search;
-    let facets = stores.FacetsStore.getState().getIn([path, props.id]);
-    let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
-    let qty = category ? category.get('productQuantity') : 0;
+    let productSearch = stores.SearchStore.getState().getIn([path]);
+    let results = productSearch ? productSearch.first().getIn(['results']) : undefined;
+    let qty = results? results.length : 0;
 
     return {
-      category,
       qty
     };
-  }
-
-  shouldComponentUpdate({ category }) {
-    return category !== undefined;
   }
 
   handleGridTap = () => {
@@ -57,42 +51,40 @@ class SearchHeader extends React.Component {
   render() {
     const qty = this.props.qty;
     const resultMsg = qty === 1 ?
-      `${qty} resultado para` : `${qty} resultados para`;
+      `${qty} resultado` : `${qty} resultados`;
     const icon = {
-      svg: this.props.grid ? listIcon : gridIcon,
-      img: this.props.grid ? listImg : gridImg
+      svg: this.props.grid ? gridIcon : listIcon,
+      img: this.props.grid ? gridImg : listImg
     };
 
     return (
       <nav className="SearchHeader container-fluid">
-        <div className="SearchHeader__container">
-          <div className="SearchHeader__content row">
-            <div className="col-xs-12">
-              <span className="SearchHeader__results">
-                { resultMsg }
-              </span>
-            </div>
+        <div className="SearchHeader__container container-fluid clearfix">
+          <div className="SearchHeader__content clearfix">
             <div className="SearchHeader__title">
               <h1 className="SearchHeader__title-inner">
                 { this.props.searchTerm }
               </h1>
             </div>
+            <span className="SearchHeader__results">
+                { resultMsg }
+            </span>
           </div>
-          <div className="row">
-            <div className="SearchHeader__buttons">
-              <div className="SearchHeader__grid-button" onTouchTap={this.handleGridTap}>
-                <SVGIcon
-                  className="SearchHeader__icon"
-                  svg={icon.svg}
-                  fallback={icon.img}
-                  width={18}
-                  cleanupExceptions={['width', 'height']}
-                  fill="#777777"
-                />
-              </div>
+          <div className="SearchHeader__buttons">
+            <div className="SearchHeader__filter-button hidden-md hidden-lg">
               <Placeholder
                 id="filter-button"
                 openFilterPanel={this.toggleFilterPanel(true)}
+              />
+            </div>
+            <div className="SearchHeader__grid-button" onTouchTap={this.handleGridTap}>
+              <SVGIcon
+                className="SearchHeader__icon"
+                svg={icon.svg}
+                fallback={icon.img}
+                width={20}
+                cleanupExceptions={['width', 'height']}
+                fill="#777777"
               />
             </div>
           </div>
