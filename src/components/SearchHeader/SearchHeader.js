@@ -17,7 +17,7 @@ class SearchHeader extends React.Component {
 
   static getStores() {
     return [
-      stores.ContextStore
+      stores.ContextStore,
     ];
   }
 
@@ -51,23 +51,21 @@ class SearchHeader extends React.Component {
   render() {
     const qty = this.props.qty;
     const resultMsg = qty === 1 ?
-      `${qty} resultado` : `${qty} resultados`;
+      `${qty} resultado para` : `${qty} resultados`;
     const icon = {
       svg: this.props.grid ? gridIcon : listIcon,
       img: this.props.grid ? gridImg : listImg
     };
 
     return (
-      <nav className="SearchHeader container-fluid">
+      <nav className="SearchHeader">
         <div className="SearchHeader__container container-fluid clearfix">
           <div className="SearchHeader__content clearfix">
-            <div className="SearchHeader__title">
-              <h1 className="SearchHeader__title-inner">
-                { this.props.searchTerm }
-              </h1>
-            </div>
+            <h1 className="SearchHeader__title">
+              { this.props.searchTerm }
+            </h1>
             <span className="SearchHeader__results">
-                { resultMsg }
+              { resultMsg }
             </span>
           </div>
           <div className="SearchHeader__buttons">
@@ -82,7 +80,7 @@ class SearchHeader extends React.Component {
                 className="SearchHeader__icon"
                 svg={icon.svg}
                 fallback={icon.img}
-                width={20}
+                height={20}
                 cleanupExceptions={['width', 'height']}
                 fill="#777777"
               />

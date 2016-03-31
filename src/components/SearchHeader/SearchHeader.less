@@ -3,10 +3,31 @@
 .SearchHeader {
   background: #F7F7F7;
 
-  &__icon, .icon {
+  &__grid-button {
+    .css-utils-clean-btn();
+    .css-utils-no-outlines();
+    background: darken(#F7F7F7, 10%);
+    border-radius: 2px;
+    float: left;
+
+    &:hover {
+      background: darken(#F7F7F7, 15%);
+      cursor: pointer;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      height: 38px;
+    }
+  }
+
+  &__icon {
     float: left;
     display: inline-block;
-    padding-top: @pad;
+    padding: 8.5px 0px 4px 0px;
+
+    @media (min-width: @screen-md-min) {
+      padding: 8px 0px 0px 0px;
+    }
   }
 
   .icon-label {
@@ -18,16 +39,15 @@
     text-transform: uppercase;
   }
 
-  &__grid-button {
-    .css-utils-clean-btn();
-    .css-utils-no-outlines();
-    float: right;
-    padding-left: @pad / 2;
-    padding-right: @pad / 2;
+  &__filter-button {
+    float: left;
+    margin-right: 10px;
   }
 
   &__container {
-    padding: (@pad * 3) 0px;
+    .theme-width();
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   &__content {
@@ -35,21 +55,18 @@
   }
 
   &__title {
-    padding: 0px (@pad * 2);
-  }
-
-  &__title-inner {
     float: left;
+    font-family: 'Lato';
+    font-weight: 200;
     margin-top: 0px;
     margin-bottom: @pad / 2;
-    max-width: 100%;
-    padding: 0px (@pad * 2);
+    max-width: 80%;
+    padding: 0px;
     text-align: left;
   }
 
   &__buttons {
     margin-top: 0.75em;
-    padding: 0px (@pad * 2);
   }
 
   &__results {
@@ -57,5 +74,7 @@
     display: block;
     font-family: 'Lato';
     font-weight: 400;
+    float: left;
+    width: 100%;
   }
 }
