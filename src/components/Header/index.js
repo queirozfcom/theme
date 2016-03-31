@@ -66,6 +66,7 @@ class Header extends React.Component {
 
         <div className="hidden-sm hidden-md hidden-lg">
           <HeaderLogo isMobile={true} />
+          <hr/>
         </div>
       </div>
     );
