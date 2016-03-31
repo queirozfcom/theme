@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from 'assets/images/logo.jpg'
+//import logoImage from 'assets/images/logo.jpg'
 import './HeaderLogo.less';
 import { stores } from 'sdk';
 
@@ -11,7 +11,7 @@ class HeaderLogo extends React.Component {
     return (
       <div className="HeaderLogo" data-is-mobile={this.props.isMobile}>
         <Link to="/">
-          <img src={ logoImage } alt="Pilates Lovers"/>
+          <img src="https://cdn.awsli.com.br/400x300/67/67849/logo/bb5a63a858.jpg" alt="Pilates Lovers"/>
         </Link>
       </div>
     );
