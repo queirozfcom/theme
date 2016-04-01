@@ -45,13 +45,6 @@ class HeaderTop extends React.Component {
             <div className="HeaderTop__login pull-right">
               <span><a className="HeaderTop__login-link" href={accountURL}>Minha Conta</a></span>
             </div>
-            <div className="HeaderTop__phone-cta">
-              <span className="HeaderTop__phone-number">
-                <a href={phoneNumberURL} className="HeaderTop__phone-url">
-                  {phoneNumber}
-                </a>
-              </span>
-            </div>
           </div>
         </div>
       </div>
