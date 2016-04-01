@@ -27,7 +27,6 @@ class Product extends React.Component {
 
   render() {
     let defaultSku = this.state.selectedSku || this.props.skus[0];
-    console.log(defaultSku);
     let name = this.props.name;
     let brand = this.props.brand;
     let listPrice = defaultSku.offers[0].listPrice;
