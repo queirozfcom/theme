@@ -1,6 +1,7 @@
 import React from 'react';
 import { stores, connectToStores } from 'sdk';
 import './SearchHeader.less';
+import './SearchHeaderCustom.less';
 import SVGIcon from 'utils/SVGIcon';
 import listIcon from 'assets/icons/list_icon.svg';
 import listImg from 'assets/icons/list_icon.png';
@@ -51,7 +52,7 @@ class SearchHeader extends React.Component {
   render() {
     const qty = this.props.qty;
     const resultMsg = qty === 1 ?
-      `${qty} resultado para` : `${qty} resultados`;
+      `${qty} resultado para` : `${qty} produtos encontrados`;
     const icon = {
       svg: this.props.grid ? gridIcon : listIcon,
       img: this.props.grid ? gridImg : listImg
