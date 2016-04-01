@@ -11,12 +11,6 @@ class HeaderTop extends React.Component {
 
   render() {
 
-    let phoneNumber;
-    phoneNumber = '(21) 3593-4758';
-
-    let phoneNumberURL;
-    phoneNumberURL = 'tel:' + phoneNumber;
-
     let loginURL;
     loginURL = '#';
 
