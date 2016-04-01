@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
+import _ from 'lodash-compat';
 import './Product.less';
+import './ProductCustom.less';
 import { stores } from 'sdk';
 import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
@@ -34,21 +36,38 @@ class Product extends React.Component {
     let availability = defaultSku.offers[0].availability;
     let availabilityBanner = '';
 
-    if (availability < 3){
+    let product = this.props;
+    let isAvailable = false;
+
+    _.each(product.skus, function(sku){
+      _.each(sku.offers, function(offer){
+        if (offer.availability > 0 && offer.price > 0){
+          isAvailable = true;
+        }
+      });
+    });
+
+    if (availability < 3 && availability != 0){
       availabilityBanner = <div className="row">
         <div className="col-xs-12 well well-sm banner-availability">
           <div className="text-center">Últimas unidades em estoque</div>
+        </div>
+      </div>;
+    } else if (availability == 0){
+      availabilityBanner = <div className="row">
+        <div className="col-xs-12 well well-sm banner-availability">
+          <div className="text-center"><strong>Produto esgotado!</strong>&nbsp;
+            Vendemos todos. Esperamos ter mais em breve.</div>
         </div>
       </div>;
     }
 
     let skus = this.props.skus;
     let cartValidation = this.state.selectedSku ? true : false;
-    //let className = 'AddToCartButton--fixed';
     let className = 'AddToCartButton';
 
     return (
-      <div className="Product">
+      <div className={'Product' + (isAvailable ? '' : ' unavailable')}>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div className="hidden-sm hidden-md hidden-lg">

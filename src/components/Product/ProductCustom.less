@@ -1,0 +1,14 @@
+@import "~utils/base/base";
+
+.Product {
+
+  &.unavailable {
+    .Product__price, .AddToCartButton, .ShippingCalculator {
+      display: none;
+    }
+  }
+
+  &__shipping-wrapper {
+    margin-top: 1em;
+  }
+}
