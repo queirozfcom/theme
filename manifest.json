@@ -4,6 +4,7 @@
   "version": "0.4.4",
   "vendor": "pilateslovers",
   "dependencies": {
+    "vtex.metrics": "0.x",
     "vtex.storefront-sdk": "0.x",
     "vtex.storefront": "0",
     "vtex.banner": "0.x",
