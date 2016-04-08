@@ -3,7 +3,7 @@ import PoliciesPage from './PoliciesPage';
 
 let components = [
   {
-    name: 'PoliciesPage@vtex.storefront-theme',
+    name: 'PoliciesPage@pilateslovers.pilateslovers-theme',
     constructor: PoliciesPage
   }
 ];

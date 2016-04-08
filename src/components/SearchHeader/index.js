@@ -3,7 +3,7 @@ import SearchHeader from './SearchHeader';
 
 let components = [
   {
-    name: 'SearchHeader@vtex.storefront-theme',
+    name: 'SearchHeader@pilateslovers.pilateslovers-theme',
     constructor: SearchHeader
   }
 ];

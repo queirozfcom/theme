@@ -4,11 +4,11 @@ import Footer from 'components/Footer/Footer';
 
 let components = [
   {
-    name: 'HomePage@vtex.storefront-theme',
+    name: 'HomePage@pilateslovers.pilateslovers-theme',
     constructor: HomePage
   },
   {
-    name: 'Footer@vtex.storefront-theme',
+    name: 'Footer@pilateslovers.pilateslovers-theme',
     constructor: Footer
   }
 ];

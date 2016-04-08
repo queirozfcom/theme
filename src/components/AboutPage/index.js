@@ -3,7 +3,7 @@ import AboutPage from './AboutPage';
 
 let components = [
   {
-    name: 'AboutPage@vtex.storefront-theme',
+    name: 'AboutPage@pilateslovers.pilateslovers-theme',
     constructor: AboutPage
   }
 ];

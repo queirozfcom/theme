@@ -3,7 +3,7 @@ import SearchPage from './SearchPage';
 
 let components = [
   {
-    name: 'SearchPage@vtex.storefront-theme',
+    name: 'SearchPage@pilateslovers.pilateslovers-theme',
     constructor: SearchPage
   }
 ];

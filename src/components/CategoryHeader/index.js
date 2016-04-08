@@ -3,7 +3,7 @@ import CategoryHeader from './CategoryHeader';
 
 let components = [
   {
-    name: 'CategoryHeader@vtex.storefront-theme',
+    name: 'CategoryHeader@pilateslovers.pilateslovers-theme',
     constructor: CategoryHeader
   }
 ];

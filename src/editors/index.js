@@ -3,7 +3,7 @@ import AddToCartButtonEditor from './AddToCartButtonEditor/AddToCartButtonEditor
 
 let components = [
   {
-    name: 'AddToCartButtonEditor@vtex.storefront-theme',
+    name: 'AddToCartButtonEditor@pilateslovers.pilateslovers-theme',
     constructor: AddToCartButtonEditor
   }
 ];

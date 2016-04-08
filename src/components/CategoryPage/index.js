@@ -3,7 +3,7 @@ import CategoryPage from './CategoryPage';
 
 let components = [
   {
-    name: 'CategoryPage@vtex.storefront-theme',
+    name: 'CategoryPage@pilateslovers.pilateslovers-theme',
     constructor: CategoryPage
   }
 ];

@@ -3,7 +3,7 @@ import DefaultTemplate from './DefaultTemplate';
 
 let components = [
   {
-    name: 'DefaultTemplate@vtex.storefront-theme',
+    name: 'DefaultTemplate@pilateslovers.pilateslovers-theme',
     constructor: DefaultTemplate
   }
 ];

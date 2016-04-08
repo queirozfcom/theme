@@ -4,11 +4,11 @@ import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCa
 
 let components = [
   {
-    name: 'ProductPage@vtex.storefront-theme',
+    name: 'ProductPage@pilateslovers.pilateslovers-theme',
     constructor: ProductPage
   },
   {
-    name: 'AddToCartButton@vtex.storefront-theme',
+    name: 'AddToCartButton@pilateslovers.pilateslovers-theme',
     constructor: AddToCartButton
   }
 ];

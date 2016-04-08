@@ -3,7 +3,7 @@ import CategoryListSidebar from './CategoryListSidebar';
 
 let components = [
   {
-    name: 'CategoryListSidebar@vtex.storefront-theme',
+    name: 'CategoryListSidebar@pilateslovers.pilateslovers-theme',
     constructor: CategoryListSidebar
   }
 ];

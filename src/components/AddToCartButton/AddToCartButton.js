@@ -3,7 +3,7 @@ import { editable } from 'vtex-editor';
 import './AddToCartButton.less';
 
 @editable({
-  name: 'AddToCartButton@vtex.storefront-theme',
+  name: 'AddToCartButton@pilateslovers.pilateslovers-theme',
   title: 'Adicionar ao Carrinho'
 })
 class AddToCartButton extends React.Component {
