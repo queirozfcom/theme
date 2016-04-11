@@ -11,7 +11,7 @@ class ExplorerButton extends React.Component {
 
   render() {
     return (
-      <button className="ExplorerButton" onTouchTap={this.handleTouchTap}>
+      <button className="ExplorerButton" onClick={this.handleTouchTap}>
         <SVGIcon
           className="ExplorerButton__icon"
           svg={downArrowIcon}

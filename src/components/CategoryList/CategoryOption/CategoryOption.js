@@ -13,7 +13,7 @@ class CategoryOption extends React.Component {
 
   render() {
     return (
-      <li className="CategoryOption" onTouchTap={this.handleTouchTap}>
+      <li className="CategoryOption" onClick={this.handleTouchTap}>
         <button className="CategoryOption__button">
           <span className="CategoryOption__label">
             { this.props.name }

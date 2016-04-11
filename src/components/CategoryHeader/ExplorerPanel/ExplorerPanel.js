@@ -35,7 +35,7 @@ class ExplorerPanel extends React.Component {
           />
           <button
             className="ExplorerPanel__pull-button col-xs-2 col-xs-push-5"
-            onTouchTap={this.handleTouchTap}
+            onClick={this.handleTouchTap}
           >
             <SVGIcon
               className="CategoryOption-icon"

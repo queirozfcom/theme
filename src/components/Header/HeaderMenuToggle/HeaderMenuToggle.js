@@ -7,7 +7,7 @@ import hamburgerImg from 'assets/icons/hamburger_icon.png';
 class HeaderMenuToggle extends React.Component {
   render() {
     return (
-      <div className="HeaderMenuToggle" onTouchTap={this.props.handleMenuTap}>
+      <div className="HeaderMenuToggle" onClick={this.props.handleMenuTap}>
         <SVGIcon className="HeaderMenuToggle__svg" svg={hamburgerIcon} fallback={hamburgerImg} width={18} height={18} fill="#153243" />
       </div>
     );
