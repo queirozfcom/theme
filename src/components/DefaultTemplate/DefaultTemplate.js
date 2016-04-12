@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from 'components/Header';
 import Footer from 'components/Footer/Footer';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './spinner.less';
 import './DefaultTemplate.less'
 import { stores } from 'sdk';
@@ -8,7 +9,6 @@ import { stores } from 'sdk';
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 class DefaultTemplate extends React.Component {
-
     componentWillMount() {
       this.setState({ loading: false });
 
@@ -25,21 +25,28 @@ class DefaultTemplate extends React.Component {
 
   render() {
     const loading = this.state.loading ?
-      <div className="DefaultTemplate__spin-wrap">
+      <div className="DefaultTemplate__spin-wrap" key="spinner">
         <div className="spinner">
           <div className="dot1"></div>
           <div className="dot2"></div>
         </div>
       </div> : null;
+
     return (
       <div className="DefaultTemplate">
-        { loading }
+        <ReactCSSTransitionGroup
+          transitionName="Loading"
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={100}
+        >
+          { loading }
+        </ReactCSSTransitionGroup>
         <Header />
-          <Placeholder
-            id="body"
-            params={this.props.params}
-            location={this.props.location}
-          />
+        <Placeholder
+          id="body"
+          params={this.props.params}
+          location={this.props.location}
+        />
         <Footer/>
       </div>
     );
