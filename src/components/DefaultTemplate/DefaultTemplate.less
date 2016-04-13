@@ -4,11 +4,33 @@
   position: relative;
 
   &__spin-wrap {
+    @media (min-width: @screen-xs-max) {
+      background: rgba(0, 0, 0, 0.3);
+    }
     background: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
     height: 100%;
     width: 100%;
     position: fixed;
     z-index: @zindex-7;
+  }
+}
+
+.Loading {
+  &-enter {
+    opacity: 0;
+
+    &.Loading-enter-active {
+      opacity: 1;
+      transition: opacity 200ms ease-in;
+    }
+  }
+
+  &-leave {
+    opacity: 1;
+
+    &.Loading-leave-active {
+      opacity: 0;
+      transition: opacity 100ms ease-out;
+    }
   }
 }
