@@ -41,6 +41,7 @@ const unlisten = history.listen(location => {
 
 class DefaultTemplate extends React.Component {
     componentWillMount() {
+
       this.setState({ loading: false });
       stores.ContextStore.listen(this.onChange);
     }
