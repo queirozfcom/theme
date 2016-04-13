@@ -89,7 +89,7 @@ class Product extends React.Component {
                       <Placeholder
                         skus={skus}
                         changeSelectedSku={this.changeSelectedSku}
-                        id="product/sku-selector"
+                        id="sku-selector"
                       /> :
                       <div>
                         <h3 className="Product__price list-price pull-left">De <Price value={listPrice}/></h3>
