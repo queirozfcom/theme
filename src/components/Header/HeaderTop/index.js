@@ -23,12 +23,12 @@ class HeaderTop extends React.Component {
           <div className="col-md-2 col-lg-2 col-sm-2 hidden-xs HeaderTop__social">
             <button className="HeaderTop__button">
               <a href="">
-                <SVGIcon className="HeaderTop__icon" svg={facebookIcon} fallback={facebookImg} height={15} fill="#2D4966" />
+                <SVGIcon className="HeaderTop__icon" svg={facebookIcon} fallback={facebookImg} height={15} />
               </a>
             </button>
             <button className="HeaderTop__button">
               <a href="">
-                <SVGIcon className="HeaderTop__icon" svg={instagramIcon} fallback={instagramImg} height={15} fill="#2D4966" />
+                <SVGIcon className="HeaderTop__icon" svg={instagramIcon} fallback={instagramImg} height={15} />
               </a>
             </button>
           </div>

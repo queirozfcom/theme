@@ -7,6 +7,7 @@ import HeaderMenuToggle from './HeaderMenuToggle/HeaderMenuToggle';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
 import HeaderSearchComponent from './HeaderSearchComponent/HeaderSearchComponent';
 import './style.less';
+import './HeaderCustom.less';
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
@@ -45,7 +46,7 @@ class Header extends React.Component {
             <HeaderCart />
           </div>
 
-          <div className="col-md-4 col-lg-4 pull-right">
+          <div className="col-md-4 col-lg-4 pull-right header-search-collumn">
             <HeaderSearchComponent handleSearchTap={this.handleSearchTap} />
           </div>
 

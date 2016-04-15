@@ -12,17 +12,17 @@
 
   &__social {
     @media (max-width: @screen-xs-min) {
-      padding-left: 0px;
+      padding-left: 0;
     }
+    margin-top: 6px;
   }
 
   &__button {
     .css-utils-clean-btn();
-    background: darken(#F4F7FA, 2%);
-    height: 25px;
-    margin: @pad 0;
-    min-width: 25px;
-    padding: 0px;
+    background: #CACACA;
+    height: 26px;
+    width: 26px;
+    padding: 0;
 
     a {
       font-size: 0.6em;
@@ -31,7 +31,7 @@
     }
 
     & + & {
-      margin-left: @pad / 2;
+      margin-left: 3px;
     }
 
     &:hover {
@@ -42,7 +42,7 @@
   &__icon {
     padding: 3px 2.5px;
     padding-top: 5px;
-
+    fill: white;
   }
 
   &__contact {

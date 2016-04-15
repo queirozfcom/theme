@@ -3,6 +3,7 @@ import SVGIcon from 'utils/SVGIcon';
 import cartIcon from 'assets/icons/cart_icon.svg';
 import cartImg from 'assets/icons/cart_icon.png';
 import './HeaderCart.less';
+import './HeaderCartCustom.less';
 
 class HeaderCart extends React.Component {
 

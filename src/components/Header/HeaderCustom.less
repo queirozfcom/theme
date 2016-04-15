@@ -1,0 +1,18 @@
+@import "~utils/base/base";
+
+.Header {
+  &__inner {
+    @media (max-width: @screen-xs-max) {
+      background-color: #F6F6F6;
+    }
+  }
+
+  &__menu {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  &__menu-inner {
+    .theme-width();
+  }
+}
