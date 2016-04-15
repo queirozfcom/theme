@@ -7,7 +7,7 @@ class HeaderSearchButton extends React.Component {
 
   render() {
     return (
-      <button className="HeaderSearchButton pull-right" onClick={this.props.handleSearchTap}>
+      <button className="HeaderSearchButton pull-right" onClick={this.props.handleSearchClick}>
         <div classsName="HeaderSearchButton__inner clearfix">
           <SVGIcon className="HeaderSearchButton__svg" svg={searchIcon} width={15} height={18}/>
         </div>

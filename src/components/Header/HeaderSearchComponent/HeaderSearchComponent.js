@@ -10,20 +10,20 @@ class HeaderSearchComponent extends React.Component {
     isSearchOpen: false
   }
 
-  handleSearchTap = () => {
+  handleSearchClick = () => {
     this.setState({ isSearchOpen: !this.state.isSearchOpen });
   }
 
   render() {
     return (
       <div className="HeaderSearchComponent">
-        <HeaderSearchButton handleSearchTap={this.handleSearchTap} />
+        <HeaderSearchButton handleSearchClick={this.handleSearchClick} />
         <div className="HeaderSearchComponent__search-bar pull-right hidden-md hidden-lg">
           {
             <Placeholder
               id="search-bar"
               visible={this.state.isSearchOpen}
-              handleSearchTap={this.handleSearchTap}
+              handleSearchClick={this.handleSearchClick}
             />
           }
         </div>
@@ -32,7 +32,7 @@ class HeaderSearchComponent extends React.Component {
             <Placeholder
               id="search-bar"
               visible={this.state.isSearchOpen}
-              handleSearchTap={this.handleSearchTap}
+              handleSearchClick={this.handleSearchClick}
             />
           }
         </div>
