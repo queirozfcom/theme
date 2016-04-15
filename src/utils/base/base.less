@@ -5,8 +5,14 @@
 @import "custom-theme";
 
 .theme-width() {
-  //All Screens Except Mobile
-  @media (min-width: @screen-md-min) {
+  //Large Screens
+  @media (min-width: @screen-lg-min) {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+
+  //Desktop screens up to medium
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
     max-width: @desktop-width;
     margin: 0 auto;
   }
