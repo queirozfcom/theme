@@ -12,6 +12,7 @@
   ],
   "assets": [
     "common.js",
+    "SVGIcon.js",
     "CategoryHeader.js"
   ]
 }

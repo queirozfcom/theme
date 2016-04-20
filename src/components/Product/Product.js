@@ -1,14 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
-import _ from 'lodash-compat';
 import './Product.less';
 import './ProductCustom.less';
 import { stores } from 'sdk';
-import AddToCartButton from 'react-proxy?name=AddToCartButton!components/AddToCartButton/AddToCartButton';
 import ProductDescription from  './ProductDescription';
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 const Price = stores.ComponentStore.state.getIn(['Price@vtex.storefront-sdk', 'constructor']);
+const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
 
 class Product extends React.Component {
   componentWillMount() {
@@ -38,13 +36,13 @@ class Product extends React.Component {
     let product = this.props;
     let isAvailable = false;
 
-    _.each(product.skus, function(sku){
-      _.each(sku.offers, function(offer){
+    for (var sku of product.skus) {
+      for (var offer of sku.offers) {
         if (offer.availability > 0 && offer.price > 0){
           isAvailable = true;
         }
-      });
-    });
+      }
+    }
 
     if (availability < 3 && availability != 0){
       availabilityBanner = <div className="row">
@@ -112,7 +110,7 @@ class Product extends React.Component {
 
             </div>
             {availabilityBanner}
-            <AddToCartButton
+            <Placeholder
               skuId={defaultSku.id}
               cartValidation={cartValidation}
               className={className}

@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var pkg = require('./package.json');
 var manifest = require('./manifest.json');
-var publicPath = '/assets/@' + manifest.vendor + '.' + manifest.name + '/';
+var publicPath = '/assets/' + manifest.vendor + '/' + manifest.name + '/' + manifest.version + '/';
 var production = process.env.NODE_ENV === 'production';
 
 var config = {
@@ -16,9 +16,12 @@ var config = {
     'CategoryListSidebar': ['./src/components/CategoryListSidebar/index.js'],
     'AboutPage': ['./src/components/AboutPage/index.js'],
     'PoliciesPage': ['./src/components/PoliciesPage/index.js'],
-    'Footer': ['./src/components/Footer/Footer.js'],
+    'Header': ['./src/components/Header/index.js'],
+    'Footer': ['./src/components/Footer/index.js'],
     'editors/index': ['./src/editors/index.js'],
-    'DefaultTemplate': ['./src/components/DefaultTemplate/index.js']
+    'DefaultTemplate': ['./src/components/DefaultTemplate/index.js'],
+    'SVGIcon': ['./src/utils/SVGIcon/index.js'],
+    'AddToCartButton': ['./src/components/AddToCartButton/index.js']
   },
   module: {
     preLoaders: [

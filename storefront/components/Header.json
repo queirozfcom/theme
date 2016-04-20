@@ -1,0 +1,7 @@
+{
+  "assets": [
+    "common.js",
+    "SVGIcon.js",
+    "Header.js"
+  ]
+}

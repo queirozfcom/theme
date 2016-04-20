@@ -11,6 +11,7 @@
   ],
   "assets": [
     "common.js",
+    "SVGIcon.js",
     "SearchHeader.js"
   ]
 }

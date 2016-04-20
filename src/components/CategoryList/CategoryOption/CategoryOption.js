@@ -1,9 +1,10 @@
 import React from 'react';
-import { history } from 'sdk';
+import { stores, history } from 'sdk';
 import './CategoryOption.less';
-import SVGIcon from 'utils/SVGIcon';
 import frontArrowIcon from 'assets/icons/frontArrow_icon.svg';
 import frontArrowImg from 'assets/icons/frontArrow_icon.png';
+
+const SVGIcon = stores.ComponentStore.state.getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 class CategoryOption extends React.Component {
   handleTouchTap = () => {

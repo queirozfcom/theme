@@ -9,7 +9,6 @@ class AboutPage extends React.Component {
   render() {
     return (
       <div>
-        <Header areaPath="about" />
           <div className="content-box">
             <h1 className="cor-secundaria h1">Quem somos</h1>
               <p>Meu nome é <a href="http://danielasoria.com.br" target="_blank">Daniela Soria</a>.&nbsp;
@@ -24,7 +23,6 @@ class AboutPage extends React.Component {
               <p><strong>Daniela Soria</strong><br/>
               Pilates Lovers</p>
           </div>
-        <Footer/>
       </div>
     );
   }

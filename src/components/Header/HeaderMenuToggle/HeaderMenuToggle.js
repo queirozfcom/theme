@@ -1,8 +1,10 @@
 import React from 'react';
 import './HeaderMenuToggle.less';
-import SVGIcon from 'utils/SVGIcon';
+import { stores } from 'sdk';
 import hamburgerIcon from 'assets/icons/hamburger_icon.svg';
 import hamburgerImg from 'assets/icons/hamburger_icon.png';
+
+const SVGIcon = stores.ComponentStore.getState().getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 class HeaderMenuToggle extends React.Component {
   render() {

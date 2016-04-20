@@ -2,13 +2,13 @@ import React from 'react';
 import { stores, connectToStores } from 'sdk';
 import './SearchHeader.less';
 import './SearchHeaderCustom.less';
-import SVGIcon from 'utils/SVGIcon';
 import listIcon from 'assets/icons/list_icon.svg';
 import listImg from 'assets/icons/list_icon.png';
 import gridIcon from 'assets/icons/grid_icon.svg';
 import gridImg from 'assets/icons/grid_icon.png';
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
+const SVGIcon = stores.ComponentStore.getState().getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 @connectToStores()
 class SearchHeader extends React.Component {

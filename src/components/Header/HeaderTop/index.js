@@ -1,11 +1,12 @@
 import React from 'react';
 import './style.less';
-import SVGIcon from 'utils/SVGIcon';
+import { stores } from 'sdk';
 import facebookIcon from 'assets/icons/facebook_icon.svg';
 import facebookImg from 'assets/icons/facebook_icon.png';
 import instagramIcon from 'assets/icons/instagram_icon.svg';
 import instagramImg from 'assets/icons/instagram_icon.png';
 
+const SVGIcon = stores.ComponentStore.getState().getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 class HeaderTop extends React.Component {
 
