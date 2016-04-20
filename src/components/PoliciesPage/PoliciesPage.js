@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from 'components/Header';
-import Footer from 'components/Footer/Footer';
 import './PoliciesPage.less';
 
 class PoliciesPage extends React.Component {
@@ -11,7 +9,6 @@ class PoliciesPage extends React.Component {
   render() {
     return (
       <div>
-        <Header areaPath="policies" />
           <div className="content-box">
             <h1 className="cor-secundaria h1">Política de troca e devolução</h1>
               <p>A loja <strong>Pilates Lovers</strong> efetuará a troca dos produtos adquiridos por você,
@@ -43,7 +40,6 @@ class PoliciesPage extends React.Component {
               <strong>Pilates Lovers</strong></p>
 
           </div>
-        <Footer/>
       </div>
     );
   }

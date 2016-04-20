@@ -1,9 +1,11 @@
 import React from 'react';
 import './ExplorerPanel.less';
+import { stores } from 'sdk';
 import CategoryList from '../../CategoryList/CategoryList';
-import SVGIcon from 'utils/SVGIcon';
 import pullArrowIcon from 'assets/icons/pullArrow_icon.svg';
 import pullArrowImg from 'assets/icons/pullArrow_icon.png';
+
+const SVGIcon = stores.ComponentStore.state.getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 class ExplorerPanel extends React.Component {
   handleTouchTap = () => {

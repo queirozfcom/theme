@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from 'components/Header';
-import Footer from 'components/Footer/Footer';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './spinner.less';
 import './DefaultTemplate.less'
@@ -11,7 +9,6 @@ const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefr
 class DefaultTemplate extends React.Component {
     componentWillMount() {
       this.setState({ loading: false });
-
       stores.ContextStore.listen(this.onChange);
     }
 
@@ -41,13 +38,17 @@ class DefaultTemplate extends React.Component {
         >
           { loading }
         </ReactCSSTransitionGroup>
-        <Header />
+        <Placeholder
+          id="header"
+        />
         <Placeholder
           id="body"
           params={this.props.params}
           location={this.props.location}
         />
-        <Footer/>
+        <Placeholder
+          id="footer"
+        />
       </div>
     );
   }

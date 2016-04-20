@@ -8,6 +8,7 @@
   ],
   "assets": [
     "common.js",
+    "SVGIcon.js", 
     "Footer.js"
   ]
 }

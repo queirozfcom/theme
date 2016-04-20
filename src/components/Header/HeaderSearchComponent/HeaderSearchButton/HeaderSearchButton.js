@@ -1,7 +1,9 @@
 import React from 'react';
-import SVGIcon from 'utils/SVGIcon';
+import { stores } from 'sdk';
 import searchIcon from 'assets/icons/search.svg';
 import './HeaderSearchButton.less';
+
+const SVGIcon = stores.ComponentStore.getState().getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 class HeaderSearchButton extends React.Component {
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { keys } from 'lodash-compat/object';
 import { includes } from 'lodash-compat/collection';
 import './SVGIcon.less';
 
@@ -64,7 +63,7 @@ class SVGIcon extends React.Component {
   }
 
   static cleanupSvg(svg, cleanup = []) {
-    return keys(cleanups)
+    return Object.keys(cleanups)
       .filter(key => includes(cleanup, key))
       .reduce((acc, key) => {
         return acc.replace(cleanups[key], '');
@@ -85,7 +84,7 @@ class SVGIcon extends React.Component {
         this.props.cleanupExceptions.length > 0
       )
     ) {
-      cleanup = keys(cleanups);
+      cleanup = Object.keys(cleanups);
     }
     cleanup = cleanup.filter(
       key => {

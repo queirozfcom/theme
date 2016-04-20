@@ -1,9 +1,11 @@
 import React from 'react';
-import SVGIcon from 'utils/SVGIcon';
+import { stores } from 'sdk';
 import cartIcon from 'assets/icons/cart_icon.svg';
 import cartImg from 'assets/icons/cart_icon.png';
 import './HeaderCart.less';
 import './HeaderCartCustom.less';
+
+const SVGIcon = stores.ComponentStore.state.getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
 class HeaderCart extends React.Component {
 
