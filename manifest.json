@@ -1,7 +1,7 @@
 {
   "name": "pilateslovers-theme",
   "title": "Pilates Lovers theme",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "vendor": "pilateslovers",
   "dependencies": {
     "vtex.storefront-sdk": "0.x",
