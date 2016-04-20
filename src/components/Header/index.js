@@ -41,7 +41,7 @@ class Header extends React.Component {
             <HeaderLogo/>
           </div>
 
-          <div className="col-sm-2 col-md-2 col-lg-2 pull-right">
+          <div className="col-sm-1 col-md-2 col-lg-2 pull-right">
             <HeaderCart />
             <Placeholder id="minicart" />
           </div>
