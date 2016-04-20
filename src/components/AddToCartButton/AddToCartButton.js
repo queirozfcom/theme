@@ -15,8 +15,12 @@ class AddToCartButton extends React.Component {
 
   componentWillMount() {
     this.setState({
-      orderFormId: stores.CartStore.getState().get('orderForm').orderFormId ? stores.CartStore.getState().get('orderForm').orderFormId : '' ,
-      orderFormItems: stores.CartStore.getState().get('orderForm').items ? stores.CartStore.getState().get('orderForm').items : []
+      orderFormId: stores.CartStore.getState().get('orderForm').orderFormId ?
+        stores.CartStore.getState().get('orderForm').orderFormId :
+        '',
+      orderFormItems: stores.CartStore.getState().get('orderForm').items ?
+        stores.CartStore.getState().get('orderForm').items :
+        []
     });
     stores.CartStore.listen(this.onChange);
   }
