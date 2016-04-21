@@ -10,14 +10,10 @@ const SVGIcon = stores.ComponentStore.state.getIn(['SVGIcon@pilateslovers.pilate
 class HeaderCart extends React.Component {
 
   render() {
-
-    let cartItens = '3';
-
     return (
-      <div className="HeaderCart">
+      <div className="HeaderCart hidden-md hidden-lg">
         <button className="HeaderCart__button clearfix">
           <a href="" className="HeaderCart__content">
-            <span className="HeaderCart__desktop-itens hidden-xs">{cartItens} Itens</span>
             <SVGIcon className="HeaderCart__svg"
               svg={cartIcon}
               fallback={cartImg}
