@@ -14,13 +14,13 @@ class AddToCartButton extends React.Component {
   }
 
   componentWillMount() {
+    const orderForm = stores.CartStore.getState().get('orderForm');
+    const orderFormId = orderForm.orderFormId ? orderForm.orderFormId : '';
+    const orderFormItems = orderForm.items ? orderForm.items : [];
+
     this.setState({
-      orderFormId: stores.CartStore.getState().get('orderForm').orderFormId ?
-        stores.CartStore.getState().get('orderForm').orderFormId :
-        '',
-      orderFormItems: stores.CartStore.getState().get('orderForm').items ?
-        stores.CartStore.getState().get('orderForm').items :
-        []
+      orderFormId: orderFormId,
+      orderFormItems: orderFormItems
     });
     stores.CartStore.listen(this.onChange);
   }
@@ -30,7 +30,10 @@ class AddToCartButton extends React.Component {
   }
 
   onChange = (CartStore) => {
-    this.setState({ orderFormId: CartStore.get('orderForm').orderFormId, orderFormItems: CartStore.get('orderForm').items});
+    this.setState({ 
+      orderFormId: CartStore.get('orderForm').orderFormId,
+      orderFormItems: CartStore.get('orderForm').items
+    });
   }
 
   handleClick = () => {
