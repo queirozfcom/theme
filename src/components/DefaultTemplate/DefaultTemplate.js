@@ -50,15 +50,23 @@ class DefaultTemplate extends React.Component {
     }
 
     onChange = (ContextStore) => {
-      this.setState({ loading: ContextStore.get('loading') });
+      if (this.loadTimeout) {
+        clearTimeout(this.loadTimeout);
+        this.loadTimeout = null;
+        return;
+      }
+
+      this.loadTimeout = setTimeout(() => {
+        this.setState({ loading: ContextStore.get('loading') });
+      }, 200);
     }
 
   render() {
     const loading = this.state.loading ?
       <div className="DefaultTemplate__spin-wrap" key="spinner">
         <div className="spinner">
-          <div className="dot1"></div>
-          <div className="dot2"></div>
+          <div className="dot1" />
+          <div className="dot2" />
         </div>
       </div> : null;
 
