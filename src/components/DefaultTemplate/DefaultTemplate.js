@@ -2,9 +2,42 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './spinner.less';
 import './DefaultTemplate.less'
-import { stores } from 'sdk';
+import { stores, history } from 'sdk';
 
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
+
+let previousLocation;
+history.listen(location => {
+  const scrollTo = (element, to, duration) => {
+    if (duration <= 0) {
+      return;
+    }
+
+    const difference = to - element.scrollTop;
+    const perTick = difference / duration * 10;
+
+    setTimeout(() => {
+      element.scrollTop = element.scrollTop + perTick;
+      if (element.scrollTop === to) {
+        return;
+      }
+
+      scrollTo(element, to, duration - 10);
+    }, 10);
+  };
+
+  setTimeout(() => {
+    const isPathEqual = previousLocation === location.pathname;
+    const isPOPAction = location.action === 'POP';
+
+    if (isPathEqual || isPOPAction) {
+      return;
+    }
+
+    scrollTo(document.body, 0, 200);
+    previousLocation = location.pathname;
+  });
+});
 
 class DefaultTemplate extends React.Component {
     componentWillMount() {
