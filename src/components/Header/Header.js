@@ -43,8 +43,12 @@ class Header extends React.Component {
           </div>
 
           <div className="col-sm-1 col-md-2 col-lg-2 pull-right">
-            <HeaderCart />
-            <Placeholder id="minicart" />
+            <div className="hidden-md hidden-lg">
+              <HeaderCart />
+            </div>
+            <div className="hidden-xs hidden-sm">
+              <Placeholder id="minicart" />
+            </div>
           </div>
 
           <div className="col-md-4 col-lg-4 pull-right header-search-collumn">
