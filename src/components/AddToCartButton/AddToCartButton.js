@@ -30,9 +30,9 @@ class AddToCartButton extends React.Component {
   }
 
   onChange = (CartStore) => {
-    this.setState({ 
-      orderFormId: CartStore.get('orderForm').orderFormId,
-      orderFormItems: CartStore.get('orderForm').items
+    this.setState({
+      orderFormId: CartStore.get('orderForm').orderFormId ? CartStore.get('orderForm').orderFormId : '',
+      orderFormItems: CartStore.get('orderForm').items ? CartStore.get('orderForm').items : []
     });
   }
 
@@ -84,7 +84,14 @@ class AddToCartButton extends React.Component {
               style={{backgroundColor: color, boxShadow: `2px 2px 0px 0px ${boxShadowColor}`}}
               onClick={this.handleClick}
       >
-        {label}
+        <div className="hidden-md hidden-lg">
+          <a href="/checkout">
+            {label}
+          </a>
+        </div>
+        <div className="hidden-xs hidden-sm">
+          {label}
+        </div>
       </button>
     );
   }
