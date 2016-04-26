@@ -12,6 +12,15 @@
     "images": [
       {
         "index": 0,
+        "url": "https://cdn.awsli.com.br/1140x1140/67/67849/banner/b09fdca09d.jpg",
+        "alt": null,
+        "link": "/kit-sereia-camiseta-i-believe-in-mermaids-e-meia-teaser/p",
+        "editing": false,
+        "isDragging": false
+      },
+      {
+        "index": 1,
+        "mobile": true,
         "url": "https://cdn.awsli.com.br/67/67849/arquivos/MOBILEBANNER_VITRINE_ESTAMPA_V01.jpg",
         "alt": null,
         "link": "/camisetas/c",
@@ -19,7 +28,8 @@
         "isDragging": false
       },
       {
-        "index": 1,
+        "index": 2,
+        "mobile": true,
         "url": "https://cdn.awsli.com.br/67/67849/arquivos/MOBILEBANNER_VITRINE_MEIA_V02.jpg",
         "alt": null,
         "link": "/meia-abertura-superior-preta-com-antiderrapante-teaser/p",
