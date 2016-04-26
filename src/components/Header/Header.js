@@ -74,8 +74,9 @@ class Header extends React.Component {
           <HeaderLogo isMobile={true} />
           <hr/>
         </div>
-        <Placeholder id="nav-menu-desktop">
-        </Placeholder>
+        <div className="Header__nav_desktop hidden-sm">
+          <Placeholder id="nav-menu-desktop" />
+        </div>
       </div>
     );
   }

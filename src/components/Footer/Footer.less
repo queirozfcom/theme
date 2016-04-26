@@ -3,8 +3,79 @@
 .Footer {
   background-color: @secondary-bg;
 
+  &__payments-flags {
+    padding: 0;
+
+    @media (max-width: @screen-xs-max) {
+      padding-top: 10px;
+    }
+
+    .payment-icon {
+      background: url(../../assets/images/icone-pagamento.png);
+    }
+
+    li {
+      margin-right: 10px;
+      float: left;
+      list-style-type: none;
+
+      .amex {
+        background-position: -100px 0;
+      }
+
+      .diners {
+        background-position: -150px 0;
+      }
+
+      .elo {
+        background-position: -200px 0;
+      }
+
+      .hipercard {
+        background-position: -350px 0;
+      }
+
+      .mastercard {
+        background-position: -50px 0;
+      }
+
+      .visa {
+        background-position: 0 0;
+      }
+
+      .boleto {
+        background-position: 0 -83px;
+      }
+
+      .banco-do-brasil {
+        background-position: -50px -39px;
+      }
+
+      .banco-itau {
+        background-position: -250px -39px;
+      }
+
+      .bradesco {
+        background-position: 0 -39px;
+      }
+    }
+
+    i {
+      width: 35px;
+      height: 22px;
+      display: inline-block;
+    }
+  }
+
+  &__links_title {
+    opacity: 0.6;
+    color: black;
+    font-weight: bold;
+  }
+
   &__wrap {
     .theme-width();
+    margin-left: 10%;
   }
 
   &__links {
@@ -25,6 +96,10 @@
       padding-top: 5px;
     }
 
+    @media (max-width: @screen-xs-max) {
+      padding-top: 10px;
+    }
+
     li {
       a {
         color: @secondary-color;
@@ -36,8 +111,9 @@
   }
 
   .institucional {
-    margin-top: 5px;
-    opacity: .6;
+    @media (max-width: @screen-sm-max) {
+      opacity: 0.6;
+    }
   }
 
   &__item {
@@ -65,10 +141,11 @@
     margin-bottom: 1em;
     padding-top: 15px;
     width: 100%;
+    text-align: center;
   }
 
   &__contacts {
-    margin-top: 10px;
+    padding-left: 0;
     font-weight: bold;
     font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
     color: @secondary-color;
@@ -80,9 +157,8 @@
     margin-bottom: 0;
     padding-bottom: 0;
 
-    @media (max-width: @screen-sm-max) {
+    @media (max-width: @screen-md-max) {
       float: left;
-      margin-left: 15px;
     }
   }
 
