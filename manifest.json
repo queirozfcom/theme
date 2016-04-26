@@ -12,6 +12,7 @@
     "vtex.product-image": "0.x",
     "vtex.filter-panel": "0.x",
     "vtex.search-bar": "0.x",
+    "vtex.metrics": "1.x",
     "vtex.shipping-calculator": "0.x",
     "pilateslovers.product-list": "0.x",
     "pilateslovers.navigation-menu": "0.x",
