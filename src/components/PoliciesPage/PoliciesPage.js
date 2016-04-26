@@ -34,11 +34,8 @@ class PoliciesPage extends React.Component {
 
           <p>Daniela Soria<br/>
             <strong>Pilates Lovers</strong></p>
-
           </div>
-        <Footer/>
-          </div>
-        </div>
+            <Footer/>
       </div>
     );
   }
