@@ -32,15 +32,32 @@ class Footer extends React.Component {
     return (
       <div className="Footer clearfix">
         <div className="Footer__wrap">
-          <div className="Footer__social-icons">
-            <button className="Footer__button"><a href="https://www.instagram.com/lojapilateslovers/"><SVGIcon svg={instagramIcon} width={33} height={33} fill="#703693"/></a></button>
-            <button className="Footer__button"><a href="https://www.facebook.com/LojaPilatesLovers"><SVGIcon svg={facebookIcon} width={33} height={33} fill="#703693"/></a></button>
+          <div className="Footer__social-icons col-md-2">
+            <button className="Footer__button">
+              <a href="https://www.instagram.com/lojapilateslovers/">
+                <SVGIcon svg={instagramIcon} width={33} height={33} fill="#703693"/>
+              </a>
+            </button>
+            <button className="Footer__button">
+              <a href="https://www.facebook.com/LojaPilatesLovers">
+                <SVGIcon svg={facebookIcon} width={33} height={33} fill="#703693"/>
+              </a>
+            </button>
           </div>
-          <div className="Footer__links">
-            <ul className="Footer__menu">
+
+          <div className="Footer__links col-md-10">
+            <ul className="Footer__menu col-md-3">
+              <div className="Footer__links_title">
+                <h4 className="hidden-xs hidden-sm">CATEGORIAS</h4>
+              </div>
               { items }
             </ul>
-            <ul className="Footer__menu institucional">
+
+            <ul className="Footer__menu institucional col-md-3">
+              <div className="Footer__links_title">
+                <h4 className="hidden-xs hidden-sm">CONTEÚDO</h4>
+              </div>
+
               <li><Link to={`/quem-somos`}>
                 Quem Somos
               </Link></li>
@@ -48,14 +65,37 @@ class Footer extends React.Component {
                 Política de troca e devolução
               </Link></li>
             </ul>
-            <div className="Footer__contacts">
+
+            <div className="Footer__contacts Footer__menu col-md-3">
+              <div className="Footer__links_title">
+                <h4 className="hidden-xs hidden-sm">CONTATO</h4>
+              </div>
               Telefone: (21) 3593-4758<br/>
               loja@pilateslovers.com.br
             </div>
-            <span className="Footer__address">
-              Daniela Soria Texeira - CNPJ: 20.865.869/0001-06<br/>
-              Todos os direitos reservados. 2015
-            </span>
+
+            <div className="Footer__payments Footer__menu col-md-3">
+              <div className="Footer__links_title">
+                <h4 className="hidden-xs hidden-sm">PAGUE COM</h4>
+              </div>
+              <ul className="Footer__payments-flags">
+                <li><i className="payment-icon amex" title="amex"></i></li>
+                <li><i className="payment-icon diners" title="diners"></i></li>
+                <li><i className="payment-icon elo" title="elo"></i></li>
+                <li><i className="payment-icon hipercard" title="hipercard"></i></li>
+                <li><i className="payment-icon mastercard" title="mastercard"></i></li>
+                <li><i className="payment-icon visa" title="visa"></i></li>
+                <li><i className="payment-icon boleto" title="boleto"></i></li>
+                <li><i className="payment-icon banco-do-brasil" title="banco-do-brasil"></i></li>
+                <li><i className="payment-icon banco-itau" title="banco-itau"></i></li>
+                <li><i className="payment-icon bradesco" title="bradesco"></i></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="Footer__address col-xs-12 col-md-12">
+            Daniela Soria Texeira - CNPJ: 20.865.869/0001-06<br/>
+            Todos os direitos reservados. 2016
           </div>
         </div>
       </div>
