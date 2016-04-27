@@ -7,6 +7,8 @@ import listImg from 'assets/icons/list_icon.png';
 import gridIcon from 'assets/icons/grid_icon.svg';
 import gridImg from 'assets/icons/grid_icon.png';
 
+import OrderSelector from '../OrderSelector/OrderSelector';
+
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 const SVGIcon = stores.ComponentStore.getState().getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
 
@@ -86,6 +88,9 @@ class SearchHeader extends React.Component {
                 fill="#777777"
               />
             </div>
+          </div>
+          <div className="hidden-xs hidden-sm">
+            <OrderSelector location={this.props.location} />
           </div>
           <div>
             <Placeholder

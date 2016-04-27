@@ -6,7 +6,7 @@ import './CategoryHeaderCustom.less';
 
 import ExplorerButton from './ExplorerButton/ExplorerButton';
 import ExplorerPanel from './ExplorerPanel/ExplorerPanel';
-import OrderSelector from './OrderSelector/OrderSelector';
+import OrderSelector from '../OrderSelector/OrderSelector';
 
 import listIcon from 'assets/icons/list_icon.svg';
 import listImg from 'assets/icons/list_icon.png';
