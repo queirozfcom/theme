@@ -1,7 +1,7 @@
 import React from 'react';
 import { history } from 'sdk';
 import Select from 'react-select';
-import '../../../../node_modules/react-select/dist/react-select.min.css';
+import '../../../node_modules/react-select/dist/react-select.min.css';
 import './OrderSelector.less';
 
 class OrderSelector extends React.Component {
