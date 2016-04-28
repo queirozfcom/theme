@@ -29,11 +29,10 @@ class CategoryPage extends React.Component {
               <div className="CategoryPage__category-list">
                 <Placeholder
                   id="category-list-sidebar"
-                  location={this.props.location}
                 />
               </div>
               <div className="CategoryPage__filter-list">
-                <FilterListSidebar id={this.props.id} location={this.props.location} />
+                <FilterListSidebar id={this.props.id} />
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-9 col-lg-10 CategoryPage__product-list">
