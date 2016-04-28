@@ -50,6 +50,10 @@ class ExplorerPanel extends React.Component {
             />
           </button>
         </div>
+        <div
+          className="ExplorerPanel__click-overlay"
+          onClick={this.handleClick}
+        />
       </aside>
     );
   }
