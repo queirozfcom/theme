@@ -13,11 +13,12 @@ class ExplorerPanel extends React.Component {
   }
 
   componentDidMount() {
+    this.previousOverflow = document.body.style.overflowY;
     document.body.style.overflow = 'hidden';
   }
 
   componentWillUnmount() {
-    document.body.style.overflow = 'visible';
+    document.body.style.overflowY = this.previousOverflow;
   }
 
   render() {
