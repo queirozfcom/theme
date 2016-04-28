@@ -7,7 +7,7 @@ import { stores, history } from 'sdk';
 const Placeholder = stores.ComponentStore.state.getIn(['Placeholder@vtex.storefront-sdk', 'constructor']);
 
 let previousLocation;
-history.listen(location => {
+const unlisten = history.listen(location => {
   const scrollTo = (element, to, duration) => {
     if (duration <= 0) {
       return;
@@ -46,6 +46,10 @@ class DefaultTemplate extends React.Component {
     }
 
     componentWillUnmount() {
+      if (this.loadTimeout) {
+        clearInterval(this.loadTimeout);
+      }
+      unlisten();
       stores.ContextStore.unlisten(this.onChange);
     }
 
