@@ -54,15 +54,19 @@ class DefaultTemplate extends React.Component {
     }
 
     onChange = (ContextStore) => {
+      const loading = ContextStore.get('loading');
+
       if (this.loadTimeout) {
         clearTimeout(this.loadTimeout);
         this.loadTimeout = null;
+      }
+
+      if (this.state.loading && !loading) {
+        this.setState({ loading });
         return;
       }
 
-      this.loadTimeout = setTimeout(() => {
-        this.setState({ loading: ContextStore.get('loading') });
-      }, 200);
+      this.loadTimeout = setTimeout(() => this.setState({ loading }), 200);
     }
 
   render() {
