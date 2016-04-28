@@ -13,7 +13,8 @@ class CategoryListSidebar extends React.Component {
   }
 
   static getPropsFromStores(props) {
-    let path = props.location.pathname + props.location.search;
+    let location = stores.ContextStore.getState().get('location');
+    let path = location.pathname + location.search;
     let facets = stores.FacetsStore.getState().getIn([path, props.id]);
     let category = facets ? facets.getIn(['filters', 'category']).first() : undefined;
     let name = category ? category.get('name') : undefined;

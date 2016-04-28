@@ -20,17 +20,19 @@ class SearchHeader extends React.Component {
 
   static getStores() {
     return [
-      stores.ContextStore,
+      stores.ContextStore
     ];
   }
 
-  static getPropsFromStores(props) {
-    let path = props.location.pathname + props.location.search;
+  static getPropsFromStores() {
+    let location = stores.ContextStore.getState().get('location');
+    let path = location.pathname + location.search;    
     let productSearch = stores.SearchStore.getState().getIn([path]);
     let results = productSearch ? productSearch.first().getIn(['results']) : undefined;
     let qty = results? results.length : 0;
 
     return {
+      location,
       qty
     };
   }
