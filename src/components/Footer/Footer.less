@@ -2,6 +2,13 @@
 
 .Footer {
   background-color: @secondary-bg;
+  padding: 15px 0px;
+
+  .default-footer-style() {
+    font-weight: bold;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+    color: @secondary-color;
+  }
 
   &__payments-flags {
     padding: 0;
@@ -67,7 +74,7 @@
     }
   }
 
-  &__links_title {
+  &__links-title {
     opacity: 0.6;
     color: black;
     font-weight: bold;
@@ -75,10 +82,10 @@
 
   &__wrap {
     .theme-width();
-    margin-left: 10%;
   }
 
   &__links {
+    .default-footer-style();
     float: left;
 
     @media (max-width: @screen-sm-max) {
@@ -98,15 +105,6 @@
 
     @media (max-width: @screen-xs-max) {
       padding-top: 10px;
-    }
-
-    li {
-      a {
-        color: @secondary-color;
-        text-transform: uppercase;
-        font-weight: bold;
-        text-decoration: underline;
-      }
     }
   }
 
@@ -133,6 +131,22 @@
     }
   }
 
+  &__generic-link {
+    padding-bottom: 5px;
+
+    a {
+      color: lighten(@secondary-color, 15%);
+      font-weight: bold;
+      transition: color 0.2s;
+
+      &:hover {
+        color: @secondary-color;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+    }
+  }
+
   &__address {
     color: @secondary-color;
     display: block;
@@ -145,17 +159,20 @@
   }
 
   &__contacts {
+    .default-footer-style();
     padding-left: 0;
-    font-weight: bold;
-    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
-    color: @secondary-color;
+  }
+
+  &__contacts-text {
+    line-height: 20px;
+    margin-bottom: 0px;
   }
 
   &__social-icons {
     float: right;
     padding-top: @pad * 2;
-    margin-bottom: 0;
     padding-bottom: 0;
+    margin-bottom: 0;
 
     @media (max-width: @screen-md-max) {
       float: left;
@@ -164,10 +181,12 @@
 
   &__button {
     .css-utils-clean-btn();
-    margin-bottom: @pad / 2;
+    margin-bottom: 2px;
 
-    svg:hover {
-      fill: lighten(@tertiary-color-dark, 30%);
+    svg {
+      &:hover {
+        fill: lighten(@tertiary-color-dark, 30%);
+      }
     }
 
     @media (min-width: @screen-md-min) {

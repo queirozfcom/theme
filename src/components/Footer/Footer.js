@@ -3,7 +3,7 @@ import { stores, connectToStores } from 'sdk';
 import './Footer.less';
 import instagramIcon from 'assets/icons/instagram.svg';
 import facebookIcon from 'assets/icons/facebook.svg';
-import Categories from './Categories';
+import FooterCategories from './FooterCategories/FooterCategories';
 
 const Link = stores.ComponentStore.getState().getIn(['Link@vtex.storefront-sdk', 'constructor']);
 const SVGIcon = stores.ComponentStore.state.getIn(['SVGIcon@pilateslovers.pilateslovers-theme', 'constructor']);
@@ -25,7 +25,7 @@ class Footer extends React.Component {
   render() {
     let items = this.props.categories.valueSeq().map((category) => {
       return (
-        <Categories key={category.get('slug')} cat={category} />
+        <FooterCategories key={category.get('slug')} cat={category} />
       );
     });
 
@@ -47,37 +47,39 @@ class Footer extends React.Component {
 
           <div className="Footer__links col-md-10">
             <ul className="Footer__menu col-md-3">
-              <div className="Footer__links_title">
+              <div className="Footer__links-title">
                 <h4 className="hidden-xs hidden-sm">CATEGORIAS</h4>
               </div>
               { items }
             </ul>
 
-            <ul className="Footer__menu institucional col-md-3">
-              <div className="Footer__links_title">
+            <ul className="Footer__menu col-md-3">
+              <div className="Footer__links-title">
                 <h4 className="hidden-xs hidden-sm">CONTEÚDO</h4>
               </div>
 
-              <li><Link to={`/quem-somos`}>
-                Quem Somos
-              </Link></li>
-              <li><Link to={`/politica-de-troca-e-devolucao`}>
-                Política de troca e devolução
-              </Link></li>
+              <li className="Footer__generic-link">
+                <Link to={`/quem-somos`}>Quem Somos</Link>
+              </li>
+
+              <li className="Footer__generic-link">
+                <Link to={`/politica-de-troca-e-devolucao`}>Política de troca e devolução</Link>
+              </li>
             </ul>
 
             <div className="Footer__contacts Footer__menu col-md-3">
-              <div className="Footer__links_title">
+              <div className="Footer__links-title">
                 <h4 className="hidden-xs hidden-sm">CONTATO</h4>
               </div>
-              Telefone: (21) 3593-4758<br/>
-              loja@pilateslovers.com.br
+              <p className="Footer__contacts-text">Telefone: (21) 3593-4758</p>
+              <p className="Footer__contacts-text">loja@pilateslovers.com.br</p>
             </div>
 
             <div className="Footer__payments Footer__menu col-md-3">
-              <div className="Footer__links_title">
+              <div className="Footer__links-title">
                 <h4 className="hidden-xs hidden-sm">PAGUE COM</h4>
               </div>
+
               <ul className="Footer__payments-flags">
                 <li><i className="payment-icon amex" title="amex"></i></li>
                 <li><i className="payment-icon diners" title="diners"></i></li>
